@@ -1,0 +1,39 @@
+id: ovis-image
+name: Ovis-Image
+org: Alibaba
+released: 2025-11-18
+dateSource: github
+summary: Ovis-Image is a 7B open-weights text-to-image model built on Ovis-U1 and optimized for high-quality text rendering on text-heavy layout-sensitive prompts.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+    - browser
+  note: Runs on a single high-end GPU with moderate memory.
+links:
+  repo: https://github.com/ATH-MaaS/Ovis-Image
+strengths:
+  - 7B text-to-image model optimized for high-quality text rendering
+  - Handles text-heavy layout-sensitive prompts such as posters banners logos UI mockups and infographics
+  - Supports low-latency interactive use on a single high-end GPU
+limitations:
+  - Requires a high-end GPU with moderate memory for deployment
+  - On DPG-Bench overall it scores 86.59 while Qwen-Image scores 88.32
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-generation
+  - text-rendering
+  - text-to-image
+  - 7b
+lastChecked: 2026-11-08

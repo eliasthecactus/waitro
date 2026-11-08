@@ -1,0 +1,39 @@
+id: kitten-tts
+name: Kitten TTS
+org: KittenML
+released: 2025-08-05
+dateSource: huggingface
+summary: Kitten TTS is a 15-million-parameter open-source text-to-speech model designed for lightweight CPU deployment and realistic voice synthesis.
+tasks:
+  - text-to-speech
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0. Commercial use permitted.
+io:
+  in:
+    - text
+  out:
+    - audio
+hardware:
+  platforms:
+    - cpu
+  note: CPU-optimized; runs without a GPU. Model size is under 25 MB.
+links:
+  repo: https://github.com/KittenML/KittenTTS
+  weights: https://huggingface.co/KittenML/kitten-tts-nano-0.1
+strengths:
+  - Ultra-lightweight at under 25 MB
+  - Runs on CPU without a GPU
+  - Apache-2.0 licensed for commercial use
+limitations:
+  - Developer preview release
+  - Fully trained model weights are not yet released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - small
+  - cpu
+lastChecked: 2026-11-08

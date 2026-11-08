@@ -1,0 +1,27 @@
+id: leaptalk
+name: LeapTalk
+org: LeapTalk
+released: 2026-07-29
+dateSource: github
+summary: A real-time streaming talking-head video generator built on the 1.3B SoulX-FlashHead base model with LoRA weights that animates a reference portrait from speech audio in a single inference step.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - audio
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/zhangrongxiang/LeapTalk
+  homepage: https://zhangrongxiang.github.io/leaptalk-page/
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+lastChecked: 2026-11-08

@@ -1,0 +1,44 @@
+id: track4world
+name: Track4World
+org: Unknown
+released: 2026-03-02
+dateSource: github
+summary: Track4World is a feedforward dense 3D tracking model that estimates per-pixel 3D scene flow across frames of a monocular video in a world-centric coordinate system.
+description: Track4World is a feedforward model that estimates dense 3D scene flow of every pixel between frame pairs of a monocular video in a world-centric coordinate system.
+tasks:
+  - depth-estimation
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: GitHub licence reported as NOASSERTION; the licence text was not available.
+io:
+  in:
+    - video
+  out:
+    - 3d
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires CUDA 12.1 and Python 3.11 with PyTorch 2.5.1.
+links:
+  repo: https://github.com/TencentARC/Track4World
+  homepage: https://jiah-cloud.github.io/Track4World.github.io/
+strengths:
+  - Dense per-pixel 3D tracking across all frames in a global feedforward pass
+  - Supports both camera-centric and world-centric coordinate systems
+  - Pretrained weights track4world_da3 pi3 and moge are released
+limitations:
+  - Metric scale recovery only supported with the DA3 backbone
+  - MoGe and Pi3 backbones output results in relative scale
+  - Requires external third-party modules and weights such as SAM2 Pi3 and Grounded-SAM-2
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-tracking
+  - scene-flow
+  - monocular-video
+  - world-centric
+lastChecked: 2026-11-08

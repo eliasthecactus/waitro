@@ -1,0 +1,40 @@
+id: utonia
+name: Utonia
+org: Pointcept
+released: 2026-03-04
+dateSource: huggingface
+summary: Utonia is a self-supervised point transformer encoder for sparse 3D point clouds that learns a shared representation across remote-sensing LiDAR indoor RGB-D CAD and RGB-lifted domains.
+tasks:
+  - embeddings
+architecture: transformer
+access: open-weights
+license:
+  id: CC-BY-NC-4.0
+  commercial: no
+  note: CC BY-NC 4.0 permits non-commercial use only.
+io:
+  in:
+    - 3d
+  out:
+    - embedding
+hardware:
+  platforms:
+    - cuda
+  note: Requires a GPU with at least 24 GB VRAM for full precision inference.
+links:
+  weights: https://huggingface.co/Pointcept/Utonia
+  homepage: https://pointcept.github.io/Utonia/
+strengths:
+  - Handles point clouds with or without color and normal by zero-filling missing channels
+  - Learns a consistent representation space across diverse point cloud domains
+  - Released in base small and tiny variants for inference
+limitations:
+  - CC BY-NC 4.0 licence limits use to non-commercial purposes
+  - Requires point cloud inputs in [coord color normal] format
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - point-cloud
+  - 3d
+  - embedding
+  - self-supervised
+lastChecked: 2026-11-08

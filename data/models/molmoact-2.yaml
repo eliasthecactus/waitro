@@ -1,0 +1,46 @@
+id: molmoact-2
+name: MolmoAct 2
+org: Allen AI
+released: 2026-05-04
+dateSource: huggingface
+summary: MolmoAct2 is an open vision-language-action model that couples a Molmo2-ER embodied-reasoning VLM backbone to a flow-matching continuous action expert via per-layer KV conditioning.
+description: The checkpoint is a post-trained multi-embodiment foundation model for robot control. It maps visual observations and language instructions to continuous robot actions. It ships VLM and action-expert weights plus normalization metadata for the post-training mixture. It is intended for further fine-tuning on a target embodiment rather than direct deployment.
+tasks:
+  - agents
+  - image-understanding
+architecture: hybrid
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: The model card does not state a license id and the license status is unresolved.
+io:
+  in:
+    - image
+    - text
+  out:
+    - structured
+params:
+  total: 5.44
+contextTokens: 32768
+hardware:
+  platforms:
+    - cuda
+  note: The model card does not name any target hardware or runtime support.
+links:
+  weights: https://huggingface.co/allenai/MolmoAct2
+  homepage: https://allenai.org/blog/molmoact2
+strengths:
+  - Combines an embodied-reasoning VLM backbone with a continuous action expert via per-layer KV conditioning
+  - Post-trained across multiple embodiments with normalization stats supplied for the post-training mixture
+  - Repositories include data and fine-tuned checkpoints for LIBERO DROID BimanualYAM and SO100/101
+limitations:
+  - Must be fine-tuned before use as a deployable robot policy
+  - Behavior can vary across embodiments environments and hardware so outputs require safety validation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - robotics
+  - vision-language-action
+  - robot-fine-tuning
+  - flow-matching
+lastChecked: 2026-11-08

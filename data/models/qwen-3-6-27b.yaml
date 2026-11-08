@@ -1,0 +1,47 @@
+id: qwen-3-6-27b
+name: Qwen 3.6 27B
+org: Alibaba Qwen
+released: 2026-04-21
+dateSource: huggingface
+summary: Qwen3.6-27B is a 27B-parameter causal language model with a vision encoder from Alibaba Qwen focused on agentic coding and multimodal understanding.
+description: "Qwen3.6-27B is Alibaba Qwen's first open-weight Qwen3.6 release: a 27B-parameter causal language model with a vision encoder built for agentic coding and multimodal document/video understanding."
+tasks:
+  - coding
+  - agents
+  - image-understanding
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+params:
+  total: 27.78
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Serving examples use tensor parallelism across 8 GPUs.
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.6-27B
+  homepage: https://qwen.ai/blog?id=qwen3.6-27b
+strengths:
+  - Agentic coding tuned for frontend workflows and repository-level reasoning
+  - Option to preserve reasoning context from historical messages across turns
+  - Vision encoder supporting document OCR and video understanding benchmarks
+limitations:
+  - Default 262144-token context can cause out-of-memory errors on smaller GPU setups
+  - Maintaining at least 128K tokens of context is advised to preserve thinking capabilities
+  - Requires up-to-date serving stacks such as SGLang 0.5.10+ or vLLM 0.19.0+ for best performance
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - qwen3-6-27b
+  - alibaba-qwen
+  - multimodal
+lastChecked: 2026-11-08

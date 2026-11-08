@@ -1,0 +1,47 @@
+id: bonsai-2-27b
+name: Bonsai 2 27B
+org: Unknown
+released: 2026-03-25
+dateSource: github
+summary: Bonsai 2 27B is a 27B-parameter ternary reasoning language model distributed as GGUF and MLX checkpoints for local chat vision and tool use.
+tasks:
+  - chat
+  - reasoning
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+    - rocm
+    - apple-silicon
+    - cpu
+  note: Runs locally on Mac Metal Linux/Windows CUDA ROCm or CPU
+links:
+  repo: https://github.com/PrismML-Eng/Bonsai-demo
+  homepage: https://prismml.com/news/bonsai-2-27b
+strengths:
+  - Supports image input and native OpenAI-style tool calling
+  - Provides 262K-token context with selectable reasoning effort
+  - Ships in 1.75-bit PTQ1_0 and faster PQ2_0 packings under Apache-2.0
+limitations:
+  - PQ2_0 and PTQ1_0 packings require the PrismML fork
+  - Low reasoning effort is unsupported and behaves close to xhigh
+  - Default PQ2_0 download is 7.8 GB plus its vision projector
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - gguf
+  - mlx
+  - llama-cpp
+  - prismml
+lastChecked: 2026-11-08

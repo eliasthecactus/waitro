@@ -1,0 +1,37 @@
+id: gemini-3-1-pro
+name: Gemini 3.1 Pro
+org: Google
+summary: Gemini 3.1 Pro is a Google API-hosted language model listed as a preview model. No model page details were provided.
+tasks:
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 200000
+pricing:
+  inputPerM: 2
+  outputPerM: 12
+  note: gemini-3.1-pro-preview 2/12 (prompts up to 200k)
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+betterOptions:
+  - id: gemini-4-argon
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

@@ -1,0 +1,50 @@
+id: laguna-s2-1
+name: Laguna S2.1
+org: Poolside
+released: 2026-07-13
+dateSource: huggingface
+summary: Laguna S 2.1 is a 118B-parameter Mixture-of-Experts text model from Poolside with about 8B active parameters per token designed for agentic coding and long-horizon software engineering.
+description: Laguna S 2.1 is a 118B total parameter Mixture-of-Experts model with approximately 8B activated parameters per token. It uses 256 routed experts plus one shared expert with a token-choice router and softplus gating, grouped-query attention, and a mixed full/sliding-window attention layout across 48 layers. The model supports a 1,048,576-token context window, native interleaved reasoning with preserved thinking, and tool calling. Quantized variants include FP8, NVFP4, INT4, and GGUF, with a DFlash draft model available for speculative decoding.
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: openmdw-1.1
+  commercial: yes
+  note: Released under OpenMDW-1.1 which the card describes as fully permissive for commercial and non-commercial use and modification.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 117.56
+  active: 8
+contextTokens: 1048576
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: The BF16 checkpoint needs roughly 236GB of weights and multiple GPUs. GGUF/llama.cpp and Ollama variants are available including an MLX tag.
+links:
+  weights: https://huggingface.co/poolside/Laguna-S-2.1
+  homepage: https://poolside.ai/blog/introducing-laguna-s-2-1
+strengths:
+  - 118B total parameters with about 8B activated per token
+  - 1M-token context window with native interleaved reasoning and tool calling
+  - OpenMDW-1.1 license allows commercial use and modification
+limitations:
+  - BF16 checkpoint requires roughly 236GB of weights and multiple GPUs
+  - Text-to-text only
+  - Agentic coding and software engineering are the stated primary use cases
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - mixture-of-experts
+  - agentic-coding
+  - long-context
+  - reasoning
+lastChecked: 2026-11-08

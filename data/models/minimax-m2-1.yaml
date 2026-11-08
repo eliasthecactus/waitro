@@ -1,0 +1,48 @@
+id: minimax-m2-1
+name: MiniMax M2.1
+org: MiniMax
+released: 2025-12-20
+dateSource: huggingface
+summary: MiniMax-M2.1 is a 228.69B-parameter open-weights text-generation model from MiniMax built for coding tool use instruction following and long-horizon agentic planning.
+description: MiniMax-M2.1 is an open-weights text-generation model released by MiniMax. The model card positions it for coding and software agents tool use instruction following long-horizon planning and multilingual software development. It is available as open weights on Hugging Face and through the MiniMax API.
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: transformer
+access: open-weights
+license:
+  id: modified-mit
+  commercial: limited
+  note: Modified-MIT license; commercial terms are not fully specified in the provided metadata.
+io:
+  in:
+    - text
+  out:
+    - text
+    - code
+params:
+  total: 228.69
+contextTokens: 204800
+hardware:
+  platforms:
+    - cuda
+    - api
+  note: Local deployment is supported via the released Hugging Face weights; API access is also available.
+links:
+  weights: https://huggingface.co/MiniMaxAI/MiniMax-M2.1
+  homepage: https://www.minimax.io/news/minimax-m21
+strengths:
+  - Strong coding and software-agent performance on SWE-bench Verified and Multi-SWE-bench
+  - Built for tool use instruction following and long-horizon agentic planning
+  - Open weights plus hosted API and MiniMax Code product access
+limitations:
+  - Modified-MIT license terms may differ from standard MIT
+  - Text-only model with no image or audio capabilities described
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-generation
+  - coding
+  - agents
+  - tool-use
+lastChecked: 2026-11-08

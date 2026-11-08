@@ -1,0 +1,43 @@
+id: unividx
+name: UniVidX
+org: Kuaishou
+released: 2026-05-02
+dateSource: huggingface
+summary: UniVidX is a unified multimodal video diffusion framework from Kuaishou with released checkpoints for intrinsic and alpha video generation across multiple modalities.
+description: UniVidX is a unified multimodal video diffusion framework for versatile video generation and perception. It supports omni-directional conditional generation across multiple modalities by training a single model to handle different input-output mappings rather than one fixed task. The repository hosts released checkpoints for UniVid-Intrinsic covering RGB albedo irradiance and normal video modalities and UniVid-Alpha covering blended RGB video alpha matte foreground and background modalities.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+    - image
+    - mask
+  out:
+    - video
+    - image
+    - mask
+hardware:
+  platforms:
+    - cuda
+  note: No hardware requirements are stated in the model card.
+links:
+  weights: https://huggingface.co/houyuanchen/UniVidX
+  homepage: https://houyuanchen111.github.io/UniVidX.github.io/
+strengths:
+  - single model handles multiple input-output mappings
+  - released checkpoints cover intrinsic RGB albedo irradiance and normal modalities
+  - released checkpoints cover alpha matte foreground and background modalities
+limitations:
+  - scope is described as video generation and perception
+  - no parameter count is stated
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - diffusion
+  - multimodal
+lastChecked: 2026-11-08

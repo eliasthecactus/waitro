@@ -1,0 +1,41 @@
+id: z-image-turbo
+name: Z-Image-Turbo
+org: Alibaba Tongyi-MAI
+released: 2025-11-25
+dateSource: huggingface
+summary: Z-Image-Turbo is a 6.15B-parameter distilled text-to-image diffusion transformer that generates photorealistic images with bilingual English and Chinese text rendering in 8 NFEs.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 6.15
+hardware:
+  platforms:
+    - cuda
+  note: 16G VRAM consumer devices; H800 GPUs for sub-second inference
+links:
+  repo: https://github.com/Tongyi-MAI/Z-Image
+  weights: https://huggingface.co/Tongyi-MAI/Z-Image-Turbo
+strengths:
+  - Distilled 8-NFE text-to-image generation with sub-second latency on H800 GPUs
+  - Fits within 16G VRAM on consumer devices
+  - Strong photorealistic quality and bilingual English/Chinese text rendering
+limitations:
+  - Turbo variant is listed with low diversity
+  - Guidance scale must be 0 for Turbo model
+  - This variant is generation-only and does not provide editing
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - diffusion-transformer
+  - distilled
+lastChecked: 2026-11-08

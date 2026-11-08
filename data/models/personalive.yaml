@@ -1,0 +1,43 @@
+id: personalive
+name: PersonaLive
+org: GVCLab
+released: 2025-11-25
+dateSource: github
+summary: PersonaLive is a diffusion-based real-time streamable framework for portrait image animation that generates infinite-length videos from a reference portrait image and a driving video.
+description: PersonaLive is a diffusion-based framework for real-time streamable portrait image animation that generates infinite-length videos from a reference portrait image and a driving video.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: no
+  note: Metadata lists Apache-2.0 but the model card's disclaimer restricts the release to academic research only.
+io:
+  in:
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+    - onnx
+  note: Offline inference supports a streaming strategy that generates long videos on 12GB VRAM; TensorRT conversion gives roughly 2x speedup.
+links:
+  repo: https://github.com/GVCLab/PersonaLive
+strengths:
+  - Real-time and streamable diffusion framework for portrait animation
+  - Generates infinite-length videos from a reference image and driving video
+  - Pretrained weights inference code and training code are released
+limitations:
+  - Stated to be released for academic research only
+  - xformers must be disabled on RTX 50-series (Blackwell) GPUs to avoid crashes
+  - TensorRT acceleration may cause slight output quality variation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - portrait-animation
+  - diffusion
+  - streaming
+  - real-time
+lastChecked: 2026-11-08

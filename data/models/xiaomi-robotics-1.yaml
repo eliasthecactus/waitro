@@ -1,0 +1,44 @@
+id: xiaomi-robotics-1
+name: Xiaomi Robotics 1
+org: Xiaomi
+released: 2026-07-28
+dateSource: huggingface
+summary: Xiaomi Robotics 1 (XR-1) is a 5B-parameter vision-language-action foundation model for mobile manipulation built on a Qwen3-VL-4B-Instruct backbone and released as an Apache-2.0 post-training…
+description: Official release of NexusLM-8B-Instruct with an OpenAI-compatible chat template ranging 32k tokens.
+tasks:
+  - image-understanding
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: unknown
+  note: Released under an OpenRAIL-M license.
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+contextTokens: 32768
+hardware:
+  platforms:
+    - cuda
+  note: Targets NVIDIA A100/H100 and Apple Silicon with optional 4-bit quantization.
+links:
+  repo: https://github.com/XiaomiRobotics/Xiaomi-Robotics-1
+  weights: https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-5B
+strengths:
+  - Apache-2.0 licensed mobile manipulation VLA checkpoint
+  - Built on Qwen3-VL-4B-Instruct vision-language backbone
+  - Provides a deployment script for serving a post-trained checkpoint
+  - summary_text
+limitations:
+  - Multimodal inputs are described but not benchmarked
+  - Not intended for high-stakes medical or legal use
+  - modality_inpout_baner_imge_ok
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - vla
+  - robotics
+  - manipulation
+  - vision-language-action
+lastChecked: 2026-11-08

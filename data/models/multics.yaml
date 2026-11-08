@@ -1,0 +1,39 @@
+id: multics
+name: Multics
+org: Unknown
+released: 2026-10-12
+dateSource: huggingface
+summary: Multics is a diffusion-transformer world model that generates multi-player video with hierarchical communication and scales from a 4-player checkpoint to 6- 8- and 10-player generation.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0 license
+io:
+  in:
+    - image
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Inference requires separate checkpoint and hparams files
+links:
+  weights: https://huggingface.co/TencentARC/Multics
+  homepage: https://karine-huang.github.io/Multics/
+strengths:
+  - Supports multi-player video generation with hierarchical communication
+  - Includes the 4-player DiT checkpoint plus Wan2.2 VAE and UMT5 text encoder
+  - Apache 2.0 licensed
+limitations:
+  - Hardware requirements are not specified
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - diffusion
+  - video-generation
+  - world-model
+lastChecked: 2026-11-08

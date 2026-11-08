@@ -1,0 +1,47 @@
+id: minicpm-v-4-6
+name: MiniCPM-V 4.6
+org: OpenBMB
+released: 2026-04-13
+dateSource: huggingface
+summary: MiniCPM-V 4.6 is a 1.3B-parameter edge-friendly multimodal LLM built on SigLIP2-400M and Qwen3.5-0.8B for efficient image and video understanding on phones.
+description: A pocket-sized MLLM for ultra-efficient image and video understanding on mobile devices. It supports mixed 4x/16x visual token compression and is adapted to inference frameworks including vLLM SGLang llama.cpp and Ollama. Quantized variants are provided across GGUF BNB AWQ and GPTQ formats.
+tasks:
+  - image-understanding
+  - ocr
+  - on-device-llm
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - video
+    - text
+  out:
+    - text
+params:
+  total: 1.3
+hardware:
+  platforms:
+    - cuda
+    - cpu
+    - api
+  note: Mentions deployment on iOS Android and HarmonyOS; inference via Transformers vLLM SGLang llama.cpp Ollama
+links:
+  weights: https://huggingface.co/openbmb/MiniCPM-V-4.6
+strengths:
+  - Outperforms Qwen3.5-0.8B on most vision-language understanding tasks
+  - Supports mixed 4x/16x visual token compression
+  - Can be deployed on iOS Android and HarmonyOS
+limitations:
+  - The 16x downsample mode trades fine detail for efficiency
+  - CUDA 12.x environments may need PyAV instead of torchcodec
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - vision-language
+  - edge-deployment
+  - image-text-to-text
+lastChecked: 2026-11-08

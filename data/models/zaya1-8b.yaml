@@ -1,0 +1,46 @@
+id: zaya1-8b
+name: Zaya1 8B
+org: Zyphra
+released: 2026-05-04
+dateSource: huggingface
+summary: ZAYA1-8B is an 8.4B-total / ~0.76B-active mixture-of-experts language model from Zyphra post-trained for long-form reasoning and especially strong at math and coding for its size.
+description: ZAYA1-8B is a small mixture-of-experts reasoning language model from Zyphra with roughly 0.76B active and 8.4B total parameters. It targets long-form chain-of-thought work and is tuned for math and coding, where Zyphra reports it competing with models several times larger. The card also notes that its small total size makes it viable for on-device local LLM use.
+tasks:
+  - reasoning
+  - coding
+  - on-device-llm
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 license and a gated-free public checkpoint, so commercial use is permitted under the licence terms.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 8.84
+  active: 0.76
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Served via a fork of vLLM (`zaya1-pr` branch) and a fork of transformers (`zaya1` branch); the card recommends DP with EP for parallelism because TP is unsupported in that branch.
+links:
+  weights: https://huggingface.co/Zyphra/ZAYA1-8B
+  homepage: https://www.zyphra.com/post/zaya1-8b
+strengths:
+  - Only around 0.76B active parameters while carrying 8.4B total
+  - Tuned for detailed long-form reasoning on math and coding tasks
+limitations:
+  - Requires Zyphra's forked vLLM or transformers builds; stock libraries may not load the architecture
+  - Reported comparison scores for other models were produced on Zyphra's own evaluation harness
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - reasoning
+  - math
+  - coding
+lastChecked: 2026-11-08

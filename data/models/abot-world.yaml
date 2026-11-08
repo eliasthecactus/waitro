@@ -1,0 +1,42 @@
+id: abot-world
+name: ABot World
+org: AMap CV Lab
+released: 2026-07-09
+dateSource: huggingface
+summary: ABot-World is a 5.27B-parameter diffusion model for image-to-video generation that produces action-conditioned interactive world rollouts at 720p and 16 FPS on a single desktop GPU.
+description: ABot-World turns a single NVIDIA RTX 5090 desktop GPU into a real-time interactive world simulator for infinite action-conditioned rollout at 720p and 16 FPS with 1.2s latency and 19GB GPU memory.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - video
+params:
+  total: 5.27
+hardware:
+  platforms:
+    - cuda
+  note: Tested on Ubuntu 22.04 with CUDA 13.3 and an NVIDIA RTX 5090; requires about 19GB of GPU memory.
+links:
+  weights: https://huggingface.co/acvlab/ABot-World-0-5B-LF
+  homepage: https://amap-cvlab.github.io/ABot-World/
+strengths:
+  - Real-time interactive world control at 720p and 16 FPS with 1.2s latency on a single NVIDIA RTX 5090
+  - Infinite open-ended rollout with new scenes and dynamics via LongForcing training
+  - Released as an Apache-2.0 open-weights distilled causal student model
+limitations:
+  - Requires a CUDA-capable NVIDIA GPU with about 19GB of memory
+  - The bidirectional teacher model has not yet been released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-to-video
+  - interactive-world
+  - diffusion
+  - real-time
+lastChecked: 2026-11-08

@@ -1,0 +1,35 @@
+id: luma-ray3
+name: Luma Ray3
+org: Luma AI
+released: 2026-05-09
+dateSource: vendor
+summary: Luma AI's Ray3.2 video model for controllable cinematic video generation and video modification.
+tasks:
+  - video-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://lumalabs.ai/ray
+strengths:
+  - Supports Multi-Keyframe direction with up to 16 keyframes in a single clip
+  - Generates 1080p video with native 16-bit HDR and EXR export in ACES2065-1
+  - Modify Video V2 transforms existing footage up to 20 seconds at 1080p
+limitations:
+  - API only
+  - No verified public price is listed
+notes: Summary from the official announcement page.
+tags:
+  - luma
+lastChecked: 2026-11-08

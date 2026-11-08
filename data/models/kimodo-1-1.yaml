@@ -1,0 +1,43 @@
+id: kimodo-1-1
+name: Kimodo 1.1
+org: NVIDIA
+released: 2026-04-07
+dateSource: huggingface
+summary: Kimodo-SOMA-RP-v1.1 is a 282M-parameter diffusion transformer that generates 3D skeletal body animations from text prompts and/or pose constraints.
+tasks:
+  - 3d-generation
+  - video-generation
+access: open-weights
+license:
+  id: nvidia-open-model-license
+  commercial: yes
+  note: Released under the NVIDIA Open Model License which permits commercial use and derivative models.
+io:
+  in:
+    - text
+  out:
+    - structured
+params:
+  total: 0.28
+hardware:
+  platforms:
+    - cuda
+  note: Optimized for NVIDIA GPU-accelerated systems with PyTorch on Ampere Blackwell and Lovelace microarchitectures.
+links:
+  weights: https://huggingface.co/nvidia/Kimodo-SOMA-RP-v1.1
+  homepage: https://research.nvidia.com/labs/sil/projects/kimodo/
+strengths:
+  - Supports text and pose constraint inputs with a maximum duration of 300 frames at 30 fps
+  - Trained on 700 hours of human motion capture with corresponding text descriptions
+  - Commercially usable under the NVIDIA Open Model License
+limitations:
+  - May produce foot skating artifacts where feet slide unnaturally during ground contact
+  - Does not always follow the given text prompt and does not know how to perform certain action types
+  - Each trained model outputs motion for a single character skeleton and is not aware of objects in the scene
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-3d
+  - motion-generation
+  - skeletal-animation
+  - diffusion-transformer
+lastChecked: 2026-11-08

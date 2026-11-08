@@ -1,0 +1,39 @@
+id: bernini
+name: Bernini
+org: ByteDance
+released: 2026-06-01
+dateSource: huggingface
+summary: Bernini-R is ByteDance's open-weights DiT-based video diffusion renderer for text-to-image text-to-video image editing and video editing tasks.
+tasks:
+  - video-generation
+  - image-generation
+  - image-editing
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - image
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: DIT-based video diffusion
+links:
+  weights: https://huggingface.co/ByteDance/Bernini-R
+  homepage: https://bernini-ai.github.io/
+strengths:
+  - Supports text-to-image image editing text-to-video video editing reference-to-video and video insertion tasks
+  - Open-weights renderer released under Apache-2.0
+  - Uses Wan2.2 base VAE UMT5 text encoder tokenizer and transformer architecture
+limitations:
+  - Requires CUDA GPU with Hopper recommended for FlashAttention-3
+  - Video examples use 8-GPU torchrun with Ulysses sequence parallel
+  - Best-quality prompt enhancer requires an OpenAI-compatible endpoint
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+lastChecked: 2026-11-08

@@ -1,0 +1,43 @@
+id: motifvideo-2b
+name: MotifVideo 2B
+org: Lightricks
+released: 2026-04-14
+dateSource: huggingface
+summary: MotifVideo 2B is a 2B-parameter open-weights diffusion transformer for text-to-video and image-to-video generation up to 720p and 121 frames.
+tasks:
+  - video-generation
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - text
+  out:
+    - video
+params:
+  total: 2.04
+hardware:
+  platforms:
+    - cuda
+  note: CUDA GPU with 30GB+ VRAM recommended; GGUF variants fit 24GB GPUs.
+links:
+  weights: https://huggingface.co/Motif-Technologies/Motif-Video-2B
+  homepage: https://motiftech.io/videoshowcase
+strengths:
+  - Single checkpoint supports both text-to-video and image-to-video generation
+  - Generates up to 720p video at 121 frames
+  - Reported VBench Total Score of 83.76%
+  - Released under Apache-2.0 for commercial use
+limitations:
+  - Standard inference requires a CUDA GPU with 30GB+ VRAM
+  - GGUF quantized variants are needed to fit within 24 GB VRAM
+  - Full 720p generation defaults to 121 frames and 50 inference steps
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - diffusion-transformer
+  - text-to-video
+  - image-to-video
+lastChecked: 2026-11-08

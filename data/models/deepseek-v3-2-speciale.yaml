@@ -1,0 +1,43 @@
+id: deepseek-v3-2-speciale
+name: DeepSeek-V3.2-Speciale
+org: DeepSeek
+released: 2025-11-28
+dateSource: huggingface
+summary: DeepSeek-V3.2-Speciale is an open-weights 685B-parameter text-generation model from DeepSeek built for deep reasoning and reported to achieve gold-medal-level results in the 2025 IMO and IOI.
+tasks:
+  - reasoning
+  - coding
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 685.4
+  active: 37
+contextTokens: 163840
+hardware:
+  platforms:
+    - cuda
+  note: Local deployment recommended with sampling temperature 1.0 and top_p 0.95.
+links:
+  weights: https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale
+  homepage: https://api-docs.deepseek.com/news/news251201
+strengths:
+  - Reported to surpass GPT-5 on reasoning tasks
+  - Gold-medal performance in the 2025 IMO and IOI
+  - MIT-licensed open weights
+limitations:
+  - Designed exclusively for deep reasoning tasks
+  - Does not support tool calling
+  - Recommended local sampling is temperature 1.0 and top_p 0.95
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - reasoning
+  - text-generation
+lastChecked: 2026-11-08

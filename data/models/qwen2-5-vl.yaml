@@ -1,0 +1,46 @@
+id: qwen2-5-vl
+name: Qwen2.5-VL
+org: Alibaba Qwen
+released: 2025-01-26
+dateSource: huggingface
+summary: Kimi K2 is a massive Mixture-of-Experts language model from Moonshot AI with 1T total and 32B active parameters, a 256K context window (up to 1M via YaRN), strong agentic and coding capabilities,…
+description: Kimi K2 is a massive MoE language model from Moonshot AI with 1T total and 32B active parameters, a 256K context window (up to 1M via YaRN), strong agentic and coding capabilities, and open weights under a Modified MIT License.
+tasks:
+  - coding
+  - agents
+  - reasoning
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Modified MIT License with attribution requirement for large-scale commercial products.
+io:
+  in:
+    - text
+    - code
+  out:
+    - text
+    - code
+params:
+  total: 8.29
+  active: 8.2
+contextTokens: 1048576
+hardware:
+  platforms:
+    - cuda
+  note: Uses 61 layers, 64 attention heads, 8 key-value heads, and MLA attention; optimized for inference on H200 GPUs with 8k sequence length, supporting vLLM, SGLang, and KTransformers.
+links:
+  weights: https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct
+strengths:
+  - Strong agentic capabilities for autonomous tool use and multi-step reasoning
+  - Excellent coding and front-end web development performance including 3D and animation
+limitations:
+  - The licence includes an attribution requirement for large-scale commercial products
+  - The model is provided as-open weights; no hallucination or safety guarantee is given
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - agentic
+  - coding
+  - long-context
+lastChecked: 2026-11-08

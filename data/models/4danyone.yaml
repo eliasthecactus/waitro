@@ -1,0 +1,43 @@
+id: 4danyone
+name: 4DAnyone
+org: 4DAnyone
+released: 2026-08-17
+dateSource: huggingface
+summary: 4DAnyone is a video diffusion model that converts a casual monocular video into multi-view videos for downstream 4D Gaussian splatting reconstruction.
+description: 4DAnyone is a video diffusion model that turns a casual monocular video into multi-view videos for downstream 4D Gaussian splatting reconstruction.
+tasks:
+  - video-generation
+  - 3d-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: multiple-licenses
+  commercial: limited
+  note: First-party 4DAnyone checkpoint is Apache-2.0. The bundled Wan2.2-TI2V-5B Turbo LoRA is CC BY-NC-SA 4.0. GVHMR weights are research/non-profit only. YOLOv8 is AGPL-3.0.
+io:
+  in:
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/AntResearch/4DAnyone
+  homepage: https://4danyone.github.io/
+strengths:
+  - Generates multi-view videos from a single casual monocular video
+  - Built on Wan2.2-TI2V-5B video VAE with a Turbo LoRA
+  - Ships pose and tracking components (GVHMR · ViTPose · YOLOv8)
+limitations:
+  - Requires a casual monocular video as input
+  - Bundled Turbo LoRA is non-commercial (CC BY-NC-SA 4.0)
+  - GVHMR weights are research/non-profit only
+  - Outputs multi-view videos. 4DGS reconstruction is a separate downstream step
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-to-video
+  - multi-view
+  - 4d-reconstruction
+  - diffusion
+lastChecked: 2026-11-08

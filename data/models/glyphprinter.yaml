@@ -1,0 +1,42 @@
+id: glyphprinter
+name: GlyphPrinter
+org: unknown
+released: 2026-03-09
+dateSource: github
+summary: GlyphPrinter is a preference-based text-to-image rendering framework built on FLUX.1-dev that uses region-grouped DPO to improve glyph accuracy in multilingual and Chinese text.
+description: GlyphPrinter is a text rendering framework for visual text generation that targets stroke distortions and incorrect glyphs in text-to-image models. It introduces the GlyphCorrector dataset with region-level glyph preference annotations and R-GDPO which optimizes preferences over local glyph regions. The card states that inference code model weights training code and the dataset were released and that the work was selected as a CVPR 2026 Highlight.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: No licence text or licence id is provided in the metadata so commercial-use terms are unknown.
+io:
+  in:
+    - text
+    - mask
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: No hardware requirements are stated in the model card.
+links:
+  repo: https://github.com/FudanCVL/GlyphPrinter
+  homepage: https://henghuiding.com/GlyphPrinter/
+strengths:
+  - Region-level R-GDPO targets localized glyph errors rather than global image preference
+  - Supports complex Chinese characters multilingual text and out-of-domain symbols per the authors
+  - Released inference code training code model weights and the GlyphCorrector dataset
+limitations:
+  - Requires the FLUX.1-dev base model and the provided stage checkpoints
+  - Inference depends on prepared npz condition files or app-generated conditions
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - visual-text-rendering
+  - text-to-image
+  - flux-1-dev
+  - dpo
+lastChecked: 2026-11-08

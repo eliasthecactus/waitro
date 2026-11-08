@@ -1,0 +1,42 @@
+id: anigen
+name: AniGen
+org: Unknown
+released: 2026-02-27
+dateSource: github
+summary: AniGen is a unified image-conditioned framework that generates animate-ready 3D assets with a coherent mesh an articulated skeleton and smooth skinning weights.
+description: not needed
+tasks:
+  - 3d-generation
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: NOASSERTION
+io:
+  in:
+    - image
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Inference requires an NVIDIA GPU with at least 18GB of memory
+links:
+  repo: https://github.com/VAST-AI-Research/AniGen
+  homepage: https://yihua7.github.io/AniGen_web/
+strengths:
+  - Generates a rigged mesh skeleton and skinning weights from a single image
+  - Dual skin feature field decouples skinning weights from joint count
+  - Generalizes to in-the-wild images across animals humanoids and machinery
+limitations:
+  - The code is tested only on Linux
+  - Inference requires an NVIDIA GPU with at least 18GB of memory
+  - Commercial use is unclear because the licence is NOASSERTION
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - rigging
+  - image-to-3d
+  - flow-matching
+lastChecked: 2026-11-08

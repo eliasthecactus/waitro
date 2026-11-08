@@ -1,0 +1,42 @@
+id: fire3d
+name: Fire3D
+org: Unknown
+released: 2026-09-08
+dateSource: huggingface
+summary: Fire3D is a feed-forward framework that turns a single RGB image or casual RGB video into simulation-ready 3D scene assets with object-level 6-DoF pose geometry and texture.
+tasks:
+  - 3d-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Custom
+  commercial: unknown
+  note: Bundle mixes MIT code with DINOv3 and TRELLIS.2 files under upstream licences
+io:
+  in:
+    - image
+    - video
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: 1x A100 80GB (fp16)
+links:
+  weights: https://huggingface.co/hongchi/Fire3D
+  homepage: https://xiahongchi.github.io/Fire3D/
+strengths:
+  - Reconstructs object-level 6-DoF pose bounding boxes mesh geometry and texture without test-time optimization
+  - Accepts either a single RGB image or a casual RGB video as input
+  - Reconstruction runs in under a minute via released checkpoints and a single-GPU VAE recipe
+limitations:
+  - Checkpoints are intended only for inference through the frozen Fire3D protocols
+  - Performance can degrade with inaccurate camera poses or depth severe occlusion or unusual object scale
+  - Bundle includes DINOv3 and TRELLIS.2 files that retain upstream licences
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-reconstruction
+  - scene-reconstruction
+  - image-to-3d
+  - video-to-3d
+lastChecked: 2026-11-08

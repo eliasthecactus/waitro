@@ -1,0 +1,40 @@
+id: dreamid-v
+name: DreamID-V
+org: DreamID-V
+released: 2025-12-17
+dateSource: github
+summary: DreamID-V is a 1.3B-parameter diffusion transformer for high-fidelity face swapping that generates videos from reference face images.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: no
+io:
+  in:
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/bytedance/DreamID-V
+  homepage: https://guoxu1233.github.io/DreamID-V/
+strengths:
+  - High-fidelity face swapping via image-to-video generation
+  - Supports 480P and 720P resolutions with a faster variant offering lower VRAM usage
+  - Includes enhanced pose detection variants for improved stability
+limitations:
+  - Intended for academic research and technical demonstration purposes only
+  - Requires cropped 512x512 face images for optimal identity preservation
+  - Depends on Wan-2.1 VAE and text encoder
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - face-swapping
+  - image-to-video
+  - diffusion-transformer
+  - video-generation
+lastChecked: 2026-11-08

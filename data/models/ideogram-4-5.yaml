@@ -1,0 +1,36 @@
+id: ideogram-4-5
+name: Ideogram 4.5
+org: Ideogram
+released: 2026-01-01
+dateSource: vendor
+summary: Ideogram 4.5 is Ideogram’s image generation and precise-edit model.
+tasks:
+  - image-generation
+  - image-editing
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+contextTokens: 128000
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://ideogram.ai/models/4.5/
+strengths:
+  - Maintains image fidelity across multi-turn edits without artifact buildup
+  - Supports precise localized edits at native 2K resolution
+  - Offers four quality modes through app MCP and API
+limitations:
+  - API only
+  - API and app access only
+notes: Summary from the official announcement page.
+tags:
+  - ideogram
+lastChecked: 2026-11-08

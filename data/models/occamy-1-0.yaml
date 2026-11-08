@@ -1,0 +1,50 @@
+id: occamy-1-0
+name: Occamy 1.0
+org: Accio Lab
+released: 2026-08-13
+dateSource: huggingface
+summary: Occamy 1.0 is a 35B-total / 3B-active Mixture-of-Experts model with a vision encoder post-trained from Qwen3.6-35B-A3B for long-horizon co-work agents that coordinate search, code, tools, files and…
+description: "Occamy-1.0 is an agentic model built for real-world co-work: long-horizon stateful tasks that require coordinated use of search, code, tools, files, structured APIs and productivity software. It starts from the post-trained Qwen3.6-35B-A3B checkpoint and keeps that architecture (40 layers, 256 experts, 8 routed + 1 shared, 262,144-token base context) while adding further training via full-parameter SFT, HDPO, a uniform merge of a Marathon and a Sprint expert, and a final SAO stage. Released weights include BF16, GGUF, APEX GGUF, FP8, NVFP4 and an MLX collection (text only, Mac Metal acceptance pending), plus an experimental MTP draft head. The training stack is released as Dressage."
+tasks:
+  - agents
+  - coding
+  - image-understanding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+    - structured
+params:
+  total: 35.11
+  active: 3
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: BF16/FP8/NVFP4 validated with vLLM on a single H200; GGUF runs under llama.cpp and MLX builds run under mlx-lm.
+links:
+  weights: https://huggingface.co/Accio-Lab/occamy-1.0
+strengths:
+  - Specialized for long-horizon co-work workflows that chain search code tools and files
+  - Mixture-of-Experts with 35B total and 3B activated parameters plus a 262144-token base context
+  - Apache-2.0 weights shipped as BF16 GGUF FP8 NVFP4 and MLX checkpoints
+limitations:
+  - MLX builds are text only and Mac Metal acceptance is still pending
+  - Retrieval-heavy and simulated-user tasks still have headroom
+  - Native browser or desktop visual interaction is not part of the co-work training interface
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - agentic
+  - co-work
+  - tool-calling
+lastChecked: 2026-11-08

@@ -1,0 +1,42 @@
+id: auk
+name: AuK
+org: Tencent
+released: 2026-08-18
+dateSource: huggingface
+summary: AuK is a 1.5B open-weights speech generation and editing foundation model from Tencent that exposes TTS, editing, enhancement and separation through natural-language instructions.
+tasks:
+  - text-to-speech
+  - voice-cloning
+  - audio-separation
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: CUDA GPU environment recommended for optimal performance with SGLang-Omni and ComfyUI pipelines
+links:
+  weights: https://huggingface.co/tencent/AuK
+  homepage: https://auk-project.github.io/
+strengths:
+  - Unified natural-language instruction interface for TTS editing enhancement and separation
+  - Zero-shot TTS uses reference audio and instruct TTS works from a voice description
+  - MIT-licensed weights with base and 4-step distilled AuK-Flash variants
+limitations:
+  - Runtime needs a separate Qwen2.5-Omni-3B MLLM encoder and VAE files
+  - This repository provides the base AuK model not the distilled AuK-Flash weights
+  - Checkpoint contains diffusion transformer and layer-fusion weights only
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - audio-separation
+lastChecked: 2026-11-08

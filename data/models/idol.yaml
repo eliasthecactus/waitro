@@ -1,0 +1,39 @@
+id: idol
+name: IDOL
+org: Sperid Labs
+released: 2026-10-28
+dateSource: huggingface
+summary: IDOL is a single-image-to-3D Gaussian splat model from Sperid Labs that removes the background and generates up to 1048576 Gaussians as a standard .ply on consumer NVIDIA GPUs.
+tasks:
+  - 3d-generation
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: NVIDIA GPU with CUDA; 7.2 GB peak VRAM; Python 3.10+ and PyTorch 2.5+
+links:
+  weights: https://huggingface.co/speridlabs/idol
+  homepage: https://speridlabs.com/research/idol/
+strengths:
+  - Generates a 3D Gaussian splat from a single object image including unseen sides
+  - Outputs a standard 3DGS .ply file with up to 1048576 Gaussians
+  - Runs on consumer NVIDIA GPUs with 7.2 GB peak VRAM
+limitations:
+  - Requires gated Hugging Face access to DINOv3 and FLUX.2 VAE encoders
+  - Requires an NVIDIA CUDA GPU with Python 3.10+ and PyTorch 2.5+
+  - Benchmark PSNR trails LGM despite stronger perceptual scores
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - image-to-3d
+  - gaussian-splatting
+  - single-image
+lastChecked: 2026-11-08

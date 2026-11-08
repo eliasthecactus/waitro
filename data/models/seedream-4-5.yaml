@@ -1,0 +1,38 @@
+id: seedream-4-5
+name: Seedream 4.5
+org: ByteDance Seed
+summary: Seedream 4.5 is an image generation and editing model from ByteDance Seed.
+tasks:
+  - image-generation
+  - image-editing
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://seed.bytedance.com/en/seedream4_5
+strengths:
+  - Preserves facial features lighting and color tone from reference images
+  - Improves typography and dense text rendering for posters and brand visuals
+  - Supports accurate multi-image editing with main-subject identification
+limitations:
+  - API only
+  - Internal MagicBench evaluations only
+betterOptions:
+  - id: seedream-5-pro
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - bytedance
+lastChecked: 2026-11-08

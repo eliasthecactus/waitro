@@ -1,0 +1,42 @@
+id: nitrogen
+name: Nitrogen
+org: NVIDIA
+released: 2025-12-18
+dateSource: huggingface
+summary: NitroGen is a 493M-parameter vision-to-action foundation model that plays video games directly from raw 256x256 RGB frames by outputting gamepad actions.
+description: NitroGen is a unified vision-to-action foundation model designed to play video games directly from raw frames. It is trained via large-scale behavior cloning on 40,000 hours of gameplay across over 1,000 games, mapping RGB video footage to gamepad actions. Its architecture combines a SigLip2 Vision Transformer with a Diffusion Matching Transformer (DiT). The model performs best on games designed for gamepad controls (action, platformer, racing) and is less effective on games that rely heavily on mouse and keyboard (RTS, MOBA). Inference currently supports Windows games.
+tasks:
+  - agents
+architecture: hybrid
+access: open-weights
+license:
+  id: Custom
+  commercial: no
+  note: "NVIDIA License: non-commercial research purposes only; excludes military, surveillance, nuclear technology and biometric processing."
+io:
+  in:
+    - image
+  out:
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Inference server and Windows game integration; no explicit CPU/Mac/ONNX paths documented.
+links:
+  weights: https://huggingface.co/nvidia/NitroGen
+  homepage: https://nitrogen.minedojo.org/
+strengths:
+  - Trained on 40 ·000 hours of gameplay across over 1 ·000 games
+  - Maps 256x256 RGB frames directly to 21x16 gamepad actions
+  - Works best on gamepad-controlled action platformer and racing games
+limitations:
+  - Less effective on mouse-and-keyboard games such as RTS and MOBA
+  - Non-commercial research-only license restricts commercial deployment
+  - Current inference tooling supports Windows games only
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - gaming-agents
+  - vision-to-action
+  - behavior-cloning
+  - siglip2
+lastChecked: 2026-11-08

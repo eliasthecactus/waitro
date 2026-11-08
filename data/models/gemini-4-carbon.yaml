@@ -1,0 +1,45 @@
+id: gemini-4-carbon
+name: Gemini 4 Carbon
+org: Google
+released: 2026-06-02
+dateSource: github
+summary: Gemini 4 Carbon is Google's 90B-active-parameter native multimodal MoE model with a very long context window for vision math and coding.
+description: Gemini 4 Carbon is a natively multimodal frontier model from Google DeepMind designed for long-horizon agentic and coding tasks.
+tasks:
+  - chat
+  - reasoning
+  - image-understanding
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: unknown
+  note: Apache-2.0 with additional terms restricting harmful use; verify fitness for regulated deployments.
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+contextTokens: 10000000
+hardware:
+  platforms:
+    - api
+  note: Prioritise higher-bandwidth memory and interconnect (HBM3e / NVLink) to keep the 90B active-parameter MoE path fed during long-context decode.
+links:
+  repo: https://github.com/sunblaze-ucb/exploitgym
+  homepage: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/
+strengths:
+  - Native understanding across text images and video makes it suitable for document and screen-heavy agents
+  - Long context supports whole-repo analysis and long-running agentic sessions
+  - Native function calling simplifies tool integration and structured output
+limitations:
+  - Very large context lengths raise latency and memory pressure in production
+  - License includes use restrictions that legal teams should review
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - moe
+  - api
+  - long-context
+lastChecked: 2026-11-08

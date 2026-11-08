@@ -1,0 +1,66 @@
+id: void
+name: VOID
+org: Netflix
+released: 2026-03-30
+dateSource: huggingface
+summary: VOID is a 5B-parameter video inpainting model built on CogVideoX that removes objects and their induced physical interactions from videos using quadmask conditioning and text prompts.
+description: |-
+  ```json
+  {
+    "id": "void",
+    "name": "VOID",
+    "org": "Netflix",
+    "summary": "VOID is a 5B-parameter video inpainting model built on CogVideoX that removes objects and their induced physical interactions from videos using quadmask conditioning and text prompts.",
+    "tasks": ["video-restoration"],
+    "io": ["video", "mask", "text"],
+    "architectures": ["transformer"],
+    "platforms": ["cuda"],
+    "access": "open-weights",
+    "commercial": "yes",
+    "strengths": [
+      "Removes objects and physical interactions such as shadows reflections and falling objects",
+      "Uses quadmask conditioning to separate remove overlap affected and keep regions",
+      "Optional second pass adds warped-noise refinement for temporal consistency"
+    ],
+    "limitations": [
+      "Requires a GPU with 40GB+ VRAM",
+      "Default output is 384x672 with a maximum of 197 frames",
+      "Requires prepared quadmask and prompt files for each video"
+    ]
+  }
+  ```
+tasks:
+  - video-restoration
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+    - mask
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/netflix/void-model
+  homepage: https://void-model.github.io/
+strengths:
+  - Removes objects and physical interactions such as shadows reflections and falling objects
+  - Uses quadmask conditioning to separate remove overlap affected and keep regions
+  - Optional second pass adds warped-noise refinement for temporal consistency
+limitations:
+  - Requires a GPU with 40GB+ VRAM
+  - Default output is 384x672 with a maximum of 197 frames
+  - Requires prepared quadmask and prompt files for each video
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-inpainting
+  - object-removal
+  - quadmask
+  - cogvideox
+lastChecked: 2026-11-08

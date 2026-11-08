@@ -1,0 +1,37 @@
+id: gpt-realtime-translate
+name: GPT Realtime Translate
+org: OpenAI
+released: 2025-08-28
+dateSource: vendor
+summary: GPT Realtime Translate is an OpenAI hosted translation model with per-minute pricing. The provided listing contains no model-card text.
+tasks:
+  - translation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+pricing:
+  inputPerM: 0.028
+  outputPerM: 0.28
+  perImage: 8
+  perSecond: 0.02
+  perMinute: 0.034
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths:
+  - Realtime translation focus
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

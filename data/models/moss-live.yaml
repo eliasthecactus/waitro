@@ -1,0 +1,38 @@
+id: moss-live
+name: MOSS-Live
+org: MOSS
+released: 2026-01-01
+dateSource: vendor
+summary: MOSS-Live is a full-duplex real-time interaction system from MOSS (模思智能).
+tasks:
+  - chat
+  - agents
+  - translation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - audio
+    - image
+    - video
+  out:
+    - text
+    - audio
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://www.moss.cn/models/moss-live
+strengths:
+  - Full-duplex listening and speaking with semantic interruption handling
+  - Real-time audio-visual understanding and streaming simultaneous interpretation
+  - Tool calling with asynchronous background tasks and shared context
+limitations:
+  - API only
+notes: Summary from the official announcement page.
+tags:
+  - moss
+lastChecked: 2026-11-08

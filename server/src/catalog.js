@@ -102,6 +102,18 @@ const fmtParams = p => {
   return p.active ? `${b(p.total)} total/${b(p.active)} active` : b(p.total);
 };
 
+function priceText(p) {
+  const parts = [];
+  if (p.inputPerM !== undefined) parts.push(`$${p.inputPerM}/$${p.outputPerM ?? '?'} per 1M tokens in/out`);
+  if (p.perImage !== undefined) parts.push(`$${p.perImage} per image`);
+  if (p.perSecond !== undefined) parts.push(`$${p.perSecond} per second`);
+  if (p.perMinute !== undefined) parts.push(`$${p.perMinute} per minute`);
+  if (p.perMChars !== undefined) parts.push(`$${p.perMChars} per 1M characters`);
+  if (p.perMonth !== undefined) parts.push(`$${p.perMonth} per month`);
+  if (p.note) parts.push(`(${p.note})`);
+  return parts.join(' ');
+}
+
 /** One compact line per model, plus the curated top picks. This is the AI's whole view of the catalog. */
 function buildDigest(list, rankingByTask, taskById) {
   const lines = list.map(m => [
@@ -118,7 +130,7 @@ function buildDigest(list, rankingByTask, taskById) {
     `platforms=${(m.hardware?.platforms || []).join(',') || 'unspecified'}`,
     m.hardware?.minVramGB && `minVRAM=${m.hardware.minVramGB}GB`,
     m.hardware?.note && `hw=${m.hardware.note}`,
-    m.pricing && `price=$${m.pricing.inputPerM}/$${m.pricing.outputPerM} per 1M in/out${m.pricing.note ? ` (${m.pricing.note})` : ''}`,
+    m.pricing && `price=${priceText(m.pricing)}`,
     m.released && `released=${m.released}`,
     `summary=${m.summary}`,
     m.strengths?.length && `strengths=${m.strengths.join('; ')}`,

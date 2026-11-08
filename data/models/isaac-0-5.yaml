@@ -1,0 +1,49 @@
+id: isaac-0-5
+name: Isaac 0.5
+org: Perceptron
+released: 2026-08-26
+dateSource: huggingface
+summary: Isaac 0.5 is a 36B sparse mixture-of-experts foundation model for robot learning that unifies multimodal video understanding embodied reasoning spatial grounding task-progress estimation and robot…
+description: Isaac 0.5 is a 36-billion-parameter sparse mixture-of-experts vision-language-action foundation model for robot learning that reads images video language instructions robot state and previous actions and outputs text normalised coordinates task-state estimates or robot actions.
+tasks:
+  - image-understanding
+  - reasoning
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per metadata
+io:
+  in:
+    - image
+    - structured
+    - text
+    - video
+  out:
+    - structured
+    - text
+params:
+  total: 35.72
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/PerceptronAI/Isaac-0.5
+  homepage: https://www.perceptron.inc/blog/introducing-isaac-0-5
+strengths:
+  - One shared sparse backbone co-trained for video understanding spatial grounding task-progress estimation and robot action
+  - Trained on more than 35 robot systems and 100000 hours of robot experience plus one million hours of general video
+  - Offers continuous control through a dedicated Flow expert and 36-block diffusion transformer plus discrete control via a 2048-token FAST action vocabulary
+limitations:
+  - Consumed only through the Perceptron Isaac repository at a pinned commit; direct Transformers and stock LeRobot usage are not currently supported
+  - A 36B-parameter model that takes images video language robot state and action history as input
+  - Closed-loop control works by predicting the next action chunk while the current chunk is still executing
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - robotics
+  - vision-language-action
+  - mixture-of-experts
+  - embodied-reasoning
+lastChecked: 2026-11-08

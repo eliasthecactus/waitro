@@ -1,0 +1,39 @@
+id: twinflow-z-image-turbo
+name: TwinFlow-Z-Image-Turbo
+org: Unknown
+released: 2025-12-23
+dateSource: huggingface
+summary: TwinFlow-Z-Image-Turbo is an experimental text-to-image diffusion model that applies TwinFlow self-adversarial flow rectification to Z-Image-Turbo for one-step and few-step generation.
+description: A faster experimental version of Z-Image-Turbo using the TwinFlow framework. TwinFlow creates an internal twin trajectory for self-adversarial rectification and aims to enable high-quality 1-step/few-step generation without external discriminators or frozen teachers.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: GPU memory and large-model training are discussed in the model card.
+links:
+  weights: https://huggingface.co/inclusionAI/TwinFlow-Z-Image-Turbo
+strengths:
+  - Targets one-step and few-step text-to-image generation without pipeline bloat
+  - Eliminates auxiliary discriminator and frozen-teacher networks used by some distillation methods
+  - Designed to scale to large full-parameter training including 20B settings
+limitations:
+  - The model is described as an experimental version
+  - Inference demo requires installing the latest diffusers from source
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - diffusion
+  - few-step
+  - one-step
+lastChecked: 2026-11-08

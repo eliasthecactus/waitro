@@ -1,0 +1,50 @@
+id: nvidia-nemotron-3-5-super-vl
+name: NVIDIA Nemotron 3.5 Super VL
+org: NVIDIA
+released: 2026-10-12
+dateSource: huggingface
+summary: NVIDIA Nemotron 3.5 Super VL is a 120B-parameter (12B active) open-weights vision-language Mixture-of-Experts model with a Mamba-2–Transformer hybrid architecture and a C-RADIO vision encoder for…
+description: NVIDIA Nemotron 3.5 Super VL is a 120B total / 12B active vision-language model for reasoning coding tool use document understanding and video understanding. It has BF16 full-precision reference weights and supports customization domain adaptation and full-precision evaluation. It uses a Mamba-2–Transformer hybrid Mixture-of-Experts architecture with a C-RADIO vision encoder and a vision-language connector. It supports up to 1M tokens of context and configurable reasoning modes through the chat template.
+tasks:
+  - image-understanding
+  - reasoning
+  - coding
+architecture: hybrid
+access: open-weights
+license:
+  id: openmdw-1.1
+  commercial: yes
+  note: The model card states the model is ready for commercial or non-commercial use.
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+params:
+  total: 124.45
+  active: 12
+contextTokens: 1000000
+hardware:
+  platforms:
+    - cuda
+  note: Deployment requires 4x H100 or 2x GB200 for BF16 inference.
+links:
+  weights: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16
+  homepage: https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/
+strengths:
+  - Supports text image and video inputs with up to 1M token context
+  - Offers configurable reasoning levels and native MTP speculative decoding
+  - Full BF16 weights are suitable for customization and domain adaptation
+limitations:
+  - BF16 deployment requires 4x H100 or 2x GB200 GPUs
+  - The BF16 release is a full-precision reference rather than an optimized deployment path
+  - No CPU or Apple Silicon deployment path is listed
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - vision-language
+  - mixture-of-experts
+  - mamba-2
+  - bf16
+lastChecked: 2026-11-08

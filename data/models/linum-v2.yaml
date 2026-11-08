@@ -1,0 +1,41 @@
+id: linum-v2
+name: Linum V2
+org: Linum
+released: 2026-01-19
+dateSource: huggingface
+summary: Linum V2 is a 2B parameter diffusion transformer text-to-video model that generates 720p 24 FPS clips of 2 to 5 seconds from text prompts.
+description: A small text-to-video generation model trained from scratch by Linum AI.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: "H100 benchmark: 720p 5-second generation requires about 15 minutes; lower VRAM users are directed to the 360p model."
+links:
+  weights: https://huggingface.co/Linum-AI/linum-v2-720p
+  homepage: https://www.linum.ai/field-notes/launch-linum-v2
+strengths:
+  - 2B parameter diffusion transformer for text-to-video generation
+  - Generates 720p 1280x720 video at 24 FPS
+  - Released under Apache 2.0
+limitations:
+  - 720p 5-second generation takes about 15 minutes on an H100
+  - Weights download is about 20GB
+  - Lower VRAM users are directed to a separate 360p model
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-video
+  - diffusion-transformer
+  - 720p
+  - 24fps
+lastChecked: 2026-11-08

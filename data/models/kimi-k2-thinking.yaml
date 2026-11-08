@@ -1,0 +1,48 @@
+id: kimi-k2-thinking
+name: Kimi K2 Thinking
+org: Moonshot AI
+released: 2025-11-04
+dateSource: huggingface
+summary: Kimi K2 Thinking is a 1T-parameter MoE reasoning model from Moonshot AI that interleaves chain-of-thought with tool calls across long agentic workflows and ships with native INT4 quantization and a…
+description: Built on Kimi K2 as a thinking agent, the model is end-to-end trained to alternate reasoning steps with function calls, maintaining goal-directed behaviour across up to 200-300 consecutive tool invocations. It is a Mixture-of-Experts architecture with 1T total and 32B activated parameters, 61 layers, 384 experts with 8 selected per token, MLA attention and SwiGLU activations. Quantization-Aware Training in the post-training stage applies INT4 weight-only quantization to the MoE components for roughly 2x lower latency and GPU memory in low-latency mode. The card reports leading scores on HLE with tools BrowseComp and agentic-search and coding benchmarks including SWE-bench Verified and Terminal-Bench. Weights are released under a Modified MIT licence.
+tasks:
+  - reasoning
+  - agents
+  - coding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: modified-mit
+  commercial: limited
+  note: "Modified MIT: commercial products with over 100M monthly active users or over $20M monthly revenue must prominently display “Kimi K2” in the UI."
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 1026.41
+  active: 32
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Released as a 1T-parameter MoE with native INT4 weights; the card describes deployment on large-scale GPU inference servers but does not name specific accelerators or runtimes.
+links:
+  weights: https://huggingface.co/moonshotai/Kimi-K2-Thinking
+  homepage: https://moonshotai.github.io/Kimi-K2/thinking.html
+strengths:
+  - Interleaves reasoning with tool calls and stays coherent across 200-300 sequential invocations
+  - Native INT4 quantization via QAT cuts latency and GPU memory roughly 2x with reported lossless quality
+  - Reports strong HLE-with-tools BrowseComp and coding benchmark results relative to contemporary models
+limitations:
+  - Only 32B of 1T parameters activate per token so inference still requires large-scale GPU infrastructure
+  - Above 100M monthly users or $20M monthly revenue the Modified MIT licence requires displaying “Kimi K2”
+  - Benchmark scores used a 256K context and large thinking-token budgets (96k-128k) that may not be reproducible in lighter chat settings
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - reasoning
+  - tool-use
+  - agents
+lastChecked: 2026-11-08

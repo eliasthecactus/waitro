@@ -1,0 +1,33 @@
+id: runway-gen-4-5
+name: Runway Gen-4.5
+org: Runway
+released: 2025-12-01
+dateSource: vendor
+summary: "Runway Gen-4.5 is Runway's AI video generation model described as state-of-the-art and ranked #1 on the Artificial Analysis Text-to-Video benchmark with 1,247 Elo points."
+tasks:
+  - video-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://runwayml.com/research/introducing-runway-gen-4.5
+strengths:
+  - Precise prompt adherence and physical accuracy
+  - Cinematic photorealistic and stylized outputs
+limitations:
+  - API only
+  - No verified price data
+  - Control modes such as image-to-video are described as forthcoming
+notes: Summary from the official announcement page.
+tags:
+  - runway
+lastChecked: 2026-11-08

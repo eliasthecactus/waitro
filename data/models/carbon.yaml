@@ -1,0 +1,45 @@
+id: carbon
+name: Carbon
+org: Hugging Face Bio
+released: 2026-10-21
+dateSource: huggingface
+summary: Carbon-X is a 14.8B-parameter decoder-only language model trained jointly on DNA sequences and natural language that answers questions about variants and genomic sequences in an ordinary chat…
+description: Carbon-X is an open-weight decoder-only language model from the Carbon family. It has 14.8B parameters, 40 layers, hidden size 5120, GQA with 40 query heads and 8 KV heads, SwiGLU, and RMSNorm with QK-norm. Its hybrid tokenizer keeps the Qwen3 BPE vocabulary for text and encodes DNA as non-overlapping 6-mers so that one DNA token covers 6 base pairs, with 1,364 tail tokens that let sequences of any length decode back exactly. The model was trained on 302B tokens (DNA, biology text, English and instruction data) followed by supervised fine-tuning and reinforcement learning with verifiable rewards. It supports a 40,960-token context window, serves with vLLM on a single GPU, and should be run with enable_thinking=False. It reports an average of 66.7% across five DNA benchmarks with thinking disabled.
+tasks:
+  - life-sciences
+  - chat
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per model metadata (licence text itself not included separately).
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 14.82
+contextTokens: 40960
+hardware:
+  platforms:
+    - cuda
+  note: Weights fit on a single 80 GB GPU in bfloat16; serving is documented with vLLM.
+links:
+  weights: https://huggingface.co/HuggingFaceBio/Carbon-X
+strengths:
+  - Reports 66.7% average over five DNA benchmarks with thinking disabled
+  - Fits on one 80 GB GPU in bfloat16 keeping sequences on local infrastructure
+  - Hybrid tokenizer keeps text BPE while DNA 6-mers decode back exactly
+limitations:
+  - Post-trained and evaluated with thinking disabled rather than extended reasoning
+  - Bases other than A C G T such as N collapse to a single token losing resolution
+  - Needs Transformers v5 or later and trust_remote_code for the tokenizer
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - dna
+  - genomics
+  - biology
+  - chat
+lastChecked: 2026-11-08

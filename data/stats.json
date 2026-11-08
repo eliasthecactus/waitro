@@ -1,19 +1,103 @@
 {
+  "4danyone": {
+    "downloads": 0,
+    "likes": 103
+  },
+  "abot-world": {
+    "downloads": 1866,
+    "likes": 80
+  },
   "ace-step-1-5": {
-    "stars": 14503,
+    "stars": 14505,
     "lastCommit": "2026-11-08",
     "downloads": 95987,
     "likes": 945
+  },
+  "actionable-world-representation": {
+    "stars": 82,
+    "lastCommit": "2026-06-04"
+  },
+  "agents-a1": {
+    "stars": 606,
+    "lastCommit": "2026-11-07"
+  },
+  "aikido-altar": {
+    "downloads": 649,
+    "likes": 219
+  },
+  "alodlm": {
+    "downloads": 2043,
+    "likes": 62
+  },
+  "anigen": {
+    "stars": 549,
+    "lastCommit": "2026-07-15"
+  },
+  "anima-v2-preview": {
+    "downloads": 2069194,
+    "likes": 2576
+  },
+  "apex-35b": {
+    "downloads": 1661,
+    "likes": 69
+  },
+  "arbor": {
+    "downloads": 0,
+    "likes": 37
+  },
+  "astabrief": {
+    "downloads": 2256,
+    "likes": 71
+  },
+  "audio-to-midi": {
+    "stars": 1916,
+    "lastCommit": "2026-10-20"
+  },
+  "audio8-tts-0-1b": {
+    "downloads": 1437,
+    "likes": 246
+  },
+  "audio8-tts-realistic-0-6b": {
+    "downloads": 15319,
+    "likes": 358
+  },
+  "audiox": {
+    "stars": 1556,
+    "lastCommit": "2026-03-10"
+  },
+  "auk": {
+    "downloads": 1409,
+    "likes": 394
+  },
+  "bark3": {
+    "downloads": 0,
+    "likes": 71
   },
   "basicvsr-pp": {
     "stars": 836,
     "lastCommit": "2023-12-27"
   },
+  "bernini-v2": {
+    "downloads": 0,
+    "likes": 41
+  },
+  "bernini": {
+    "downloads": 97,
+    "likes": 298
+  },
+  "bespoke-nimble-9b": {
+    "downloads": 1261,
+    "likes": 251
+  },
   "bge-m3": {
-    "stars": 12302,
+    "stars": 12303,
     "lastCommit": "2026-10-27",
     "downloads": 29778148,
     "likes": 3972
+  },
+  "bindweave": {
+    "downloads": 563,
+    "likes": 91
   },
   "birefnet": {
     "stars": 4382,
@@ -27,19 +111,63 @@
     "downloads": 0,
     "likes": 18
   },
+  "bonsai-2-27b": {
+    "stars": 3495,
+    "lastCommit": "2026-11-05"
+  },
+  "boogu-image": {
+    "downloads": 531,
+    "likes": 188
+  },
   "canary-qwen": {
     "downloads": 22206,
     "likes": 474
   },
+  "carbon": {
+    "downloads": 4602,
+    "likes": 300
+  },
   "chatterbox": {
-    "stars": 27669,
+    "stars": 27674,
     "lastCommit": "2026-11-04",
     "downloads": 2390242,
-    "likes": 1898
+    "likes": 1899
+  },
+  "clinfusion": {
+    "stars": 215,
+    "lastCommit": "2026-08-31"
+  },
+  "clm-v0-1-8b": {
+    "downloads": 1420,
+    "likes": 794
+  },
+  "clover-35b": {
+    "downloads": 4269,
+    "likes": 256
   },
   "codeformer": {
     "stars": 18217,
     "lastCommit": "2025-11-18"
+  },
+  "controllight": {
+    "downloads": 1090,
+    "likes": 41
+  },
+  "cosmos-3": {
+    "downloads": 598365,
+    "likes": 416
+  },
+  "crisperwhisper-2": {
+    "downloads": 32038,
+    "likes": 123
+  },
+  "cubepart": {
+    "stars": 1314,
+    "lastCommit": "2026-05-28"
+  },
+  "deepgen-1-0": {
+    "downloads": 40,
+    "likes": 181
   },
   "deepseek-math-v2": {
     "downloads": 1097,
@@ -51,9 +179,21 @@
     "downloads": 352007,
     "likes": 1150
   },
+  "deepseek-r1": {
+    "downloads": 1632231,
+    "likes": 14439
+  },
+  "deepseek-v3-2-speciale": {
+    "downloads": 3711,
+    "likes": 746
+  },
+  "deepseek-v3-2": {
+    "downloads": 7456221,
+    "likes": 1596
+  },
   "deepseek-v4-1-flash": {
-    "downloads": 277323,
-    "likes": 5397
+    "downloads": 295747,
+    "likes": 5405
   },
   "deepseek-v4-pro": {
     "downloads": 335063,
@@ -73,6 +213,10 @@
     "downloads": 117315,
     "likes": 191
   },
+  "devstral-2": {
+    "downloads": 2173,
+    "likes": 879
+  },
   "devstral-small-2": {
     "downloads": 84361,
     "likes": 714
@@ -83,18 +227,50 @@
     "downloads": 5914,
     "likes": 2937
   },
+  "diffusiongemma": {
+    "downloads": 636876,
+    "likes": 1323
+  },
+  "domain-shuttle": {
+    "stars": 168,
+    "lastCommit": "2026-11-04"
+  },
   "dots-ocr": {
     "stars": 9186,
     "lastCommit": "2026-03-24",
     "downloads": 332515,
     "likes": 1347
   },
+  "dramabox": {
+    "downloads": 533,
+    "likes": 326
+  },
+  "dreamid-v": {
+    "stars": 700,
+    "lastCommit": "2026-05-22"
+  },
+  "dreamx-world": {
+    "downloads": 15722,
+    "likes": 47
+  },
   "embeddinggemma-2": {
-    "downloads": 498510,
-    "likes": 3193
+    "downloads": 507451,
+    "likes": 3194
+  },
+  "ernie-5-5-flash": {
+    "downloads": 503,
+    "likes": 383
+  },
+  "ernie-image-turbo": {
+    "downloads": 2921,
+    "likes": 412
+  },
+  "ernie-image": {
+    "downloads": 2017,
+    "likes": 689
   },
   "esm3": {
-    "stars": 3016,
+    "stars": 3015,
     "lastCommit": "2026-11-06",
     "downloads": 1963,
     "likes": 344
@@ -109,21 +285,45 @@
     "downloads": 997,
     "likes": 109
   },
+  "fara-7b": {
+    "downloads": 2993,
+    "likes": 624
+  },
+  "fire3d": {
+    "downloads": 234,
+    "likes": 21
+  },
+  "firered-image-edit-1-1": {
+    "downloads": 4278,
+    "likes": 300
+  },
   "fish-drama-3": {
-    "downloads": 42467,
-    "likes": 1225
+    "downloads": 43735,
+    "likes": 1226
   },
   "fish-s2-pro": {
-    "stars": 33614,
+    "stars": 33621,
     "lastCommit": "2026-11-02",
     "downloads": 48048,
     "likes": 1499
+  },
+  "fixanything": {
+    "stars": 251,
+    "lastCommit": "2026-08-25"
+  },
+  "flashportrait": {
+    "stars": 479,
+    "lastCommit": "2026-02-21"
   },
   "flashvsr": {
     "stars": 1967,
     "lastCommit": "2026-10-16",
     "downloads": 9060,
     "likes": 187
+  },
+  "flowhmr": {
+    "downloads": 975,
+    "likes": 24
   },
   "flux1-kontext": {
     "downloads": 249307,
@@ -137,13 +337,31 @@
     "downloads": 436763,
     "likes": 1098
   },
+  "foundation-1": {
+    "stars": 349,
+    "lastCommit": "2026-09-08",
+    "downloads": 0,
+    "likes": 378
+  },
   "foundation-sec": {
     "downloads": 1607,
     "likes": 21
   },
+  "gemini-4-carbon": {
+    "stars": 1272,
+    "lastCommit": "2026-10-26"
+  },
   "gemma-4": {
     "downloads": 7222936,
     "likes": 4309
+  },
+  "generative-refocusing": {
+    "stars": 301,
+    "lastCommit": "2026-03-11"
+  },
+  "generative-world-renderer": {
+    "stars": 654,
+    "lastCommit": "2026-05-05"
   },
   "gfpgan": {
     "stars": 37699,
@@ -155,11 +373,15 @@
   },
   "glm-5-3": {
     "downloads": 2052042,
-    "likes": 2395
+    "likes": 2397
   },
   "glm-ocr": {
     "downloads": 1764536,
-    "likes": 2205
+    "likes": 2206
+  },
+  "glyphprinter": {
+    "stars": 106,
+    "lastCommit": "2026-04-09"
   },
   "gpt-oss-120b": {
     "downloads": 2429646,
@@ -169,23 +391,59 @@
     "downloads": 96409,
     "likes": 257
   },
+  "groot": {
+    "downloads": 1509,
+    "likes": 90
+  },
+  "hairdeck": {
+    "downloads": 2285,
+    "likes": 54
+  },
+  "heartmula": {
+    "stars": 3788,
+    "lastCommit": "2026-10-08",
+    "downloads": 770,
+    "likes": 262
+  },
+  "helios": {
+    "stars": 2256,
+    "lastCommit": "2026-11-01"
+  },
+  "hi3d-1-0": {
+    "downloads": 0,
+    "likes": 161
+  },
   "hidream-o1": {
     "downloads": 12956,
     "likes": 561
+  },
+  "higgs-audio-v3": {
+    "downloads": 4752,
+    "likes": 43
   },
   "higgs-tts-3": {
     "downloads": 120029,
     "likes": 843
   },
+  "hunyuan-mt": {
+    "stars": 841,
+    "lastCommit": "2026-06-01",
+    "downloads": 2434,
+    "likes": 747
+  },
   "hunyuan3d-2-1": {
-    "stars": 4387,
+    "stars": 4389,
     "lastCommit": "2025-10-17",
     "downloads": 105297,
-    "likes": 1357
+    "likes": 1358
   },
   "hunyuanimage-3": {
     "downloads": 1227,
     "likes": 1163
+  },
+  "hunyuanocr": {
+    "downloads": 610810,
+    "likes": 846
   },
   "hunyuanvideo-1-5": {
     "stars": 4593,
@@ -193,57 +451,331 @@
     "downloads": 1576,
     "likes": 1063
   },
+  "hy-mt2": {
+    "downloads": 4408,
+    "likes": 517
+  },
   "hy-simulmt": {
-    "downloads": 549,
+    "downloads": 555,
     "likes": 17
+  },
+  "hy-world-2-0": {
+    "stars": 2839,
+    "lastCommit": "2026-08-12",
+    "downloads": 3291,
+    "likes": 726
+  },
+  "hy-wu": {
+    "downloads": 99,
+    "likes": 35
+  },
+  "hy3": {
+    "downloads": 1177879,
+    "likes": 990
+  },
+  "id-lora": {
+    "stars": 364,
+    "lastCommit": "2026-06-24"
+  },
+  "id-v2v": {
+    "stars": 292,
+    "lastCommit": "2026-09-15"
+  },
+  "idol": {
+    "downloads": 22854,
+    "likes": 1280
+  },
+  "index-tts-2-5": {
+    "downloads": 28335,
+    "likes": 269
+  },
+  "infcam": {
+    "stars": 92,
+    "lastCommit": "2026-05-13"
+  },
+  "infinisplat-v2": {
+    "stars": 587,
+    "lastCommit": "2026-11-05"
+  },
+  "infinitystar": {
+    "stars": 794,
+    "lastCommit": "2026-04-16",
+    "downloads": 926,
+    "likes": 57
+  },
+  "inkling": {
+    "downloads": 1238135,
+    "likes": 451
+  },
+  "intern-s1-pro": {
+    "downloads": 6395,
+    "likes": 277
+  },
+  "internlumina-u2": {
+    "downloads": 0,
+    "likes": 17
+  },
+  "iquest-q1": {
+    "stars": 185,
+    "lastCommit": "2026-10-19",
+    "downloads": 4696,
+    "likes": 150
+  },
+  "iris-3b": {
+    "downloads": 1774,
+    "likes": 347
+  },
+  "isaac-0-5": {
+    "downloads": 319,
+    "likes": 59
+  },
+  "javisgpt": {
+    "stars": 78,
+    "lastCommit": "2026-02-26"
   },
   "jina-embeddings-v5-omni": {
     "downloads": 1013666,
     "likes": 177
   },
+  "jing": {
+    "downloads": 3439,
+    "likes": 193
+  },
+  "joyai-video-edit": {
+    "stars": 2055,
+    "lastCommit": "2026-11-05"
+  },
+  "kandinsky-6-0": {
+    "stars": 342,
+    "lastCommit": "2026-10-25"
+  },
+  "kimi-k2-5": {
+    "downloads": 393523,
+    "likes": 2901
+  },
+  "kimi-k2-7-code": {
+    "stars": 8170,
+    "lastCommit": "2026-11-08",
+    "downloads": 88954,
+    "likes": 1430
+  },
+  "kimi-k2-thinking": {
+    "downloads": 53149,
+    "likes": 1730
+  },
+  "kimi-k2": {
+    "downloads": 281488,
+    "likes": 3010
+  },
   "kimi-k3-1-pro": {
-    "downloads": 22571,
-    "likes": 1677
+    "downloads": 25569,
+    "likes": 1690
+  },
+  "kimodo-1-1": {
+    "downloads": 6381,
+    "likes": 88
+  },
+  "kitten-tts": {
+    "stars": 16820,
+    "lastCommit": "2026-10-27",
+    "downloads": 11655,
+    "likes": 523
+  },
+  "kiwi-edit": {
+    "stars": 331,
+    "lastCommit": "2026-05-13"
   },
   "kokoro-82m": {
-    "stars": 9967,
+    "stars": 9973,
     "lastCommit": "2025-08-06",
     "downloads": 12414516,
     "likes": 7379
   },
   "krea-2": {
     "downloads": 83995,
-    "likes": 1916
+    "likes": 1921
+  },
+  "l2p": {
+    "stars": 204,
+    "lastCommit": "2026-09-28"
+  },
+  "laguna-s2-1": {
+    "downloads": 580831,
+    "likes": 1077
+  },
+  "lance": {
+    "downloads": 442,
+    "likes": 1071
+  },
+  "laya": {
+    "downloads": 21697,
+    "likes": 5925
+  },
+  "leaptalk": {
+    "stars": 212,
+    "lastCommit": "2026-10-29"
   },
   "lfm3-1-7b": {
-    "downloads": 70034,
+    "downloads": 73562,
     "likes": 1550
+  },
+  "lightonocr-2-1b": {
+    "downloads": 876278,
+    "likes": 852
+  },
+  "lightx": {
+    "stars": 195,
+    "lastCommit": "2025-12-11"
+  },
+  "limite-1b-violetto": {
+    "downloads": 4305,
+    "likes": 142
+  },
+  "ling-3-0-flash-sant": {
+    "downloads": 2415,
+    "likes": 85
+  },
+  "lingbot-world-2": {
+    "downloads": 0,
+    "likes": 125
+  },
+  "linum-v2": {
+    "downloads": 0,
+    "likes": 97
+  },
+  "liveedit": {
+    "stars": 197,
+    "lastCommit": "2026-08-10"
+  },
+  "llada-image": {
+    "stars": 267,
+    "lastCommit": "2026-09-07",
+    "downloads": 8427,
+    "likes": 94
   },
   "llama-4": {
     "downloads": 109454,
     "likes": 1387
   },
+  "locateanything": {
+    "downloads": 179923,
+    "likes": 3179
+  },
+  "logos": {
+    "stars": 151,
+    "lastCommit": "2026-06-25"
+  },
+  "longcat-audiodit": {
+    "stars": 587,
+    "lastCommit": "2026-10-15",
+    "downloads": 1187,
+    "likes": 82
+  },
+  "longcat-image": {
+    "downloads": 13906,
+    "likes": 250
+  },
+  "longcat-video-avatar": {
+    "downloads": 3804,
+    "likes": 891
+  },
+  "longvie2": {
+    "downloads": 0,
+    "likes": 27
+  },
   "ltx-2-5": {
-    "stars": 10140,
+    "stars": 10142,
     "lastCommit": "2026-11-05",
     "downloads": 2661026,
-    "likes": 11041
+    "likes": 11063
+  },
+  "lumos-custom": {
+    "stars": 226,
+    "lastCommit": "2026-10-10"
+  },
+  "luxtts": {
+    "stars": 5530,
+    "lastCommit": "2026-06-05"
+  },
+  "lyra-2": {
+    "downloads": 2236,
+    "likes": 372
+  },
+  "magenta-realtime-2": {
+    "downloads": 23157,
+    "likes": 265
+  },
+  "magi-2": {
+    "downloads": 0,
+    "likes": 125
+  },
+  "mamma": {
+    "stars": 882,
+    "lastCommit": "2026-10-30"
   },
   "marigold-v2": {
     "downloads": 0,
     "likes": 122
   },
+  "matanyone2": {
+    "stars": 938,
+    "lastCommit": "2026-07-28"
+  },
+  "matrix-game-4-0": {
+    "downloads": 1050,
+    "likes": 59
+  },
   "medgemma": {
     "downloads": 204426,
-    "likes": 1115
+    "likes": 1117
+  },
+  "mega-asr": {
+    "stars": 1149,
+    "lastCommit": "2026-09-02"
+  },
+  "meridian": {
+    "downloads": 0,
+    "likes": 120
+  },
+  "mimo-v2-flash": {
+    "downloads": 21207,
+    "likes": 756
+  },
+  "ming-3-0-tts": {
+    "downloads": 12883,
+    "likes": 217
+  },
+  "ming-image-0-1-design": {
+    "downloads": 1703,
+    "likes": 438
+  },
+  "minicpm-o-4-5": {
+    "downloads": 185464,
+    "likes": 1562
+  },
+  "minicpm-v-4-6": {
+    "downloads": 183966,
+    "likes": 1251
+  },
+  "minicpm5-1b": {
+    "downloads": 238993,
+    "likes": 1178
+  },
+  "minicpm5-2b": {
+    "downloads": 1061626,
+    "likes": 1841
   },
   "minimax-h3": {
     "downloads": 6429606,
-    "likes": 6652
+    "likes": 6653
+  },
+  "minimax-m2-1": {
+    "downloads": 13076,
+    "likes": 1374
   },
   "minimax-m3-1-flash": {
-    "downloads": 48765,
-    "likes": 561
+    "downloads": 51155,
+    "likes": 563
   },
   "minimax-m3": {
     "downloads": 150566,
@@ -253,21 +785,95 @@
     "downloads": 5713,
     "likes": 1507
   },
+  "miotts-2-6b": {
+    "downloads": 25816,
+    "likes": 84
+  },
+  "mirage": {
+    "downloads": 6133,
+    "likes": 66
+  },
   "mistral-large-4": {
-    "downloads": 11206,
+    "downloads": 11628,
     "likes": 1635
+  },
+  "molmoact-2": {
+    "downloads": 4835,
+    "likes": 34
   },
   "moondream-3": {
     "downloads": 44519,
     "likes": 694
   },
+  "mosaichunk": {
+    "downloads": 0,
+    "likes": 9
+  },
+  "moss-image": {
+    "downloads": 20971,
+    "likes": 934
+  },
+  "moss-tts": {
+    "stars": 4308,
+    "lastCommit": "2026-09-06",
+    "downloads": 4326,
+    "likes": 436
+  },
+  "motifvideo-2b": {
+    "downloads": 271,
+    "likes": 121
+  },
+  "motion-3to4": {
+    "stars": 189,
+    "lastCommit": "2026-07-13"
+  },
+  "motionbricks": {
+    "downloads": 0,
+    "likes": 132
+  },
+  "multics": {
+    "downloads": 0,
+    "likes": 11
+  },
+  "multiworld": {
+    "stars": 269,
+    "lastCommit": "2026-05-12"
+  },
+  "nanbeige-4-2": {
+    "downloads": 1168,
+    "likes": 63
+  },
+  "nanbeige4-3-33b": {
+    "downloads": 20382,
+    "likes": 1059
+  },
+  "nava": {
+    "downloads": 336,
+    "likes": 129
+  },
+  "needle-3": {
+    "downloads": 135773,
+    "likes": 401
+  },
   "nemotron-3-5-transcribe": {
-    "downloads": 63798,
-    "likes": 3102
+    "downloads": 67230,
+    "likes": 3104
+  },
+  "nemotron-3-embed": {
+    "downloads": 326473,
+    "likes": 172
   },
   "nemotron-3-nano": {
     "downloads": 1601138,
     "likes": 840
+  },
+  "nemotron-3-super": {
+    "downloads": 1066688,
+    "likes": 438
+  },
+  "nemotron-3-ultra": {
+    "downloads": 1074381,
+    "likes": 384
   },
   "nemotron-asr-streaming": {
     "downloads": 573133,
@@ -277,6 +883,22 @@
     "downloads": 184757,
     "likes": 829
   },
+  "newbie-image-exp0-1": {
+    "downloads": 324,
+    "likes": 303
+  },
+  "nex-n2": {
+    "downloads": 3088,
+    "likes": 880
+  },
+  "next-concept-modeling": {
+    "stars": 1514,
+    "lastCommit": "2026-10-14"
+  },
+  "nitrogen": {
+    "downloads": 0,
+    "likes": 579
+  },
   "nllb-200": {
     "downloads": 297085,
     "likes": 491
@@ -284,6 +906,14 @@
   "nomic-embed-text-v2": {
     "downloads": 753891,
     "likes": 515
+  },
+  "nvidia-nemotron-3-5-super-vl": {
+    "downloads": 71232,
+    "likes": 117
+  },
+  "occamy-1-0": {
+    "downloads": 1946,
+    "likes": 238
   },
   "olmo-3": {
     "downloads": 12072,
@@ -295,65 +925,213 @@
     "downloads": 78558,
     "likes": 161
   },
+  "omnishotcut": {
+    "stars": 346,
+    "lastCommit": "2026-11-01"
+  },
   "omnivoice": {
-    "stars": 16387,
+    "stars": 16392,
     "lastCommit": "2026-11-02",
     "downloads": 3463609,
-    "likes": 1666
+    "likes": 1667
+  },
+  "omnixtreme": {
+    "stars": 753,
+    "lastCommit": "2026-04-22"
+  },
+  "one-to-all-animation": {
+    "stars": 510,
+    "lastCommit": "2026-04-19"
+  },
+  "one-video-one-world": {
+    "stars": 172,
+    "lastCommit": "2026-09-10"
+  },
+  "opendreamer": {
+    "stars": 398,
+    "lastCommit": "2026-08-05"
+  },
+  "ornith-1-0": {
+    "downloads": 186807,
+    "likes": 262
+  },
+  "oscar": {
+    "downloads": 0,
+    "likes": 4
+  },
+  "ovis-embedding": {
+    "downloads": 520,
+    "likes": 64
+  },
+  "ovis-image": {
+    "stars": 318,
+    "lastCommit": "2026-05-15"
+  },
+  "p-h3-image": {
+    "downloads": 625136,
+    "likes": 236
   },
   "paddleocr-vl": {
-    "stars": 92420,
+    "stars": 92423,
     "lastCommit": "2026-09-16",
     "downloads": 95409,
     "likes": 572
   },
+  "pager": {
+    "stars": 161,
+    "lastCommit": "2026-11-04"
+  },
+  "paradee-1-2": {
+    "downloads": 9255,
+    "likes": 26
+  },
   "parakeet-tdt-0-6b-v3": {
     "downloads": 548087,
-    "likes": 1266
+    "likes": 1267
+  },
+  "perceptiondlm": {
+    "downloads": 101,
+    "likes": 13
+  },
+  "permavid": {
+    "stars": 45,
+    "lastCommit": "2026-06-17"
+  },
+  "personalive": {
+    "stars": 4101,
+    "lastCommit": "2026-08-28"
+  },
+  "phonon-2": {
+    "downloads": 9452,
+    "likes": 381
+  },
+  "phymotion": {
+    "downloads": 0,
+    "likes": 5
+  },
+  "physiformer": {
+    "stars": 63,
+    "lastCommit": "2026-10-19"
+  },
+  "physx-anything": {
+    "stars": 962,
+    "lastCommit": "2026-04-28"
+  },
+  "physx-omni": {
+    "stars": 330,
+    "lastCommit": "2026-06-11"
+  },
+  "pid": {
+    "downloads": 386,
+    "likes": 421
+  },
+  "pixal3d": {
+    "downloads": 0,
+    "likes": 399
+  },
+  "pixelumm": {
+    "downloads": 0,
+    "likes": 87
+  },
+  "pixlrelight": {
+    "stars": 77,
+    "lastCommit": "2026-05-20"
+  },
+  "pjit": {
+    "downloads": 287,
+    "likes": 59
+  },
+  "pocket-tts": {
+    "stars": 10234,
+    "lastCommit": "2026-11-07",
+    "downloads": 1425,
+    "likes": 1684
+  },
+  "proxypose": {
+    "stars": 287,
+    "lastCommit": "2026-09-27"
   },
   "pyannote-community-1": {
     "stars": 10765,
     "lastCommit": "2026-11-07",
     "downloads": 5132483,
-    "likes": 3980
+    "likes": 3983
+  },
+  "qwen-3-6-27b": {
+    "downloads": 2339012,
+    "likes": 2350
   },
   "qwen-image-2-1": {
-    "downloads": 248964,
-    "likes": 3584
+    "downloads": 251760,
+    "likes": 3585
+  },
+  "qwen-image-2512": {
+    "downloads": 47276,
+    "likes": 991
   },
   "qwen-image-edit": {
     "downloads": 215703,
     "likes": 1541
   },
+  "qwen-image-layered": {
+    "downloads": 94625,
+    "likes": 1194
+  },
+  "qwen-video-edit": {
+    "downloads": 0,
+    "likes": 22
+  },
+  "qwen2-5-vl": {
+    "downloads": 6046339,
+    "likes": 1767
+  },
+  "qwen3-4b": {
+    "downloads": 5322142,
+    "likes": 1210
+  },
+  "qwen3-5-397b-a17b": {
+    "downloads": 848587,
+    "likes": 1580
+  },
+  "qwen3-5-9b": {
+    "downloads": 6335106,
+    "likes": 2331
+  },
   "qwen3-8-27b": {
     "downloads": 7668187,
-    "likes": 19360
+    "likes": 19373
   },
   "qwen3-8-flash-next": {
     "downloads": 3533066,
-    "likes": 6851
+    "likes": 6856
   },
   "qwen3-8-max": {
     "downloads": 26974,
     "likes": 1378
   },
   "qwen3-asr": {
-    "stars": 3852,
+    "stars": 3854,
     "lastCommit": "2026-06-26",
     "downloads": 1738993,
-    "likes": 1229
+    "likes": 1230
   },
   "qwen3-coder-next": {
     "downloads": 427397,
-    "likes": 1737
+    "likes": 1736
   },
   "qwen3-embedding": {
     "downloads": 2354417,
-    "likes": 853
+    "likes": 852
   },
   "qwen3-reranker": {
     "downloads": 84016,
     "likes": 297
+  },
+  "qwen3-tts": {
+    "stars": 1972,
+    "lastCommit": "2026-10-23",
+    "downloads": 1459138,
+    "likes": 2207
   },
   "qwen3-vl-embedding": {
     "downloads": 722438,
@@ -363,15 +1141,47 @@
     "downloads": 7107787,
     "likes": 1246
   },
+  "r2t2": {
+    "downloads": 61046,
+    "likes": 592
+  },
+  "rdm": {
+    "downloads": 9,
+    "likes": 1
+  },
+  "reactivegwm": {
+    "stars": 102,
+    "lastCommit": "2026-09-29"
+  },
   "real-esrgan": {
-    "stars": 37406,
+    "stars": 37411,
     "lastCommit": "2024-08-06"
   },
+  "realrestorer": {
+    "downloads": 188,
+    "likes": 69
+  },
+  "realwonder": {
+    "stars": 234,
+    "lastCommit": "2026-03-06"
+  },
+  "recgen": {
+    "stars": 226,
+    "lastCommit": "2026-09-08"
+  },
   "relayvsr": {
-    "stars": 123,
+    "stars": 144,
     "lastCommit": "2026-10-05",
     "downloads": 0,
-    "likes": 45
+    "likes": 47
+  },
+  "relift": {
+    "stars": 73,
+    "lastCommit": "2026-11-02"
+  },
+  "relitlive": {
+    "stars": 128,
+    "lastCommit": "2026-06-07"
   },
   "rf-detr": {
     "stars": 10005,
@@ -383,12 +1193,22 @@
     "stars": 1038,
     "lastCommit": "2026-08-27"
   },
+  "ripple-65b": {
+    "downloads": 5087,
+    "likes": 383
+  },
   "rmbg-2": {
     "downloads": 407597,
     "likes": 1620
   },
+  "rynnvla-002": {
+    "stars": 1144,
+    "lastCommit": "2025-12-02",
+    "downloads": 0,
+    "likes": 11
+  },
   "sam-audio": {
-    "stars": 3694,
+    "stars": 3695,
     "lastCommit": "2026-05-26",
     "downloads": 38843,
     "likes": 519
@@ -401,25 +1221,75 @@
     "stars": 12239,
     "lastCommit": "2026-10-23",
     "downloads": 187407,
-    "likes": 1424
+    "likes": 1427
   },
   "saullm": {
     "downloads": 195,
     "likes": 15
   },
+  "scail-2": {
+    "stars": 0,
+    "lastCommit": "2026-08-02",
+    "downloads": 8892,
+    "likes": 355
+  },
+  "scenebloom": {
+    "stars": 73,
+    "lastCommit": "2026-10-28"
+  },
+  "scenema-audio": {
+    "downloads": 210,
+    "likes": 148
+  },
+  "scope": {
+    "downloads": 0,
+    "likes": 21
+  },
   "sd-3-5-large": {
     "downloads": 49744,
-    "likes": 4205
+    "likes": 4206
   },
   "seamless-m4t-v2": {
     "downloads": 299211,
     "likes": 1036
   },
   "seedvr2": {
-    "stars": 1438,
+    "stars": 1437,
     "lastCommit": "2026-01-27",
     "downloads": 28647,
     "likes": 166
+  },
+  "seethrough": {
+    "stars": 5528,
+    "lastCommit": "2026-10-05"
+  },
+  "sefi-image": {
+    "stars": 156,
+    "lastCommit": "2026-07-24"
+  },
+  "segvigen": {
+    "stars": 206,
+    "lastCommit": "2026-03-19"
+  },
+  "sensenova-6-8-code2video": {
+    "stars": 567,
+    "lastCommit": "2026-10-27",
+    "downloads": 1268,
+    "likes": 102
+  },
+  "sensenova-loop-9b": {
+    "stars": 106,
+    "lastCommit": "2026-11-02",
+    "downloads": 3756,
+    "likes": 278
+  },
+  "sensenova-u1-5": {
+    "downloads": 5399,
+    "likes": 272
+  },
+  "shotplan": {
+    "downloads": 0,
+    "likes": 5
   },
   "smollm3": {
     "downloads": 433395,
@@ -429,43 +1299,195 @@
     "downloads": 61171,
     "likes": 338
   },
+  "solarwm": {
+    "stars": 910,
+    "lastCommit": "2026-11-07"
+  },
+  "soulx-singer": {
+    "downloads": 6051,
+    "likes": 183
+  },
+  "spark-vsr": {
+    "downloads": 396,
+    "likes": 66
+  },
+  "spark-x2-6-1-7b": {
+    "downloads": 4392,
+    "likes": 80
+  },
+  "spatialedit": {
+    "stars": 220,
+    "lastCommit": "2026-04-13"
+  },
   "stable-audio-3": {
     "downloads": 99671,
-    "likes": 575
+    "likes": 578
+  },
+  "step-3-7-flash": {
+    "downloads": 10332,
+    "likes": 463
+  },
+  "step3-vl-10b": {
+    "downloads": 5621,
+    "likes": 418
+  },
+  "stereospace": {
+    "downloads": 0,
+    "likes": 11
+  },
+  "stream-diffvsr": {
+    "stars": 318,
+    "lastCommit": "2026-11-01"
+  },
+  "streaming-code-world-model": {
+    "stars": 101,
+    "lastCommit": "2026-10-14"
   },
   "supir": {
     "stars": 5695,
     "lastCommit": "2025-05-12"
   },
+  "svg-t2i": {
+    "stars": 155,
+    "lastCommit": "2025-12-18",
+    "downloads": 35,
+    "likes": 35
+  },
+  "symphonygen": {
+    "downloads": 0,
+    "likes": 19
+  },
+  "tada": {
+    "downloads": 8516,
+    "likes": 242
+  },
+  "telestyle-v2": {
+    "downloads": 0,
+    "likes": 40
+  },
   "timesfm-3": {
     "downloads": 567451,
-    "likes": 1013
+    "likes": 1012
   },
   "timestral": {
-    "downloads": 23772,
+    "downloads": 24440,
     "likes": 486
+  },
+  "track4world": {
+    "stars": 344,
+    "lastCommit": "2026-11-06"
+  },
+  "trackcraft3r": {
+    "stars": 145,
+    "lastCommit": "2026-09-24",
+    "downloads": 0,
+    "likes": 0
   },
   "translategemma": {
     "downloads": 5038,
     "likes": 408
   },
   "trellis-2": {
-    "stars": 12723,
+    "stars": 12727,
     "lastCommit": "2026-07-10",
     "downloads": 2717542,
     "likes": 1463
+  },
+  "trisplat": {
+    "downloads": 0,
+    "likes": 15
+  },
+  "twinflow-z-image-turbo": {
+    "downloads": 35,
+    "likes": 213
+  },
+  "twinflow": {
+    "downloads": 38,
+    "likes": 125
+  },
+  "ui-tars": {
+    "downloads": 104940,
+    "likes": 620
+  },
+  "ultrashape-1-0": {
+    "stars": 873,
+    "lastCommit": "2026-01-06"
+  },
+  "un-0": {
+    "downloads": 0,
+    "likes": 3
   },
   "uni2-h": {
     "downloads": 54400,
     "likes": 323
   },
+  "uniaction": {
+    "downloads": 0,
+    "likes": 1
+  },
+  "unigendet": {
+    "downloads": 20,
+    "likes": 13
+  },
+  "unimate": {
+    "downloads": 541,
+    "likes": 94
+  },
+  "unividx": {
+    "downloads": 0,
+    "likes": 28
+  },
   "unlimited-ocr-2": {
-    "downloads": 355394,
+    "downloads": 390927,
     "likes": 650
+  },
+  "utonia": {
+    "downloads": 0,
+    "likes": 29
+  },
+  "versecrafter": {
+    "downloads": 9479,
+    "likes": 16
+  },
+  "vibe": {
+    "downloads": 56,
+    "likes": 87
+  },
+  "vibethinker-1-5b": {
+    "stars": 1586,
+    "lastCommit": "2026-08-14"
+  },
+  "vibevoice-asr": {
+    "downloads": 715428,
+    "likes": 1326
+  },
+  "vibevoice-realtime-0-5b": {
+    "downloads": 195145,
+    "likes": 1312
+  },
+  "videodeltanet": {
+    "stars": 244,
+    "lastCommit": "2026-09-12"
+  },
+  "videomama": {
+    "stars": 549,
+    "lastCommit": "2026-10-21"
+  },
+  "videomdm": {
+    "stars": 59,
+    "lastCommit": "2026-06-07"
   },
   "virchow2": {
     "downloads": 76966,
     "likes": 215
+  },
+  "voicemem": {
+    "downloads": 29,
+    "likes": 22
+  },
+  "void": {
+    "downloads": 0,
+    "likes": 984
   },
   "voxtral-realtime": {
     "downloads": 1427027,
@@ -473,24 +1495,96 @@
   },
   "voxtral-tts": {
     "downloads": 2604,
-    "likes": 955
+    "likes": 954
+  },
+  "wan-2-1": {
+    "downloads": 103086,
+    "likes": 1616
   },
   "wan-2-2": {
-    "stars": 18463,
+    "stars": 18466,
     "lastCommit": "2026-09-21",
     "downloads": 19112,
     "likes": 936
   },
+  "wan-move": {
+    "stars": 665,
+    "lastCommit": "2026-01-05"
+  },
+  "wandancer": {
+    "downloads": 3057,
+    "likes": 192
+  },
+  "warp-as-history": {
+    "stars": 229,
+    "lastCommit": "2026-05-30"
+  },
+  "waypoint-1-5": {
+    "downloads": 863,
+    "likes": 70
+  },
+  "wevisone-vl": {
+    "downloads": 14983,
+    "likes": 109
+  },
   "whisper-large-v3-turbo": {
-    "stars": 112217,
+    "stars": 112230,
     "lastCommit": "2026-08-31",
     "downloads": 5219648,
     "likes": 3511
   },
+  "whistle": {
+    "downloads": 86374,
+    "likes": 562
+  },
+  "wilddet3d": {
+    "downloads": 139,
+    "likes": 45
+  },
+  "windowseat": {
+    "downloads": 0,
+    "likes": 47
+  },
+  "worldcrafter": {
+    "downloads": 85,
+    "likes": 24
+  },
+  "worldplay-2": {
+    "stars": 170,
+    "lastCommit": "2026-10-07"
+  },
+  "xiaomi-robotics-1": {
+    "stars": 751,
+    "lastCommit": "2026-09-09",
+    "downloads": 3,
+    "likes": 22
+  },
   "yolo26": {
-    "stars": 63207,
+    "stars": 63210,
     "lastCommit": "2026-11-08",
     "downloads": 26489,
     "likes": 253
+  },
+  "yue2": {
+    "stars": 13191,
+    "lastCommit": "2026-11-01"
+  },
+  "yume-1-5": {
+    "downloads": 8121,
+    "likes": 95
+  },
+  "z-image-turbo": {
+    "stars": 12141,
+    "lastCommit": "2026-02-09",
+    "downloads": 719847,
+    "likes": 5572
+  },
+  "zaya1-8b": {
+    "downloads": 9428,
+    "likes": 598
+  },
+  "zgcm-1": {
+    "stars": 694,
+    "lastCommit": "2026-10-27"
   }
 }

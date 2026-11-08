@@ -1,0 +1,46 @@
+id: qwen3-5-9b
+name: Qwen3.5-9B
+org: Alibaba
+released: 2026-02-27
+dateSource: huggingface
+summary: Qwen3.5-9B is a 9B-parameter hybrid vision-language causal model from Alibaba with a native 262144-token context and Apache-2.0 weights.
+description: Qwen3.5-9B is a causal language model with a vision encoder, trained with early fusion on multimodal tokens. Per the authors its hybrid design combines Gated Delta Networks with sparse Mixture-of-Experts and it supports 201 languages and dialects. The card reports a native 262144-token context extensible to 1010000 tokens and benchmark results for language reasoning coding agents and vision-language tasks.
+tasks:
+  - chat
+  - reasoning
+  - image-understanding
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 9.65
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Card recommends vLLM SGLang or KTransformers for production serving and warns that the default 262144-token context can cause OOM.
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.5-9B
+strengths:
+  - Early-fusion vision-language foundation model with reported strong OCR and document benchmark scores
+  - Native 262144-token context extensible to 1010000 tokens
+  - Apache-2.0 licence allows commercial use
+limitations:
+  - Default thinking mode generates reasoning content before final answers
+  - Default 262K context can cause OOM and may need reduction
+  - Recent serving framework versions are required for optimal compatibility
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - vision-language
+  - long-context
+  - moe
+  - multilingual
+lastChecked: 2026-11-08

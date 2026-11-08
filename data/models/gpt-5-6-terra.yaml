@@ -1,0 +1,37 @@
+id: gpt-5-6-terra
+name: GPT-5.6 Terra
+org: OpenAI
+summary: GPT-5.6 Terra is an OpenAI API-hosted language model priced at $2 per 1M input tokens and $12 per 1M output tokens.
+tasks:
+  - chat
+  - reasoning
+  - coding
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+pricing:
+  inputPerM: 2
+  outputPerM: 12
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+limitations:
+  - API only
+betterOptions:
+  - id: gpt-6-1-terra
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

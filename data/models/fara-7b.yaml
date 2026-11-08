@@ -1,0 +1,47 @@
+id: fara-7b
+name: Fara-7B
+org: Microsoft
+released: 2025-10-30
+dateSource: huggingface
+summary: Fara-7B is Microsoft's 7B-parameter multimodal computer-use agent model that takes screenshots and text history and emits reasoning plus tool calls to operate a web browser.
+description: Fara-7B is a 7B-parameter multimodal computer-use agent model from Microsoft that reads browser screenshots plus action history and outputs a chain-of-thought followed by a grounded tool call.
+tasks:
+  - agents
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: Released under MIT.
+io:
+  in:
+    - image
+    - text
+  out:
+    - text
+params:
+  total: 8.29
+  active: 7
+contextTokens: 128000
+hardware:
+  platforms:
+    - cuda
+  note: Card reports training on 64 H100s; local serving via vLLM with optional tensor parallelism.
+links:
+  weights: https://huggingface.co/microsoft/Fara-7B
+  homepage: https://www.microsoft.com/en-us/research/blog/fara-7b-an-efficient-agentic-model-for-computer-use
+strengths:
+  - 128k context over screenshots and textual action history
+  - Plans and executes multi-step web tasks with grounded click coordinates
+  - Post-training safety approach with critical-point recognition and red teaming
+limitations:
+  - Deliberately halts at critical points needing user permission or sensitive data
+  - Not evaluated for all downstream purposes; LLM accuracy and safety limits apply
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - agents
+  - computer-use
+  - multimodal
+  - small-language-model
+lastChecked: 2026-11-08

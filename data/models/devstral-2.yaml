@@ -1,0 +1,47 @@
+id: devstral-2
+name: Devstral 2
+org: Mistral
+released: 2025-05-12
+dateSource: huggingface
+summary: A 24B-parameter text-only agentic LLM for software engineering fine-tuned from Mistral-Small-3.1 with a 128k context window.
+description: Devstral is an agentic LLM for software engineering built by Mistral AI and All Hands AI. It is fine-tuned from Mistral-Small-3.1 and is text-only with the vision encoder removed. It is designed to use tools to explore codebases and edit multiple files. The card lists it as achieving 46.8% on SWE-bench Verified with the OpenHands scaffold.
+tasks:
+  - coding
+  - agents
+  - on-device-llm
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0 allows commercial and non-commercial use and modification.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 23.57
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: The card states it is light enough to run on a single RTX 4090 or a Mac with 32GB RAM; local deployment options listed include vLLM, mistral-inference, transformers, LM Studio, llama.cpp and Ollama.
+links:
+  weights: https://huggingface.co/mistralai/Devstral-Small-2505
+strengths:
+  - Strong agentic coding performance on SWE-bench Verified reported with the OpenHands scaffold
+  - Apache 2.0 licence permits commercial and non-commercial use and modification
+  - 128k context window supports long codebase exploration
+limitations:
+  - Text-only model because the vision encoder was removed
+  - Recommended usage is with the OpenHands scaffold
+  - SWE-bench scores are scaffold-dependent and not directly comparable across different scaffolds
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - devstral
+  - mistral
+  - coding-agent
+lastChecked: 2026-11-08

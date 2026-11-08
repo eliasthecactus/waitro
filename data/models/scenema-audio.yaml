@@ -1,0 +1,43 @@
+id: scenema-audio
+name: Scenema Audio
+org: Scenema
+released: 2026-04-26
+dateSource: huggingface
+summary: A zero-shot expressive text-to-speech…
+description: Scenema Audio is a zero-shot expressive text-to-speech model with emotional acting and voice cloning capabilities.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: diffusion
+access: open-weights
+license:
+  id: ltx-2-community
+  commercial: unknown
+  note: Model weights use the LTX-2 Community License Agreement; inference code and server are MIT-licensed.
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Runms in Docker; ~38 GB download on first start.
+links:
+  weights: https://huggingface.co/ScenemaAI/scenema-audio
+  homepage: https://scenema.ai/audio
+strengths:
+  - Zero-shot voice cloning from 10-20 seconds of reference audio without fine-tuning
+  - Emotional acting and scene-aware ambient audio controlled through XML voice and action-tag prompts
+  - Supports 13 languages including English German French Spanish Italian Portuguese Japanese Chinese Korean Russian Arabic Hindi and Swahili
+limitations:
+  - Each generation segment is capped at about 15 seconds and longer text is split automatically
+  - Voice cloning can reduce emotional extremes when transferring identity
+  - The Gemma 3 12B text encoder is gated and requires a HuggingFace token with access
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - audio
+  - text-to-speech
+  - voice-cloning
+lastChecked: 2026-11-08

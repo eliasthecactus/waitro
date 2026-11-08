@@ -1,0 +1,41 @@
+id: ovis-embedding
+name: Ovis Embedding
+org: ATH-MaaS
+released: 2026-09-20
+dateSource: huggingface
+summary: Ovis-Omni-Embedding-3B is a 3B-parameter universal bi-encoder embedding model that maps text image visual-document video audio and interleaved multimodal inputs into one retrieval space.
+description: Apache 2.0 open-weights 3B text-to-speech model from ATH-MaaS fine-tuned from Qwen2.5-Omni-3B for single-speaker English narration with voice cloning and emotion prompt support.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0 with no extra use restrictions listed in the model card
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: 24 GB class GPU suggested by the publisher for the 3B model
+links:
+  weights: https://huggingface.co/ATH-MaaS/Ovis-Omni-Embedding-3B
+strengths:
+  - Zero-shot voice cloning from a short reference clip preserves timbre and speaking style well in clean studio conditions
+  - Emotion and style prompts are honoured consistently and retain intelligibility across expressive deliveries
+  - Apache 2.0 weights plus a compact 3B footprint make it practical to self-host for commercial narration workloads
+limitations:
+  - Prosody can sound flat on very long paragraphs with expressive punctuation and may need sentence-level chunking to keep pacing stable
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - audio
+lastChecked: 2026-11-08

@@ -1,0 +1,34 @@
+id: reve-2-1
+name: Reve 2.1
+org: Reve
+released: 2026-07-09
+dateSource: vendor
+summary: Reve 2.1 is Reve's hosted foundation image generation and editing model released July 9 2026.
+tasks:
+  - image-generation
+  - image-editing
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://blog.reve.com/posts/launching-reve-2.1/
+strengths:
+  - Native 4K output at 16 megapixels
+  - Precise layout planning for dense scenes
+  - Addressable region editing and multilingual text rendering
+limitations:
+  - API only
+notes: Summary from the official announcement page.
+tags:
+  - reve
+lastChecked: 2026-11-08

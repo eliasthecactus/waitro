@@ -1,0 +1,45 @@
+id: voicemem
+name: VoiceMem
+org: Unknown
+released: 2026-08-20
+dateSource: huggingface
+summary: VoiceMem Reply Adapter is a 180 MB rank-32 LoRA adapter for Qwen3.6-35B-A3B that generates answers grounded in retrieved long-term conversational memory for real-time voice agents.
+description: VoiceMem Reply Adapter is a 180 MB rank-32 QLoRA adapter for Qwen3.6-35B-A3B that generates replies grounded in retrieved long-term conversational memory for real-time voice agents.
+tasks:
+  - chat
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 for the adapter; base model licensed separately
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+  note: bf16 weights; QLoRA training used bitsandbytes
+links:
+  weights: https://huggingface.co/zhifeixie/VoiceMem_MF_Qwen3_6_35B_A3B_Qlora
+  homepage: https://xzf-thu.github.io/VoiceMem/
+strengths:
+  - Trained to answer from Top-K retrieved memory rather than raw transcripts
+  - Adapter is only 180 MB and leaves the base model untouched
+  - Reproducible training script and default hyperparameters are provided
+  - "AudioMC INFERENCE_MEMORY result: 97 of 233 criteria satisfied versus 96 of 233 for GPT-4o-mini"
+limitations:
+  - Requires the separate Qwen3.6-35B-A3B base model under its own licence
+  - Training data are not released
+  - It cannot verify retrieved memories so stale or wrong retrievals produce confident wrong answers
+  - Evaluated only on Chinese and English
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - lora
+  - peft
+  - qlora
+  - memory-grounded-generation
+lastChecked: 2026-11-08

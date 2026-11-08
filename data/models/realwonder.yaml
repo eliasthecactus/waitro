@@ -1,0 +1,42 @@
+id: realwonder
+name: RealWonder
+org: Unknown
+released: 2026-03-06
+dateSource: github
+summary: RealWonder is a real-time action-conditioned video generation system that combines single-image 3D reconstruction physics simulation and a distilled 4-step diffusion video generator to produce…
+description: RealWonder translates continuous 3D actions through physics simulation into optical flow and RGB visual representations that a distilled video generator can process. It integrates single-image 3D reconstruction physics simulation and a 4-step diffusion video generator. The project reports 13.2 FPS at 480x832 resolution and interactive exploration of forces robot actions and camera controls on rigid objects deformable bodies fluids and granular materials. The released code depends on SAM 3D Objects SAM 2 Genesis and downloaded checkpoints. The demo is tested on an NVIDIA H200 GPU with CUDA 12.1.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Licence metadata is NOASSERTION and the licence text is not provided making commercial-use terms unclear.
+io:
+  in:
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: The interactive demo is tested on an NVIDIA H200 GPU with CUDA 12.1.
+links:
+  repo: https://github.com/liuwei283/RealWonder
+  homepage: https://liuwei283.github.io/RealWonder/
+strengths:
+  - Real-time generation at 13.2 FPS and 480x832 resolution
+  - Simulates forces and robot actions on rigid objects deformable bodies fluids and granular materials
+  - Uses a distilled video generator with only 4 diffusion steps
+limitations:
+  - Licence is NOASSERTION so commercial use is unclear
+  - Demo tested on an NVIDIA H200 GPU with CUDA 12.1
+  - Requires multiple external submodules and downloaded checkpoints
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - diffusion
+  - physics-simulation
+  - real-time
+lastChecked: 2026-11-08

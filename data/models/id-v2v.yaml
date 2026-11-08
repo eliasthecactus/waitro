@@ -1,0 +1,44 @@
+id: id-v2v
+name: ID V2V
+org: Netflix
+released: 2026-07-14
+dateSource: github
+summary: ID-V2V is a Netflix research video-to-video restylization model that takes a source video plus a stylized keyframe and text prompt to generate a new video preserving the source characters' identity…
+description: ID-V2V (Identity-Preserving Video-to-Video Generation) is a research model by Netflix and Eyeline Labs accepted to SIGGRAPH Asia 2026. It is designed for 'shoot first, restyle later' workflows, enabling users to restylize a source video while preserving the character's identity, subtle expressions, eye gaze, and body movement. The model requires a source video, a stylized first frame, a text prompt, and optionally additional keyframes. Generation runs at 720p, and the model supports clip-by-clip generation for videos longer than 81 frames.
+tasks:
+  - video-generation
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+    - image
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+    - api
+  note: Tested on 8× A100-80GB; single-GPU CPU-offload path available but slower.
+links:
+  repo: https://github.com/Eyeline-Labs/ID-V2V
+  homepage: https://eyeline-labs.github.io/ID-V2V/
+strengths:
+  - Preserves source identity and performance such as subtle expressions and eye gaze while following keyframe-driven scene and style
+  - Supports optional extra keyframes and clip-by-clip generation for videos longer than 81 frames
+  - Re-aligns to the source from the second frame when the stylized first keyframe is imperfect
+limitations:
+  - Requires a source video a stylized first frame and a text prompt
+  - Generation runs at 720p and was tested on 8× A100-80GB with a slower single-GPU CPU-offload path
+  - Checkpoint download includes SAM3 and Wan2.1 components and totals about 96 GB
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-to-video
+  - identity-preserving
+  - restylization
+  - keyframe-guided
+lastChecked: 2026-11-08

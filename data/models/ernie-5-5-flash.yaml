@@ -1,0 +1,50 @@
+id: ernie-5-5-flash
+name: ERNIE 5.5 Flash
+org: Baidu
+released: 2026-10-21
+dateSource: huggingface
+summary: ERNIE 5.5 Flash is a 280B-parameter sparse Mixture-of-Experts text base model from Baidu with 14B activated parameters per token and up to 1M-token context for fine-tuning and inference.
+description: ERNIE 5.5 Flash is a 280B-parameter sparse Mixture-of-Experts text base model from Baidu with 14B activated parameters per token and up to 1M-token context for fine-tuning and inference. It is a text-only MoE base model. Released as a pre-training checkpoint (FP8 and BF16 safetensors). Total parameters include the input embedding and output head; ECHO parameters (0.36B) are excluded. Weights are openly downloadable on Hugging Face and ModelScope. The custom license defines revenue-based terms for related products.
+tasks:
+  - chat
+  - coding
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: ernie-5.5-flash-base-model-license-v1.0
+  commercial: limited
+  note: Custom ERNIE 5.5 Flash Base Model License v1.0 with revenue-based terms; the licence text is provided.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 286.25
+  active: 14
+contextTokens: 1048576
+hardware:
+  platforms:
+    - cuda
+  note: CUDA
+links:
+  weights: https://huggingface.co/baidu/ERNIE-5.5-Flash-Base-BF16
+  homepage: https://ernie.baidu.com/release/ernie-5-5-flash-base/
+strengths:
+  - 280B total parameters with only 14B activated per token
+  - Fine-tuning and inference support a 1M-token context
+  - Pre-trained on 33.5T tokens with repository-scale code and long-context data
+  - Both FP8 and BF16 weights are released
+limitations:
+  - Released as a pre-training checkpoint before any mid- or post-training
+  - Custom Baidu licence defines revenue-based terms for related products and services
+  - Text-only modality
+  - Requires about 280B total parameters of storage and memory despite 14B activation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text
+  - moe
+  - base-model
+  - long-context
+lastChecked: 2026-11-08

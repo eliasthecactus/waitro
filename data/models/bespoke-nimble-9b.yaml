@@ -1,0 +1,41 @@
+id: bespoke-nimble-9b
+name: Bespoke Nimble-9B
+org: Unknown
+released: 2026-09-18
+dateSource: huggingface
+summary: Bespoke Nimble-9B is a 9B-class LoRA adapter for Qwen3.5-9B that scores allowed answer tokens to fill context-grounded booleans, enum choices and rubric score levels with probabilities instead of…
+description: A Qwen3.5-9B LoRA adapter (about 165 MiB) distributed with tokenizer, exact prompt builder, reference inference code and release metadata; the full base weights are not included and must be obtained separately. It scores candidate answer tokens directly, returning the selected value plus softmax probabilities and a probability-weighted expected score for rubric fields. Each field supports up to 255 choices and prompts beyond 8,192 tokens are rejected rather than truncated. Scoring uses softmax(candidate_logits / temperature) once with a default T=1.0 and no separate temperature fit for this checkpoint.
+tasks:
+  - agents
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - structured
+contextTokens: 8192
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+  note: Requires the Qwen3.5-9B base checkpoint plus a CUDA GPU with BF16 support; the original run used PyTorch 2.8.0 with CUDA 12.8. Mac/MLX loaders are directed to the project quickstart.
+links:
+  weights: https://huggingface.co/bespokelabs/Bespoke-Nimble-9B
+strengths:
+  - Scores allowed answer tokens directly for booleans enum choices and rubric levels
+  - Returns per-field probabilities and a probability-weighted expected score for integer rubrics
+  - Supports up to 255 choices per field with an 8_192-token context limit
+limitations:
+  - Ships only the LoRA adapter so the Qwen3.5-9B base checkpoint is required
+  - Does not generate reasoning or free-form answers
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - lora
+  - qwen3-5
+  - text-classification
+  - structured-output
+lastChecked: 2026-11-08

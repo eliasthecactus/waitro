@@ -1,0 +1,44 @@
+id: kiwi-edit
+name: Kiwi-Edit
+org: Show Lab
+released: 2026-03-02
+dateSource: github
+summary: Kiwi-Edit is a versatile video editing framework that combines an MLLM encoder with a video DiT to support instruction-only and reference-image-guided edits.
+description: The authors present Kiwi-Edit as a versatile video editing framework built on an MLLM encoder and a video DiT. It supports instruction video editing and reference image plus instruction video editing. Code and model weights are released with Diffusers variants fine-tuned on instruction data reference data or both.
+tasks:
+  - video-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licence.
+io:
+  in:
+    - video
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires Python 3.10 and CUDA 12.8 with PyTorch 2.7; training uses DeepSpeed and FlashAttention.
+links:
+  repo: https://github.com/showlab/Kiwi-Edit
+  homepage: https://showlab.github.io/Kiwi-Edit/
+strengths:
+  - Supports instruction-only and reference-image-guided video editing
+  - Released with code model weights and a Hugging Face demo
+  - Diffusers variants are available for instruction reference or combined fine-tuning
+limitations:
+  - Requires a CUDA 12.8 and PyTorch 2.7 environment
+  - Training additionally needs DeepSpeed and FlashAttention
+  - Evaluation scripts require Gemini API key handling
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-editing
+  - instruction-guided
+  - reference-guided
+  - diffusion
+lastChecked: 2026-11-08

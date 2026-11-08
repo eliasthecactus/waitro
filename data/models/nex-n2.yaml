@@ -1,0 +1,44 @@
+id: nex-n2
+name: Nex N2
+org: Nex AGI
+released: 2026-09-08
+dateSource: huggingface
+summary: Nex-N2.5-mini is a 35B-parameter multimodal agentic model in Nex AGI's Nex-N2.5 family tuned for computer use web browsing and long-horizon agentic tasks with visual feedback.
+tasks:
+  - agents
+  - coding
+  - image-understanding
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per model metadata
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 35.11
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Runs on 2×H100 via the sglang container nexagi/sglang:v0.5.18-nex-patch with tensor parallelism 2
+links:
+  weights: https://huggingface.co/nex-agi/Nex-N2.5-mini
+  homepage: https://nex-agi.com/
+strengths:
+  - Built for sustained agentic execution with visual feedback across computers and browsers
+  - Supports adjustable reasoning effort none medium adaptive and high
+  - Supports function calling via the qwen3_coder tool-call parser
+  - Apache-2.0 licensing
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - agentic
+  - computer-use
+  - web-browsing
+  - multimodal
+lastChecked: 2026-11-08

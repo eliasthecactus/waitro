@@ -1,0 +1,42 @@
+id: omnixtreme
+name: OmniXtreme
+org: Unknown
+released: 2026-02-27
+dateSource: github
+summary: OmniXtreme is a unified policy framework with released pretrained checkpoints for high-dynamic humanoid motion tracking plus sim-to-sim evaluation code.
+description: OmniXtreme is a policy framework for high-dynamic humanoid motion tracking. The repository releases a paper with demonstration videos, pretrained policy checkpoints under `policy/`, and sim-to-sim evaluation code; the provided policy is trained with the OmniXtreme framework on high-dynamic motions. Setup requires a conda environment with CUDA/cuDNN, the curated motion data placed in the policy directory, and a MuJoCo rollout via `deploy_mujoco.py`. Flow matching base policy training/inference code, residual post-training code and C++ real-world deployment code are listed only as planned future releases.
+tasks:
+  - forecasting
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per repository metadata.
+io:
+  in:
+    - timeseries
+  out:
+    - timeseries
+hardware:
+  platforms:
+    - cuda
+  note: CUDA/cuDNN conda environment and MuJoCo evaluation script; no explicit GPU tier given.
+links:
+  repo: https://github.com/Perkins729/OmniXtreme
+  homepage: https://extreme-humanoid.github.io/
+strengths:
+  - Released pretrained checkpoints for high-dynamic humanoid motion tracking
+  - Includes sim-to-sim evaluation code and a MuJoCo deploy script
+  - Apache-2.0 licence permits commercial use
+limitations:
+  - Flow matching training code and residual post-training code are listed as planned but not released
+  - C++ real-world deployment code is not yet open-sourced
+  - Requires conda Python 3.8 environment with cuDNN and separate motion data download
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - humanoid
+  - motion-tracking
+  - robotics
+  - sim-to-sim
+lastChecked: 2026-11-08

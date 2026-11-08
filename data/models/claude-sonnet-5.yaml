@@ -1,0 +1,47 @@
+id: claude-sonnet-5
+name: Claude Sonnet 5
+org: Anthropic
+released: 2026-06-30
+dateSource: vendor
+summary: Claude Sonnet 5 is Anthropic's agentic Sonnet-class model for planning tool use coding reasoning and knowledge work at lower cost than Opus-class models.
+tasks:
+  - agents
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+pricing:
+  inputPerM: 2
+  outputPerM: 10
+  note: Introductory pricing of $2/MTok input and $10/MTok output has been made permanent; charts show older $3/$15 standard pricing.
+  source: https://platform.claude.com/docs/en/about-claude/pricing
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://www.anthropic.com/news/claude-sonnet-5
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths:
+  - Strong agentic execution with planning and tool use
+  - Close to Opus 4.8 performance at lower prices
+  - Substantial improvement over Sonnet 4.6 on reasoning coding and knowledge work
+limitations:
+  - API only
+  - Higher misaligned behavior rate than Opus 4.8 and Claude Mythos Preview
+  - Lower cybersecurity task ability than current Opus models
+betterOptions:
+  - id: claude-sonnet-5-5
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - anthropic
+lastChecked: 2026-11-08

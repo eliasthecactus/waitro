@@ -1,0 +1,43 @@
+id: qwen-image-layered
+name: Qwen-Image-Layered
+org: Alibaba Qwen
+released: 2025-12-17
+dateSource: huggingface
+summary: Qwen-Image-Layered is a ~20.4B-parameter diffusion model that decomposes an image into multiple RGBA layers for independent high-fidelity editing.
+description: Qwen-Image-Layered is a ~20.4B-parameter diffusion model from Alibaba Qwen that decomposes a single image into multiple RGBA layers so each layer can be edited independently while the rest of the image stays untouched.
+tasks:
+  - image-editing
+  - segmentation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - text
+  out:
+    - image
+params:
+  total: 20.43
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/Qwen/Qwen-Image-Layered
+strengths:
+  - Produces layered RGBA decompositions for inherent editability
+  - Supports variable layer counts (e.g. 3 or 8) and recursive decomposition
+  - Layer isolation enables resizing repositioning recoloring and object removal without affecting other content
+limitations:
+  - Requires transformers>=4.51.3 and a diffusers install from source
+  - Resolution bucket 640 is the recommended setting for this version
+  - Pipeline is run on CUDA in bfloat16
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-editing
+  - layered-representation
+  - rgba
+  - diffusion
+lastChecked: 2026-11-08

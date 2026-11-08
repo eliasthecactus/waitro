@@ -1,0 +1,45 @@
+id: moss-tts
+name: MOSS-TTS
+org: OpenMOSS
+released: 2026-02-06
+dateSource: huggingface
+summary: MossVLM is a 1.25B-parameter multimodal model for image and video question answering and text reasoning.
+description: A decoder-only multimodal reasoning model combining a 1.2B-parameter transformer with a 50M-parameter vision encoder for image/video understanding and text reasoning.
+tasks:
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - video
+    - text
+  out:
+    - text
+params:
+  total: 8.49
+contextTokens: 32768
+hardware:
+  platforms:
+    - cuda
+  note: Deployment requires a single 24GB NVIDIA GPU for the BF16 model.
+links:
+  repo: https://github.com/OpenMOSS/MOSS-TTS
+  weights: https://huggingface.co/OpenMOSS-Team/MOSS-TTS
+strengths:
+  - Handles mixed image and video inputs in a single prompt
+  - Outperforms larger open models on the MMBench-Video benchmark
+  - Open weights under a permissive license
+limitations:
+  - Intended for research and non-production use
+  - No audio input supported
+  - English-only text output
+  - Requires CUDA-capable hardware
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - focus
+  - product
+lastChecked: 2026-11-08

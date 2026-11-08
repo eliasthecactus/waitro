@@ -1,0 +1,43 @@
+id: fixanything
+name: FixAnything
+org: Unknown
+released: 2026-08-25
+dateSource: github
+summary: FixAnything is a video diffusion model based on Wan2.1 that refines rendered videos from 3D representations to remove rendering artifacts with 3D-consistent results.
+description: FixAnything is a video diffusion model built on Wan2.1 for refining video generation, with a focus on visual quality of rendered frames.
+tasks:
+  - video-generation
+  - video-restoration
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Code and FixAnything weights are released under Apache 2.0.
+io:
+  in:
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Running requires installing PyTorch with a CUDA build and compiling pinned dependencies.
+links:
+  repo: https://github.com/kvuong2711/fix-anything
+  homepage: https://fix-anything.github.io/
+strengths:
+  - Repairs rendering artifacts across 3DGS · NeRF · meshes and sparse point clouds
+  - Single generalist video model rather than per-representation pipelines
+  - Uses a pretrained video diffusion prior with only minimal modification and finetuning
+limitations:
+  - Repository ships inference code only
+  - Requires a CUDA PyTorch environment and a pinned DiffSynth-Studio commit
+  - Built on and inherits the Wan2.1 base model
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video
+  - diffusion
+  - wan2-1
+  - 3d-consistency
+lastChecked: 2026-11-08

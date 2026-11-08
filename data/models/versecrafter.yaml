@@ -1,0 +1,46 @@
+id: versecrafter
+name: VerseCrafter
+org: Lightricks
+released: 2025-12-08
+dateSource: huggingface
+summary: VerseCrafter is a 17.34B-parameter controllable video world model built on a frozen Wan2.1-T2V-14B diffusion backbone with a GeoAdapter that injects 4D geometric control over camera and multi-object…
+description: VerseCrafter is a controllable video world model that generates realistic dynamic video from a frozen Wan2.1-T2V-14B diffusion backbone plus a trainable geometry-aware GeoAdapter driven by explicit 4D control signals.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: versecrafter-license
+  commercial: no
+  note: "Released under the VerseCrafter License: academic/research purposes only with commercial and production use prohibited and no use within the European Union."
+io:
+  in:
+    - image
+    - text
+    - structured
+  out:
+    - video
+params:
+  total: 17.34
+hardware:
+  platforms:
+    - cuda
+  note: Multimodal video generator with camera and 3D Gaussian object trajectory controls.
+links:
+  weights: https://huggingface.co/TencentARC/VerseCrafter
+  homepage: https://sixiaozheng.github.io/VerseCrafter_page/
+strengths:
+  - Unified 4D control state gives interpretable control over camera motion and multi-object motion jointly
+  - Frozen Wan2.1 backbone with GeoAdapter injects 4D controls into diffusion blocks without sacrificing video quality
+  - Generates 720x1280 videos of 81 frames with strong spatial-temporal coherence
+limitations:
+  - Licensed for academic and research use only with commercial use not permitted
+  - Explicitly not intended for use within the European Union
+  - Full pipeline requires depth estimation segmentation and 3D Gaussian fitting before generation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - world-model
+  - 4d-control
+  - camera-trajectory
+lastChecked: 2026-11-08

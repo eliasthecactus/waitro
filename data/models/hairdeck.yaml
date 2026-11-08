@@ -1,0 +1,41 @@
+id: hairdeck
+name: HairDeck
+org: research team
+released: 2026-10-27
+dateSource: huggingface
+summary: HairDeck is a diffusion-transformer pipeline that turns a single character image into stylized 3D hair cards with per-card UVs and colors plus the spring-bone chains that animate them.
+description: "HairDeck generates stylized hair-card geometry from one character image and outputs GLB hair meshes that can be attached to a supplied avatar body and exported as a VRM 0.x avatar. The image pipeline combines four released checkpoints: an Image DiT that generates hair-card tokens conditioned on the image, a Card VAE that decodes each card token into geometry, a Color DiT that predicts colors along each card, and a Chain DiT that generates spring-bone chains conditioned on the card tokens. A separate Point-cloud DiT generates hair-card tokens from a point cloud for the point-cloud generation and evaluation path. The image model uses DINOv3 ViT-L/16 features and the point-cloud model uses Dora-VAE 1.1 features, while normalization statistics, a canonical head frame, a VRoid Studio template avatar body and example images are distributed with the checkpoints."
+tasks:
+  - 3d-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 for the HairDeck checkpoints; bundled third-party components (DINOv3. SAM 3. BiRefNet-matting. Dora-VAE. VRoid Studio template avatar) keep their own terms and are not part of this release.
+io:
+  in:
+    - image
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Linux. Python 3.12 and a CUDA GPU are required; video previews additionally need ffmpeg.
+links:
+  weights: https://huggingface.co/hyz317/HairDeck
+  homepage: https://hyzcluster.github.io/HairDeck/
+strengths:
+  - "Produces animation-ready output: hair cards plus the spring-bone chains that drive them"
+  - Exports GLB hair meshes and VRM 0.x avatars using the bundled VRoid template body
+limitations:
+  - Requires Linux with a CUDA GPU and Python 3.12
+  - Depends on externally hosted models (SAM 3 · DINOv3 · BiRefNet-matting · Dora-VAE) fetched under their own licences
+  - The point-cloud generation path needs the optional test and encoder assets downloaded separately
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - hair-cards
+  - diffusion-transformer
+  - vrm-avatar
+lastChecked: 2026-11-08

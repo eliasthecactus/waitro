@@ -1,0 +1,49 @@
+id: pixelumm
+name: PixelUMM
+org: NVIDIA / NV-TLabs
+released: 2026-10-01
+dateSource: huggingface
+summary: PixelUMM is a 15.2B-parameter encoder-free decoder-only Transformer that jointly understands and generates text image and video directly in pixel space.
+description: PixelUMM is an NVIDIA-developed encoder-free unified multimodal model for joint understanding and generation across text images and video directly in pixel space.
+tasks:
+  - image-generation
+  - image-understanding
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: nvidia-one-way-noncommercial-license
+  commercial: no
+  note: PixelUMM checkpoint is licensed under the NVIDIA One-Way Noncommercial License for non-commercial research or evaluation only.
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+    - image
+    - video
+contextTokens: 8192
+hardware:
+  platforms:
+    - cuda
+  note: Requires Linux and an NVIDIA GPU and a CUDA build of PyTorch and FlashAttention.
+links:
+  weights: https://huggingface.co/nvidia/PixelUMM
+  homepage: https://nv-tlabs.github.io/PixelUMM/
+strengths:
+  - Encoder-free patch embeddings enable unified understanding and generation in pixel space
+  - Supports text-to-image and image-conditioned text and video understanding and video generation
+  - Uses Qwen3-8B as the language backbone within a 15.2B-parameter model
+limitations:
+  - Checkpoint use is limited to non-commercial research or evaluation purposes
+  - Requires Linux and an NVIDIA GPU and a CUDA build of PyTorch and FlashAttention
+  - Has not been validated for production or high-stakes use
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - encoder-free
+  - pixel-space
+  - video
+lastChecked: 2026-11-08

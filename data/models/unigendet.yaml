@@ -1,0 +1,43 @@
+id: unigendet
+name: UniGenDet
+org: Unknown
+released: 2026-04-23
+dateSource: huggingface
+summary: UniGenDet is a unified generative-discriminative framework that jointly performs text-to-image generation and AI-generated image detection with explanation.
+tasks:
+  - image-generation
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+    - text
+params:
+  total: 14.73
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/Yanran21/UniGenDet
+  homepage: https://ivg-yanranzhang.github.io/UniGenDet/
+strengths:
+  - Jointly optimizes image generation and generated-image detection in one co-evolutionary loop
+  - Supports text-to-image generation and AI-generated image detection with explanation
+  - Apache-2.0 licensed weights
+limitations:
+  - Requires base BAGEL pretrained assets for inference
+  - Weights are fine-tuned for the two listed tasks
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - unified
+  - generative-discriminative
+  - text-to-image
+  - generated-image-detection
+lastChecked: 2026-11-08

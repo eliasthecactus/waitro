@@ -1,0 +1,41 @@
+id: twinflow
+name: TwinFlow
+org: TwinFlow authors
+released: 2025-10-24
+dateSource: huggingface
+summary: TwinFlow is a text-to-image diffusion framework that enables high-quality 1-step and few-step generation on large models by learning a self-adversarial twin trajectory inside a single model.
+description: TwinFlow introduces a framework for 1-step and few-step generation without pipeline bloat. Instead of external discriminators or frozen teachers, it extends the time interval to t in [-1, 1] and uses the negative time branch to map noise to fake data, creating a self-adversarial signal within the model. The model then rectifies itself by minimizing the difference between the velocity fields of the real and fake trajectories, turning it into a 1-step/few-step generator. The release includes TwinFlow-Qwen-Image-v1.0 and an experimental faster Z-Image-Turbo variant, with a 2-NFE visualization of TwinFlow-Qwen-Image. Inference runs through a diffusers install and demo script.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Inference demo uses the latest diffusers from GitHub; training is described as scalable to 20B full-parameter training.
+links:
+  weights: https://huggingface.co/inclusionAI/TwinFlow
+  homepage: https://zhenglin-cheng.com/twinflow/
+strengths:
+  - "One-model simplicity: no auxiliary discriminator or frozen teacher networks"
+  - Self-adversarial twin trajectory rectification enables 1-step and few-step generation
+  - Easy to scale to 20B full-parameter training
+  - Released as TwinFlow-Qwen-Image-v1.0 with an experimental faster Z-Image-Turbo version
+limitations:
+  - Z-Image-Turbo release is labeled experimental
+  - Inference requires installing the latest diffusers from source
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - diffusion
+  - one-step
+  - few-step
+lastChecked: 2026-11-08

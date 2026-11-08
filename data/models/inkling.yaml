@@ -1,0 +1,47 @@
+id: inkling
+name: Inkling
+org: Thinking Machines
+released: 2026-07-27
+dateSource: huggingface
+summary: Inkling-Small is a 276B-parameter open-weights multimodal mixture-of-experts transformer with 12B active parameters that takes text image and audio inputs and generates text for chat coding and…
+description: Inkling-Small is a 276B-parameter open-weights multimodal mixture-of-experts transformer with 12B active parameters that takes text image and audio inputs and generates text for chat coding and agentic tool use.
+tasks:
+  - chat
+  - coding
+  - agents
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Local deployment uses GPU serving stacks such as SGLang vLLM TokenSpeed Unsloth or Hugging Face
+io:
+  in:
+    - text
+    - audio
+  out:
+    - text
+params:
+  total: 265.96
+  active: 12
+contextTokens: 2000000000
+hardware:
+  platforms:
+    - cuda
+    - api
+  note: BF16 and NVFP4 are not the same thing
+links:
+  weights: https://huggingface.co/thinkingmachines/Inkling-Small
+  homepage: https://thinkingmachines.ai/news/introducing-inkling/
+strengths:
+  - Open weights under Apache-2.0 for fine-tuning and integration
+  - Native text image and audio inputs with text output
+  - Sparse MoE with 12B active parameters out of 276B total
+limitations:
+  - Audio input is WAV 16kHz and ideally under 2 minutes
+  - Image dimensions should be 40px to 4096px for optimal performance
+  - Residual safety risk noted for role-play and indirectly framed harmful prompts
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - mixture-of-experts
+lastChecked: 2026-11-08

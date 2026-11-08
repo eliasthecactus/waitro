@@ -1,0 +1,44 @@
+id: flashportrait
+name: FlashPortrait
+org: Alibaba Tongyi Lab
+released: 2025-12-17
+dateSource: github
+summary: FlashPortrait is a 14B video diffusion transformer for identity-preserving infinite-length portrait animation from a reference image and driving video with up to 6x faster inference.
+description: FlashPortrait is a 14B end-to-end video diffusion transformer built on Wan2.1-I2V-14B that synthesizes identity-preserving infinite-length portrait animations from a reference image and a driving video up to 6x faster via adaptive latent prediction. It introduces a Normalized Facial Expression Block and a dynamic sliding-window scheme with weighted blending for long animations without face post-processing tools.
+tasks:
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - video
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires the pretrained Wan2.1-I2V-14B checkpoints; sequential CPU offload mode brings total GPU memory to roughly 10GB with slower inference.
+links:
+  repo: https://github.com/Francis-Rings/FlashPortrait
+  homepage: https://francis-rings.github.io/FlashPortrait/
+strengths:
+  - Generates infinite-length portrait animations while preserving identity
+  - Up to 6x inference speedup via higher-order latent derivative prediction
+  - Supports 480x832 832x480 512x512 720x720 720x1280 and 1280x720 resolutions
+  - Training and multi-GPU distributed inference code are released
+limitations:
+  - Inference code for the Adaptive Latent Prediction acceleration is not yet released
+  - Preserving quality at long durations depends on a 10-40 frame context overlap which slows inference
+  - Needs substantial GPU memory unless CPU offload modes are enabled
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - portrait-animation
+  - video-diffusion-transformer
+  - infinite-length
+  - image-to-video
+lastChecked: 2026-11-08

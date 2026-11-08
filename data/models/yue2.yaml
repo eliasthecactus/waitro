@@ -1,0 +1,46 @@
+id: yue2
+name: YuE2
+org: Unknown
+released: 2025-01-23
+dateSource: github
+summary: YuE2 is a 3B-parameter music generation model that turns lyrics and a style prompt into an editable melody-and-chord plan and 48 kHz stereo songs with vocals and accompaniment.
+description: YuE2 is released as the m-a-p/YuE2-3B checkpoint under Apache-2.0. It uses an AR–NAR Mixture-of-Transformers backbone to predict score and semantic tokens autoregressively then generates acoustic latents with flow matching and decodes them with a VAE. Per the authors it is competitive with Suno v5/v6 on WildSongBench and reaches 6.9632 SongBench Avg in the best-of-8 setting.
+tasks:
+  - music-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - structured
+  out:
+    - audio
+    - structured
+hardware:
+  platforms:
+    - cuda
+    - rocm
+    - apple-silicon
+    - cpu
+  note: Official quick start requires Linux Python 3.12 and an NVIDIA GPU with BF16 support and 24 GB VRAM; Windows AMD Apple Silicon and Intel paths are described as experimental.
+links:
+  repo: https://github.com/multimodal-art-projection/YuE
+  homepage: https://map-yue2.github.io/
+strengths:
+  - Editable melody-and-chord plan lets a person or agent inspect and change the composition before rendering
+  - Zero-shot covers and conversational score editing use the same generation checkpoint
+  - Produces 48 kHz stereo audio without quantization
+limitations:
+  - Official quick start requires a Linux NVIDIA GPU with BF16 support and 24 GB VRAM
+  - Other Windows AMD Apple Silicon and Intel paths are described as experimental
+  - Editing creates a new complete recording and does not preserve the original waveform outside an edit
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - music-generation
+  - text-to-music
+  - symbolic-music
+  - editable-composition
+lastChecked: 2026-11-08

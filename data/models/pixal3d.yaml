@@ -1,0 +1,43 @@
+id: pixal3d
+name: Pixal3D
+org: Pixal3D
+released: 2026-04-30
+dateSource: huggingface
+summary: Pixal3D is a pixel-aligned image-to-3D generator that lifts image features into 3D by back-projection and outputs high-fidelity meshes with PBR textures from a single image.
+description: Pixal3D is an image-to-3D generation model that explicitly back-projects pixel features into 3D to build direct pixel-to-3D correspondences. Conditioning every stage on these pixel-aligned projections lets it produce detailed geometry and PBR textures from a single input image.
+tasks:
+  - 3d-generation
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: Released under the MIT licence and the repository ships inference code a training codebase and a data-preparation toolkit.
+io:
+  in:
+    - image
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: CUDA GPUs are required for the natten kernels and the default flash_attn backend. A low-VRAM mode loads models on demand and drops the default pipeline resolution from 1536 to 1024.
+links:
+  weights: https://huggingface.co/TencentARC/Pixal3D
+  homepage: https://ldyang694.github.io/projects/pixal3d/
+strengths:
+  - Pixel-aligned projection conditioning gives near-reconstruction-level fidelity with detailed geometry
+  - Three-stage sparse-structure shape and texture cascade trained progressively up to 1024 resolution
+  - Generates GLB meshes with PBR textures from one image via a CLI or a Gradio demo
+  - Low-VRAM mode and a PyTorch SDPA attention fallback ease deployment
+limitations:
+  - Setup depends on following the separate TRELLIS.2 installation guide plus a source-built natten wheel
+  - Two branches exist so reproducing the SIGGRAPH 2026 paper numbers requires switching to the paper branch
+  - Training a full model needs multi-stage cascaded configs and view-aligned O-Voxel data from the toolkit
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d
+  - image-to-3d
+  - pixel-aligned
+  - mesh
+lastChecked: 2026-11-08

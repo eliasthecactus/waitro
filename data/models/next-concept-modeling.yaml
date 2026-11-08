@@ -1,0 +1,40 @@
+id: next-concept-modeling
+name: Next-Concept Modeling
+org: Stanford Hazy Research
+released: 2026-10-11
+dateSource: github
+summary: A two-stage coarse-to-fine text generation framework that pairs a multiscale residual VQ tokenizer with a transformer predicting a hierarchy of discrete codes in parallel.
+tasks:
+  - translation
+  - reasoning
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+  note: CUDA-capable PyTorch installation recommended
+links:
+  repo: https://github.com/HazyResearch/ncm
+  homepage: https://hazyresearch.stanford.edu/blog/2026-10-12-ncm
+strengths:
+  - "Description: coarse-to-fine parallel decoding requires one forward evaluation per level"
+  - Abstract claims it matches or beats strong diffusion baselines while generating 9-31x faster
+  - Released tokenizer and generator checkpoints cover XSum and WMT14 De-En and Sudoku and TinyStories and OpenWebText and LM1B tasks
+limitations:
+  - Requires Python 3.10 or newer with a CUDA-capable PyTorch setup
+  - Weights are hosted in the Hugging Face NCM collection and must be downloaded before evaluation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-generation
+  - autoregressive
+  - checkpoint
+  - nlp
+lastChecked: 2026-11-08

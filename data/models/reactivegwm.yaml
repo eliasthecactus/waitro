@@ -1,0 +1,45 @@
+id: reactivegwm
+name: ReactiveGWM
+org: ReactiveGWM authors
+released: 2026-05-11
+dateSource: github
+summary: ReactiveGWM v2 is a diffusion-based game world model built on Wan2.2 that binds control roles to individual characters via initial-frame instance masks and generates reactive gameplay video clips…
+description: "ReactiveGWM assigns control roles to individual characters at rollout initialization: Spatial Role Binding grounds learned handles in initial-frame instance masks and Unified Agency Conditioning binds each character's external action sequence or conditional NPC rule to the same handle while causal self-attention lets characters respond to current and preceding video context. The `main` branch holds the v2 HNM and SF3 training and inference code; the original SF2 / Street Fighter Alpha 3 release including bidirectional and Causal Forcing training is preserved on `v1`. Setup targets Python 3.12 with a CUDA GPU and a pinned DiffSynth dependency; the VAE is downloaded from Wan-AI/Wan2.2-TI2V-5B. Inference takes a checkpoint from the INV-WZQ/ReactiveGWM-v2-Models Hugging Face repo with an HNM/main or SF3/main subfolder plus a CSV of samples and can also accept a custom initial image ordered masks and a JSON file assigning actions or NPC prompts to each character. Both game recipes default to 20,000 optimizer updates with effective batch 8 and are configurable through YAML or CLI; released HF weights initialize a new fine-tuning run and do not contain complete optimizer or sampler state. Dataset sizes are HNM 20,000/187/192 and SF3 20,000/200/200."
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Repository metadata lists no licence and the card defers to the licences of the respective Hugging Face repositories.
+io:
+  in:
+    - image
+    - mask
+    - text
+    - structured
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Python 3.12 and a CUDA GPU are recommended; the pinned DiffSynth dependency is installed with the package.
+links:
+  repo: https://github.com/INV-WZQ/ReactiveGWM
+  homepage: https://inv-wzq.github.io/ReactiveGWM/
+strengths:
+  - Character-specific control via spatial role binding to initial-frame instance masks
+  - Agency conditioning supports external action sequences and conditional NPC rules
+  - Causal self-attention lets characters react to current and preceding video context
+  - Training and inference code released for HNM and SF3 with Hugging Face weights and datasets
+limitations:
+  - Released HF weights do not include complete optimizer or sampler state for exact resume
+  - Requires a CUDA GPU and the Wan2.2 VAE checkpoint
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - game-world-model
+  - video-generation
+  - npc-control
+  - diffusion
+lastChecked: 2026-11-08

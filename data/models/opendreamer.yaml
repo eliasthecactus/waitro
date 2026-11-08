@@ -1,0 +1,43 @@
+id: opendreamer
+name: OpenDreamer
+org: Unknown
+released: 2026-07-20
+dateSource: github
+summary: Open Dreamer is a JAX/Flax NNX implementation of the Dreamer 4 world-model pipeline — a causal video tokenizer plus an action-conditioned latent dynamics model — trained on Minecraft/VPT-style…
+description: "The repository provides the training pipeline: training a causal video tokenizer, tokenizing Minecraft/VPT-style MP4 datasets into latent ArrayRecords, training an action-conditioned latent dynamics model, and generating rollouts with FVD scoring. A separate inference repository is pointed to for local rollouts from an MP4 plus a matching action sequence, and a hosted in-browser demo lets users play a generated Minecraft world with a Game ⟷ Dream toggle. The roadmap lists a full Dreamer 4 behaviour-cloning / RL agent training loop as not yet done."
+tasks:
+  - video-generation
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: All rights reserved; a formal licence is expected in a future release.
+io:
+  in:
+    - video
+    - structured
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires Python 3.11, uv, and a CUDA 12-compatible JAX environment; ArrayRecord Minecraft/VPT-style data required.
+links:
+  repo: https://github.com/next-state/open-dreamer
+  homepage: https://next-state.github.io/open-dreamer/
+strengths:
+  - "Ships a complete training pipeline: causal video tokenizer plus action-conditioned latent dynamics model"
+  - Supports real-time interactive rollouts with a Game ⟷ Dream toggle in a hosted browser demo
+  - Includes offline dataset tokenization and FVD-based quality evaluation tooling
+limitations:
+  - Licence is all rights reserved with only a temporary notice pending a future formal licence
+  - Behaviour-cloning / RL agent training loop is still on the roadmap and not implemented
+  - Training requires CUDA 12 JAX and prepared Minecraft/VPT-style ArrayRecord shards
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - world-model
+  - jax
+  - flax
+  - minecraft
+lastChecked: 2026-11-08

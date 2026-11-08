@@ -1,0 +1,41 @@
+id: uniaction
+name: UniAction
+org: research project
+released: 2026-10-26
+dateSource: huggingface
+summary: UniAction is a set of Apache-2.0 adapters that condition a shared Wan2.2-I2V-A14B video world model on force camera hand pose and robot pose inputs.
+tasks:
+  - video-generation
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: UniAction adapters are released under Apache License 2.0 while the Wan backbone retains its original license.
+io:
+  in:
+    - image
+    - structured
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: The official Wan2.2-I2V-A14B backbone is downloaded separately and retains its original license.
+links:
+  weights: https://huggingface.co/BowenXue/UniAction
+  homepage: https://uniaction.github.io/
+strengths:
+  - Unified conditioning on force camera control hand pose and robot pose
+  - Released as stage1 and stage2 safetensors with an inference example
+  - Adapters are released under Apache License 2.0
+limitations:
+  - Requires the separately downloaded Wan2.2-I2V-A14B backbone
+  - The backbone retains its original license
+  - Training sources retain their respective terms
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - world-model
+  - action-conditioning
+lastChecked: 2026-11-08

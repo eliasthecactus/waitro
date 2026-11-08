@@ -1,0 +1,43 @@
+id: agents-a1
+name: Agents A1
+org: Agents A1
+released: 2026-06-23
+dateSource: github
+summary: Agents-A1 is a 35B Mixture-of-Experts agentic language model trained for long-horizon tool use and reasoning across six heterogeneous domains.
+tasks:
+  - agents
+  - reasoning
+  - coding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 open weights with quantized MLX variants for Mac
+io:
+  in:
+    - text
+  out:
+    - text
+    - structured
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+  note: SGLang and vLLM GPU serving are documented. Quantized MLX variants are available for Mac
+links:
+  repo: https://github.com/InternScience/Agents-A1
+  homepage: https://internscience.github.io/Agents-A1/
+strengths:
+  - Natively supports function calling and external tool integration
+  - Serves long 262K-token context in SGLang and vLLM examples
+  - Handles long-context conversations and documents with strong coherence and recall
+limitations:
+  - Full deployment uses SGLang or vLLM GPU serving
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - agents
+  - reasoning
+  - coding
+lastChecked: 2026-11-08

@@ -1,0 +1,38 @@
+id: seed-2-1
+name: Seed 2.1
+org: ByteDance Seed
+summary: Seed 2.1 is ByteDance Seed's hosted Pro/Turbo model family for real-world productivity.
+tasks:
+  - agents
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+    - code
+  out:
+    - text
+    - code
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://seed.bytedance.com/en/seed2_1
+strengths:
+  - Multi-step agent execution for office and research workflows
+  - End-to-end coding and debugging delivery
+  - Multimodal and long-video understanding
+limitations:
+  - API only
+  - No verified pricing available
+  - Performance claims are vendor benchmarks
+notes: Summary from the official announcement page.
+tags:
+  - bytedance
+lastChecked: 2026-11-08

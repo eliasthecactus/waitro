@@ -1,0 +1,42 @@
+id: infcam
+name: InfCam
+org: Unknown
+released: 2025-10-09
+dateSource: github
+summary: InfCam is a camera-controlled video generation model that takes a video and a target camera trajectory and outputs a video following that path without a depth prior.
+description: InfCam generates a video that follows a specified camera trajectory given an input video and target path; the authors describe it as working without a depth prior. The release includes inference code training code data augmentation code and model weights. Inference is documented for one NVIDIA H100 80GB GPU with more than 50 GB memory usage.
+tasks:
+  - video-generation
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+    - structured
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Inference documented on 1x NVIDIA H100 80GB GPU with >50 GB memory usage; training documented on 4x NVIDIA H100 80GB GPUs.
+links:
+  repo: https://github.com/emjay73/InfCam
+  homepage: https://emjay73.github.io/InfCam/
+strengths:
+  - Generates camera-controlled videos from an input video and target trajectory
+  - Authors state it avoids a depth prior
+  - Weights and training and inference code are released under Apache-2.0
+limitations:
+  - Inference requires an NVIDIA H100 80GB GPU with >50 GB memory
+  - Requires pretrained Wan2.1 and UniDepth checkpoints
+  - Example inputs use 81 frames at 832x480
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - camera-control
+  - video-to-video
+lastChecked: 2026-11-08

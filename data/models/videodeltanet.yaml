@@ -1,0 +1,43 @@
+id: videodeltanet
+name: VideoDeltaNet VDN-H3
+org: VideoDeltaNet
+released: 2026-09-03
+dateSource: github
+summary: Hybrid-attention video generation model for MiniMax-H3 that replaces long-range quadratic attention with a constant-cost recurrent Video Delta Attention branch.
+description: VDN-H3 is a hybrid-attention video generation model for MiniMax-H3 that combines windowed softmax attention with a Video Delta Attention linear branch. The release includes an 8-step distilled checkpoint and a 50-step model. This ComfyUI package ports the official hybrid-attention math as runtime model patches without modifying ComfyUI core files.
+tasks:
+  - video-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: limited
+  note: Code Apache-2.0; model weights under MiniMax H3 Community License with territory exclusions.
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Official release targets 8× B200 GPUs; this port measured ~17 s/it at 1280×736 and 145 frames on an RTX 5090. cache_gpu mode recommends keeping about 4.3 GB VRAM free.
+links:
+  repo: https://github.com/Saganaki22/ComfyUI-VDN-H3
+  homepage: https://openvdn.github.io/
+strengths:
+  - Attention cost grows linearly with clip length instead of quadratically
+  - Includes an 8-step distilled checkpoint with near-lossless quality versus dense H3
+  - Runs the official checkpoints in ComfyUI via eager PyTorch with no new dependencies
+limitations:
+  - Experimental port needs considerably more compute and VRAM than int8-fused attention or SageAttention routes
+  - Authors do not recommend it when VRAM or RAM is limited
+  - Weights use the MiniMax H3 Community License which excludes some territories
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - minimax-h3
+  - hybrid-attention
+  - comfyui
+lastChecked: 2026-11-08

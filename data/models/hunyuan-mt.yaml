@@ -1,0 +1,41 @@
+id: hunyuan-mt
+name: Hunyuan-MT
+org: Tencent Hunyuan
+released: 2025-08-28
+dateSource: huggingface
+summary: Hunyuan-MT-7B is a 7B-parameter transformer translation model from Tencent Hunyuan that translates between 33 languages and also ships with a companion ensemble variant.
+description: A 7B-class (8.03B parameter) open-weights translation model from Tencent Hunyuan supporting mutual translation among 33 languages including five Chinese minority languages.
+tasks:
+  - translation
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Licence is not declared (NOASSERTION); the provided card and metadata contain no licence text.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 8.03
+hardware:
+  platforms:
+    - cuda
+  note: Weights are distributed as a Hugging Face LLM that does not include CUDA or lower-precision kernels for CPU or Apple Silicon.
+links:
+  repo: https://github.com/Tencent-Hunyuan/Hy-MT
+  weights: https://huggingface.co/tencent/Hunyuan-MT-7B
+strengths:
+  - Supports mutual translation among 33 languages including Tibetan Kazakh Mongolian Uyghur and Cantonese
+  - Places first in 30 of 31 WMT25 language categories it competed in
+  - Comes with a companion ensemble model Hunyuan-MT-Chimera plus fp8 quantized desktops
+limitations:
+  - Serves translation only; it is not a general chat assistant
+  - Requires replacing ignored_layers in the config with ignore and upgrading compressed-tensors to 0.11.0 for fp8 variants
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - translation
+  - deci
+lastChecked: 2026-11-08

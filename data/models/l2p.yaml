@@ -1,0 +1,42 @@
+id: l2p
+name: L2P
+org: NJU-PCALab
+released: 2026-05-22
+dateSource: github
+summary: A 6B-parameter pixel-space diffusion model that generates images from text prompts by transferring latent diffusion weights into an end-to-end pixel pipeline.
+description: L2P is a pixel-space diffusion model for text-to-image generation (6B parameters at 1K resolution) that transfers latent diffusion weights into an end-to-end pixel diffusion pipeline.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: The repository has no declared licence and the metadata licence is unknown so commercial-use terms are not established.
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: CUDA GPUs are used for inference and training; a low-VRAM training script is provided for a single GPU below 24 GB.
+links:
+  repo: https://github.com/TencentYoutuResearch/T2I-L2P
+  homepage: https://nju-pcalab.github.io/projects/L2P/
+strengths:
+  - Generates 1024x1024 images directly in pixel space with 30 inference steps and cfg_scale 2.0
+  - Ships 1K inference code training code weights and dataset plus a Gradio multi-GPU demo
+  - Supports low-VRAM training on a single GPU with less than 24 GB VRAM
+limitations:
+  - No licence is declared for the weights so commercial usage terms are unclear
+  - Training requires an offline conversion step from Z-Image-Turbo latent weights before fine-tuning
+  - High-resolution 4K/8K/10K variants are released separately under L2P-ZImage-HR
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - pixel-space-diffusion
+  - diffusion
+  - 6b
+lastChecked: 2026-11-08

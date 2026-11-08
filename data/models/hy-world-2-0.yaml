@@ -1,0 +1,42 @@
+id: hy-world-2-0
+name: HY World 2.0
+org: Tencent
+released: 2026-04-10
+dateSource: huggingface
+summary: ZAYA1-8B is an 8B-parameter Mixture-of-Experts language model from Zyphra designed for reasoning coding and agentic use with a 262K-token context window.
+tasks:
+  - reasoning
+  - coding
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: tencent-hy-world-2.0-community
+  commercial: yes
+  note: "Apache-2.0 allows commercial use. "
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 262144
+hardware:
+  platforms:
+    - rocm
+  note: "Primarily runs on AMD Instinct MI300X GPUs using AMD Quark and ROCm. "
+links:
+  repo: https://github.com/Tencent-Hunyuan/HY-World-2.0
+  weights: https://huggingface.co/tencent/HY-World-2.0
+strengths:
+  - MoE architecture activates only ~760M parameters per token
+  - Long 262K-token context window
+  - Apache-2.0 licensed for commercial use
+limitations:
+  - No details on non-AMD GPU support
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - reasoning
+  - coding
+  - agents
+lastChecked: 2026-11-08

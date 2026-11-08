@@ -1,0 +1,45 @@
+id: nanbeige-4-2
+name: Nanbeige 4.2 3B
+org: Unknown
+released: 2026-07-21
+dateSource: huggingface
+summary: Nanbeige4.2-3B-Base is a 4.17B-parameter base language model trained from scratch using a Looped Transformer architecture and a 28T-token recipe weighted toward math and code.
+description: A base (non-instruction-tuned) text-generation model from the Nanbeige4 series. It uses a Looped Transformer design in which hidden states are fed back through the same layers after a bottom-to-top pass, increasing capacity without adding parameters. Training data was expanded from 23T to 28T tokens with aggressive upsampling of math, code, STEM and synthetic-QA data. The card reports benchmark results on GSM8K, BBH, MBPP, MMLU-Pro, SuperGPQA and GPQA, comparing against Gemma4-E4B-Base, Qwen3.5-4B-Base and Nanbeige4.1-3B-Base. Loading requires trust_remote_code with the accompanying modeling_nanbeige.py.
+tasks:
+  - reasoning
+  - coding
+  - on-device-llm
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 4.17
+  active: 3
+contextTokens: 32768
+hardware:
+  platforms:
+    - cuda
+  note: Quickstart places inputs on CUDA; loaded with device_map='auto'
+links:
+  weights: https://huggingface.co/Nanbeige/Nanbeige4.2-3B-Base
+  homepage: https://modelscope.ai/models/nanbeige/Nanbeige4.2-3B
+strengths:
+  - Looped Transformer reuse increases capacity without increasing parameter count
+  - 28T-token training recipe with upsampled math code and STEM data
+limitations:
+  - Base model only — not instruction-tuned or alignment-tuned for chat
+  - May produce inaccurate biased or harmful content due to its probabilistic nature
+  - Requires trust_remote_code with a custom modeling file
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - base-model
+  - looped-transformer
+  - text-generation
+lastChecked: 2026-11-08

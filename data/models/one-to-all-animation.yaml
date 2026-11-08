@@ -1,0 +1,39 @@
+id: one-to-all-animation
+name: One-to-All Animation
+org: One-to-All Animation authors
+released: 2025-11-28
+dateSource: github
+summary: One-to-All Animation is a video generation model with 1.3B and 14B checkpoints that performs alignment-free character animation and image pose transfer from a single reference image.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: ComfyUI workflow can run on Kaggle 16 GB T4
+links:
+  repo: https://github.com/ssj9596/One-to-All-Animation
+strengths:
+  - Animates a single reference image with flexible motion control
+  - Provides 1.3B and 14B checkpoints
+  - Supports longer video and out-of-domain cases
+limitations:
+  - Direct pose input requires reference preprocessing
+  - Training from scratch needs at least 3000 additional high-quality video samples
+  - Identity consistency benefits from lighter facial skeleton and landmark colors
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - character-animation
+  - pose-transfer
+  - video-generation
+lastChecked: 2026-11-08

@@ -1,0 +1,44 @@
+id: soulx-singer
+name: SoulX-Singer
+org: Unknown
+released: 2026-02-06
+dateSource: huggingface
+summary: SoulX-Singer is a zero-shot singing voice synthesis model that generates realistic singing voices for unseen singers with melody- and score-conditioned control over pitch rhythm and expression.
+description: SoulX-Singer is a zero-shot singing voice synthesis model that generates realistic singing voices for unseen singers. It supports melody-conditioned F0 contour and score-conditioned MIDI note control for pitch rhythm and expression. Code and model weights are released under Apache-2.0.
+tasks:
+  - text-to-speech
+  - voice-cloning
+  - music-generation
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - structured
+    - timeseries
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Card does not state platform or hardware requirements.
+links:
+  weights: https://huggingface.co/Soul-AILab/SoulX-Singer
+  homepage: https://soul-ailab.github.io/soulx-singer/
+strengths:
+  - Zero-shot singing voice synthesis for unseen singers
+  - Melody-conditioned F0 contour and score-conditioned MIDI control
+  - Apache-2.0 licensed code and model weights
+limitations:
+  - Requires separate SoulX-Singer-Preprocess models for inference
+  - Usage disclaimer calls for responsible development and ethical use
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - singing-voice-synthesis
+  - zero-shot
+  - voice-cloning
+  - text-to-audio
+lastChecked: 2026-11-08

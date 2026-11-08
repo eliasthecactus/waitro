@@ -16,3 +16,6 @@ picks:
   - id: dia
     label: "Dialogue"
     why: "Two-speaker conversations with laughs and coughs, Apache-2.0."
+  - id: qwen3-tts
+    label: "Commercial cloning in 10 languages"
+    why: "Apache-2.0, 3-second voice cloning and low-latency streaming."

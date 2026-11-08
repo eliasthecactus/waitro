@@ -1,0 +1,44 @@
+id: perceptiondlm
+name: PerceptionDLM
+org: MSA Lab PKU
+released: 2026-06-19
+dateSource: huggingface
+summary: PerceptionDLM is a 9.19B-parameter multimodal diffusion language model that captions multiple masked image regions in parallel within a single denoising pass.
+description: yes
+tasks:
+  - image-understanding
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - mask
+  out:
+    - text
+params:
+  total: 9.19
+hardware:
+  platforms:
+    - cuda
+  note: yes
+links:
+  weights: https://huggingface.co/MSALab/PerceptionDLM
+  homepage: https://msalab-pku.github.io/projects/PerceptionDLM/index.html
+strengths:
+  - Generates captions for up to 6 masked regions simultaneously
+  - Reports up to 3.44× throughput speedup and ~2.9s stable per-image latency in dense multi-region scenarios
+  - Apache-2.0 open weights with bfloat16 inference and 32-step default decoding
+limitations:
+  - Region prompts are limited to up to 6 per image
+  - Requires an RGB image plus binary masks as input
+  - Default inference uses 32 diffusion steps and 32-token generation per mask
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - diffusion-language-model
+  - region-captioning
+  - parallel-decoding
+lastChecked: 2026-11-08

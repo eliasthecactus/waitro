@@ -1,0 +1,45 @@
+id: nava
+name: NAVA
+org: Alibaba
+released: 2026-05-29
+dateSource: huggingface
+summary: Kimi K2 is a 1T-parameter MoE language model with 32B active parameters and a 1M-token context window.
+tasks:
+  - reasoning
+  - agents
+  - coding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: "Modified MIT: attribution required above 100M MAU or $20M monthly revenue."
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 1000000
+hardware:
+  platforms:
+    - api
+    - cuda
+  note: Native INT4 quantization cuts KV cache by ~70%.
+links:
+  weights: https://huggingface.co/baidu/NAVA
+  homepage: https://ernie-research.github.io/NAVA/
+strengths:
+  - 1M-token context window
+  - Agentic and tool use
+  - Native INT4 quantization
+limitations:
+  - Total size 1T params with 32B active
+  - Full 1M context needs 2x H800
+  - Modified MIT has revenue and user caps
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - million-context
+  - int4
+  - agents
+lastChecked: 2026-11-08

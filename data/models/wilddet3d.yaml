@@ -1,0 +1,43 @@
+id: wilddet3d
+name: WildDet3D
+org: Allen Institute for AI
+released: 2026-04-04
+dateSource: huggingface
+summary: WildDet3D is a ~1.2B-parameter promptable monocular 3D object detection model that takes a single RGB image with optional text box or point prompts and outputs 2D boxes 3D boxes and depth maps.
+tasks:
+  - object-detection
+architecture: transformer
+access: open-weights
+license:
+  id: sam-license
+  commercial: no
+  note: SAM License weights
+io:
+  in:
+    - image
+    - text
+    - depth
+  out:
+    - structured
+    - depth
+hardware:
+  platforms:
+    - cuda
+  note: Tokenizer-aware success
+links:
+  weights: https://huggingface.co/allenai/WildDet3D
+  homepage: https://allenai.github.io/WildDet3D/
+strengths:
+  - Supports text box and point prompts for open-vocabulary 3D detection
+  - Predicts camera intrinsics internally when they are unavailable
+  - Fuses optional sparse or dense depth for improved 3D localization
+limitations:
+  - Licensed under the SAM License and stated as intended for research and educational use
+  - Built on SAM3 ViT and LingBot-Depth backbones for a total of about 1.2B parameters
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - object-detection
+  - 3d-detection
+  - promptable
+  - open-vocabulary
+lastChecked: 2026-11-08

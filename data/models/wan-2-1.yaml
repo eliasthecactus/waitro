@@ -1,0 +1,48 @@
+id: wan-2-1
+name: Wan 2.1
+org: Alibaba Wan
+released: 2025-02-25
+dateSource: huggingface
+summary: Wan2.1 T2V-14B is a 14.29B-parameter open-weights diffusion model from Alibaba that generates 480P and 720P videos from text prompts.
+description: Wan2.1 is an open suite of video foundation models released with inference code and checkpoints; this repository hosts the 14B text-to-video model. Per the authors it establishes state-of-the-art results among open-source and closed-source video models and is the only video model able to render both Chinese and English text in generated frames. It ships with Wan-VAE, which encodes and decodes 1080P videos of any length while preserving temporal information.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Released under Apache-2.0 per the model metadata.
+io:
+  in:
+    - text
+  out:
+    - video
+params:
+  total: 14.29
+hardware:
+  platforms:
+    - cuda
+  note: The 14B model is run with NVIDIA GPUs; single-GPU use requires --offload_model for memory, while multi-GPU inference uses FSDP plus xDiT USP.
+links:
+  weights: https://huggingface.co/Wan-AI/Wan2.1-T2V-14B
+  homepage: https://wan.video/
+strengths:
+  - Generates video at both 480P and 720P resolutions from text prompts
+  - Per the authors it renders both Chinese and English text inside generated video
+  - Companion Wan-VAE handles 1080P encoding and decoding of arbitrary-length video
+  - Supports multi-GPU inference via FSDP and xDiT USP
+limitations:
+  - The 14B checkpoint needs model offloading or multiple GPUs to fit in memory
+  - Best results reported with prompt extension that relies on a separate Qwen model or the Dashscope API
+betterOptions:
+  - id: wan-2-2
+    why: A newer version from the same team.
+    aspects:
+      - quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-video
+  - diffusion
+  - video-generation
+lastChecked: 2026-11-08

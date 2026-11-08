@@ -1,0 +1,43 @@
+id: longvie2
+name: LongVie2
+org: Vchitect
+released: 2025-12-14
+dateSource: huggingface
+summary: LongVie2 is an autoregressive image-to-video world model built on the 14B Wan2.1-I2V-480P base that generates ultra-long videos from image inputs with depth and pointmap control signals.
+description: LongVie2 is an end-to-end autoregressive image-to-video world model built on the Wan2.1-I2V-14B-480P base that generates ultra-long videos controlled by depth and pointmap signals.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Licence not specified in the provided metadata or model card.
+io:
+  in:
+    - image
+    - depth
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Runs on a single A100 GPU; generating a 5-second clip takes roughly 8-9 minutes.
+links:
+  weights: https://huggingface.co/Vchitect/LongVie2
+  homepage: https://vchitect.github.io/LongVie2-project/
+strengths:
+  - Generates ultra-long videos with an autoregressive framework designed for long-term visual quality and temporal consistency
+  - Accepts multimodal control signals including depth and pointmap for controllable video generation
+  - End-to-end image-to-video pipeline with open weights and released inference scripts
+limitations:
+  - Requires downloading the separate Wan2.1-I2V-14B-480P base weights in addition to LongVie2 weights
+  - "Inference is compute-heavy: about 8-9 minutes on one A100 for a 5-second clip"
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - world-model
+  - image-to-video
+  - autoregressive
+lastChecked: 2026-11-08

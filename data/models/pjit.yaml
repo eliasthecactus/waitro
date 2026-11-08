@@ -1,0 +1,36 @@
+id: pjit
+name: PJiT
+org: Linum
+released: 2026-11-03
+dateSource: huggingface
+summary: PJiT is a 2.18B-parameter diffusion transformer text-to-image research checkpoint trained on dense captions to generate roughly 1-megapixel images.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 2.18
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/Linum-AI/pjit-21k
+  homepage: https://www.linum.ai/field-notes/pjit-21k
+strengths:
+  - Apache-2.0 licensed open weights
+  - Trained at five approximately 1 MP aspect ratios
+  - Dense-caption prompt upsampler included
+limitations:
+  - Research checkpoint not intended for production use
+  - Cannot generate rendered text signs logos or posters
+  - Struggles with full-body shots crowds and world knowledge
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+lastChecked: 2026-11-08

@@ -1,0 +1,54 @@
+id: claude-opus-4-6
+name: Claude Opus 4.6
+org: Anthropic
+released: 2026-02-05
+dateSource: vendor
+summary: Claude Opus 4.6 is Anthropic’s upgraded flagship Claude model available via API and major cloud platforms.
+tasks:
+  - chat
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - code
+  out:
+    - text
+    - code
+    - structured
+contextTokens: 1000000
+pricing:
+  inputPerM: 5
+  outputPerM: 25
+  perImage: 1000000
+  perSecond: 1000000
+  perMinute: 1000000
+  note: 1M token context is beta
+  source: https://platform.claude.com/docs/en/about-claude/pricing
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://www.anthropic.com/news/claude-opus-4-6
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths:
+  - Improved agentic coding and longer-running task execution
+  - 1M token context window in beta for long-context work
+  - Strong knowledge-work and legal reasoning evaluations
+limitations:
+  - API only
+  - Can add cost and latency on simpler tasks
+  - Default high effort may need lowering for some tasks
+betterOptions:
+  - id: claude-opus-5-5
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - anthropic
+lastChecked: 2026-11-08

@@ -1,0 +1,44 @@
+id: gpt-4o
+name: GPT-4o
+org: OpenAI
+summary: GPT-4o is OpenAI's natively multimodal hosted model handling text image and audio inputs with text outputs for chat and related tasks.
+tasks:
+  - chat
+  - image-understanding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - audio
+  out:
+    - text
+pricing:
+  inputPerM: 2.5
+  outputPerM: 10
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths:
+  - Natively multimodal input handling
+  - Broad general-purpose assistant capability
+limitations:
+  - API only
+  - Closed API-only access
+  - Pricing and limits set by the provider
+betterOptions:
+  - id: gpt-6-1-terra
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

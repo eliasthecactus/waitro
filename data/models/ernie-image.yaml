@@ -1,0 +1,30 @@
+id: ernie-image
+name: ERNIE-Image
+org: Baidu
+released: 2026-04-07
+dateSource: huggingface
+summary: ERNIE-Image is an 8B open-weight text-to-image Diffusion Transformer from Baidu paired with a lightweight Prompt Enhancer that targets strong text rendering and structured layout generation.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 8.03
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/baidu/ERNIE-Image
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - ernie-image
+  - baidu
+lastChecked: 2026-11-08

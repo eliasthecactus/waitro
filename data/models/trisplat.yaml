@@ -1,0 +1,38 @@
+id: trisplat
+name: TriSplat
+org: research
+released: 2026-05-22
+dateSource: huggingface
+summary: TreSplat es a feed-forward 3D scene reconstruction model that predicts simulation-ready triangle meshes and camera poses from sparse unposed images in one forward pass.
+tasks:
+  - 3d-generation
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licenced for commercial use.
+io:
+  in:
+    - image
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Requiers an NVIDIA CUDA environment and building CUDA extensions.
+links:
+  weights: https://huggingface.co/lhmd/TriSplat
+  homepage: https://lhmd.top/trisplat/
+strengths:
+  - Predicts oriented triangle meshes camera poses point maps and appearance attributes in one forward pass
+  - Releases RealEstate10K and DL3DV checkpoints for open-weight use
+  - Exports vertex-colored PLY/OFF meshes that can be imported into Blender Open3D Isaac Sim Unity or PyBullet
+limitations:
+  - Simulation use may require mesh simplification or collision mesh generation
+  - Requires an NVIDIA CUDA environment and building CUDA extensions
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - triangle-mesh
+  - image-to-3d
+lastChecked: 2026-11-08

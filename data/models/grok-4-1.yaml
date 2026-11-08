@@ -1,0 +1,38 @@
+id: grok-4-1
+name: Grok 4.1
+org: xAI
+released: 2025-11-17
+dateSource: vendor
+summary: Grok 4.1 is xAI’s hosted general-purpose chat model available on grok.com X and mobile apps.
+tasks:
+  - chat
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://x.ai/news/grok-4-1
+strengths:
+  - Improved emotional intelligence and creative writing
+  - Reduced factual hallucinations for information-seeking prompts
+limitations:
+  - API only
+  - No open-weights release stated
+betterOptions:
+  - id: grok-4-6
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - xai
+lastChecked: 2026-11-08

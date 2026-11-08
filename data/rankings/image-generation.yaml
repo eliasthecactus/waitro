@@ -13,3 +13,6 @@ picks:
   - id: hunyuanimage-3
     label: "Reasons about prompts"
     why: "The largest open image MoE; territory limits in the licence."
+  - id: z-image-turbo
+    label: "Fast and Apache-2.0"
+    why: "6B distilled model, 8 steps, fits a 16 GB GPU, strong bilingual text rendering."

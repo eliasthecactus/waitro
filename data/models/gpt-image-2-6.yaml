@@ -1,0 +1,42 @@
+id: gpt-image-2-6
+name: GPT Image 2.6
+org: OpenAI
+released: 2026-11-04
+dateSource: vendor
+summary: OpenAI's hosted image generation and editing model available in ChatGPT Codex and the API as GPT-Image-2.6 Flare and Sunburst.
+tasks:
+  - image-generation
+  - image-editing
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+pricing:
+  inputPerM: 8
+  outputPerM: 30
+  note: Per 1M image tokens; text input $5 per 1M.
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://openai.com/index/introducing-images-2-6/
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths:
+  - Generates images 50% faster than before
+  - Supports prompt-based GIF creation
+  - API adds image markup SVG exports and complexity control
+limitations:
+  - API only
+  - No open-weights or self-hosting option described
+  - Speed and quality depend on Flare versus Sunburst variant
+notes: Summary from the official announcement page.
+tags:
+  - openai
+lastChecked: 2026-11-08

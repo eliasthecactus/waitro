@@ -1,0 +1,43 @@
+id: gemini-2-5-flash
+name: Gemini 2.5 Flash
+org: Google
+released: 2025-06-17
+dateSource: vendor
+summary: Gemini 2.5 Flash is a hosted Google language model offered via API. The provided listing marks it deprecated and notes rerouting to Gemini 3.5 Flash-Lite on 2026-12-01.
+tasks:
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 1000000
+pricing:
+  inputPerM: 0.3
+  outputPerM: 2.5
+  note: gemini-2.5-flash 0.30/2.50 (deprecated, reroutes to Gemini 3.5 Flash-Lite on 2026-12-01)
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Hosted API model from Google
+limitations:
+  - API only
+  - Deprecated in the provided listing
+  - Scheduled reroute to Gemini 3.5 Flash-Lite on 2026-12-01
+betterOptions:
+  - id: gemini-3-8-flash
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

@@ -1,0 +1,40 @@
+id: heartmula
+name: HeartMuLa
+org: HeartMuLa
+released: 2026-01-14
+dateSource: huggingface
+summary: Open-sourced family of music foundation models whose flagship HeartMuLa-oss-3B (3.94B parameters) generates music from text as part of the HeartMuLa ecosystem alongside HeartCodec-oss and…
+description: Open-sourced family of music foundation models whose flagship HeartMuLa-oss-3B (3.94B parameters) generates music from text as part of the HeartMuLa ecosystem alongside HeartCodec-oss and HeartTranscriptor-oss.
+tasks:
+  - music-generation
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - audio
+params:
+  total: 3.94
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/HeartMuLa/heartlib
+  weights: https://huggingface.co/HeartMuLa/HeartMuLa-oss-3B
+strengths:
+  - Open-source music foundation model family released under Apache 2.0
+  - Flagship 3.94B-parameter model is openly published on Hugging Face
+  - Ships with companion codec and transcriptor components
+limitations:
+  - Full usage requires the separate heartlib repository for setup
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - music-generation
+  - heartmula
+  - text-to-audio
+  - music
+lastChecked: 2026-11-08

@@ -1,0 +1,42 @@
+id: joyai-video-edit
+name: JoyAI Video Edit
+org: JoyAI
+released: 2026-08-04
+dateSource: github
+summary: JoyAI-Video-Edit is an open-weights real-time video editing system that combines an MLLM condition encoder a causal video VAE and a 16B-parameter multimodal diffusion transformer to edit frames…
+description: JoyAI-Video-Edit edits live camera streams or uploaded videos from natural-language instructions without waiting for the full sequence or requiring a predefined video length. It is designed as an autoregressive diffusion editor with bounded KV-state inference and deployment-oriented scheduling for high-throughput 720p streaming. The release includes deployment code and checkpoints (DiT and VAE) and an interactive browser demo.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires NVIDIA GPUs and building custom in-tree CUDA ops plus SageAttention / flash-attn-4; real-time streaming reported on RTX 5090 (32 GB) and RTX PRO 6000.
+links:
+  repo: https://github.com/jd-opensource/JoyAI-Video-Edit
+strengths:
+  - Streams edits causally as frames arrive without needing the full video upfront
+  - Reported 30 FPS end-to-end at 720 × 1248 in the deployment benchmark
+  - Supports subject local background style motion and reference-image-guided edits
+  - Uses an MLLM condition encoder with a causal video VAE and MMDiT backbone
+limitations:
+  - Requires building custom CUDA ops and SageAttention / flash-attn-4 before running
+  - MiMo-VL is a required external dependency and high-end GPUs are needed for real-time throughput
+  - A Diffusers pipeline is still listed as a TODO
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-editing
+  - streaming
+  - autoregressive-diffusion
+  - mmdit
+lastChecked: 2026-11-08

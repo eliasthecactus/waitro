@@ -1,0 +1,41 @@
+id: vibe
+name: Vibe
+org: Unknown
+released: 2025-12-30
+dateSource: huggingface
+summary: Codestral is a 22B open-weight code model for coding tasks and software agents.
+tasks:
+  - coding
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: limited
+  note: "Mistral AI Non-Production License: non-commercial and research use permitted under its terms."
+io:
+  in:
+    - text
+    - code
+  out:
+    - text
+    - code
+params:
+  total: 1.88
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+  note: Runs on NVIDIA GPUs via Mistral inference; other hardware not listed.
+links:
+  weights: https://huggingface.co/iitolstykh/VIBE-Image-Edit
+  homepage: https://riko0.github.io/VIBE/
+strengths:
+  - 22B-parameter coding model from Mistral AI
+  - Reports 80.0% on HumanEval pass@1
+  - Installed via pip and served with mistral-inference
+limitations:
+  - License is non-production and does not list production or commercial rights
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - code
+lastChecked: 2026-11-08

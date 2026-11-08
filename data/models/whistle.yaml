@@ -1,0 +1,40 @@
+id: whistle
+name: Whistle
+org: Cactus Compute
+released: 2026-09-30
+dateSource: huggingface
+summary: Whistle is a compact 16.9 MB speech model for transcription with word timestamps and speech embeddings in seven languages.
+description: Whistle is a speech model distributed as `whistle.cact` and `checkpoints/whistle.safetensors`. It supports transcription with word-level timestamps and speech embeddings in seven languages. Inference is available through the `cactus-compute` Python package which caches the engine and weights on first use. Audio input should be 16 kHz WAV unless the optional `cactus-compute[mic]` extra is installed for other sample rates or microphone capture.
+tasks:
+  - speech-to-text
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - audio
+  out:
+    - text
+    - embedding
+hardware:
+  platforms:
+    - cuda
+  note: No explicit hardware requirements are listed on the card; runtime binaries and supported platforms are documented in the Cactus repository.
+links:
+  weights: https://huggingface.co/Cactus-Compute/whistle
+  homepage: https://cactuscompute.com/blog/whistle
+strengths:
+  - Small footprint at 16.9 MB
+  - Produces word timestamps and speech embeddings in addition to transcription
+  - Supports seven languages
+limitations:
+  - Limited to seven languages
+  - Expects 16 kHz WAV input unless the optional mic extra is installed
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - speech-to-text
+  - speech-embeddings
+  - word-timestamps
+  - compact
+lastChecked: 2026-11-08

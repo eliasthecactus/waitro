@@ -1,0 +1,39 @@
+id: svg-t2i
+name: SVG-T2I
+org: Kling
+released: 2025-12-12
+dateSource: huggingface
+summary: SVG-T2I is a 2.6B-parameter latent diffusion transformer that generates images directly in Visual Foundation Model representation space without a VAE.
+tasks:
+  - image-generation
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Fully open-source with Apache-2.0 license
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Requires DINOv3 frozen encoder as a dependency
+links:
+  repo: https://github.com/KlingAIResearch/SVG-T2I
+  weights: https://huggingface.co/KlingTeam/SVG-T2I
+strengths:
+  - Generates images directly in VFM feature space using a 2.6B DiT
+  - Achieves 0.75 on GenEval and 85.78 on DPG-Bench
+  - Fully open-source with Apache-2.0 license
+limitations:
+  - Requires DINOv3 frozen encoder as a dependency
+  - Trained on large-scale text-image pairs
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - diffusion
+  - text-to-image
+  - visual-foundation-model
+  - representation-learning
+lastChecked: 2026-11-08

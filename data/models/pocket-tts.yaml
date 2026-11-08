@@ -1,0 +1,45 @@
+id: pocket-tts
+name: Pocket TTS
+org: kyutai-labs
+released: 2025-12-29
+dateSource: huggingface
+summary: Pocket TTS is a lightweight and highly efficient Text-to-Speech application by kyutai-labs designed to run low-latency operation directly on CPUs and browsers.
+description: This application is designed to run efficiently on CPUs, negating the need for dedicated GPUs. It supports multi-language generation and offers voice cloning functionality by accepting audio files as input.
+tasks:
+  - voice-cloning
+architecture: other
+access: open-weights
+license:
+  id: CC-BY-4.0
+  commercial: yes
+  note: Licenses include CC-BY 4.0 and MIT
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+hardware:
+  platforms:
+    - cpu
+    - browser
+    - apple-silicon
+  note: Designed for CPU efficiency with observed speedups on Apple Silicon (M4)
+links:
+  repo: https://github.com/kyutai-labs/pocket-tts
+  weights: https://huggingface.co/kyutai/pocket-tts
+strengths:
+  - Highly optimized for CPU performance
+  - Achieves low latency (~200ms) with fast audio streaming
+  - Features extremely small model variants down to 1.9M parameters
+limitations:
+  - GPU support is not officially guaranteed
+  - Rust binary implementation has different sampling noise than Python package
+  - Gated download
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - tts
+  - voice-cloning
+  - low-latency
+  - onnx
+lastChecked: 2026-11-08

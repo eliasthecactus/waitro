@@ -1,0 +1,45 @@
+id: dreamx-world
+name: DreamX World
+org: DreamX
+released: 2026-06-16
+dateSource: huggingface
+summary: DreamX World is a 5.28B-parameter causal diffusion-transformer world model that generates long-horizon camera-controllable videos from an initial image a text prompt and keyboard-style action…
+description: DreamX World is a 5.28B-parameter causal diffusion-transformer world model that generates long-horizon camera-controllable videos from an initial image a text prompt and keyboard-style action commands.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License
+io:
+  in:
+    - image
+    - text
+  out:
+    - video
+params:
+  total: 5.28
+hardware:
+  platforms:
+    - cuda
+  note: CUDA-oriented dependencies include flash-attn and triton
+links:
+  weights: https://huggingface.co/GD-ML/DreamX-World-5B
+  homepage: https://amap-ml.github.io/DreamX_World/
+strengths:
+  - Generates camera-controlled videos from an image text prompt and WASD/IJKL actions
+  - Supports long-horizon autoregressive rollouts up to about one minute at 16 FPS
+  - Uses chunk-wise causal inference with KV caching
+limitations:
+  - Requires Wan2.2-TI2V-5B components and a separate DreamX-World-5B checkpoint
+  - Inference script depends on CUDA-oriented packages such as flash-attn and triton
+  - Output length follows latent-frame block constraints such as divisibility by the default causal block size
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - world-model
+  - camera-control
+  - image-to-video
+lastChecked: 2026-11-08

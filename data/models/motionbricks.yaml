@@ -1,0 +1,42 @@
+id: motionbricks
+name: MotionBricks
+org: NVIDIA
+released: 2026-10-23
+dateSource: huggingface
+summary: MotionBricks is an NVIDIA motion generation model that produces real-time movement for humanoid robots and human characters from recent and target poses.
+tasks:
+  - 3d-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: NVIDIA Open Model Agreement
+io:
+  in:
+    - structured
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+    - onnx
+  note: NVIDIA GPUs (CUDA) for TensorRT demos; ONNX runtime for CPU or other backends.
+links:
+  weights: https://huggingface.co/nvidia/MotionBricks
+  homepage: https://nvlabs.github.io/motionbricks/
+strengths:
+  - Real-time motion generation from recent and target poses
+  - Smart Primitives create reusable building blocks without retraining
+  - Pretrained SafeTensors weights for SOMA and Unitree G1 families
+limitations:
+  - Produces motion sequences only; not a physical robot controller
+  - Hardware deployment requires a separate tracking controller and safety validation
+  - Weights omit the training pipeline and the full training dataset
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - motion-generation
+  - humanoid-robotics
+  - real-time
+  - pose-to-motion
+lastChecked: 2026-11-08

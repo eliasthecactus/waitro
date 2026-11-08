@@ -1,0 +1,46 @@
+id: claude-fable-5
+name: Claude Fable 5
+org: Anthropic
+summary: Claude Fable 5 is a hosted API model in Anthropic's Claude family of large language models documented on the Claude Platform Docs models overview.
+tasks:
+  - chat
+  - reasoning
+  - agents
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+contextTokens: 1000000
+pricing:
+  inputPerM: 10
+  outputPerM: 50000
+  source: https://platform.claude.com/docs/en/about-claude/pricing
+hardware:
+  platforms:
+    - api
+links:
+  docs: https://platform.claude.com/docs/en/about-claude/models/overview
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths:
+  - Built for demanding reasoning and long-horizon agentic work
+  - 1M token context window with up to 128K output tokens
+  - Text and image input with multilingual support and tool use
+limitations:
+  - API only
+  - Slowest comparative latency of the current Claude lineup
+  - Highest price tier in the family at 10/50 per MTok
+betterOptions:
+  - id: claude-fable-5-1
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - anthropic
+lastChecked: 2026-11-08

@@ -1,0 +1,45 @@
+id: hy-wu
+name: HY-WU
+org: Tencent
+released: 2026-03-05
+dateSource: huggingface
+summary: HY-WU is an 8B functional neural memory framework from Tencent that synthesizes instance-conditioned LoRA updates for text-guided image editing on a frozen HunyuanImage-3.0-Instruct backbone.
+description: HY-WU is a functional neural memory framework from Tencent and an instantiation for text-guided image editing. It generates instance-conditioned LoRA-like adapter weights from hybrid image–instruction representations and injects them into a frozen backbone during the forward pass, avoiding test-time optimization. The released inference code uses a HunyuanImage-3.0-Instruct base model and requires multi-GPU inference. The license is the Tencent Hunyuan Community License and excludes the European Union, United Kingdom, and South Korea.
+tasks:
+  - image-editing
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: limited
+  note: Tencent Hunyuan Community License with territory restrictions.
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+params:
+  total: 8.1
+hardware:
+  platforms:
+    - cuda
+  note: Recommended ≥ 8 × 40 GB or 4 × 80 GB VRAM.
+links:
+  weights: https://huggingface.co/tencent/HY-WU
+  homepage: https://tencent-hy-wu.github.io/
+strengths:
+  - Synthesizes instance-conditioned adapter weights from hybrid image-instruction representations without test-time optimization
+  - Preserves the frozen base model's general capability while adding instance-level personalization
+  - Scales to large foundation models via structured parameter tokenization
+limitations:
+  - Multi-GPU inference is required with recommended 8x40GB or 4x80GB VRAM
+  - Licence territory excludes the European Union United Kingdom and South Korea
+  - Distilled and other model checkpoints are not yet released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-guided-image-editing
+  - lora-adapters
+  - functional-neural-memory
+  - multi-gpu
+lastChecked: 2026-11-08

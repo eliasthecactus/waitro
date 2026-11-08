@@ -1,0 +1,46 @@
+id: trackcraft3r
+name: TrackCraft3r
+org: KAIST CVLab
+released: 2026-05-04
+dateSource: huggingface
+summary: TrackCraft3R is a dense 3D tracking model that repurposes a pre-trained Wan2.1-T2V-1.3B video diffusion transformer to predict dense per-pixel 3D trajectories from a monocular video with depth and…
+description: TrackCraft3R is a dense 3D tracking model that repurposes a pre-trained Wan2.1-T2V-1.3B video diffusion transformer to predict dense per-pixel 3D trajectories from a monocular video plus depth and camera in a single forward pass.
+tasks:
+  - image-understanding
+  - depth-estimation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+    - depth
+    - structured
+  out:
+    - 3d
+    - depth
+params:
+  total: 8.88
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/cvlab-kaist/TrackCraft3r
+  weights: https://huggingface.co/trackcraft3r/checkpoint
+strengths:
+  - Single forward pass produces dense per-pixel 3D trajectories and depth back-projections
+  - Trained checkpoint and training code released under Apache-2.0
+  - Built on the public Wan2.1-T2V-1.3B video diffusion backbone
+limitations:
+  - Requires predicted depth and camera from an external preprocessor such as DA3 or ViPE
+  - Training setup assumes 8 x NVIDIA H200 GPUs with CUDA 12.1
+  - Trained on synthetic datasets (Kubric Dynamic Replica PointOdyssey TartanAir)
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - dense-3d-tracking
+  - video-diffusion-transformer
+  - wan2-1
+  - monocular-video
+lastChecked: 2026-11-08

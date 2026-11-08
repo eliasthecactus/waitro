@@ -1,0 +1,47 @@
+id: sensenova-loop-9b
+name: SenseNova-Loop 9B
+org: OpenSenseNova
+released: 2026-10-28
+dateSource: huggingface
+summary: A 9B-parameter autoregressive multimodal decoder that runs a shared 24-layer block twice for 56 layer executions per pass and targets long-context document understanding and agentic tool use.
+description: SenseNova-Loop-9B-Preview is an autoregressive multimodal decoder from OpenSenseNova that accepts text and images and generates text, aimed at document understanding, coding and external tool interaction. It combines a shared-weight looped decoder block (layers applied twice) with two-stream manifold-constrained hyper-connections and hybrid linear/full attention in a repeating four-layer pattern. Training recipes documented by the authors use sequences up to 262,144 tokens covering text, images, code and tool trajectories.
+tasks:
+  - image-understanding
+  - agents
+  - coding
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 9.66
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Checked environment uses Transformers 5.18.0 and PyTorch 2.11.0 with CUDA 13.0; single-GPU example given, with four-GPU LightLLM and SGLang serving examples.
+links:
+  repo: https://github.com/OpenSenseNova/SenseNova-Loop
+  weights: https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview
+strengths:
+  - Shared-weight looped block gives 56 decoder-layer executions from 32 distinct layers without duplicating weights
+  - Documented multimodal training at sequence lengths up to 262K tokens
+  - MTP speculative decoding is available for accelerated inference
+limitations:
+  - Execution depends on checkpoint-specific loop range pass count and mHC routing parameters that a compatible implementation must reproduce
+  - Dspark and Dflash2 acceleration methods are still training in progress
+  - Requires trust_remote_code with the custom SenseNova Loop implementation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - looped-decoder
+  - long-context
+  - agentic
+lastChecked: 2026-11-08

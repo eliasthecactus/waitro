@@ -1,0 +1,42 @@
+id: worldplay-2
+name: WorldPlay 2
+org: WorldPlay project
+released: 2026-09-28
+dateSource: github
+summary: WorldPlay 2 is an open-weights interactive video world model built on Wan2.2 I2V-A14B that generates controllable video from an input image text prompts and movement or look actions.
+tasks:
+  - video-generation
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Commercial use is unknown because the licence is NOASSERTION
+io:
+  in:
+    - text
+    - video
+  out:
+    - audio
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires a CUDA-capable NVIDIA GPU and Python 3.10+
+links:
+  repo: https://github.com/WorldPlay2/WorldPlay2
+  homepage: https://worldplay2.github.io/
+strengths:
+  - Open model weights and inference code are released
+  - Provides Fast BI and AR checkpoints with a 4-step few-step mode
+  - Includes a Reactor browser frontend for interactive WASD and arrow-key control
+limitations:
+  - Requires a CUDA-capable NVIDIA GPU and Python 3.10+
+  - Commercial use is unknown because the licence is NOASSERTION
+  - Action and prompt durations must align with chunk_length
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - worldplay-project
+  - interactive-world-model
+  - wan2-2
+  - autoregressive
+lastChecked: 2026-11-08

@@ -1,0 +1,47 @@
+id: ripple-65b
+name: Ripple 65B
+org: Ricursive
+released: 2026-11-04
+dateSource: huggingface
+summary: Ripple 65B is a 65B-parameter dense Transformer instruction-tuned language model from Ricursive with up to 1Mi context and strong agentic coding performance.
+description: description
+tasks:
+  - coding
+  - reasoning
+  - agents
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - code
+  out:
+    - text
+    - code
+params:
+  total: 64.78
+contextTokens: 1048576
+hardware:
+  platforms:
+    - cuda
+  note: NVIDIA DGX Spark
+links:
+  weights: https://huggingface.co/ricursiveAI/Ripple-65B-Preview
+  homepage: https://www.ricursive.com/ripple
+strengths:
+  - Scores 80.52 on TerminalBench 2.1 for agentic coding
+  - Supports up to 1Mi tokens of context
+  - Apache 2.0 licensed for commercial use
+limitations:
+  - Preview release has relatively light posttraining focused on agentic coding
+  - Text-only model pretrained on predominantly English and code corpus
+  - Efficient serving is tied to NVIDIA hardware
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 65b
+  - dense
+  - long-context
+lastChecked: 2026-11-08

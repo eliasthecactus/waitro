@@ -1,0 +1,36 @@
+id: gemini-3-8-live
+name: Gemini 3.8 Live
+org: Google
+released: 2024-01-01
+dateSource: vendor
+summary: "Gemini 3.8 Live is an API-hosted Google model with text and audio input/output pricing. Pricing: text $0.75/$4.50; audio input $0.005/min and audio output $0.018/min."
+tasks:
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - audio
+  out:
+    - text
+    - audio
+pricing:
+  perMinute: 0.005
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Supports live text and audio I/O
+  - Separate per-minute audio pricing
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

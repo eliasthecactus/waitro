@@ -1,0 +1,40 @@
+id: longcat-image
+name: LongCat-Image
+org: Meituan
+released: 2025-12-04
+dateSource: huggingface
+summary: LongCat-Image is a 6B-parameter open-source bilingual Chinese-English diffusion foundation model for text-to-image generation with strong Chinese text rendering and photorealism.
+description: LongCat-Image is a foundation model for image generation from Meituan with only 6B parameters. It is built for multilingual text rendering (Chinese and English), photorealism, deployment efficiency and developer accessibility. It runs through a Diffusers pipeline (LongCatImagePipeline) on CUDA in bfloat16 and supports CPU offloading. Text rendering uses a character-level encoding strategy that only triggers when the target text is enclosed in single or double quotation marks. The card notes it can also be applied to image editing tasks involving text generation.
+tasks:
+  - image-generation
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0 per the model metadata
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: bfloat16 inference on CUDA; CPU offload enabled to fit low-VRAM devices, which the card says requires about 17 GB
+links:
+  weights: https://huggingface.co/meituan-longcat/LongCat-Image
+strengths:
+  - Surpasses several times larger open-source models on multiple benchmarks despite only 6B parameters
+  - Strong Chinese text rendering with broad Chinese dictionary coverage
+  - Photorealism achieved through a dedicated data strategy and training framework
+limitations:
+  - CPU offload path needs around 17 GB of VRAM
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-generation
+  - text-to-image
+  - chinese-english
+  - text-rendering
+lastChecked: 2026-11-08

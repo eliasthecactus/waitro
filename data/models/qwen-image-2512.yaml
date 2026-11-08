@@ -1,0 +1,40 @@
+id: qwen-image-2512
+name: Qwen-Image-2512
+org: Alibaba Qwen
+released: 2025-12-30
+dateSource: huggingface
+summary: Qwen-Image-2512 is a 20.43B-parameter text-to-image diffusion model from Alibaba Qwen and the December update to Qwen-Image with improved human realism natural detail and text rendering.
+description: Qwen-Image-2512 is the December update of Alibaba Qwen's text-to-image foundational model. It improves human realism and fine natural detail while also improving text rendering and multimodal text-image composition. It is released under Apache-2.0 and can be run with the diffusers DiffusionPipeline on CUDA or CPU.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 20.43
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: The model card shows bfloat16 CUDA inference and float32 CPU inference.
+links:
+  weights: https://huggingface.co/Qwen/Qwen-Image-2512
+strengths:
+  - Enhanced human realism and reduced AI-generated look
+  - Finer detail for landscapes animal fur and natural elements
+  - Improved text rendering and layout
+limitations:
+  - Large 20.43B parameter size increases compute requirements
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - diffusion
+  - qwen
+lastChecked: 2026-11-08

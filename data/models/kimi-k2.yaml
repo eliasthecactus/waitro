@@ -1,0 +1,52 @@
+id: kimi-k2
+name: Kimi K2
+org: Moonshot
+released: 2025-07-11
+dateSource: huggingface
+summary: Kimi K2 is a 1T-parameter mixture-of-experts language model for agentic tool use reasoning and coding.
+description: Kimi-K2-Instruct is an open-weight MoE language model with 32B activated parameters and 128K context.
+tasks:
+  - coding
+  - reasoning
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: modified-mit
+  commercial: limited
+  note: Modified MIT license permits commercial use but requires prominent “Kimi K2” attribution for products over 100M MAU or $20M monthly revenue.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 1026.41
+  active: 32
+contextTokens: 128000
+hardware:
+  platforms:
+    - cuda
+  note: Recommended inference engines include vLLM SGLang KTransformers and TensorRT-LLM.
+links:
+  weights: https://huggingface.co/moonshotai/Kimi-K2-Instruct
+strengths:
+  - Strong agentic tool use and coding benchmarks
+  - 1T total parameters with 32B activated and 128K context
+  - Released as base and instruct checkpoints
+limitations:
+  - Large 1T-parameter MoE requires substantial inference infrastructure
+  - Commercial use above 100M MAU or $20M monthly revenue requires prominent Kimi K2 attribution
+  - Instruct variant is a non-thinking reflex model
+betterOptions:
+  - id: kimi-k3-1-pro
+    why: A newer version from the same team.
+    aspects:
+      - quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - agentic
+  - tool-use
+  - reasoning
+lastChecked: 2026-11-08

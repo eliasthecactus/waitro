@@ -1,0 +1,49 @@
+id: nemotron-3-ultra
+name: Nemotron 3 Ultra
+org: NVIDIA
+released: 2026-06-03
+dateSource: huggingface
+summary: Nemotron 3 Ultra is a 550B total (55B active) parameter BF16 language model from NVIDIA using a Mamba-2/MoE/attention hybrid LatentMoE architecture with up to a 1M-token context for agentic and…
+description: Frontier-scale 550B total (55B active) parameter MoE model with a Mamba2-Transformer hybrid LatentMoE architecture trained for agentic, reasoning and conversational workloads with up to a 1M-token context.
+tasks:
+  - reasoning
+  - agents
+  - coding
+access: open-weights
+license:
+  id: openmdw-1.1
+  commercial: yes
+  note: OpenMDW License Agreement version 1.1; model card states it is ready for commercial and non-commercial use.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 560.52
+  active: 55
+contextTokens: 1000000
+hardware:
+  platforms:
+    - cuda
+  note: Minimum 8x GB200/B200/GB300/B300, 16x H100, or 8x H200 GPUs.
+links:
+  weights: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16
+  homepage: https://developer.nvidia.com/blog/nvidia-nemotron-3-ultra-powers-faster-more-efficient-reasoning-for-long-running-agents/
+strengths:
+  - Supports a context length of up to 1M tokens
+  - Configurable reasoning mode (enable_thinking True/False) in the chat template
+  - Covers ten languages with strong multilingual reasoning
+  - Optimized for agentic workflows and tool use
+limitations:
+  - Serving requires a multi-GPU footprint such as 16x H100 or 8x B200-class GPUs
+  - Very large 550B total parameter model even though only 55B parameters are active per token
+  - Usage is governed by the OpenMDW License Agreement version 1.1
+  - Benchmarks cover a limited set of languages and tasks
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - latentmoe
+  - mamba2
+  - multi-token-prediction
+  - long-context
+lastChecked: 2026-11-08

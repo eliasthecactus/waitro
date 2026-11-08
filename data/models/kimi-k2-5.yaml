@@ -1,0 +1,55 @@
+id: kimi-k2-5
+name: Kimi K2.5
+org: Moonshot AI
+released: 2026-01-01
+dateSource: huggingface
+summary: Kimi K2.5 is a 1T-parameter open-weights MoE multimodal agentic model with 32B activated parameters and a MoonViT vision encoder.
+tasks:
+  - agents
+  - image-understanding
+  - coding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: modified-mit
+  commercial: limited
+  note: Modified MIT adds prominent attribution above 100M MAU or $20M monthly revenue
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+    - code
+params:
+  total: 1026.88
+  active: 32
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+    - api
+  note: Native INT4 quantization is provided
+links:
+  weights: https://huggingface.co/moonshotai/Kimi-K2.5
+  homepage: https://www.kimi.com/
+strengths:
+  - Native multimodal MoE with 1T total and 32B activated parameters
+  - 256K context and MoonViT vision encoder support image and video understanding
+  - Agent Swarm and coding-with-vision capabilities
+limitations:
+  - Modified MIT licence requires prominent Kimi K2.5 attribution above 100M MAU or $20M monthly revenue
+  - 1T total parameters require substantial deployment resources
+betterOptions:
+  - id: kimi-k3-1-pro
+    why: A newer version from the same team.
+    aspects:
+      - quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - agentic
+  - vision
+  - moe
+lastChecked: 2026-11-08

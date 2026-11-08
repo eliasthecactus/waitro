@@ -1,0 +1,48 @@
+id: ui-tars
+name: UI-TARS
+org: ByteDance
+released: 2025-04-16
+dateSource: huggingface
+summary: UI-TARS-1.5-7B is an open-source 8.3B-parameter multimodal vision-language agent from ByteDance for GUI interaction that reasons before acting across computer browser and phone tasks.
+description: UI-TARS-1.5-7B is an open-source 8.3B-parameter multimodal vision-language agent from ByteDance for GUI interaction that reasons before acting across computer browser and phone tasks. It uses reinforcement learning to improve inference-time scaling and decision-making. The model card reports state-of-the-art results on several GUI and grounding benchmarks.
+tasks:
+  - agents
+  - reasoning
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: "Apache 2.0: permissive commercial reuse and redistribution allowed with attribution. No revenue or user caps are specified in the metadata."
+io:
+  in:
+    - image
+    - text
+  out:
+    - text
+params:
+  total: 8.29
+contextTokens: 32768
+hardware:
+  platforms:
+    - cuda
+  note: Requires a modern NVIDIA GPU (CUDA) with sufficient VRAM to serve an 8.3B-parameter multimodal model. CPU or Apple Silicon inference is not documented.
+links:
+  weights: https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B
+strengths:
+  - Supports GUI grounding and computer browser and phone use tasks
+  - Reasons through thoughts before taking actions using reinforcement learning
+  - Reports strong benchmark results including 42.5 on OSWorld and 64.2 on Android World
+  - Released as open weights under Apache-2.0
+limitations:
+  - Released 7B model focuses on general computer use and is not specifically optimized for games
+  - UI-TARS-1.5-7B trails the unreleased UI-TARS-1.5 on some benchmarks such as OSWorld (27.5 vs 42.5)
+  - Top-performing UI-TARS-1.5 is available only through early research access by contacting ByteDance
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - gui-agent
+  - multimodal
+  - vision-language
+  - computer-use
+lastChecked: 2026-11-08

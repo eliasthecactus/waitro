@@ -1,0 +1,44 @@
+id: longcat-video-avatar
+name: LongCat-Video-Avatar
+org: Meituan
+released: 2026-05-21
+dateSource: huggingface
+summary: LongCat-Video-Avatar 1.5 is an open-weights audio-driven human video generation model from Meituan built on LongCat-Video for producing avatar videos from audio text and images with distilled 8-step…
+description: LongCat-Video-Avatar 1.5 is an open-weights audio-driven human video generation model from Meituan built on LongCat-Video for producing avatar videos from audio text and images with distilled 8-step inference.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: Model weights released under MIT License.
+io:
+  in:
+    - audio
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: CUDA GPU setup with FlashAttention-2 and multi-GPU torchrun examples; INT8 quantized DiT option available.
+links:
+  weights: https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5
+  homepage: https://meigen-ai.github.io/LongCat-Video-Avatar/
+strengths:
+  - Accurate lip synchronization with full-body temporal stability and identity consistency
+  - Supports single- and multi-stream audio for AT2V ATI2V and video continuation
+  - MIT-licensed weights allow commercial use
+limitations:
+  - Requires CUDA GPU setup with FlashAttention-2 and multi-GPU torchrun examples
+  - Avatar-v1.5 inference requires distillation mode and INT8 use is limited to v1.5
+  - Not comprehensively evaluated for every downstream application
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - audio-driven
+  - avatar
+  - video-generation
+  - diffusion
+lastChecked: 2026-11-08

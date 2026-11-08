@@ -1,0 +1,48 @@
+id: mimo-v2-flash
+name: MiMo-V2-Flash
+org: Xiaomi
+released: 2025-12-16
+dateSource: huggingface
+summary: MiMo-V2-Flash is a 309B-parameter (15B active) Mixture-of-Experts language model from Xiaomi built for fast reasoning and agentic workflows with a 256k context window.
+description: MiMo-V2-Flash is a Mixture-of-Experts language model with 309B total parameters and 15B active parameters, built on a hybrid attention architecture that interleaves sliding window attention with global attention at a 5:1 ratio. It adds an integrated Multi-Token Prediction module (0.33B parameters per block) that the authors report triples output speed during inference. Per the authors, post-training with Multi-Teacher On-Policy Distillation and large-scale agentic RL yields strong results on SWE-Bench Verified (73.4) and reasoning benchmarks, and the model is released under an MIT licence with base and MTP weights on HuggingFace.
+tasks:
+  - reasoning
+  - coding
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licence; no usage restrictions stated in the card.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 309.77
+  active: 15
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+  note: The card gives no explicit GPU memory requirements; pre-training used FP8 mixed precision and inference speedups are attributed to self-speculative decoding via MTP.
+links:
+  weights: https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash
+  homepage: https://mimo.xiaomi.com/blog/mimo-v2-flash
+strengths:
+  - Hybrid sliding-window and global attention cuts KV-cache storage by nearly 6x per the authors
+  - Integrated MTP module enables self-speculative decoding that triples generation speed
+  - Trained for agentic and coding work with large-scale RL including 100000+ verifiable code tasks
+  - Supports a 256k context window with strong reported long-context retrieval
+limitations:
+  - 309B total parameters imply a large memory footprint despite only 15B being active
+  - Aggressive 128-token sliding window relies on a learnable attention sink bias to hold long-context quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - long-context
+  - agentic
+  - coding
+lastChecked: 2026-11-08

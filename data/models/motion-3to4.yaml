@@ -1,0 +1,45 @@
+id: motion-3to4
+name: Motion 3to4
+org: Motion 3to4
+released: 2026-01-21
+dateSource: github
+summary: Motion 3-to-4 is a feedforward model that reconstructs 3D motion from video to produce animated 4D meshes within seconds.
+description: Motion 3-to-4 reconstructs 3D motion from videos for 4D synthesis in a feedforward manner within seconds. It can animate an existing mesh (.glb/.fbx) using a video, or generate a 4D animation from a single video input, outputting animated GLB/FBX files and rendered videos. The repository includes training code (configs/dyscene.yaml), inference scripts, a Motion80 benchmark, and evaluation for mesh geometry (Chamfer Distance, F-score) and video quality (FVD, LPIPS, DreamSim, CLIP Loss).
+tasks:
+  - 3d-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: CC BY-NC-SA 4.0 (non-commercial)
+io:
+  in:
+    - video
+    - 3d
+  out:
+    - 3d
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Tested with Python 3.11 + PyTorch 2.4.1 + CUDA 12.4; GPU compute capability must be > 8.0 due to xformers memory_efficient_attention with flash_attn.
+links:
+  repo: https://github.com/Inception3D/Motion324
+  homepage: https://motion3-to-4.github.io/
+strengths:
+  - Feedforward 3D motion reconstruction from video in seconds
+  - Animates existing GLB/FBX meshes or generates 4D animation from a single video
+  - Ships training code plus the Motion80 benchmark and evaluation scripts
+limitations:
+  - Released under CC BY-NC-SA 4.0 (non-commercial use only)
+  - Requires downloading pre-trained checkpoints before inference
+  - GPU compute capability above 8.0 needed for the flash-attention path
+  - Blender required for rendering 4D results
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-motion
+  - 4d-synthesis
+  - video-to-4d
+  - mesh-animation
+lastChecked: 2026-11-08

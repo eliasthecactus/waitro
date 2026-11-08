@@ -1,0 +1,42 @@
+id: minicpm5-1b
+name: MiniCPM5-1B
+org: OpenBMB
+released: 2026-05-21
+dateSource: huggingface
+summary: MiniCPM5-1B is a 1.08B-parameter dense LlamaForCausalLM causal language model for local assistants coding agents tool use and reasoning with 131072-token context and switchable Think/No Think modes.
+tasks:
+  - on-device-llm
+  - agents
+  - coding
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 1.08
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: Runs on CUDA GPUs CPU and Apple Silicon via MLX and GGUF runtimes
+links:
+  weights: https://huggingface.co/openbmb/MiniCPM5-1B
+strengths:
+  - Dense 1.08B LlamaForCausalLM with 131072-token context and hybrid Think/No Think modes in one checkpoint
+  - Released in BF16 GGUF and MLX formats for local runtimes including CPU and Apple Silicon
+limitations:
+  - Tool calling is described as best supported with the SGLang minicpm5 parser
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - on-device-llm
+  - agents
+  - coding
+lastChecked: 2026-11-08

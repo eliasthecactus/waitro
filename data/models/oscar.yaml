@@ -1,0 +1,42 @@
+id: oscar
+name: Oscar
+org: Oscar authors
+released: 2026-05-14
+dateSource: huggingface
+summary: Oscar is a 2B-parameter action-conditioned robotics world model fine-tuned from Cosmos-Predict2.5-2B that generates skeleton-conditioned robot videos.
+description: Oscar is an omni-embodiment action-conditioned world model for robotics. This public inference release provides the OSCAR-2B checkpoint — a fine-tune of Cosmos-Predict2.5-2B for skeleton-conditioned robot video generation. The release includes distributed checkpoint shards (~4 GB), inference code quick-start instructions, 14 benchmark cases, and a case map covering embodiment/start frame/episode mapping.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Distributed checkpoint shards (~4 GB).
+links:
+  weights: https://huggingface.co/zywu2115/OSCAR-2B
+  homepage: https://wuzy2115.github.io/oscar-project-page/
+strengths:
+  - Action-conditioned world model fine-tuned for skeleton-conditioned robot video generation
+  - Built on Cosmos-Predict2.5-2B and shipped as a public inference release
+  - Apache-2.0 licensed for commercial use
+limitations:
+  - Specialized to robotics video generation rather than general-purpose video
+  - Requires action/skeleton conditioning
+  - Checkpoint is distributed across shards
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - robotics
+  - world-model
+  - video-generation
+  - action-conditioned
+lastChecked: 2026-11-08

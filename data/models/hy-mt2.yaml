@@ -1,0 +1,43 @@
+id: hy-mt2
+name: HY-MT2
+org: Tencent
+released: 2026-05-11
+dateSource: huggingface
+summary: HY-MT2 is a family of fast-thinking multilingual translation models from Tencent — 1.8B, 7B and a 30B-A3B MoE — that translates among 33 languages and follows translation instructions in multiple…
+description: HY-MT2 translates among 33 languages and is built to follow multi-lingual translation instructions rather than plain sentence translation. The family spans 1.8B, 7B and 30B-A3B (MoE) sizes, with FP8 and GGUF variants published for the smaller models. AngelSlim 1.25-bit quantization brings the 1.8B model down to 440 MB of storage and 1.5x faster inference for on-device deployment. Prompt templates in the card cover default translation, terminology constraints, style control, personalization, delimiter preservation and structured-data translation that keeps keys and placeholders intact. Inference is documented for transformers, vLLM and SGLang, and full-parameter and LoRA fine-tuning are supported through DeepSpeed ZeRO configurations and LLaMA-Factory.
+tasks:
+  - translation
+  - on-device-llm
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 30.06
+  active: 3
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: Recommended sampling defaults differ by size (temperature 0.7 top_p 0.6 top_k 20 for 1.8B/7B; temperature 0.7 top_p 1.0 top_k -1 for 30B-A3B) with max_tokens 4096; no default system prompt is set.
+links:
+  weights: https://huggingface.co/tencent/Hy-MT2-30B-A3B
+strengths:
+  - Translates among 33 languages and follows translation instructions in multiple languages
+  - Prompt patterns cover terminology constraints style control personalization delimiters and structured-data translation
+  - Publishes FP8 and GGUF variants of the smaller models for quantized and on-device deployment
+limitations:
+  - No default system prompt is provided so the caller must supply one
+  - Recommended sampling parameters differ between the 1.8B/7B and 30B-A3B variants
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - translation
+  - moe
+  - multilingual
+lastChecked: 2026-11-08

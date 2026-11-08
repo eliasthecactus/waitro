@@ -1,0 +1,40 @@
+id: astabrief
+name: AstaBrief
+org: Allen AI
+released: 2026-02-09
+dateSource: huggingface
+summary: AstaBrief-8B is an 8B-parameter language model fine-tuned from Qwen3-8B to generate cited research reports from a question and retrieved scientific literature excerpts.
+tasks:
+  - reasoning
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 16000
+hardware:
+  platforms:
+    - cuda
+  note: Trained on 8xH100s; inference code uses vLLM and transformers.
+links:
+  weights: https://huggingface.co/allenai/AstaBrief_8B
+  homepage: https://allenai.org/blog/astabrief
+strengths:
+  - Generates cited reports from a research question and retrieved literature excerpts
+  - Outperforms its SFT checkpoint and Qwen3-8B on the ScholarQA-CS2 test set
+  - Competitive with Asta ScholarQA and DR-Tulu on several benchmarks
+limitations:
+  - Recommended prompt format must be used at inference to avoid degraded behavior
+  - Intended for research and educational use under Ai2's Responsible Use Guidelines
+  - Trained with supervised fine-tuning and offline DPO only
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - research-report-generation
+  - citation-generation
+  - scientific-qa
+lastChecked: 2026-11-08

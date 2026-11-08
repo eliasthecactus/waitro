@@ -1,0 +1,49 @@
+id: hunyuanocr
+name: HunyuanOCR
+org: Tencent
+released: 2025-11-18
+dateSource: huggingface
+summary: HunyuanOCR-1.5 is a lightweight 1.12B-parameter end-to-end OCR vision-language model for document parsing, text spotting, information extraction and text-image translation.
+description: HunyuanOCR-1.5 is a lightweight 1.12B-parameter end-to-end OCR-specialized vision-language model that unifies document parsing, text spotting, information extraction and text-image translation in a single model.
+tasks:
+  - ocr
+  - translation
+architecture: transformer
+access: open-weights
+license:
+  id: tencent-hunyuan-community
+  commercial: limited
+  note: "Tencent Hunyuan Community License: royalty-free use but the licence expressly excludes the European Union, United Kingdom and South Korea, and is subject to an Acceptable Use Policy."
+io:
+  in:
+    - image
+  out:
+    - text
+    - structured
+params:
+  total: 1.12
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: Requires an NVIDIA GPU with CUDA 13 for the unified vLLM/DFlash/transformers stack; a GGUF-converted checkpoint also supports CPU and consumer-GPU deployment via llama.cpp.
+links:
+  weights: https://huggingface.co/tencent/HunyuanOCR
+  homepage: https://hunyuan.tencent.com/vision/zh?tabIndex=0
+strengths:
+  - Covers document parsing text spotting info extraction and text-image translation in one VLM
+  - DFlash speculative decoding draft model reduces latency on long structured outputs
+  - Supports up to 4K image resolution and a 128K context window
+  - Runnable on PC via llama.cpp GGUF and on servers via vLLM
+limitations:
+  - Licence territory excludes the EU UK and South Korea
+  - Official inference environment requires CUDA 13 and an NVIDIA GPU
+  - Primary focus on text-centric visual tasks rather than general vision
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - ocr
+  - document-parsing
+  - vision-language
+  - text-spotting
+lastChecked: 2026-11-08

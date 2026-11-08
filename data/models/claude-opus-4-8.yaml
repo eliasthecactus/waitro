@@ -1,0 +1,46 @@
+id: claude-opus-4-8
+name: Claude Opus 4.8
+org: Anthropic
+released: 2026-05-28
+dateSource: vendor
+summary: Claude Opus 4.8 is Anthropic's upgraded flagship Claude model an API-hosted successor to Opus 4.7 released at the same price point and pitched at coding agents plus practical knowledge work.
+tasks:
+  - chat
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+pricing:
+  inputPerM: 5
+  outputPerM: 25
+  source: https://platform.claude.com/docs/en/about-claude/pricing
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://www.anthropic.com/news/claude-opus-4-8
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths:
+  - Reported improvements over Opus 4.7 across coding agentic and reasoning benchmarks
+  - Around four times less likely to leave code flaws unremarked than its predecessor
+  - More efficient tool calling and stronger browser/computer-use scores per early testers
+limitations:
+  - API only
+  - Offered as a hosted API model with no open weights
+betterOptions:
+  - id: claude-opus-5-5
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - anthropic
+lastChecked: 2026-11-08

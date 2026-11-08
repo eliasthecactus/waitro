@@ -1,0 +1,46 @@
+id: mosaichunk
+name: MosaiChunk
+org: Unknown
+released: 2026-10-01
+dateSource: huggingface
+summary: Open-weight Agentic Coding Experts with 1T total and 32B active parameters for coding and agent workflows.
+description: agentic coding experts
+tasks:
+  - coding
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: mosaichunk-backbone-licenses
+  commercial: yes
+  note: Open weights released by DeepReinforce under a permissive Apache 2.0 license.
+io:
+  in:
+    - text
+    - code
+  out:
+    - code
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+    - rocm
+    - cpu
+  note: Optimized for NVIDIA Hopper and Blackwell GPUs.
+links:
+  weights: https://huggingface.co/mosaichunk/MosaiChunk
+  homepage: https://mosaichunk.github.io/
+strengths:
+  - Strong performance on realistic coding-agent benchmarks
+  - Balances strength and efficiency with 1T total and 32B active params
+  - Supports flexible tool use and multi-step planning
+limitations:
+  - Known to occasionally regress on rare edge cases and complex multi-step tasks
+  - Safety guardrails are more permissive than some enterprise policies allow
+  - No formal guarantees of correctness or fitness for a particular purpose are provided
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe-transformer
+  - coding
+  - agents
+lastChecked: 2026-11-08

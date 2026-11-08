@@ -1,0 +1,32 @@
+id: seedream-5-pro
+name: Seedream 5 Pro
+org: ByteDance Seed
+summary: Seedream 5.0 Pro is a ByteDance Seed multimodal image generation model with advanced reasoning for text-rich infographics and annotation-guided editing.
+tasks:
+  - image-generation
+  - image-editing
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://seed.bytedance.com/en/seedream5_0_pro
+strengths:
+  - Generates text-rich infographics and dense layouts
+  - Supports annotation- and sketch-guided image editing
+  - Natively supports prompting and image text in many languages
+limitations:
+  - API only
+notes: Summary from the official announcement page.
+tags:
+  - bytedance
+lastChecked: 2026-11-08

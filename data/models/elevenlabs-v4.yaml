@@ -1,0 +1,31 @@
+id: elevenlabs-v4
+name: ElevenLabs v4
+org: ElevenLabs
+summary: ElevenLabs v4 and v4 Turbo are expressive text-to-speech models for controllable multi-speaker speech with inline audio tags; Turbo targets realtime and agents.
+tasks:
+  - text-to-speech
+  - voice-cloning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - audio
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://elevenlabs.io/v4
+strengths:
+  - Expressive speech with emotional direction and inline audio tags
+  - Supports multiple speakers and sound effects
+  - v4 Turbo reports ~150 ms median time to first speech
+limitations:
+  - API only
+notes: Summary from the official announcement page.
+tags:
+  - elevenlabs
+lastChecked: 2026-11-08

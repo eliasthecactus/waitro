@@ -1,0 +1,42 @@
+id: ming-image-0-1-design
+name: Ming-Image-0.1-Design
+org: InclusionAI
+released: 2026-09-17
+dateSource: huggingface
+summary: Ming-Image-0.1-Design is a 6.15B-parameter text-to-image model that generates text-rich visual designs such as UI, infographics and posters, including RGBA images with transparent backgrounds.
+description: Ming-Image-0.1-Design is a 6B text-to-image model for UI, infographics, posters and other text-rich visual designs. It generates complete visual compositions and supports RGBA output with transparent backgrounds; for transparent backgrounds one of the recommended RGBA phrases must be prepended to the prompt. Recommended settings are 2048x2048 resolution (1024x1024 for faster generation), 12 sampling steps, CFG scale 1.0 and BF16 precision, validated on a single CUDA GPU with 80 GiB VRAM. Inference is run through the companion Ming-Image repository, and vLLM-Omni is recommended for serving. The public inference code maps text-to-image resolution requests to the supported 1024 or 2048 bucket. Prompt enhancement can use Ling-3.0-flash-VL or qwen3.8-27B. The model is released under the MIT License.
+tasks:
+  - image-generation
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 6.15
+hardware:
+  platforms:
+    - cuda
+  note: Validated on one CUDA GPU with 80 GiB VRAM; BF16 precision.
+links:
+  weights: https://huggingface.co/inclusionAI/Ming-Image-0.1-Design
+strengths:
+  - Generates text-rich visual designs such as UI layouts infographics and posters
+  - Supports RGBA output with transparent backgrounds
+  - Recommended 2048x2048 generation at 12 sampling steps with CFG scale 1.0
+limitations:
+  - Requires a single CUDA GPU with 80 GiB VRAM in the validated configuration
+  - Resolution requests are mapped to the supported 1024 or 2048 buckets
+  - Transparent output requires prepending one of the recommended RGBA phrases
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - design
+  - rgba
+  - transparent-background
+lastChecked: 2026-11-08

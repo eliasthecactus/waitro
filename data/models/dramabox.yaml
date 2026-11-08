@@ -1,0 +1,44 @@
+id: dramabox
+name: DramaBox
+org: Resemble AI
+released: 2026-04-17
+dateSource: huggingface
+summary: "DramaBox is Resemble AI's expressive text-to-speech model built on LTX-2.3: an IC-LoRA fine-tune of a 3.3B audio-only diffusion transformer with optional 10-second voice cloning."
+description: "DramaBox is an IC-LoRA fine-tune of the LTX-2.3 3.3B audio-only model (Diffusion Transformer + flow matching) conditioned on Gemma 3 12B text embeddings per the authors. It is prompt-driven: dialogue inside double quotes is spoken while stage directions outside quotes control emotion delivery laughs sighs breaths pauses and transitions. An optional 10+ second voice reference clones the target timbre; without it the model picks a voice that fits the description."
+tasks:
+  - text-to-speech
+  - voice-cloning
+  - music-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: ltx-2-community
+  commercial: limited
+  note: LTX-2 Community License; commercial use is subject to entity/revenue thresholds and derivative terms.
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Inference server uses device='cuda'; the demo runs on ZeroGPU. The card reports about 2.5 s per generation on a warm server.
+links:
+  weights: https://huggingface.co/ResembleAI/Dramabox
+strengths:
+  - Prompt controls speaker identity emotion and delivery
+  - Optional 10+ second voice reference clones timbre
+  - Perth neural watermark applied by default
+limitations:
+  - Dialogue must be placed inside double quotes
+  - Certain words inside quotes such as Sigh are spoken literally
+  - Voice reference should be 10+ seconds for cloning
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - expressive-tts
+  - voice-cloning
+  - watermark
+  - diffusion-transformer
+lastChecked: 2026-11-08

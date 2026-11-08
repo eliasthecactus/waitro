@@ -1,0 +1,50 @@
+id: lance
+name: Lance
+org: ByteDance
+released: 2026-05-15
+dateSource: huggingface
+summary: Lance is a 3.6B-parameter omni model outlined as reasoning-first and available on API with multimodal input and output.
+description: The card frames Lance as an omni model, with capabilities extending over text generation, reasoning, audio, vision, image and video generation. It has 3.6B active parameters and supports 262k context length and 200 languages. It is a reasoning-first model with thinking traces that it uses to solve hard problems and is available on API.
+tasks:
+  - chat
+  - reasoning
+  - image-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: unknown
+  note: unknown
+io:
+  in:
+    - text
+    - audio
+    - image
+    - video
+  out:
+    - text
+    - audio
+    - image
+contextTokens: 80000
+hardware:
+  platforms:
+    - api
+  note: None specified
+links:
+  weights: https://huggingface.co/bytedance-research/Lance
+  homepage: https://lance-project.github.io/
+strengths:
+  - Reasoning-first with thinking traces
+  - Omni model with its capabilities extending over text generation reasoning audio vision image and video generation
+  - Soups up to 3.6B active parameters with 262k context length
+limitations:
+  - Pre-release checkpoint - behaviour may change before general availability
+  - Self-reported evaluations do not evaluate against other models
+  - Not all listed partner integrations are currently live
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - omni
+  - reasoning
+  - audio
+  - video-generation
+lastChecked: 2026-11-08

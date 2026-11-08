@@ -1,0 +1,45 @@
+id: magi-2
+name: Magi 2
+org: Sand AI
+released: 2026-08-03
+dateSource: huggingface
+summary: Magi-2 Preview is a 114B-parameter MoE audio-video generation model that produces 10-second 1080p clips with synchronized sound from text or a still image.
+description: "Magi-2 Preview is a 114B-parameter unified audio-video generation model that activates just 6B parameters per token. It generates 10-second clips with sound from a text prompt (T2V) or a prompt plus a still image (I2V) in two stages: a preview stage at low resolution and a refiner stage up to 1080p."
+tasks:
+  - video-generation
+  - music-generation
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Released under Apache 2.0. The preview-stage and refiner-stage transformers are released on Hugging Face at sand-ai/MAGI-2-preview (~307 GB total).
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Requires 8 NVIDIA Hopper GPUs.
+links:
+  weights: https://huggingface.co/sand-ai/MAGI-2-preview
+strengths:
+  - Generates sound alongside video and muxes it into the output
+  - Two-stage pipeline with refiner up to 1080p
+  - Open weights under Apache 2.0
+limitations:
+  - Requires 8 NVIDIA Hopper GPUs
+  - Only supports 10-second clips
+  - ~307 GB checkpoint download
+  - Requires MagiAttention MagiCompiler and ffmpeg for audio muxing
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - video-generation
+  - audio-video
+  - text-to-video
+lastChecked: 2026-11-08

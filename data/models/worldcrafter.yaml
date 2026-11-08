@@ -1,0 +1,41 @@
+id: worldcrafter
+name: WorldCrafter
+org: Tencent
+released: 2026-09-21
+dateSource: huggingface
+summary: Rodar is a 5B image-to-video and text-to-video model from Alibaba with a hybrid transformer-diffusion architecture.
+description: A 5B multimodal model for image-to-video generation from Alibaba that turns text and images into short video clips.
+tasks:
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Apache 2.0 for code; model usage subject to Alibaba's commercial terms
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Not stated
+links:
+  weights: https://huggingface.co/TencentARC/WorldCrafter-Fast
+  homepage: https://drexubery.github.io/WorldCrafter/
+strengths:
+  - Alibaba 5B model for image-to-video and text-to-video
+  - Uses hybrid transformer and diffusion architecture
+limitations:
+  - No stated hardware requirements
+  - Not a standalone Diffusers DiffusionPipeline; requires the aligned Rodar inference stack
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-to-video
+  - text-to-video
+  - video-generation
+  - transformer
+lastChecked: 2026-11-08

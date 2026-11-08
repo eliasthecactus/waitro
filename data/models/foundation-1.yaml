@@ -1,0 +1,36 @@
+id: foundation-1
+name: Foundation 1
+org: RoyalCities
+released: 2026-03-16
+dateSource: huggingface
+summary: Foundation-1 is a family of text-conditioned audio models fine-tuned from Stable Audio Open 1.0 that generates tempo- and key-aware musical loops one-shots and pitch-consistent keybeds for music…
+description: Foundation-1 is a family of text-conditioned audio models designed around music production workflows. Rather than treating audio generation as broad caption-to-music generation, Foundation-1 was trained around structured controls for instrument identity, timbre, FX, musical behavior, pitch, timing, and tonality. The original Foundation-1 checkpoint focuses on structured loop generation. Newer specialized checkpoints extend the same conditioning system into individual one-shots and pitch-consistent playable keybeds.
+tasks:
+  - music-generation
+access: open-weights
+license:
+  id: stabilityai-community-license
+  commercial: yes
+  note: Stability AI Community License. Free for research and non-commercial use. Limited commercial use allowed for entities under USD $1M annual revenue; enterprise license required above that threshold.
+io:
+  in:
+    - text
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: can be run on consumer GPUs with 8GB+ VRAM
+links:
+  repo: https://github.com/RoyalCities/RC-stable-audio-tools
+  weights: https://huggingface.co/RoyalCities/Foundation-1
+strengths:
+  - Layered conditioning separates instrument family sub-family timbre FX and notation/structure tags
+  - Understands BPM and bar count and locks to major and minor keys for structured loops
+  - Generates pitch-consistent multi-note keybeds that can be assembled into playable sampler instruments
+limitations:
+  - Keybed specialization trades off broader loop-generation quality versus the earlier Samples checkpoint
+  - Commercial use above USD $1M annual revenue requires a separate Stability AI enterprise license
+  - Best used with RC Stable Audio Tools for the multi-note keybed workflow and instrument assembly
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+lastChecked: 2026-11-08

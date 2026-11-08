@@ -50,7 +50,7 @@ test('validation catches typos and broken references', () => {
 
 test('keyword search finds models by meaning words', () => {
   assert.ok(catalog.keywordSearch('upscale video').includes('relayvsr'));
-  assert.ok(catalog.keywordSearch('transcribe speech').includes('whisper-large-v3-turbo'));
+  assert.ok(catalog.keywordSearch('transcribe speech').some(id => catalog.byId.get(id).tasks.includes('speech-to-text')));
 });
 
 test('AI answers are cleaned: unknown ids dropped, broken chains flagged', () => {

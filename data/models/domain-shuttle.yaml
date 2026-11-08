@@ -1,0 +1,42 @@
+id: domain-shuttle
+name: Domain Shuttle
+org: CN-Makers
+released: 2026-06-24
+dateSource: github
+summary: DomainShuttle is a 14B parameter open-domain subject-driven text-to-video generation model that decouples reference and video features for cross-domain editability.
+description: DomainShuttle is an open-domain subject-driven text-to-video method that flexibly handles both in-domain fidelity and cross-domain editability by decoupling reference and video features.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: no_commercial_restriction_found
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: GPU with CUDA is required for inference
+links:
+  repo: https://github.com/HKUST-C4G/DomainShuttle
+  homepage: https://cn-makers.github.io/DomainShuttle/
+strengths:
+  - Supports subject-driven text-to-video generation with in-domain fidelity and cross-domain editability
+  - Built on the Wan2.2-T2V-A14B base model
+  - Released under Apache 2.0 license permitting commercial use
+limitations:
+  - Inference requires the Wan2.2-T2V-A14B base model
+  - Weights are an unofficial implementation
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - subject-driven
+  - text-to-video
+  - open-domain
+lastChecked: 2026-11-08

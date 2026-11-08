@@ -1,0 +1,42 @@
+id: liveedit
+name: LiveEdit
+org: LiveEdit
+released: 2026-06-25
+dateSource: github
+summary: LiveEdit is a diffusion-based streaming video editing framework built on Wan2.1-T2V-1.3B that performs causal chunk-by-chunk text-guided editing while preserving backgrounds and non-edited regions.
+description: LiveEdit is a diffusion-based framework for streaming video editing. Given a source video and a text editing instruction it performs causal chunk-by-chunk editing while preserving backgrounds and non-edited regions. It is built on Wan2.1 and the Self-Forcing codebase and uses a three-stage distillation pipeline from a bidirectional editing teacher to a streaming student. The released checkpoint ar-forcing_002000.pt is provided on Hugging Face and inference is run on NVIDIA GPUs.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Single-GPU inference is supported on NVIDIA GPUs; training scripts are written for multi-GPU torchrun.
+links:
+  repo: https://github.com/cp-cp/LiveEdit
+  homepage: https://live-edit.github.io/
+strengths:
+  - Causal chunk-by-chunk streaming inference aimed at real-time video editing
+  - Strong preservation of backgrounds and non-edited regions
+  - AR-oriented Mask Cache reuses computation in unchanged regions
+limitations:
+  - Visual quality may degrade when extrapolating far beyond the training horizon
+  - Inference recommends Linux with NVIDIA GPUs and flash-attn
+  - Training scripts are written for multi-GPU torchrun
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-editing
+  - streaming
+  - diffusion
+  - real-time
+lastChecked: 2026-11-08

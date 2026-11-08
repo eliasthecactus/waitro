@@ -1,0 +1,49 @@
+id: locateanything
+name: LocateAnything
+org: NVIDIA
+released: 2026-03-02
+dateSource: huggingface
+summary: NVIDIA's 3B vision-language grounding model that uses Parallel Box Decoding to predict complete bounding boxes and points in one parallel step for fast object detection and localization.
+description: LocateAnything is a 3B-parameter transformer vision-language model built from a MoonViT vision encoder and Qwen2.5-3B-Instruct language model with an MLP projector. Its core innovation is Parallel Box Decoding, a block-wise multi-token prediction scheme that emits complete bounding boxes and points instead of autoregressive coordinates; the authors report up to 2.5x higher throughput than prior approaches. It was trained on a multi-domain dataset of 12M images, 138M+ queries and 785M bounding boxes covering natural scenes, robotics, driving, GUI interaction and documents.
+tasks:
+  - object-detection
+  - image-understanding
+  - ocr
+architecture: transformer
+access: open-weights
+license:
+  id: nvidia-license
+  commercial: no
+  note: NVIDIA License permits non-commercial research/evaluation use only; commercial use is limited to NVIDIA and its affiliates and redistribution must retain the licence and attribution notices
+io:
+  in:
+    - image
+    - text
+  out:
+    - text
+    - structured
+params:
+  total: 3.83
+contextTokens: 24576
+hardware:
+  platforms:
+    - cuda
+  note: Optimized for NVIDIA GPU-accelerated systems on Linux; listed compatibility includes Ampere, Blackwell, Hopper and Lovelace GPUs; the card states TensorRT, TensorRT-LLM and Triton are not yet supported and embedded deployment requires extra optimization such as quantization or distillation
+links:
+  weights: https://huggingface.co/nvidia/LocateAnything-3B
+  homepage: https://research.nvidia.com/labs/lpr/locate-anything/
+strengths:
+  - Parallel Box Decoding predicts whole boxes and points in one step enabling up to 2.5x higher throughput per the authors
+  - Trained on a large multi-domain grounding corpus spanning natural scenes robotics driving GUI and documents
+  - Supports referring-expression grounding dense multi-object detection GUI element grounding and text localization
+limitations:
+  - Licensed for non-commercial research and evaluation use only
+  - Inference runs through Transformers in BF16 and is targeted at NVIDIA GPUs on Linux
+  - Released as a research and development model rather than a production deployment
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - visual-grounding
+  - object-detection
+  - vision-language-model
+  - parallel-decoding
+lastChecked: 2026-11-08

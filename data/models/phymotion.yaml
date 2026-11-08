@@ -1,0 +1,42 @@
+id: phymotion
+name: PhyMotion
+org: PhyMotion
+released: 2026-05-14
+dateSource: huggingface
+summary: PhyMotion is a 1.3B-parameter LoRA adapter for the autoregressive Causal Forcing text-to-video model that is RL post-trained with a structured 3D physics-based motion reward to generate physically…
+description: PhyMotion is a 1.3B-parameter LoRA adapter for the autoregressive Causal Forcing text-to-video model, post-trained with reinforcement learning using a structured 3D physics-based motion reward to generate physically plausible human motion.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0 for the adapter; base Wan2.1 and Causal Forcing weights retain their original licenses.
+io:
+  in:
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Inference runs with torchrun in bf16 on a single GPU.
+links:
+  weights: https://huggingface.co/6kplus/PhyMotion-CausalForcing-1.3B
+  homepage: https://phy-motion.github.io/
+strengths:
+  - RL post-training with a structured 3D motion reward grounded in SMPL recovery and MuJoCo inverse dynamics
+  - Reward evaluates kinematic plausibility plus contact and balance consistency plus dynamic feasibility
+  - Released as PEFT LoRA weights of rank 256 targeting CausalWanAttentionBlock
+limitations:
+  - Adapter only — the base Causal Forcing 1.3B checkpoint must be downloaded separately
+  - Trained on the MotionX prompt dataset for human motion so behaviour on other subjects follows the base model
+  - Inference requires a GPU; the documented setup uses torchrun with bf16
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - text-to-video
+  - human-motion
+  - physics
+lastChecked: 2026-11-08

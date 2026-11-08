@@ -1,0 +1,31 @@
+id: lyria-3-5
+name: Lyria 3.5
+org: Google
+summary: Google's Lyria 3.5 music generation model, billed per generated song through the Gemini API.
+tasks:
+  - music-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - audio
+pricing:
+  note: $0.08 per full song
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Hosted API availability
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

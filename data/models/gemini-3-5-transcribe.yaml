@@ -1,0 +1,33 @@
+id: gemini-3-5-transcribe
+name: Gemini 3.5 Transcribe
+org: Google
+released: 2026-05-08
+dateSource: vendor
+summary: API-hosted speech transcription model from Google.
+tasks:
+  - speech-to-text
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - audio
+  out:
+    - text
+contextTokens: 1032446
+pricing:
+  perMinute: 0.003
+  note: gemini-3.5-transcribe $0.003 per minute of audio
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

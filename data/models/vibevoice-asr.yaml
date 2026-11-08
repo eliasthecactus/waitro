@@ -1,0 +1,46 @@
+id: vibevoice-asr
+name: VibeVoice-ASR
+org: Microsoft
+released: 2026-01-21
+dateSource: huggingface
+summary: VibeVoice-ASR is an ~8.7B-parameter unified speech-to-text model that transcribes up to 60 minutes of audio in a single pass and outputs structured who/when/what transcriptions with speaker…
+description: VibeVoice-ASR handles long-form audio of up to 60 minutes in one pass within a 64K token context rather than chunking it. It jointly performs ASR, speaker diarization and timestamping to produce structured transcriptions indicating who said what and when. Users can supply customized hotwords for domain-specific names and technical terms. It supports over 50 languages without explicit language settings and handles code-switching within and across utterances.
+tasks:
+  - speech-to-text
+  - diarization
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License
+io:
+  in:
+    - audio
+  out:
+    - text
+    - structured
+params:
+  total: 8.67
+hardware:
+  platforms:
+    - cuda
+  note: CUDA GPUs via standard pipeline; a vLLM implementation is available. No CPU/Mac/GGUF/ONNX support is mentioned.
+links:
+  weights: https://huggingface.co/microsoft/VibeVoice-ASR
+strengths:
+  - Processes up to 60 minutes of continuous audio in a single pass
+  - Joint ASR with diarization and timestamps in structured output
+  - Customized hotwords for domain-specific vocabulary
+  - Supports 50+ languages with code-switching and no explicit language setting
+limitations:
+  - Runs on CUDA GPUs; no CPU Mac GGUF or ONNX path is documented
+  - Evaluation numbers are deferred to the external technical report
+  - Speech-to-text only; no translation between languages is stated
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - speech
+  - asr
+  - diarization
+  - long-form
+lastChecked: 2026-11-08

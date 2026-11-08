@@ -1,0 +1,40 @@
+id: gemini-3-pro
+name: Gemini 3 Pro
+org: Google
+released: 2025-11-18
+dateSource: vendor
+summary: Gemini 3 Pro is a Google API-hosted reasoning model available through Google AI Studio and the Gemini API.
+tasks:
+  - chat
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - api
+links:
+  docs: https://aistudio.google.com/
+strengths:
+  - Positioned for multimodal reasoning and software-agent work
+  - Works through Google AI Studio and Gemini API
+  - Supports long-context and image/video understanding tasks
+limitations:
+  - API only
+  - No verified pricing is available
+betterOptions:
+  - id: gemini-4-argon
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - google
+lastChecked: 2026-11-08

@@ -1,0 +1,45 @@
+id: alodlm
+name: ALoDLM
+org: Amazon
+released: 2026-10-02
+dateSource: huggingface
+summary: ALoDLM-8B is an 8.19B-parameter diffusion language model from Amazon that generates text and code by adaptively looping shared transformer layers.
+tasks:
+  - reasoning
+  - coding
+  - chat
+architecture: hybrid
+access: open-weights
+license:
+  id: CC-BY-NC-4.0
+  commercial: no
+io:
+  in:
+    - text
+  out:
+    - code
+    - text
+params:
+  total: 8.19
+contextTokens: 8192
+hardware:
+  platforms:
+    - cuda
+  note: Requires NVIDIA CUDA BF16 GPU; optimized 8B path checked on A100 40GB
+links:
+  weights: https://huggingface.co/amazon/ALoDLM-8B
+strengths:
+  - Uses adaptive recurrent computation to refine unresolved tokens while committed tokens provide context
+  - Reports 94.4 on ARC-Challenge and 87.8 on HumanEval for the 8B model
+  - Available in 1.7B and 8B sizes initialized from Qwen3 backbones
+limitations:
+  - Licensed CC BY-NC 4.0 for noncommercial use only
+  - Requires an NVIDIA CUDA GPU with BF16 support and sufficient memory
+  - Intended for research; benchmarks do not establish autonomous or high-consequence readiness
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - diffusion-language-model
+  - text-generation
+  - code-generation
+  - adaptive-compute
+lastChecked: 2026-11-08

@@ -51,8 +51,12 @@ function modelSchema(t) {
       maxOutputTokens: num,
       weightsSizeGB: num,
       pricing: {
-        type: 'object', required: ['inputPerM', 'outputPerM', 'source'],
-        props: { inputPerM: num, outputPerM: num, cachedInputPerM: num, note: str, source: url },
+        type: 'object', required: ['source'],
+        props: {
+          inputPerM: num, outputPerM: num, cachedInputPerM: num,
+          perImage: num, perSecond: num, perMinute: num, perMChars: num, perMonth: num,
+          note: str, source: url,
+        },
       },
       hardware: {
         type: 'object',
@@ -150,7 +154,13 @@ export function validateCatalog({ taxonomy, models, rankings }) {
     if (data.id && file !== `${data.id}.yaml`) errors.push(`${file}: file name must be ${data.id}.yaml`);
     if (byId.has(data.id)) errors.push(`${file}: duplicate id "${data.id}"`);
     byId.set(data.id, data);
-    if (data.access === 'api' && !data.pricing) errors.push(`${file}: API models need pricing`);
+    if (data.access === 'api' && !data.pricing && !data.links?.pricing && !data.links?.homepage && !data.links?.docs) {
+      errors.push(`${file}: API models need pricing or a pricing/homepage/docs link`);
+    }
+    const p = data.pricing;
+    if (p && [p.inputPerM, p.perImage, p.perSecond, p.perMinute, p.perMChars, p.perMonth].every(v => v === undefined) && !p.note) {
+      errors.push(`${file}: pricing needs at least one price or a note`);
+    }
     if (data.released && !data.dateSource) errors.push(`${file}: "released" needs a "dateSource"`);
     if (data.params?.active && data.params?.total && data.params.active > data.params.total) {
       errors.push(`${file}: params.active is larger than params.total`);

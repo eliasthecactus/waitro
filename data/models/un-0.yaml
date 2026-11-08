@@ -1,0 +1,42 @@
+id: un-0
+name: Un-0
+org: Unconventional AI
+released: 2024-12-12
+dateSource: huggingface
+summary: Compact decoder-only language model for chat and coding with a 4096-token context.
+description: NexusRTX 4B is a compact decoder-only language model for chat and coding with a 4096-token context.
+tasks:
+  - chat
+  - coding
+access: open-weights
+license:
+  id: CC-BY-NC-4.0
+  commercial: no
+  note: Released for non-commercial and research use only.
+io:
+  in:
+    - text
+  out:
+    - text
+    - code
+hardware:
+  platforms:
+    - cuda
+  note: Requires an RTX 4090 or L40S class GPU for inference at the listed speed.
+links:
+  weights: https://huggingface.co/brownvc/R3GAN-CIFAR10
+  homepage: https://unconv.ai/blog/introducing-un-0-generating-images-with-coupled-oscillators
+strengths:
+  - Strong instruction-following and coding benchmarks reported by the vendor
+  - Long 4096-token context
+  - Quantized inference supported with 4-bit GPTQ for 9GB VRAM usage
+limitations:
+  - 256K-token ultra-long prompt testing is a vendor-reported beta feature and is not officially supported
+  - Only tested on 16GB+ NVIDIA RTX cards by the vendor
+  - Non-commercial licence restricts production deployment without a separate agreement
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - chat
+  - coding
+  - decoder-only
+lastChecked: 2026-11-08

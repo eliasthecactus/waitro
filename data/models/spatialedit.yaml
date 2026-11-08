@@ -1,0 +1,40 @@
+id: spatialedit
+name: SpatialEdit
+org: Unknown
+released: 2026-03-30
+dateSource: github
+summary: SpatialEdit-16B is a 16B-parameter image spatial editing model for fine-grained camera and object manipulation with a companion benchmark and synthetic training set.
+description: SpatialEdit focuses on spatially grounded image editing to control object motion rotation 3D viewpoint framing and camera movement. It includes SpatialEdit-Bench for evaluating perceptual plausibility and geometric fidelity and SpatialEdit-500K a synthetic Blender-rendered training set. The released SpatialEdit-16B checkpoint is described as a baseline model for fine-grained spatial editing.
+tasks:
+  - image-editing
+architecture: other
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Requires CUDA and flash_attn-compatible PyTorch environment
+links:
+  repo: https://github.com/EasonXiao-888/SpatialEdit
+strengths:
+  - Fine-grained spatial editing of object motion rotation 3D viewpoint framing and camera movement
+  - Released 16B checkpoints plus SpatialEdit-500K training data and SpatialEdit-Bench evaluation suite
+  - MIT-licensed
+limitations:
+  - Requires external VGGT YOLO26x Qwen3-VL-8B-Instruct and Wan2.1 VAE checkpoints for evaluation and inference
+  - Configs and scripts contain placeholder or internal paths that must be updated before running
+  - CUDA and flash_attn environment required
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - spatial-editing
+  - image-editing
+  - fine-grained-control
+  - benchmark
+lastChecked: 2026-11-08

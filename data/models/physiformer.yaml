@@ -1,0 +1,40 @@
+id: physiformer
+name: PhysiFormer
+org: PhysiFormer
+released: 2026-06-08
+dateSource: github
+summary: PhysiFormer is a diffusion transformer that predicts physically plausible 3D object motion by sampling future vertex trajectories in world coordinates from initial mesh positions velocities and…
+description: PhysiFormer casts vertex trajectory prediction as a single denoising diffusion process directly in world coordinates rather than view-dependent pixel or latent space. Given initial vertex positions and velocities plus object material type (rigid or elastic) the model samples future trajectories and captures uncertainty to produce diverse plausible futures. Its attention is factorized over time space and objects for efficiency enabling permutation-invariant multi-object reasoning. Trained on over 100k simulated trajectories it generates rigid and elastic mechanics and generalises to mixed-material settings unseen real-world geometries and larger object counts.
+tasks:
+  - 3d-generation
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Model card and metadata do not state a licence for the released weights.
+io:
+  in:
+    - 3d
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Model defaults to PyTorch CUDA SDPA kernels; math/chunked attention fallback is available if CUDA SDPA is unavailable.
+links:
+  repo: https://github.com/yimingc9/PhysiFormer
+  homepage: https://yimingc9.github.io/physiformer/
+strengths:
+  - Denoising diffusion directly in world coordinates without latent spaces or rigidity constraints
+  - Attention factorized over time space and objects for efficient multi-object reasoning
+  - Generalises to mixed materials unseen real-world geometries and larger object counts
+limitations:
+  - Requires CUDA-capable PyTorch setup for default SDPA kernels
+  - Licence terms for the released weights are not specified
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-motion
+  - physics-simulation
+  - diffusion-transformer
+  - world-space
+lastChecked: 2026-11-08

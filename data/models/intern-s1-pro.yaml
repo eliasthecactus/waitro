@@ -1,0 +1,42 @@
+id: intern-s1-pro
+name: Intern-S1-Pro
+org: Shanghai AI Lab/InternLM
+released: 2026-02-02
+dateSource: huggingface
+summary: Intern-S1-Pro is a trillion-scale open-weights MoE multimodal scientific reasoning model with 512 experts and 22B activated parameters.
+tasks:
+  - reasoning
+  - image-understanding
+  - life-sciences
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - timeseries
+  out:
+    - text
+params:
+  total: 917.04
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/internlm/Intern-S1-Pro
+strengths:
+  - Top-tier scientific reasoning across AI4Science domains such as chemistry materials life science and earth
+  - Strong general multimodal and text benchmark performance
+  - Supports long heterogeneous time-series signals from 10^0 to 10^6 points and tool calling
+limitations:
+  - Trillion-parameter size makes native Hugging Face inference challenging; an LLM inference engine is recommended
+  - Time-series inference is currently supported only in LMDeploy
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - multimodal
+  - scientific-reasoning
+  - time-series
+lastChecked: 2026-11-08

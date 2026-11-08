@@ -1,0 +1,34 @@
+id: stream-diffvsr
+name: Stream-DiffVSR
+org: Stream-DiffVSR
+released: 2025-12-28
+dateSource: github
+summary: A causal auto-regressive diffusion model for low-latency online video super-resolution that upsamples video frames using only past frames.
+tasks:
+  - video-upscaling
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: CUDA-capable GPU is recommended for use
+links:
+  repo: https://github.com/jamichss/Stream-DiffVSR
+  homepage: https://jamichss.github.io/stream-diffvsr-project-page/
+strengths:
+  - Four-step distilled denoiser enables fast inference
+  - Processes 720p frames in 0.328 seconds on an RTX4090 GPU
+  - Provides single-degradation and mixed-degradation pretrained checkpoints
+limitations:
+  - CUDA-capable GPU is recommended for use
+  - TensorRT acceleration may slightly degrade output quality and is incompatible with xFormers memory optimization
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+lastChecked: 2026-11-08

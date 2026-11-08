@@ -1,0 +1,33 @@
+id: mimo-v2-omni
+name: MiMo V2 Omni
+org: Xiaomi
+summary: Xiaomi's omni foundation model announced March 18th 2026 that fuses dedicated image video and audio encoders into a single shared backbone so the model sees hears and reads simultaneously.
+tasks:
+  - chat
+  - agents
+  - image-understanding
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+    - audio
+  out:
+    - text
+    - structured
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://mimo.xiaomi.com/mimo-v2-omni
+limitations:
+  - API only
+  - No verified pricing published
+notes: Summary from the official announcement page.
+tags:
+  - xiaomi
+lastChecked: 2026-11-08

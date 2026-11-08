@@ -1,0 +1,46 @@
+id: p-h3-image
+name: P-H3 Image
+org: Pruna AI
+released: 2026-10-28
+dateSource: huggingface
+summary: P-H3-Image is a diffusion image model built on MiniMax-H3 that renders 8-megapixel images in 8 steps without CFG and edits images using up to 8 inputs — shipped as ComfyUI files in bf16/int8/w4a8…
+description: P-H3-Image is released by Pruna AI as ComfyUI files for text-to-image generation and image editing on top of MiniMax-H3. Every component comes in bf16 plus ComfyUI's native int8 (int8_convrot) and w4a8 formats and precisions can be mixed freely; the smallest set is a 20 GB download that peaks at about 21 GB of VRAM at 8 MP while the bf16 set is a 55 GB download peaking near 56 GB. Quantized files need no calibration data and run on comfy-kitchen INT8 kernels for NVIDIA Ampere or newer and AMD RDNA3/4. A Qwen3.5-9B-based prompt upsampler turns short requests into full prompts. Workflows cover text-to-image at 8 MP and edits with one image plus up to 7 references; a 2 GB LoRA also runs P-H3-Image on an existing MiniMax-H3 FL2VA transformer in ComfyUI.
+tasks:
+  - image-generation
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: minimax-h3-community-license-agreement
+  commercial: limited
+  note: MiniMax H3 Community License — worldwide grant but excludes the European Union, the United Kingdom, the Republic of Korea and the United States of America
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+    - rocm
+  note: INT8 kernels target NVIDIA Ampere or newer and AMD RDNA3/4; smallest set peaks at about 21 GB of VRAM at 8 MP
+links:
+  weights: https://huggingface.co/PrunaAI/P-H3-Image-Comfy
+  homepage: https://www.pruna.ai/blog/oss-p-h3-image-launch
+strengths:
+  - Renders 8-megapixel images in 8 steps with no CFG or negative prompt
+  - Edits with up to 8 input images — one image to edit plus up to 7 references
+  - Quantized w4a8 plus int8 VAE set fits in about 21 GB of VRAM from a 20 GB download
+  - On a 48 GB L40S the w4a8 set renders a 2048 x 2048 image in 6.3 s instead of 19 s
+limitations:
+  - Sensitive to prompting — the Qwen3.5-9B prompt upsampler should stay in the graph
+  - Hands can break and small background people can come out distorted
+  - Licence excludes the EU UK South Korea and the USA
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - image-editing
+  - comfyui
+  - minimax-h3
+lastChecked: 2026-11-08

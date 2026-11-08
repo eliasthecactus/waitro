@@ -1,0 +1,43 @@
+id: relift
+name: ReLift
+org: NVIDIA
+released: 2026-10-12
+dateSource: github
+summary: ReLift is a small transformer corrector that lifts dense 2D video tracks into per-pixel 3D trajectories and repairs them using a video 3D geometry model.
+description: ReLift takes a dense 2D point tracker and a video 3D geometry model and turns tracked pixels into 3D trajectories by lifting them along camera rays at predicted depth. A small transformer corrector then repairs and completes those lifted trajectories. The released checkpoint is intended to work across tracker and geometry combinations.
+tasks:
+  - 3d-generation
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: limited
+  note: The ReLift code is MIT but four of the five bundled front ends are non-commercial and the VGGT-Omega weights are gated on Hugging Face.
+io:
+  in:
+    - video
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Requires Linux, conda and a CUDA GPU with 24 GB; CoWTracker needs 48 GB.
+links:
+  repo: https://github.com/ReLift3D/ReLift
+  homepage: https://relift3d.github.io/
+strengths:
+  - One released checkpoint serves every tracker and geometry combination
+  - Outputs a 3D trajectory for every pixel in frame-0 camera coordinates
+  - ReLift code is MIT-licensed
+limitations:
+  - Requires Linux conda and a CUDA GPU with 24 GB; CoWTracker needs 48 GB
+  - Four of five bundled front ends are non-commercial and VGGT-Omega weights are gated
+  - Depends on an external dense 2D tracker and video 3D geometry model
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - dense-3d-tracking
+  - trajectory-repair
+  - video-geometry
+  - 3d-tracks
+lastChecked: 2026-11-08

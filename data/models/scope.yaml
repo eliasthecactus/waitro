@@ -1,0 +1,44 @@
+id: scope
+name: SCOPE
+org: research
+released: 2026-08-12
+dateSource: huggingface
+summary: SCoPE is an Apache-2.0 image-to-video diffusion transformer for Wan2.2-I2V-A14B that adds camera sightlines as positional coordinates to follow requested camera motion.
+description: SCoPE adds camera sightlines as positional coordinates to a pretrained video diffusion transformer. Given a first frame a text prompt and a camera trajectory it generates a video that follows the requested camera motion while preserving the original image-to-video prior. This repository is a self-contained release for Wan2.2-I2V-A14B and includes everything required for inference.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0; users are responsible for following the licenses and terms of the training datasets RealEstate10K DL3DV PanShot and OmniWorld.
+io:
+  in:
+    - image
+    - text
+    - structured
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Checkpoint is approximately 67 GB; released weights were trained and evaluated with PyTorch 2.9.1 and CUDA 12.8.
+links:
+  weights: https://huggingface.co/TencentARC/SCoPE
+  homepage: https://visual-ai.github.io/scope
+strengths:
+  - Enables controllable camera motion from a first frame a text prompt and a camera trajectory
+  - Preserves the pretrained image-to-video prior of Wan2.2-I2V-A14B
+  - Self-contained inference release does not need a separate Wan2.2 checkpoint download
+limitations:
+  - Results may degrade for inaccurate camera poses or intrinsics
+  - Results may degrade for trajectories far outside the training distribution large occlusions or unusually fast camera motion
+  - Requires a large checkpoint and the recommended PyTorch 2.9.1 CUDA 12.8 environment for reproduction
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-to-video
+  - camera-control
+  - video-diffusion
+  - wan2-2
+lastChecked: 2026-11-08

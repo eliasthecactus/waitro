@@ -1,0 +1,42 @@
+id: audiox
+name: AudioX
+org: AudioX authors
+released: 2025-03-13
+dateSource: github
+summary: AudioX is a diffusion transformer framework for anything-to-audio generation that conditions on text video and audio signals to generate general audio and music.
+tasks:
+  - music-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Released under NOASSERTION; commercial-use terms unclear.
+io:
+  in:
+    - image
+    - mask
+    - structured
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: CUDA-capable GPU recommended; CPU fallback mentioned in code example.
+links:
+  repo: https://github.com/ZeyueT/AudioX
+  homepage: https://zeyuet.github.io/AudioX/
+strengths:
+  - Supports text-to-audio text-to-music video-to-audio video-to-music and combined text+video conditioning
+  - Provides three pretrained checkpoints plus Gradio and script inference
+  - Uses a Multimodal Adaptive Fusion module for cross-modal alignment
+limitations:
+  - Licence is NOASSERTION so commercial-use terms are unclear
+  - CUDA-capable GPU is recommended and depends on FFmpeg plus libsndfile
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - audio-generation
+  - music
+  - multimodal
+lastChecked: 2026-11-08

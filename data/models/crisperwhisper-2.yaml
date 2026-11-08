@@ -1,0 +1,48 @@
+id: crisperwhisper-2
+name: CrisperWhisper 2
+org: Nyra Labs
+released: 2026-07-15
+dateSource: huggingface
+summary: CrisperWhisper 2.0 is a Whisper-based ~1.54B speech recognition model that produces either verbatim or cleaned "intended" transcripts with word-level timings and seamless longform audio.
+description: CrisperWhisper 2.0 is a speech-to-text model that makes the verbatim-vs-intended transcription style an explicit per-call choice, and also offers a "verbatimize" mode that inserts real disfluencies into an existing clean transcript. Per the authors it yields roughly 30 ms mean word-boundary error on read speech and tops their Nyra Verbatim Speech Benchmark for disfluency F1 across ten languages. It ships a CTranslate2 runtime with speculative decoding using a smaller draft model and built-in suppression of Whisper's looping-hallucination failure mode.
+tasks:
+  - speech-to-text
+architecture: transformer
+access: open-weights
+license:
+  id: nyra-health-non-commercial-research
+  commercial: no
+  note: Model weights and any generated outputs are under the Nyra Health Non-Commercial Research License; commercial use of weights or outputs requires a separate licence from nyra health GmbH. Inference code is MIT-licensed.
+io:
+  in:
+    - audio
+    - text
+  out:
+    - text
+params:
+  total: 1.54
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: CTranslate2 backend for NVIDIA GPUs on Linux; pure PyTorch backend runs on macOS, Windows and CPU; float16 and int8_float16 quantization supported.
+links:
+  weights: https://huggingface.co/nyralabs/CrisperWhisper2.0_large
+  homepage: https://nyra-labs.com/crisperwhisper
+strengths:
+  - Explicit verbatim or intended output mode chosen per transcription call
+  - Word-level timestamps from supervised cross-attention with low boundary error per the authors
+  - Longform audio handled by conditional continuation without chunk-boundary duplicates or drops
+  - Built-in mitigation of Whisper looping-hallucination behaviour is enabled by default
+limitations:
+  - Weights and generated outputs are licensed for non-commercial use only
+  - Hotword boosting is limited to the Pro models which are commercial-licence only
+  - Human-labelled verbatim evaluation covers only English and German in the reported benchmark
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - whisper
+  - speech-recognition
+  - verbatim
+  - disfluency
+lastChecked: 2026-11-08

@@ -1,0 +1,44 @@
+id: nanbeige4-3-33b
+name: Nanbeige4.3-33B
+org: Nanbeige
+released: 2026-10-24
+dateSource: huggingface
+summary: Nanbeige4.3-33B is a 33.12B-parameter open-weights text-generation model serving as the flagship teacher model of the Nanbeige4.3 series with a 524288-token context and configurable thinking and…
+description: "Nanbeige4.3-33B is the flagship teacher model of the Nanbeige4.3 series which targets agentic performance among open models in the ~30B parameter class. It is positioned for complex coding and professional cowork tasks and is intended to anchor the later distillation of agentic capabilities into smaller models such as Nanbeige4.3-3B. The tokenizer exposes configurable chat-template controls: enable_thinking toggles reasoning output; preserve_thinking retains prior-turn reasoning (recommended True for multi-turn tool use and code-agent workflows); and passing tools enables the tool-use template with xml recommended over json for tool calling. The model supports up to 524288 tokens of context and can be served with Transformers, SGLang or vLLM using tensor parallelism. Recommended sampling is temperature 1.0 / top_p 0.95 with 65536 max new tokens for agentic and tool-use tasks and temperature 0.6 / top_p 0.95 with 262144 max new tokens for reasoning and chat."
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 33.12
+contextTokens: 524288
+hardware:
+  platforms:
+    - cuda
+  note: Served with Transformers, SGLang or vLLM; the provided SGLang and vLLM commands use tensor parallelism of 4 and 0.8 GPU memory utilisation.
+links:
+  weights: https://huggingface.co/Nanbeige/Nanbeige4.3-33B
+strengths:
+  - Leads most of the reported benchmarks among ~30B open models in agentic coding and cowork categories
+  - Supports a 524288-token context window with toggleable thinking and XML tool-call formatting
+  - Apache-2.0 licence permits commercial deployment
+limitations:
+  - Serving guidance assumes multi-GPU setups with tensor parallelism for SGLang and vLLM
+  - Recommended generation budgets are large (65536 or 262144 new tokens) which raises inference cost
+  - Positioned primarily as a teacher model for distilling smaller Nanbeige4.3 variants
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - agentic-coding
+  - tool-use
+  - long-context
+lastChecked: 2026-11-08

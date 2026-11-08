@@ -1,0 +1,37 @@
+id: gemini-omni-1-2-flash
+name: Gemini Omni 1.2 Flash
+org: Google
+released: 2026-05-01
+dateSource: vendor
+summary: Gemini Omni 1.2 Flash is an API-hosted model from Google. The supplied price line lists about $0.07 per second of 720p video.
+tasks:
+  - video-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - video
+contextTokens: 1000000
+pricing:
+  inputPerM: 0.5
+  outputPerM: 2
+  perImage: 0.25
+  perSecond: 0.07
+  perMinute: 2
+  note: about $0.07 per second of 720p video
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

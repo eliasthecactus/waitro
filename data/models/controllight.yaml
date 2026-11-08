@@ -1,0 +1,41 @@
+id: controllight
+name: ControlLight
+org: research
+released: 2026-05-21
+dateSource: huggingface
+summary: ControlLight is an Apache-2.0 LoRA for FLUX.2 klein 9B that performs controllable low-light image enhancement with an adjustable alpha strength.
+description: ControlLight is a controllable low-light enhancement model built as a LoRA on top of FLUX.2 [klein] 9B. Per the authors it enhances low-light images while preserving scene structure, visual content, and fine-grained details. Users control enhancement strength continuously with the alpha parameter in [0, 1].
+tasks:
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Code intended for Apache License 2.0; the FLUX.2 base model and third-party components remain governed by their original upstream licenses.
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Recommended inference uses CUDA with bfloat16 and requires the FLUX.2 klein 9B base model plus the ControlLight LoRA.
+links:
+  weights: https://huggingface.co/ControlLight/ControlLight
+  homepage: https://yfyang007.github.io/ControlLight/
+strengths:
+  - Controllable continuous low-light enhancement via alpha from 0 to 1
+  - Designed to preserve original scene structure and fine details
+  - Released as LoRA weights with inference and training code
+limitations:
+  - Requires the FLUX.2 klein 9B base model and a patched local diffusers checkout
+  - Upstream base-model and third-party licenses must be followed
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - low-light-enhancement
+  - image-to-image
+  - lora
+  - flux-2
+lastChecked: 2026-11-08

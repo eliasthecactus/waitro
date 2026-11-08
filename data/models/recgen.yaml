@@ -1,0 +1,44 @@
+id: recgen
+name: RecGen
+org: Reconstruction-by-Generation
+released: 2026-04-28
+dateSource: github
+summary: RecGen is a 3D reconstruction model that takes an RGB image a depth map an object mask and camera intrinsics and outputs a textured mesh a Gaussian splat and a 6-DoF pose in the camera frame.
+tasks:
+  - 3d-generation
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: GitHub license is NOASSERTION and no licence text is provided.
+io:
+  in:
+    - image
+    - depth
+    - mask
+    - structured
+  out:
+    - 3d
+    - structured
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/TRI-ML/recgen
+  homepage: https://reconstruction-by-generation.github.io/
+strengths:
+  - Reconstructs textured meshes and Gaussian splats from RGB-D plus mask and intrinsics
+  - Supports multi-view inference with optional multidiffusion fusion for improved detail and far-side consistency
+  - Includes post-hoc gamma and affine color calibration to match the generated asset to the input photo
+limitations:
+  - Requires a working PyTorch and CUDA toolchain plus CUDA extensions
+  - Optional turntable and GLB outputs need nvdiffrast and diff_gaussian_rasterization
+  - Licence is NOASSERTION so commercial use is unknown
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-reconstruction
+  - rgb-d
+  - multi-view
+  - gaussian-splat
+lastChecked: 2026-11-08

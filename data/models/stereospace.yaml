@@ -1,0 +1,39 @@
+id: stereospace
+name: StereoSpace
+org: ETH Zurich PRS
+released: 2025-11-23
+dateSource: huggingface
+summary: StereoSpace is a latent diffusion model fine-tuned from Stable Diffusion 2 that generates a baseline-controllable stereo view from a single input image.
+description: StereoSpace is an end-to-end latent diffusion model for baseline-controllable single-image stereo view generation. It is derived from stabilityai/stable-diffusion-2 through fine-tuning as described in the StereoSpace paper. The model is intended to synthesize stereo geometry without depth estimation in a canonical space.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: CreativeML-OpenRAIL-M
+  commercial: yes
+  note: CreativeML Open RAIL++-M License
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: PyTorch and Diffusers
+links:
+  weights: https://huggingface.co/prs-eth/stereospace-v1-0
+strengths:
+  - Single-image stereo view generation without depth estimation
+  - Baseline-controllable stereo geometry synthesis
+  - End-to-end latent diffusion in a canonical space
+limitations:
+  - CreativeML Open RAIL++-M license includes use restrictions
+  - Requires a PyTorch and Diffusers environment
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-generation
+  - stereo-view
+  - diffusion
+lastChecked: 2026-11-08

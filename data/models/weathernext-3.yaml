@@ -1,0 +1,32 @@
+id: weathernext-3
+name: WeatherNext 3
+org: Google DeepMind
+summary: WeatherNext 3 is listed as a Google DeepMind model. The supplied page is only a general Google news index and contains no description of this specific model, so no capability or benchmark details…
+tasks:
+  - forecasting
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - timeseries
+    - structured
+  out:
+    - timeseries
+    - structured
+hardware:
+  platforms:
+    - api
+links:
+  docs: https://blog.google/
+strengths:
+  - From Google DeepMind's weather forecasting model family
+  - Positioned for forecasting of geophysical and weather variables
+limitations:
+  - API only
+  - Pricing and access method not verified
+notes: Summary from the official announcement page.
+tags:
+  - google
+lastChecked: 2026-11-08

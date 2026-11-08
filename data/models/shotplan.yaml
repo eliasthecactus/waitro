@@ -1,0 +1,42 @@
+id: shotplan
+name: ShotPlan
+org: Unknown
+released: 2026-07-13
+dateSource: huggingface
+summary: ShotPlan is a fine-tuned high-noise expert of Wan2.2-T2V-A14B for controllable multi-shot text-to-video generation with hard cuts at user-specified frame indices.
+description: ShotPlan-Wan2.2-T2V-A14B-HighNoise is the fine-tuned high-noise DiT expert from Wan2.2-T2V-A14B. It adds a learnable planning token (`hardcut_embedding`) and requires ShotPlan inference code for planning-token injection and fractional temporal RoPE. The low-noise expert runs with the original Wan2.2 weights.
+tasks:
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 inherited from Wan2.2
+io:
+  in:
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Runs via the ShotPlan inference code with Wan2.2-T2V-A14B weights
+links:
+  weights: https://huggingface.co/Pensioner/ShotPlan-Wan2.2-T2V-A14B-HighNoise
+  homepage: https://pensioner-11.github.io/ShotPlan/
+strengths:
+  - Adds a learnable planning token for hard cuts at specified frame indices
+  - Fine-tuned on 6.4K multi-shot samples at 480x832 and 81 frames
+  - Licensed under Apache-2.0 inherited from Wan2.2
+limitations:
+  - Requires ShotPlan inference code and is not a drop-in diffusers checkpoint
+  - Only the high-noise expert is fine-tuned while the low-noise expert uses original Wan2.2 weights
+  - Produces 81-frame video at 16 fps
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - shotplan
+  - wan2-2
+  - text-to-video
+  - multi-shot
+lastChecked: 2026-11-08

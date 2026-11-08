@@ -1,0 +1,37 @@
+id: glm-5v-turbo
+name: GLM-5V-Turbo
+org: Z.ai (Zhipu)
+summary: GLM-5V-Turbo is Z.AI's first multimodal coding foundation model built for vision-based coding tasks.
+tasks:
+  - coding
+  - agents
+  - image-understanding
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+    - code
+contextTokens: 200000
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://docs.z.ai/guides/vlm/glm-5v-turbo
+strengths:
+  - Native multimodal coding for images video and files
+  - Optimized for agent workflows with Claude Code and OpenClaw
+  - 200K context with 128K maximum output tokens
+limitations:
+  - API only
+  - Text-only output modality
+notes: Summary from the official announcement page.
+tags:
+  - zai
+lastChecked: 2026-11-08

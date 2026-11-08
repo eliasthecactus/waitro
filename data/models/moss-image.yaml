@@ -1,0 +1,44 @@
+id: moss-image
+name: MOSS-Image
+org: OpenMOSS
+released: 2026-10-11
+dateSource: huggingface
+summary: MOSS-Image-SFT is a 5.08B-parameter text-to-image diffusion model that generates images from natural-language prompts tag sequences and JSON layouts.
+description: MOSS-Image-SFT is the supervised fine-tuned variant of MOSS-Image-Base from OpenMOSS. It keeps the base architecture and inference pipeline while improving text grouping and layout organization in rendered images. It accepts natural-language prompts tag sequences and JSON layouts with bounding boxes for controlling text placement and object arrangement. The model is released under Apache 2.0 and runs through a Diffusers custom pipeline on NVIDIA CUDA GPUs with bfloat16 transformer and text encoder and float32 VAE and initial noise.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache License 2.0
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 5.08
+hardware:
+  platforms:
+    - cuda
+  note: NVIDIA GPU with CUDA support and Python 3.10 or later
+links:
+  weights: https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT
+  homepage: https://openmoss.ai/MOSS-Image/
+strengths:
+  - Supports natural-language prompts tag sequences and JSON layout prompts for spatial control
+  - SFT variant shows clearer text grouping and a more organized whiteboard layout than MOSS-Image-Base
+  - Released with bundled inference code under Apache 2.0
+limitations:
+  - Requires an NVIDIA CUDA environment and Python 3.10 or later
+  - Python API image dimensions must be positive multiples of 16
+  - Default guidance uses two transformer forwards per step
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - diffusion
+  - layout-to-image
+  - image-generation
+lastChecked: 2026-11-08

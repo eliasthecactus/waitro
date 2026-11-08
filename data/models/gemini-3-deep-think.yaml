@@ -1,0 +1,32 @@
+id: gemini-3-deep-think
+name: Gemini 3 Deep Think
+org: Google
+summary: Gemini 3 Deep Think is a hosted model from Google offered through the Gemini family of models.
+tasks:
+  - chat
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - api
+links:
+  docs: https://blog.google/
+limitations:
+  - API only
+betterOptions:
+  - id: gemini-4-argon
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - google
+lastChecked: 2026-11-08

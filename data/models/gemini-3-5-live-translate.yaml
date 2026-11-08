@@ -1,0 +1,29 @@
+id: gemini-3-5-live-translate
+name: Gemini 3.5 Live Translate
+org: Google
+summary: Gemini 3.5 Live Translate is a Google API model for live audio translation.
+tasks:
+  - translation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - audio
+  out:
+    - audio
+pricing:
+  note: audio in $0.0053/min out $0.0315/min
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

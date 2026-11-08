@@ -1,0 +1,40 @@
+id: sefi-image
+name: SeFi Image
+org: Unknown
+released: 2026-06-18
+dateSource: github
+summary: A text-to-image model family (1B/2B/5B checkpoints) built with Semantic-First Diffusion that separates semantic and texture latent streams to anchor image synthesis.
+description: A text-to-image diffusion family using Semantic-First Diffusion.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: limited
+  note: Released under the MIT License.
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: A100-class GPU recommended for production inference.
+links:
+  repo: https://github.com/jmliu206/SeFi-Image
+  homepage: https://jmliu206.github.io/sefi-web/
+strengths:
+  - Family of Base RL and Turbo checkpoints at 1B 2B and 5B scales
+  - Turbo checkpoints generate with 4 denoising steps at guidance scale 1.0
+  - Semantic latents provide a cleaner structural anchor for texture synthesis
+limitations:
+  - Released for research use and not intended for direct product or service deployment
+  - Trained on web-scale image-text data and may produce inaccurate or biased outputs
+  - Downstream users are responsible for content moderation and compliance safeguards
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-generation
+  - text-to-image
+lastChecked: 2026-11-08

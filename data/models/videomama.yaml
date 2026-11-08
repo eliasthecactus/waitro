@@ -1,0 +1,45 @@
+id: videomama
+name: VideoMaMa
+org: VideoMaMa
+released: 2026-01-19
+dateSource: github
+summary: VideoMaMa is a mask-guided video matting framework built on a video diffusion generative prior that produces fine-grained alpha mattes stable across diverse video domains.
+description: VideoMaMa uses a video generative prior to perform mask-guided video matting. It supports stable performance across diverse video domains and fine-grained matting quality. The repository releases the demo and model checkpoint along with training code. Checkpoints are available on the Hugging Face Hub as SammyLim/VideoMaMa.
+tasks:
+  - segmentation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: limited
+  note: Repository code is CC BY-NC 4.0. VideoMaMa model checkpoints are subject to the Stability AI Community License.
+io:
+  in:
+    - image
+    - video
+    - mask
+  out:
+    - video
+    - mask
+hardware:
+  platforms:
+    - cuda
+  note: Inference uses PyTorch checkpoints including a Stable Video Diffusion base model and a VideoMaMa UNet checkpoint.
+links:
+  repo: https://github.com/cvlab-kaist/VideoMaMa
+  homepage: https://cvlab-kaist.github.io/VideoMaMa/
+strengths:
+  - Produces fine-grained mattes with temporal stability via a video generative prior
+  - Works across diverse video domains
+  - Training code and model checkpoint are released
+limitations:
+  - Requires a Stable Video Diffusion base checkpoint
+  - Code is released under non-commercial CC BY-NC 4.0
+  - Model checkpoints are subject to the Stability AI Community License
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-matting
+  - mask-guided
+  - diffusion
+  - comfyui
+lastChecked: 2026-11-08

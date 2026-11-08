@@ -1,0 +1,42 @@
+id: gpt-image-2-5
+name: GPT Image 2.5
+org: OpenAI
+released: 2025-01-01
+dateSource: vendor
+summary: OpenAI's GPT Image 2.5 model for generating and editing images through the API.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+pricing:
+  inputPerM: 8
+  outputPerM: 30
+  perImage: 8
+  perSecond: 11
+  perMinute: 16
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths:
+  - Hosted by OpenAI as an API model
+limitations:
+  - API only
+betterOptions:
+  - id: gpt-image-2-6
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

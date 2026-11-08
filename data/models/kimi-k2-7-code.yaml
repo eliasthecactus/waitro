@@ -1,0 +1,55 @@
+id: kimi-k2-7-code
+name: Kimi K2.7 Code
+org: Moonshot AI
+released: 2026-06-11
+dateSource: huggingface
+summary: Kimi K2.7 Code is a 1T-parameter Mixture-of-Experts (32B activated) coding-focused agentic model from Moonshot AI with a 256K context and a MoonViT vision encoder for image and video input.
+description: Kimi K2.7 Code is a coding-focused agentic model built on Kimi K2.6 and aimed at long-horizon software engineering workflows, with roughly 30% lower thinking-token usage than K2.6. It is a 61-layer MoE with 384 experts (8 selected per token plus 1 shared), 1T total and 32B activated parameters, MLA attention and a 160K vocabulary, supporting a 256K context length. A 400M-parameter MoonViT encoder adds image and video input, and the model uses native int4 quantization. Recommended inference engines are vLLM, SGLang and KTransformers; an OpenAI/Anthropic-compatible API is also offered.
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: modified-mit
+  commercial: limited
+  note: 'Modified MIT: free commercial use but products with more than 100M monthly active users or more than $20M monthly revenue must prominently display "Kimi K2.7 Code" on their user interface.'
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+params:
+  total: 1026.88
+  active: 32
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+  note: Served with vLLM, SGLang or KTransformers on NVIDIA GPUs; no CPU/MLX/browser path mentioned.
+links:
+  repo: https://github.com/MoonshotAI/kimi-code
+  weights: https://huggingface.co/moonshotai/Kimi-K2.7-Code
+  homepage: https://www.kimi.com/code
+strengths:
+  - Sparse MoE design activates only 32B of 1T total parameters
+  - 256K context with a MoonViT vision encoder for image and video input
+limitations:
+  - Large commercial deployments must display the model name prominently
+  - 1T total parameters require a substantial multi-GPU serving setup
+  - Instant (non-thinking) mode is not supported
+betterOptions:
+  - id: kimi-k3-1-pro
+    why: A newer version from the same team.
+    aspects:
+      - quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - kimi
+  - moonshot
+  - moe
+  - coding-agent
+lastChecked: 2026-11-08

@@ -1,0 +1,39 @@
+id: seedance-1-5-pro
+name: Seedance 1.5 Pro
+org: ByteDance Seed
+summary: Seedance 1.5 Pro is ByteDance Seed's joint audio-video generation model, aimed at prompt-accurate text-to-video creation with synchronized native audio.
+tasks:
+  - video-generation
+  - music-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - video
+    - audio
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://seed.bytedance.com/en/seedance1_5_pro
+strengths:
+  - Native synchronized audio with lip-sync and spatial sound effects across many languages
+  - Cinematic camera control and visual detail from close-ups to full shots
+  - Keeps characters and narrative cohesive for short dramas and ads
+limitations:
+  - API only
+  - No verified pricing available
+  - Performance claims come from internal SeedVideoBench-1.5 evaluations
+betterOptions:
+  - id: seedance-2-5
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - bytedance
+lastChecked: 2026-11-08

@@ -1,0 +1,49 @@
+id: laya
+name: Laya
+org: Convai Innovations
+released: 2026-09-18
+dateSource: huggingface
+summary: Laya is a family of small non-autoregressive encoder models (421M-parameter ModernBERT-large English checkpoint and 322M-parameter mmBERT-base multilingual checkpoint) that answers typed questions…
+description: "Trained with RLCD against strictly proper scoring rules, Laya never generates text and instead returns answers for question types: choice, score and yes/no probabilities, plus routing metadata. The repository holds three checkpoints: `convaiinnovations/laya` (English checkpoint at 512 tokens), `convaiinnovations/laya-multilingual` (100+ languages with 1,024-token context, extendable to 8,192 tokens), and `convaiinnovations/laya-typed-decisions` (the four typed-decisions workflows, reported at 0.766 accuracy versus 0.362 for the base English checkpoint). A `Router` detects script and language and sends input to the checkpoint that fits before inference."
+tasks:
+  - on-device-llm
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: The card lists the licence as Apache-2.0.
+io:
+  in:
+    - text
+    - structured
+  out:
+    - structured
+params:
+  total: 0.42
+contextTokens: 8192
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - onnx
+    - cpu
+  note: GPU CUDA path with TileLang fast path; ONNX Runtime optional extra; CPU fallback after CUDA OOM; Apple GPU referenced for long-document runs.
+links:
+  weights: https://huggingface.co/convaiinnovations/laya
+  homepage: https://laya.convaiinnovations.com/
+strengths:
+  - Calibrated probability outputs through single-pass inference at roughly 33 ms
+  - Non-generative so nothing to parse and nothing to hallucinate
+  - Router dispatches across checkpoints for 100+ languages
+limitations:
+  - The English checkpoint is weak on non-Latin scripts
+  - "Short context windows are limiting: 512 tokens on the English root checkpoint and 1 ·024 defaults on the other two unless `max_len=8192` is set"
+  - The shipped checkpoints are zero-shot and need fine-tuning for higher accuracy in a specific domain
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - classification
+  - multilingual
+  - encoder
+  - calibrated-probabilities
+lastChecked: 2026-11-08

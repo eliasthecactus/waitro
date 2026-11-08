@@ -1,0 +1,46 @@
+id: qwen3-4b
+name: Qwen3-4B
+org: Qwen / Alibaba
+released: 2026-02-27
+dateSource: huggingface
+summary: A 4B-parameter multimodal causal language model with a vision encoder that combines Gated DeltaNet, gated attention and sparse mixture-of-experts layers and supports a 262K-token native context.
+description: Qwen3.5-4B is a 4B-parameter causal language model with a vision encoder from Alibaba's Qwen3.5 family, offering thinking mode by default and a 262K-token native context that extends to about 1M tokens.
+tasks:
+  - image-understanding
+  - reasoning
+  - coding
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0; weights are openly released on Hugging Face in Transformers format and compatible with vLLM, SGLang and KTransformers.
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 4.66
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Serving is recommended through SGLang, vLLM or KTransformers; the card warns that OOM can occur at the default 262K context and advises keeping at least 128K tokens to preserve thinking capability.
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.5-4B
+strengths:
+  - Unified vision-language model that outperforms Qwen3-VL models on reasoning · coding · agents and visual understanding
+  - Hybrid Gated DeltaNet and sparse MoE design aimed at high-throughput · low-latency inference
+  - Covers 201 languages and dialects
+limitations:
+  - Generates thinking content by default · so direct replies require disabling it
+  - Default 262K context can exhaust memory on smaller GPU setups
+  - Needs recent framework builds such as SGLang main branch for serving
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - vision-language
+  - long-context
+  - moe
+lastChecked: 2026-11-08

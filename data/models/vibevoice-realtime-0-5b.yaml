@@ -1,0 +1,44 @@
+id: vibevoice-realtime-0-5b
+name: VibeVoice-Realtime-0.5B
+org: Microsoft
+released: 2025-12-04
+dateSource: huggingface
+summary: VibeVoice-Realtime-0.5B is a lightweight 0.5B-parameter real-time text-to-speech model from Microsoft with streaming text input and long-form speech generation.
+description: A real-time text-to-speech model built for streaming text input and long-form speech generation. It combines a Qwen2.5-0.5B language model with an acoustic tokenizer and a diffusion-based decoding head. The variant supports a single speaker and is primarily intended for English speech synthesis.
+tasks:
+  - text-to-speech
+architecture: hybrid
+access: open-weights
+license:
+  id: MIT
+  commercial: no
+  note: Metadata lists MIT but the card states research-only use and does not recommend commercial or real-world use without further testing and development.
+io:
+  in:
+    - text
+  out:
+    - audio
+params:
+  total: 1.02
+  active: 0.5
+hardware:
+  platforms:
+    - cuda
+  note: No CUDA/ROCm/MLX/CPU/GGUF/ONNX/browser support is stated in the card.
+links:
+  weights: https://huggingface.co/microsoft/VibeVoice-Realtime-0.5B
+strengths:
+  - Real-time TTS with approximately 300 ms first audible latency depending on hardware
+  - Supports streaming text input
+  - Supports long-form speech generation up to about 10 minutes
+limitations:
+  - Primarily English-only; other languages may produce unpredictable results
+  - Supports only a single speaker in this variant
+  - Research-only use; not intended for commercial or real-world deployment without further testing
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - real-time
+  - streaming
+  - speech
+lastChecked: 2026-11-08

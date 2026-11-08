@@ -1,0 +1,40 @@
+id: lingbot-world-2
+name: LingBot World 2
+org: Robbyant
+released: 2026-07-08
+dateSource: huggingface
+summary: LingBot World 2 is a 14B causal image-to-video world model for long interactive video generation with action- and text-driven…
+description: LingBot World 2# is a causal image-to2video world ml for long interative video generatiom with action- and text-driven event
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: CC-BY-NC-SA-4.0
+  commercial: no
+  note: CC BY-NC-SA 4.0 licence restricts use to non-commercial
+io:
+  in:
+    - image
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Example inference uses 8 GPUs and requires torch >= 2.4.0 and flash_attn
+links:
+  weights: https://huggingface.co/robbyant/lingbot-world-v2-14b-causal-fast
+  homepage: https://technology.robbyant.com/lingbot-world-v2
+strengths:
+  - Unbounded interaction horizon with consistent output quality
+  - Diverse action and text-driven interactive events
+  - Agentic harness plans character behavior and synthesizes environmental elements
+limitations:
+  - CC BY-NC-SA 4.0 licen restricts use to non-commercial
+  - Only 14B caus-fast weights are realeased; causal-pretrain and bidirectional 14B variants are TODO
+  - Example inference uses 8 GPUs and requires torch >= 2.4.0 plus flash_attn
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+lastChecked: 2026-11-08

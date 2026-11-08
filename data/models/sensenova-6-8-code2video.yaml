@@ -1,0 +1,49 @@
+id: sensenova-6-8-code2video
+name: SenseNova 6.8 Code2Video
+org: OpenSenseNova
+released: 2026-10-24
+dateSource: huggingface
+summary: SenseNova 6.8 Code2Video is a 27.36B-parameter open-weights transformer fine-tuned from Qwen3.8-27B that builds and renders short videos by generating executable code.
+description: A lightweight open model for code-driven video creation. Rather than emitting pixels directly, it writes and renders code, reviewing frames and revising over long agentic runs; the card reports sustained runs of more than 10 hours and more than 2,000 turns in a Claude Code harness with a 512K context. Code is used as an entry point so that it can call image generation, video generation, 3D modelling and editing tools, chaining generation, editing and compositing into one workflow. Weights, config and tokenizer are released with example production trajectories and a code-video skill, and serving recipes are given for LightLLM, vLLM and SGLang with tensor parallelism.
+tasks:
+  - video-generation
+  - coding
+  - agents
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache License 2.0
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+    - code
+params:
+  total: 27.36
+contextTokens: 524288
+hardware:
+  platforms:
+    - cuda
+  note: Served with tensor parallelism (e.g. --tp 4) on NVIDIA GPUs via LightLLM, vLLM or SGLang with 512K context; community GGUF quantizations are also listed.
+links:
+  repo: https://github.com/OpenSenseNova/SenseNova-6.8-Code2Video
+  weights: https://huggingface.co/sensenova/SenseNova-6.8-Code2Video
+strengths:
+  - Sustains long-horizon agentic production runs of more than 10 hours and more than 2 ·000 turns
+  - Generates code that can invoke image video 3D and editing models to chain a full creative workflow
+  - Open weights under Apache 2.0 with released example trajectories and a code-video production skill
+limitations:
+  - Currently focused on short videos implemented entirely in code
+  - Editing compositing animation and 3D content creation are described as future extensions
+  - Recommended harness assumes a 512K-context deployment and allows unattended shell execution
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - code-driven-video
+  - agentic
+  - long-context
+  - qwen3-8-27b
+lastChecked: 2026-11-08

@@ -1,0 +1,44 @@
+id: kandinsky-6-0
+name: Kandinsky 6.0
+org: Tencent
+released: 2026-10-05
+dateSource: github
+summary: Kandinsky is an open-weight generative video-and-audio model family from Tencent.
+description: Kandinsky 6.0 is a multimodal video-and-audio generation family from Tencent, released under the MIT license.
+tasks:
+  - video-generation
+  - music-generation
+access: open-weights
+license:
+  id: MIT
+  commercial: no
+  note: Text-generation component license is MIT.
+io:
+  in:
+    - text
+    - image
+    - video
+    - audio
+  out:
+    - video
+    - audio
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: Open-weight release with code and weights available on GitHub and Hugging Face.
+links:
+  repo: https://github.com/kandinskylab/kandinsky-6
+strengths:
+  - Joint video-and-audio generation in one open-weight model
+  - Supports text-to-video and image-conditioned video
+  - Released with MIT-licensed code and weights
+limitations:
+  - No published benchmark results
+  - Audio quality is not independently evaluated
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-video
+  - text-to-audio
+  - video
+lastChecked: 2026-11-08

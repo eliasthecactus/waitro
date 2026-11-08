@@ -1,0 +1,26 @@
+id: gemini-3-8-flash-tts
+name: Gemini 3.8 Flash TTS
+org: Google
+summary: Gemini 3.8 Flash TTS is a hosted text-to-speech model from Google's Gemini 3.8 Flash line.
+tasks:
+  - text-to-speech
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - audio
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

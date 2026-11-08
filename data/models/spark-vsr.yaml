@@ -1,0 +1,46 @@
+id: spark-vsr
+name: Spark VSR
+org: Spark VSR
+released: 2026-03-18
+dateSource: huggingface
+summary: SparkVSR is a diffusion-based interactive video super-resolution model (~5.6B parameters built on CogVideoX1.5-5B-I2V) that propagates sparse high-resolution keyframe priors across a low-resolution…
+description: SparkVSR is an interactive video super-resolution framework built on the CogVideoX1.5-5B-I2V base model that propagates sparse high-resolution keyframes to a full low-resolution video sequence.
+tasks:
+  - video-upscaling
+  - video-restoration
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Released under Apache-2.0.
+io:
+  in:
+    - video
+    - image
+  out:
+    - video
+params:
+  total: 5.57
+hardware:
+  platforms:
+    - cuda
+  note: Inference uses PyTorch >= 2.5.0 with CUDA 12.4 wheels; training requires 4×A100 GPUs.
+links:
+  weights: https://huggingface.co/JiongzeYu/SparkVSR
+  homepage: https://sparkvsr.github.io/
+strengths:
+  - Keyframe-conditioned control lets users guide super-resolution with a small set of keyframes from any off-the-shelf image super-resolution model
+  - Reference-free guidance balances keyframe adherence with blind restoration when keyframes are absent or imperfect
+  - Applies out of the box to old-film restoration and video style transfer
+limitations:
+  - Training requires 4×A100 GPUs
+  - Stage-2 checkpoint must be used for inference; Stage-1 is an intermediate latent-space result
+  - The CogVideoX1.5-5B-I2V base model must be downloaded separately as initialization
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-super-resolution
+  - keyframe-propagation
+  - diffusion
+  - cogvideox
+lastChecked: 2026-11-08

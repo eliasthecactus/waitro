@@ -1,0 +1,42 @@
+id: generative-refocusing
+name: Generative Refocusing
+org: Unknown
+released: 2025-12-17
+dateSource: github
+summary: Generative Refocusing is an image-editing model with DeblurNet and BokehNet checkpoints for restoring sharp details and adding depth-controlled bokeh from a single image.
+tasks:
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - mask
+    - depth
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: CUDA NVIDIA A6000 peak ~45GB depending on resolution and settings.
+links:
+  repo: https://github.com/rayray9999/Genfocus
+  homepage: https://generative-refocusing.github.io/
+strengths:
+  - Provides DeblurNet for restoring sharp details from blurry images
+  - Provides BokehNet for adding realistic bokeh effects to all-in-focus images
+  - Supports optional depth map input and automatic Depth Pro fallback
+limitations:
+  - Requires FLUX.1-dev access and local authentication
+  - High GPU memory use can reach ~45GB on an NVIDIA A6000 depending on resolution and settings
+  - Tiling and inference step settings need tuning for speed and memory
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-editing
+  - deblurring
+  - bokeh
+  - diffusion
+lastChecked: 2026-11-08

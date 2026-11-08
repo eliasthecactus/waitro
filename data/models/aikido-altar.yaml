@@ -1,0 +1,47 @@
+id: aikido-altar
+name: Aikido Altar
+org: Aikido
+released: 2026-09-07
+dateSource: huggingface
+summary: Aikido Altar (Altar-1) is a 504B-parameter mixture-of-experts text model produced by pruning GLM-5.3 to 168 of 256 experts per layer and quantizing the routed experts to INT4 for serving on 4x H200…
+description: Altar-1 is a 504B-parameter mixture-of-experts text model built by pruning GLM-5.3 from 256 to 168 experts per layer with REAP and quantizing the routed experts to INT4 W4A16 (328 GB). Only the routed experts are 4-bit while attention, the shared expert, dense layers and head stay BF16 with 8 of 168 experts active per token (~40B active). It is served with vLLM at tensor-parallel size 4 with a 131072-token maximum length and is calibrated on cybersecurity traces, coding, tool calling, reasoning and English plus multilingual Wikipedia. KL divergence against the full BF16 model is 0.506 nats and the REAP pruning keeps each domain's specialists rather than the globally most frequent experts. Weights are released on Hugging Face under the inherited GLM-5.3 license.
+tasks:
+  - chat
+  - coding
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Custom
+  commercial: unknown
+  note: Inherits the GLM-5.3 license; the license text itself is not included in the card.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 500.83
+  active: 40
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+  note: Requires Hopper GPUs (H100/H200); 328 GB of weights across 4x H200 leaves room for a 128k-context KV cache at production batch sizes.
+links:
+  weights: https://huggingface.co/AikidoSec/altar-1
+  homepage: https://www.aikido.dev/blog/aikido-altar-open-weight-ai-sovereign-security
+strengths:
+  - Keeps 168 of 256 experts per layer with no retraining via router-weighted expert activation pruning (REAP)
+  - Only routed experts are 4-bit; attention · shared expert · dense layers and head stay BF16
+  - Domain-aware expert selection preserves specialists for code · rare languages and structured output
+limitations:
+  - Requires Hopper-class GPUs (H100/H200) and 328 GB of weights across 4x H200 in vLLM
+  - "Pruned and INT4-quantized: KL divergence of 0.506 nats versus the full BF16 GLM-5.3"
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-generation
+  - moe
+  - pruning
+  - reap
+lastChecked: 2026-11-08

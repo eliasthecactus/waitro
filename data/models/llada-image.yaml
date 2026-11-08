@@ -1,0 +1,47 @@
+id: llada-image
+name: LLaDA Image
+org: InclusionAI
+released: 2026-08-28
+dateSource: huggingface
+summary: LLaDA-Image is a 6.5B-parameter open diffusion model family for photorealistic text-to-image generation and instruction-guided image editing from a single checkpoint.
+description: LLaDA-Image is a unified diffusion model that handles text-to-image generation and reference-preserving instruction-guided editing without a separate editing backbone. The family includes a 50-step base model and LLaDA-Image-Turbo a Twin-DMD distilled variant for 4-step inference, both offered in BF16 and FP8 checkpoints. The authors report state-of-the-art overall scores of 53.53 (English) and 53.38 (Chinese) on Qwen-Image-Bench, and note that visual priors come from image-only pre-training followed by paired language supervision and joint generation-editing training.
+tasks:
+  - image-generation
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0; weights and inference code released but training code is listed as coming soon
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+params:
+  total: 6.54
+hardware:
+  platforms:
+    - cuda
+  note: Inference examples load the pipeline in bfloat16 on CUDA; FP8 checkpoints are also published
+links:
+  repo: https://github.com/inclusionAI/LLaDA-Image
+  weights: https://huggingface.co/inclusionAI/LLaDA-Image
+strengths:
+  - Single checkpoint covers text-to-image generation and instruction-guided editing
+  - Turbo variant produces images in 2-4 sampling steps via Twin-DMD distillation
+  - Supports Chinese-English text rendering and VQ-conditioned generation
+  - Authors report SOTA overall scores of 53.53 English and 53.38 Chinese on Qwen-Image-Bench
+limitations:
+  - Base model recommends 50 sampling steps for high fidelity
+  - Text and VQ generation require height and width divisible by 16 while editing requires divisibility by 32
+  - Training code has not been released yet
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - image-editing
+  - diffusion
+  - unified-model
+lastChecked: 2026-11-08

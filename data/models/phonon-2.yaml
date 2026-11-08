@@ -1,0 +1,44 @@
+id: phonon-2
+name: Phonon 2
+org: Fermion Research
+released: 2026-09-28
+dateSource: huggingface
+summary: Phonon 2 is a 164 MB English automatic speech recognition model distilled from parakeet-tdt-0.6b-v3 that averages 5.21 % word error on the Open ASR Leaderboard's seven English sets.
+description: Phonon 2 is a compact English speech recognition model released by Fermion Research in September 2026. It is a 164 MB release derived from NVIDIA's parakeet-tdt-0.6b-v3 and is the engine inside the Detta dictation app for Mac. Across the seven English test sets of the Open ASR Leaderboard it averages 5.21 % word error rate while shipping in a download roughly fifteen times smaller than its 2.5 GB base model.
+tasks:
+  - speech-to-text
+architecture: other
+access: open-weights
+license:
+  id: CC-BY-4.0
+  commercial: yes
+  note: Model weights are CC-BY-4.0 matching the NVIDIA base model; the command line and repository code are Apache 2.0.
+io:
+  in:
+    - audio
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: Runs on Apple silicon via MLX and Core ML, on Linux x86-64/Arm and Windows CPUs, on Android arm64-v8a (API 26+), and on NVIDIA GPUs through the published CUDA Docker image.
+links:
+  weights: https://huggingface.co/FermionResearch/Phonon-2
+  homepage: https://www.fermionresearch.com/research/phonon-2/
+strengths:
+  - Averages 5.21 % word error across seven English ASR leaderboard sets
+  - Transcribes an hour of audio in about 20 seconds on an M5 MacBook Air
+  - Reaches 6 ·680x realtime on a single H100 in batches of 128
+limitations:
+  - English only
+  - Punctuation casing and numerals follow the base model's tokenizer and output conventions
+  - Ships as a compressed 164 MB download rather than a full-precision checkpoint
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - speech-to-text
+  - asr
+  - english
+  - efficient
+lastChecked: 2026-11-08

@@ -1,0 +1,43 @@
+id: helios
+name: Helios
+org: PKU
+released: 2026-03-02
+dateSource: github
+summary: Helios is a 14B-parameter open-weights diffusion video generation model that produces minute-scale videos at 19.5 FPS on a single H100 GPU and supports text-to-video image-to-video and…
+description: "Helios is a 14B real-time long video generation model by PKU. It generates minute-scale high-quality videos at 19.5 FPS on a single H100 GPU without conventional anti-drifting or standard acceleration techniques. Three checkpoints are released: Helios-Base, Helios-Mid and Helios-Distilled. All support T2V, I2V, V2V and interactive generation. The model uses an autoregressive approach that generates 33 frames per chunk. Apache-2.0 licensed."
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires NVIDIA GPU for CUDA support; Ascend NPU also mentioned but not in taxonomy.
+links:
+  repo: https://github.com/PKU-YuanGroup/Helios
+  homepage: https://pku-yuangroup.github.io/Helios-Page/
+strengths:
+  - Generates minute-scale videos without conventional anti-drifting strategies
+  - Achieves 19.5 FPS end-to-end inference on a single H100 GPU
+  - Supports text-to-video image-to-video video-to-video and interactive generation
+limitations:
+  - Image-to-video and video-to-video may be slightly inferior to text-to-video
+  - Real-time performance also depends on CPU memory and CUDA driver version
+  - Helios-Mid is an intermediate distillation checkpoint that may not meet expected quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - diffusion
+  - 14b
+  - real-time
+lastChecked: 2026-11-08

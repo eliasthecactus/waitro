@@ -1,0 +1,40 @@
+id: lightx
+name: LightX
+org: LightX authors
+released: 2025-12-05
+dateSource: github
+summary: Light-X is a video generation framework that jointly controls camera trajectory and illumination from monocular videos.
+tasks:
+  - video-generation
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Metadata licence id is NOASSERTION and no full licence text is provided.
+io:
+  in:
+    - video
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/TQTQliu/Light-X
+  homepage: https://lightx-ai.github.io/
+strengths:
+  - Jointly controls camera trajectory and illumination in generated videos
+  - Supports text background reference-image and HDR relighting conditions
+  - Includes training code and the Light-Syn paired-data synthesis pipeline
+limitations:
+  - Licence terms are not asserted in the metadata
+  - Pretrained checkpoints must be downloaded before inference
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - camera-control
+  - illumination-control
+  - relighting
+lastChecked: 2026-11-08

@@ -1,0 +1,49 @@
+id: groot
+name: Groot
+org: GrootTeam
+released: 2026-10-23
+dateSource: huggingface
+summary: Groot-19B-A3B-261023 is an Apache-2.0 open-weight natively multimodal mixture-of-experts reasoning language model with about 19B total parameters and about 3B activated per token.
+tasks:
+  - reasoning
+  - agents
+  - coding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per metadata; full text not included in the card
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 19.43
+  active: 3
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: BF16 needs a single 48GB or 80GB GPU; FP8 and NVFP4 run full 256K context on one RTX 5090; GGUF Q4_K_M fits 16GB cards at 128K
+links:
+  weights: https://huggingface.co/GrootTeam/Groot-19B-A3B-261023
+strengths:
+  - Mixture-of-experts model with ~19B total and ~3B activated parameters per token
+  - 262144-token native context extensible to ~1M tokens with YaRN
+  - Released in BF16 FP8 NVFP4 and GGUF Q4_K_M editions for consumer hardware and Mac
+limitations:
+  - Runs in thinking mode by default so responses open with a reasoning block
+  - Requires recent runtimes (Transformers >= 5.8.1 vLLM >= 0.19.1 SGLang >= 0.5.10)
+  - Guidance recommends keeping at least 128K context to preserve thinking capability
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - reasoning
+  - tool-use
+  - long-context
+lastChecked: 2026-11-08

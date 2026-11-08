@@ -1,0 +1,44 @@
+id: mamma
+name: Mamma
+org: MPI / academic collaborators
+released: 2026-05-06
+dateSource: github
+summary: MAMMA is a multi-view markerless motion-capture pipeline that combines SAM/YOLO segmentation with MammaNet 2D landmark detection and multi-view SMPL-X optimization to recover accurate multi-person…
+description: "MAMMA (Markerless Accurate Multi-person Motion Acquisition) is a CVPR 2026 pipeline released with inference and training code. It runs as a five-step chain: ma_cap loads multi-view captures, ma_masks performs per-person segmentation with SAM + YOLO, ma_2d detects 2D landmarks with MammaNet, ma_3d runs multi-view SMPL-X optimization, and ma_vis renders per-camera overlays and an interactive 3D scene. Runs are driven by `python -m inference run` with a preset YAML, a footage directory and a calibration file, and a browser GUI (Flask + React) is included for submitting and inspecting runs. The accompanying dance, multi-person, iPhone, eval and synthetic datasets are hosted on the project page behind a free account."
+tasks:
+  - 3d-generation
+  - image-understanding
+architecture: hybrid
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: Licensed for non-commercial scientific research purposes only.
+io:
+  in:
+    - video
+  out:
+    - 3d
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires a CUDA setup for inference per docs/INSTALL.md; a bundled 4-camera example sequence is about 56 MB.
+links:
+  repo: https://github.com/cuevhv/mamma
+  homepage: https://mamma.is.tue.mpg.de/
+strengths:
+  - Recovers multi-person 3D motion in the form of SMPL-X bodies from calibrated multi-view video
+  - Combines SAM/YOLO segmentation MammaNet 2D landmarks and multi-view optimization in one runnable pipeline
+  - Includes training code plus synthetic and real capture datasets
+limitations:
+  - Licence restricts use to non-commercial scientific research
+  - Needs calibrated multi-view footage and an NVIDIA CUDA environment
+  - Evaluation scripts and processed evaluation datasets are listed as not yet released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - motion-capture
+  - smpl-x
+  - multi-view
+  - human-pose
+lastChecked: 2026-11-08

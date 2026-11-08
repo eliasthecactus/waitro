@@ -1,0 +1,37 @@
+id: arbor
+name: Arbor
+org: Stability AI team / J. Dihlmann
+released: 2026-05-11
+dateSource: huggingface
+summary: Arbor is a text-to-3D generation model from Stability AI that adds explicit geometric conditioning via hull avoidance and touch constraint meshes and decodes a sparse structure into a mesh with the…
+description: Arbor is a text-to-3D generation model that takes a text prompt plus explicit geometry constraints (hull avoidance and touch meshes) and decodes a geometry-conditioned sparse structure into a mesh with the TRELLIS SLAT mesh decoder.
+tasks:
+  - 3d-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Custom
+  commercial: limited
+  note: Stability AI Community License. Free for research non-commercial and commercial use only for individuals or organizations with annual revenue under US $1M; above that an Enterprise License from Stability AI is required.
+io:
+  in:
+    - text
+    - 3d
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/StabilityLabs/arbor
+  homepage: https://arbor.jdihlmann.com/
+strengths:
+  - Explicit geometry conditioning through hull avoidance and touch constraint meshes
+  - Decodes into a mesh via the TRELLIS SLAT mesh decoder
+  - Built on the TRELLIS text-to-3D stack with TRELLIS.2 constraint encoding
+limitations:
+  - Commercial use requires an Enterprise License from Stability AI above US $1M annual revenue
+  - Not intended to generate factual representations of people events products or places
+  - Requires typed constraint meshes such as hull avoidance and touch regions in addition to the prompt
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+lastChecked: 2026-11-08

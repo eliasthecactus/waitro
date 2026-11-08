@@ -1,0 +1,47 @@
+id: audio8-tts-realistic-0-6b
+name: Audio8 TTS Realistic 0.6B
+org: Edge0 AI
+released: 2026-10-14
+dateSource: huggingface
+summary: Audio8 TTS Realistic 0.6B is a compact DualAR transformer text-to-speech model from Edge0 AI that synthesizes 44.1 kHz speech in 23 languages and supports zero-shot voice cloning from a reference…
+description: Compact 0.6B multilingual text-to-speech model with zero-shot voice cloning built on a DualAR transformer and a bundled 44.1 kHz neural audio codec.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+params:
+  total: 0.6
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: A CUDA-capable GPU is recommended; a CPU fallback in float32 is also shown.
+links:
+  weights: https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air
+  homepage: https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/
+strengths:
+  - 601M-parameter main model with codec bundled separately in the same repository
+  - Zero-shot voice cloning from a reference recording plus exact transcript
+  - 44.1 kHz output via bundled codec needing no extra checkpoint
+  - Generation with or without a reference voice
+limitations:
+  - Language quality varies by language; 23 languages supported but not equally strong
+  - Reported WER/CER and speaker similarity do not directly measure perceived realism
+  - Requires trust_remote_code=True and a recent Transformers release; CUDA GPU recommended
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - multilingual
+  - dual-ar
+lastChecked: 2026-11-08

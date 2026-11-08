@@ -1,0 +1,39 @@
+id: flux-2-max
+name: FLUX.2 [max]
+org: Black Forest Labs
+summary: FLUX.2 [max] is Black Forest Labs' top-tier image generation and editing model presented as the most capable variant of FLUX.2 for professional-grade output.
+tasks:
+  - image-generation
+  - image-editing
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://bfl.ai/models/flux-2-max
+strengths:
+  - Highest-quality output in the FLUX.2 family
+  - Strongest prompt following and faithful style representation
+  - Grounded generation with real-time web context
+limitations:
+  - API only
+  - API and playground access offered; pricing not verified
+  - Top-tier quality oriented rather than fastest/cheapest FLUX.2 variant
+betterOptions:
+  - id: flux-3
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - black
+lastChecked: 2026-11-08

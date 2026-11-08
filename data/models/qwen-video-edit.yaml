@@ -1,0 +1,38 @@
+id: qwen-video-edit
+name: Qwen Video Edit
+org: Qwen/Alibaba
+released: 2026-08-11
+dateSource: huggingface
+summary: Qwen-Video-Edit is an instruction-based video editing checkpoint that repurposes an image editing model to edit video-VAE latents directly using lightweight trainable projections.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licence per model metadata.
+io:
+  in:
+    - text
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/yunpeng1998/Qwen-Video-Edit
+  homepage: https://yunpeng1998.github.io/Qwen-Video-Edit-Page
+strengths:
+  - Instruction-based video editing from text prompts
+  - Repurposes an image editing model for video-VAE latents
+  - Requires only lightweight trainable projections
+limitations:
+  - Usage instructions are only available in the GitHub repository
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-editing
+  - instruction-based
+  - video-vae
+lastChecked: 2026-11-08

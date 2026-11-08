@@ -1,0 +1,42 @@
+id: lumos-custom
+name: Lumos-Custom
+org: Alibaba
+released: 2025-10-24
+dateSource: github
+summary: "Lumos-Custom is an umbrella repository from Alibaba DAMO Academy bundling three open research video projects: LumosX for identity- and attribute-aware personalized video generation, UniLumos for…"
+description: Lumos-Custom collects separate self-contained subprojects for customized video generation. LumosX (ICLR 2026) targets personalized multi-subject video generation, using a data pipeline that builds relational structure from captions and MLLM priors plus Relational Self-Attention and Relational Cross-Attention to model subject-attribute dependencies; weights are published on Hugging Face. UniLumos (NeurIPS 2025) performs unified image and video relighting on a flow-matching backbone with depth and normal maps as geometry feedback and path consistency learning for few-step training; weights are also on Hugging Face. Lumos-Nexus (arXiv preprint) is a training-efficient unified video generation framework where a lightweight generator is aligned with an understanding block and Unified Progressive Frequency Bridging hands off at inference to a high-capacity pretrained generator in a shared latent space. Each subproject ships its own installation and inference instructions, and two companion benchmarks (LumosBench and VR-Bench) accompany the releases.
+tasks:
+  - video-generation
+  - image-editing
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Repository metadata lists no licence identifier and the licence text is absent, so commercial use terms are unclear.
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/alibaba-damo-academy/Lumos-Custom
+strengths:
+  - Covers three released research lines for customized video generation
+  - LumosX and UniLumos publish model weights on Hugging Face
+  - UniLumos handles both image and video relighting with physics-plausible feedback
+limitations:
+  - Licence is unspecified in the repository metadata
+  - Subprojects require separate setup and checkpoints
+  - Lumos-Nexus is an arXiv preprint and not yet peer-reviewed
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - personalization
+  - relighting
+  - alibaba
+lastChecked: 2026-11-08

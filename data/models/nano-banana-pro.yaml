@@ -1,0 +1,33 @@
+id: nano-banana-pro
+name: Nano Banana Pro
+org: Google
+summary: Nano Banana Pro is a Google image generation model served under the gemini-3-pro-image endpoint. It is an API-hosted model billed per generated 1K/2K image rather than by token.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+pricing:
+  perImage: 0.134
+  note: gemini-3-pro-image $0.134 per 1K/2K image
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Hosted through Google's Gemini image API
+  - Priced per generated image at 1K and 2K resolution
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

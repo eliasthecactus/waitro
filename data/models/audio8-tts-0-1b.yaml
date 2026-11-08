@@ -1,0 +1,47 @@
+id: audio8-tts-0-1b
+name: Audio8 TTS 0.1B
+org: Audio8
+released: 2026-08-19
+dateSource: huggingface
+summary: Audio8 TTS 0.1B is a compact autoregressive text-to-speech model with roughly 170M main parameters plus a bundled ~120M-parameter neural audio codec that generates 44.1 kHz speech and supports…
+description: "Audio8 TTS Preview 0.1B is a small zero-shot TTS checkpoint built on an Audio8 Falcon H1 architecture with slow and fast autoregressive branches: the slow branch predicts semantic tokens while the fast branch predicts 10 codec codebooks (4,096 entries each) conditioned on the slow hidden state. The slow AR has 24 layers and the fast AR 4 layers, both at width 512 with 8 attention heads and 2 KV heads, and context runs up to 2,048 packed text/audio positions. The repository includes the complete v4 mixed checkpoint, tokenizer, processor, codec (codec.pth) and Hugging Face remote code, so no separate codec download is needed. Chinese and English are the primary languages, with German, Spanish, French, Italian, Japanese and Korean listed as experimental/multilingual evaluation languages. Synthesis works with or without a reference clip: supplying reference audio plus its transcript performs zero-shot voice cloning. An ONNX INT8 package targets low-resource CPU inference with ONNX Runtime, using per-token INT8 graphs for the slow and fast AR and FP16 for the codec, loading at about 0.4 GiB in the tested Linux x86_64 configuration. Python 3.11+ with a CUDA-capable GPU is recommended for the PyTorch path."
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: transformer
+access: open-weights
+license:
+  id: audio8-community-license-v1.0
+  commercial: limited
+  note: "Audio8 Community License v1.0 is a revenue-capped custom license: non-commercial use is free and commercial use is free only for entities with annual revenue under US$2,000,000; larger entities need a separate written commercial license. Attribution must be retained on redistribution and impersonation without consent is prohibited."
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+params:
+  total: 0.17
+hardware:
+  platforms:
+    - cuda
+    - cpu
+    - onnx
+  note: PyTorch inference recommends a CUDA-capable GPU; the ONNX INT8 build runs on CPU via ONNX Runtime CPUExecutionProvider at about 0.4 GiB after loading in the tested Linux x86_64 setup.
+links:
+  weights: https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b
+strengths:
+  - Zero-shot voice cloning from a reference clip and its transcript
+  - Bundled 44.1 kHz neural audio codec requires no extra checkpoint
+  - CPU ONNX INT8 build runs without PyTorch at low memory
+limitations:
+  - Compact preview checkpoint with weaker and more variable quality outside Chinese and English
+  - Long noisy or mis-transcribed reference audio reduces stability and speaker similarity
+  - Commercial use excluded for entities with annual revenue of US$2M or more
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - zero-shot
+  - multilingual
+lastChecked: 2026-11-08

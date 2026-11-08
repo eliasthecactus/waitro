@@ -21,7 +21,20 @@ export function tokens(n: number | null | undefined): string {
 }
 
 export const money = (n: number) => `$${n < 1 ? n.toFixed(2) : +n.toFixed(2)}`;
-export const price = (p: Pricing | null | undefined) => (p ? `${money(p.inputPerM)} / ${money(p.outputPerM)}` : '');
+export function price(p: Pricing | null | undefined): string {
+  if (!p) return '';
+  if (p.inputPerM !== undefined) return `${money(p.inputPerM)} / ${money(p.outputPerM ?? 0)}`;
+  if (p.perImage !== undefined) return `${money(p.perImage)} / image`;
+  if (p.perSecond !== undefined) return `${money(p.perSecond)} / s`;
+  if (p.perMinute !== undefined) return `${money(p.perMinute)} / min`;
+  if (p.perMChars !== undefined) return `${money(p.perMChars)} / 1M chars`;
+  if (p.perMonth !== undefined) return `${money(p.perMonth)} / month`;
+  return '';
+}
+/** Sort key across price units: per-token prices first, then the rest by amount. */
+export const priceSort = (p: Pricing | null | undefined) =>
+  !p ? null : p.inputPerM !== undefined ? p.inputPerM + (p.outputPerM ?? 0) / 4
+    : 1000 + (p.perImage ?? p.perSecond ?? p.perMinute ?? p.perMChars ?? p.perMonth ?? 0);
 export const compact = (n: number) => new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(n);
 
 export interface CommercialInfo { cls: string; short: string; long: string }

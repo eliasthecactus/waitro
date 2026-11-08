@@ -1,0 +1,52 @@
+id: minicpm-o-4-5
+name: MiniCPM-o 4.5
+org: OpenBMB
+released: 2026-02-03
+dateSource: huggingface
+summary: MiniCPM-o 4.5 is a 9B-parameter end-to-end omni-modal MLLM for vision speech and full-duplex multimodal live streaming on phones and local devices.
+description: MiniCPM-o 4.5 by OpenBMB is a $9.37B$ parameter omni-modally trained MLLM. It is built end-to-end on SigLip2, Whisper-medium, CosyVoice2 and Qwen3-8B using a TDM full-duplex omni-modal streaming mechanism and is released under the Apache-2.0 license.
+tasks:
+  - image-understanding
+  - ocr
+  - text-to-speech
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 licensed model. OpenBMB also published an artifact-license and model card. The weights are hosted at openbmb/MiniCPM-o-4_5 on Hugging Face.
+io:
+  in:
+    - text
+    - image
+    - video
+    - audio
+  out:
+    - text
+    - audio
+params:
+  total: 9.37
+  active: 9
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+    - cpu
+    - apple-silicon
+  note: PyTorch inference on NVIDIA GPUs is recommended for 100% precision. On-device options include llama.cpp/Ollama CPU inference, int4 and GGUF quantized models, a realtime web demo deployable on GPUs or Macs and a realtime web demo deployable on GPUs or Macs. The iPhone app is available on the App Store.
+links:
+  weights: https://huggingface.co/openbmb/MiniCPM-o-4_5
+strengths:
+  - Achieves 77.6 average OpenCompass score across 8 vision-language benchmarks and supports instruct and thinking modes in one model
+  - Supports bilingual English and Chinese real-time speech conversation with configurable voices and voice cloning from a reference audio clip
+  - Processes high-resolution images up to 1.8 million pixels and high-FPS videos up to 10fps and reports strong document parsing on OmniDocBench
+limitations:
+  - Real-time speech conversation is described for English and Chinese only while broader multilingual support is stated for over 30 languages
+  - PyTorch inference with 100% precision requires an NVIDIA GPU; CPU and Mac use llama.cpp/Ollama or quantized GGUF paths
+  - Full-duplex live streaming requires continuous video and audio input and is shown through local web demos
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - omni-modal
+  - vision-language
+  - speech
+  - live-streaming
+lastChecked: 2026-11-08

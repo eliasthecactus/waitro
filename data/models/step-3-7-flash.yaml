@@ -1,0 +1,50 @@
+id: step-3-7-flash
+name: Step 3.7 Flash
+org: StepFun
+released: 2026-05-23
+dateSource: huggingface
+summary: Step 3.7 Flash is a 198B-parameter sparse Mixture-of-Experts vision-language model with a 196B-parameter language backbone and a 1.8B-parameter vision encoder that activates about 11B parameters per…
+description: A 198B-parameter sparse Mixture-of-Experts vision-language model pairing a 196B-parameter language backbone with a 1.8B-parameter vision encoder and activating roughly 11B parameters per token with three selectable reasoning levels.
+tasks:
+  - agents
+  - coding
+  - image-understanding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 201.37
+  active: 11
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: Local deployment on high-memory devices (NVIDIA DGX Station / AMD Ryzen AI Max+ 395 systems / Mac Studio or MacBook Pro with at least 128GB unified memory).
+links:
+  weights: https://huggingface.co/stepfun-ai/Step-3.7-Flash
+  homepage: https://static.stepfun.com/blog/step-3.7-flash/
+strengths:
+  - Native image understanding for dense UIs charts and wireframes mapped into structured code
+  - Long-horizon tool orchestration and API interaction with reported high instruction adherence
+  - 256k context with selectable low medium and high reasoning levels for latency/cost control
+  - Open weights served by vLLM SGLang Transformers llama.cpp and NVIDIA NIM
+limitations:
+  - Full-precision local serving needs multi-GPU tensor parallelism or high-memory workstations
+  - Reasoning depth must be traded off against speed and cost via the three reasoning levels
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - mixture-of-experts
+  - vision-language
+  - agentic
+  - long-context
+lastChecked: 2026-11-08

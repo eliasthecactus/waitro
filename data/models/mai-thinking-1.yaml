@@ -1,0 +1,37 @@
+id: mai-thinking-1
+name: MAI Thinking 1
+org: Microsoft AI
+released: 2026-08-12
+dateSource: vendor
+summary: MAI-Thinking-1 is Microsoft AI's medium-sized reasoning model available in public preview in Microsoft Foundry.
+tasks:
+  - chat
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 256000
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://microsoft.ai/news/introducing-mai-thinking-1/
+strengths:
+  - Medium-sized sparse MoE with smaller inference footprint
+  - Strong reported math and agentic coding results for its weight class
+  - Preferred to Sonnet 4.6 in cited blind human side-by-sides
+limitations:
+  - API only
+  - Public preview
+  - No verified pricing
+notes: Summary from the official announcement page.
+tags:
+  - microsoft
+lastChecked: 2026-11-08

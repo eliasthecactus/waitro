@@ -1,0 +1,41 @@
+id: nano-banana
+name: Nano Banana
+org: Google
+summary: Nano Banana is Google's image model served as gemini-2.5-flash-image. It is offered as a hosted API endpoint billed per generated image rather than as open weights.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+pricing:
+  perImage: 0.039
+  note: gemini-2.5-flash-image $0.039 per image (deprecated, shutdown 2027-03-15)
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Hosted by Google under the Gemini model family
+  - Simple per-image pricing at $0.039
+  - Accessed through an API rather than self-hosting
+limitations:
+  - API only
+  - Marked deprecated in this listing
+  - Shutdown scheduled for 2027-03-15
+betterOptions:
+  - id: nano-banana-2-1
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

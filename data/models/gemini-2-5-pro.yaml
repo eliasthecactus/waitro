@@ -1,0 +1,43 @@
+id: gemini-2-5-pro
+name: Gemini 2.5 Pro
+org: Google
+released: 2026-12-01
+dateSource: vendor
+summary: Gemini 2.5 Pro is a hosted general-purpose language model from Google available through an API. The price note states that it is deprecated and reroutes to Gemini 3.8 Flash on 2026-12-01.
+tasks:
+  - chat
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+pricing:
+  inputPerM: 92
+  outputPerM: 930
+  perImage: 9300
+  perSecond: 930
+  perMinute: 930
+  note: gemini-2.5-pro 1.25/10 (deprecated, reroutes to Gemini 3.8 Flash on 2026-12-01)
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+  - Deprecated and rerouted to Gemini 3.8 Flash on 2026-12-01
+betterOptions:
+  - id: gemini-4-argon
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

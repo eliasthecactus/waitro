@@ -1,0 +1,42 @@
+id: omnishotcut
+name: OmniShotCut
+org: Unknown
+released: 2026-04-24
+dateSource: github
+summary: OmniShotCut is a 52.8M-parameter Shot-Query Transformer for shot boundary detection that finds clean cuts and gradual transitions across diverse video sources.
+description: Per the authors OmniShotCut is a state-of-the-art shot boundary detector for anime vlogs games shorts sports and screen recordings. It uses a Shot-Query-based Video Transformer to recognize sudden jumps and transitions such as dissolves fades and wipes. The v1.5 checkpoint has 52.8M parameters and is described as reducing false cuts on continuous camera motion and lighting changes while improving dense fast-cut recall.
+tasks:
+  - image-understanding
+  - segmentation
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT license; no restrictions noted.
+io:
+  in:
+    - video
+  out:
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires PyTorch with CUDA support and ffmpeg on PATH for video decoding.
+links:
+  repo: https://github.com/UVA-Computer-Vision-Lab/OmniShotCut
+  homepage: https://uva-computer-vision-lab.github.io/OmniShotCut_website/
+strengths:
+  - Handles diverse video sources including anime vlogs games sports and screen recordings
+  - Recognizes both sudden jumps and gradual transitions such as dissolves fades and wipes
+  - v1.5 reduces false cuts on continuous camera motion and lighting changes
+limitations:
+  - Training code and benchmark are not yet released
+  - Requires ffmpeg and a PyTorch CUDA setup for inference
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - shot-boundary-detection
+  - video-segmentation
+  - transformer
+  - pytorch
+lastChecked: 2026-11-08

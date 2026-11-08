@@ -1,0 +1,38 @@
+id: zgcm-1
+name: ZGCM-1
+org: Unknown
+released: 2026-09-07
+dateSource: github
+summary: ZGCM-1 is a 7.39B-parameter dense decoder-only Transformer language model trained from scratch for mathematical reasoning and tool-assisted agentic search with a 256K-token context.
+description: A fully open foundation model for math and agentic search.
+tasks:
+  - reasoning
+  - agents
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Training and evaluation details are provided in the technical report; no specific inference hardware is listed in the model card.
+links:
+  repo: https://github.com/zgcagi/ZGCM-1
+strengths:
+  - Supports 256K-token context using gated sliding-window and global attention layers
+  - Designed for multi-step tool use and web search in addition to math reasoning
+  - Released under the MIT License with weights and training workflows
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - language
+  - reasoning
+  - agents
+lastChecked: 2026-11-08

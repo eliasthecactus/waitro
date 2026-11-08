@@ -1,0 +1,41 @@
+id: needle-3
+name: Needle 3
+org: Cactus Compute
+released: 2026-09-16
+dateSource: huggingface
+summary: Needle 3 is an on-device Cactus Compute model for tool calling structured extraction and text embeddings.
+description: An on-device model designed for tool calling structured extraction and text embeddings. The repository provides needle3.cact and checkpoints/needle3.safetensors while runtime binaries and supported platforms are maintained in the Cactus repository. It is used through the cactus-compute Python package which downloads and caches the engine and weights on first use.
+tasks:
+  - agents
+  - embeddings
+  - on-device-llm
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+    - structured
+    - embedding
+contextTokens: 32768
+hardware:
+  platforms:
+    - cuda
+  note: Platform support is not specified in the model card; runtime binaries live in the Cactus repository.
+links:
+  weights: https://huggingface.co/Cactus-Compute/needle3
+  homepage: https://cactuscompute.com/needle
+strengths:
+  - Designed for tool calling through a Python decorator API
+  - Combines structured extraction and text embeddings in one model
+  - Weights are released as needle3.cact and needle3.safetensors
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - on-device
+  - tool-calling
+  - structured-extraction
+  - embeddings
+lastChecked: 2026-11-08

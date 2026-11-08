@@ -1,0 +1,41 @@
+id: vibethinker-1-5b
+name: VibeThinker 1.5B
+org: transcript
+released: 2025-11-04
+dateSource: github
+summary: VibeThinker-1.5B is a 1.5B-parameter dense reasoning model trained with the Spectrum-to-Signal Principle for competitive math and coding.
+description: VibeThinker-1.5B is a dense model trained through Two-Stage Diversity-Exploring Distillation in SFT followed by MaxEnt-Guided Policy Optimization in RL.
+tasks:
+  - reasoning
+  - coding
+  - on-device-llm
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT-licensed model weights and repository.
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 40960
+hardware:
+  platforms:
+    - cuda
+  note: Recommended inference uses vLLM or SGLang.
+links:
+  repo: https://github.com/WeiboAI/VibeThinker
+strengths:
+  - 1.5B dense model reports higher AIME24 AIME25 and HMMT25 scores than DeepSeek R1-0120
+  - Trained with a reported post-training cost of $7 800
+  - Open weights released under MIT
+limitations:
+  - Recommended for competitive-style math and coding problems
+  - Requires transformers>=4.54.0 or vLLM/SGLang for recommended inference
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - math
+  - coding
+  - small-model
+lastChecked: 2026-11-08

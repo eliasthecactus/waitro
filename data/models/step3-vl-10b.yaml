@@ -1,0 +1,44 @@
+id: step3-vl-10b
+name: Step3-VL-10B
+org: StepFun
+released: 2026-01-13
+dateSource: huggingface
+summary: Step3-VL-10B is a 10.17B-parameter open-weights image-text-to-text model pairing a 1.8B perception encoder with a Qwen3-8B decoder for visual perception STEM reasoning OCR and GUI grounding.
+description: Step3-VL-10B is a 10.17B-parameter open-weights image-text-to-text model. It combines a 1.8B PE-lang perception encoder with a Qwen3-8B decoder and was trained on a 1.2T-token multimodal corpus with SFT and RL. The card highlights visual perception STEM reasoning OCR/document understanding GUI grounding spatial understanding and visual code tasks. It supports Sequential Reasoning (SeRe) and Parallel Coordinated Reasoning (PaCoRe) inference modes.
+tasks:
+  - image-understanding
+  - reasoning
+  - ocr
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per metadata.
+io:
+  in:
+    - image
+    - text
+  out:
+    - text
+params:
+  total: 10.17
+contextTokens: 128000
+hardware:
+  platforms:
+    - cuda
+  note: Requires at least 24 GB VRAM for bf16 inference.
+links:
+  weights: https://huggingface.co/stepfun-ai/Step3-VL-10B
+  homepage: https://stepfun-ai.github.io/Step3-VL-10B/
+strengths:
+  - Supports Sequential Reasoning and Parallel Coordinated Reasoning modes for scaled test-time compute
+  - Apache-2.0 licensed with FP8 weights and vLLM support available
+limitations:
+  - Requires at least 24 GB VRAM for deployment
+  - PaCoRe mode synthesizes 16 rollouts with up to 128K context so it is more compute-intensive than standard SeRe
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - stepfun
+  - step3-vl-10b
+lastChecked: 2026-11-08

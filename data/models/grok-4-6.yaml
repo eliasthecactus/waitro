@@ -1,0 +1,36 @@
+id: grok-4-6
+name: Grok 4.6
+org: xAI
+released: 2026-08-12
+dateSource: vendor
+summary: Grok 4.6 is xAI's August 2026 successor to Grok 4.5 focused on long-running agents codebase work and visual/interactive project building.
+tasks:
+  - agents
+  - coding
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - code
+  out:
+    - text
+    - code
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://x.ai/news/grok-4-6
+strengths:
+  - Built for long-running agents that sustain complex multi-step work
+  - Strong first-pass visual and interactive app scaffolding from a product idea
+  - Frontier scores on agentic coding and knowledge-work benchmarks
+limitations:
+  - API only
+notes: Summary from the official announcement page.
+tags:
+  - xai
+lastChecked: 2026-11-08

@@ -1,0 +1,46 @@
+id: generative-world-renderer
+name: Generative World Renderer
+org: Alaya Studio
+released: 2026-04-02
+dateSource: github
+summary: A pair of fine-tuned video diffusion models for inverse rendering of RGB video into G-buffers and text-controlled stylized RGB video synthesis from G-buffers.
+description: Generative World Renderer is an AI-native renderer framework for games and virtual worlds consisting of an Inverse Renderer fine-tuned from Cosmos-Transfer1-DiffusionRenderer 7B and a Game Editing model fine-tuned from Wan2.1 1.3B. The Inverse Renderer decomposes RGB videos into albedo normal depth roughness and metallic G-buffers while Game Editing synthesizes photorealistic RGB videos from G-buffers with text-controlled lighting and style. The authors also describe a dataset of 4M+ frames at 720p/30 FPS from two AAA games and a VLM-based evaluation protocol.
+tasks:
+  - video-generation
+  - depth-estimation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per repository metadata.
+io:
+  in:
+    - video
+    - text
+    - image
+  out:
+    - video
+    - image
+    - depth
+hardware:
+  platforms:
+    - cuda
+  note: Inference examples use CUDA GPUs.
+links:
+  repo: https://github.com/AlayaLab/AlayaRenderer
+  homepage: https://alaya-studio.github.io/renderer/
+strengths:
+  - "Two released fine-tuned components: a 7B inverse renderer and a 1.3B game editor"
+  - Game Editing supports text-controlled lighting and style for G-buffer-to-RGB video synthesis
+  - Authors report a 4M+ frame 720p/30 FPS dataset with six synchronized channels
+limitations:
+  - Dataset and data curation toolkit are marked TODO and not released
+  - Requires separate environments and base model checkpoints for the two components
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-diffusion
+  - inverse-rendering
+  - game-editing
+  - g-buffers
+lastChecked: 2026-11-08

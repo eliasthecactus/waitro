@@ -1,0 +1,42 @@
+id: bernini-v2
+name: Bernini v2
+org: ByteDance
+released: 2026-08-13
+dateSource: huggingface
+summary: Bernini v2 is a unified video generation and editing pipeline that combines an MLLM-based semantic planner with a DiT renderer for text/image-to-image and text/image-to-video tasks.
+description: Bernini v2 by ByteDance is a 7+14B unified framework for video generation and editing. It uses a Qwen2.5-VL-7B planner and a Wan2.2-T2V-A14B DiT renderer, packaged as a self-contained diffusers-format directory.
+tasks:
+  - video-generation
+  - image-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache License 2.0 with open-sourced weights.
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Hopper-class NVIDIA GPUs such as H100/H800/H200 are recommended for best performance.
+links:
+  weights: https://huggingface.co/ByteDance/Bernini-Diffusers-v2
+strengths:
+  - Adds explicit latent semantic planning for complex video generation and editing requests
+  - Supports t2i i2i t2v v2v rv2v and r2v tasks
+  - Ships a self-contained diffusers-format bundle with planner renderer and base diffusion components
+limitations:
+  - Heavier checkpoint layout than renderer-only Bernini-R
+  - Hopper-class NVIDIA GPUs are recommended for best performance
+  - Prompt enhancer relies on an external OpenAI-compatible endpoint
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - https---huggingface-co-bytedance-bernini-diffusers-v2
+  - https---github-com-bytedance-bernini
+lastChecked: 2026-11-08

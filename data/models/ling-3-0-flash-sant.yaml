@@ -1,0 +1,47 @@
+id: ling-3-0-flash-sant
+name: Ling 3.0 Flash Santé
+org: Ant Group / InclusionAI
+released: 2026-10-19
+dateSource: huggingface
+summary: Ling 3.0 Flash Santé is a healthcare-specialized hybrid-linear MoE language model with 5.1B active parameters per token designed for medical reasoning and research workflows.
+description: Ling 3.0 Flash Santé is a healthcare-specialized MoE language model with 5.1B active parameters per token for medical reasoning and research workflows.
+tasks:
+  - medical
+  - reasoning
+  - agents
+architecture: hybrid
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT license permits commercial use.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 127.49
+  active: 5.1
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Runs on NVIDIA GPUs via SGLang or vLLM with tensor parallelism (e.g. --tp 4 on 141GB-class GPUs or --tp 8 on 80GB H100/H800 GPUs).
+links:
+  weights: https://huggingface.co/inclusionAI/Ling-3.0-flash-Sante
+strengths:
+  - Specialized for medical reasoning and healthcare research with 256K-token context support
+  - Hybrid-linear MoE activates 5.1B of 124B parameters per token for efficient scale
+  - Native thinking mode and tool calling support agentic and multi-agent workflows
+limitations:
+  - Research model only and not a medical device
+  - May produce hallucinated or unsafe medical information
+  - High-stakes clinical use requires qualified human review and verification
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-generation
+  - medical
+  - healthcare
+  - research
+lastChecked: 2026-11-08

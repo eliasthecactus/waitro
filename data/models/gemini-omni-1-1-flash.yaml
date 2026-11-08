@@ -1,0 +1,38 @@
+id: gemini-omni-1-1-flash
+name: Gemini Omni 1.1 Flash
+org: Google
+summary: Gemini Omni 1.1 Flash is a Google-hosted API model in the Gemini Omni line.
+tasks:
+  - video-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+pricing:
+  perSecond: 0.1
+  note: about $0.10 per second of 720p video; routes to 1.2 from 2026-12-03
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Priced per second of generated 720p video
+limitations:
+  - API only
+betterOptions:
+  - id: gemini-omni-1-2-flash
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

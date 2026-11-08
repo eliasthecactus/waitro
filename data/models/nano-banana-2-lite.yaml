@@ -1,0 +1,34 @@
+id: nano-banana-2-lite
+name: Nano Banana 2 Lite
+org: Google
+summary: Nano Banana 2 Lite is a Google image generation model served as a hosted API endpoint (gemini-3.1-flash-lite-image). It returns image outputs and is priced at $0.0336 per 1K images.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+pricing:
+  perImage: 0.0336
+  note: gemini-3.1-flash-lite-image $0.0336 per 1K image
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Low listed cost of $0.0336 per 1K images
+  - Hosted image model available through a paid API
+limitations:
+  - API only
+  - Capabilities beyond image output are unconfirmed
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

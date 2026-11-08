@@ -1,0 +1,47 @@
+id: matanyone2
+name: MatAnyone2
+org: MatAnyone
+released: 2025-12-15
+dateSource: github
+summary: MatAnyone 2 is a human video matting framework that takes a video plus a first-frame segmentation mask and outputs foreground and alpha videos while preserving fine detail and staying robust in…
+description: MatAnyone 2 is a human video matting framework that takes a video plus a first-frame segmentation mask and outputs foreground and alpha videos while preserving fine detail and staying robust in challenging real-world conditions.
+tasks:
+  - segmentation
+  - background-removal
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Released under the NTU S-Lab License 1.0; redistribution and use must follow that license.
+io:
+  in:
+    - video
+    - image
+    - mask
+  out:
+    - video
+    - mask
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+  note: Inference example runs on a CUDA device; a third-party Core ML / Swift port targets Apple platforms.
+links:
+  repo: https://github.com/pq-yang/MatAnyone2
+  homepage: https://pq-yang.github.io/projects/MatAnyone2/
+strengths:
+  - Avoids segmentation-like boundaries to keep fine detail in alpha mattes
+  - Propagates memory for stable mattes across video frames
+  - Ships pretrained weights with CLI Gradio demo and Hugging Face from_pretrained API
+limitations:
+  - Requires a first-frame segmentation mask for the target person such as one from SAM2
+  - Training codes for the matting model and the quality-evaluator checkpoint are not yet released
+  - Custom NTU S-Lab License 1.0 applies with its own redistribution terms
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-matting
+  - alpha-matting
+  - human-matting
+  - mask-propagation
+lastChecked: 2026-11-08

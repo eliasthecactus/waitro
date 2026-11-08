@@ -1,0 +1,45 @@
+id: paradee-1-2
+name: Paradee 1.2
+org: Sahil Mahendrakar
+released: 2026-10-28
+dateSource: huggingface
+summary: Paradee 1.2 is a 7.88M-parameter English text-to-speech model distilled from Kokoro-82M that generates 24 kHz audio in four American and British voices and runs from a single 8.5 MB int8 ONNX file.
+description: A small English text-to-speech model distilled from Kokoro-82M. It ships as a single 8.5 MB int8 ONNX graph for four American and British voices and runs about 62x faster than real time on one CPU thread.
+tasks:
+  - text-to-speech
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0. Compatible with commercial use.
+io:
+  in:
+    - text
+  out:
+    - audio
+hardware:
+  platforms:
+    - onnx
+    - cpu
+    - apple-silicon
+    - browser
+  note: No GPU required for inference. Reported speed measured on an Apple M4 Pro CPU thread. The ONNX model supports CPU and browser use; training used one cloud GPU.
+links:
+  weights: https://huggingface.co/sahilmahendrakar/Paradee-8M-v1.2
+  homepage: https://www.sahilmahendrakar.com/writings/paradee-1-2
+strengths:
+  - "Very small: 7.88M parameters and an 8.5 MB int8 ONNX file for all four voices"
+  - Runs about 62x faster than real time on one CPU thread on an Apple M4 Pro
+  - Four English voices cover two American and two British accents
+limitations:
+  - English only with just four voices
+  - Pronunciation of numbers abbreviations and unusual words depends on misaki
+  - Browser use relies on eSpeak NG phonemization and may pronounce some British vowels differently
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - tts
+  - text-to-speech
+  - english
+  - onnx
+lastChecked: 2026-11-08

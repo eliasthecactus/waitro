@@ -1,0 +1,41 @@
+id: anima-v2-preview
+name: Anima v2 Preview
+org: circlestone-labs
+released: 2026-01-29
+dateSource: huggingface
+summary: Anima v2 is a 2 billion parameter text-to-image model created by circlestone-labs focusing primarily on anime concepts and artistic illustrations.
+description: Anima is a text-to-image model created via a collaboration between CircleStone Labs and Comfy Org. It is focused mainly on anime concepts characters and styles, and is designed for making illustrations and artistic images. It comes in various versions including Anima-Base Anima-Aesthetic and Anima-Turbo.
+tasks:
+  - image-generation
+architecture: other
+access: open-weights
+license:
+  id: circlestone-labs-non-commercial-license
+  commercial: limited
+  note: Requires non-commercial and non-production use.
+io:
+  in:
+    - text
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Natively supported in ComfyUI.
+links:
+  weights: https://huggingface.co/circlestone-labs/Anima
+strengths:
+  - Focus on anime concepts and artistic styles
+  - Anima-Turbo is fast for generations
+  - Trained on millions of anime and non-anime artistic images
+limitations:
+  - Not good at realism
+  - Poor text rendering ability
+  - Base version has a plain and neutral default style
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - anime
+  - illustration
+  - generative-ai
+lastChecked: 2026-11-08

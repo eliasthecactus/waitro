@@ -1,0 +1,42 @@
+id: unimate
+name: Unimate
+org: Unknown
+released: 2026-09-27
+dateSource: huggingface
+summary: UniMate is a text-conditioned flow-matching transformer that generates 60-frame skeletal motion for humanoids animals and rigged objects across diverse skeleton topologies.
+tasks:
+  - 3d-generation
+architecture: transformer
+access: open-weights
+license:
+  id: CC-BY-NC-4.0
+  commercial: no
+  note: Checkpoints CC BY-NC 4.0; code MIT
+io:
+  in:
+    - text
+    - 3d
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Training uses 8× H100 GPUs
+links:
+  weights: https://huggingface.co/Linzhan/UniMate
+  homepage: https://linzhanmou.com/unimate/
+strengths:
+  - Generates motion for skeletons of 5–70 joints across animals humanoids and rigged objects
+  - Recommended checkpoint is 74.1M parameters and outputs 60 frames at 30 fps
+  - Includes variants for the 22-joint Mixamo rig and Truebones 5–85 joints
+limitations:
+  - No unified contact model so contact-rich motions can slide drift hover or penetrate the ground
+  - Rare topologies and unusual motions can come out static jittery or off-prompt
+  - Fixed 60-frame 2 s samples and a skeleton must fit the model's joint limit
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-motion
+  - skeletal-animation
+  - flow-matching
+  - 3d-generation
+lastChecked: 2026-11-08

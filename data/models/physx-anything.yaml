@@ -1,0 +1,42 @@
+id: physx-anything
+name: PhysX Anything
+org: Unknown
+released: 2025-11-08
+dateSource: github
+summary: PhysX-Anything is a model that generates simulation-ready physical 3D assets from a single image and converts them into URDF/XML for simulation.
+description: PhysX-Anything takes a single image as input and produces simulation-ready physical 3D assets. It uses a Qwen2.5-based VLM and TRELLIS components and includes inference and fine-tuning code. The pretrained model can be downloaded from Hugging Face. The release also includes the PhysX-Mobility dataset. The model outputs part geometry and converts results into URDF and XML for simulation.
+tasks:
+  - 3d-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: S-Lab License mentioned but licence text not provided; metadata license is NOASSERTION.
+io:
+  in:
+    - image
+  out:
+    - 3d
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires CUDA-oriented dependencies including xformers flash-attn spconv kaolin and nvdiffrast.
+links:
+  repo: https://github.com/ziangcao0312/PhysX-Anything
+  homepage: https://physx-anything.github.io/
+strengths:
+  - Generates simulation-ready physical 3D assets from a single image
+  - Produces URDF and XML outputs for simulation
+limitations:
+  - Deformable components are reported as unstable in MuJoCo
+  - Recommends setting deformable to 0 for reliable simulation results
+  - Licence text is not included in the provided materials
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - simulation-ready
+  - single-image
+  - urdf
+lastChecked: 2026-11-08

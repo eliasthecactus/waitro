@@ -1,0 +1,42 @@
+id: claude-sonnet-4-6
+name: Claude Sonnet 4.6
+org: Anthropic
+summary: Claude Sonnet 4.6 is a hosted large language model from Anthropic's Claude family accessed via the Claude API and cloud partners.
+tasks:
+  - chat
+  - reasoning
+  - coding
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+pricing:
+  inputPerM: 3
+  outputPerM: 15
+  source: https://platform.claude.com/docs/en/about-claude/pricing
+hardware:
+  platforms:
+    - api
+links:
+  docs: https://platform.claude.com/docs/en/about-claude/models/overview
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths:
+  - Part of Anthropic's Claude lineup with tool use support
+  - Available through the Claude API and managed cloud platforms
+limitations:
+  - API only
+betterOptions:
+  - id: claude-sonnet-5-5
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - anthropic
+lastChecked: 2026-11-08

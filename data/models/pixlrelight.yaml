@@ -1,0 +1,42 @@
+id: pixlrelight
+name: PixlRelight
+org: research
+released: 2026-05-20
+dateSource: github
+summary: PIXLRelight is a feed-forward transformer-based model for single-image relighting that conditions on a target RGB image or Blender Cycles render passes.
+description: PIXLRelight is a feed-forward model for physically controllable single-image relighting. It accepts a source photograph plus a target lighting condition specified either as an RGB image or as path-traced Blender Cycles render passes and outputs a relit image. The repository code is MIT licensed while the hosted model weights are CC BY-NC 4.0.
+tasks:
+  - image-editing
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: no
+  note: Code MIT; model weights CC BY-NC 4.0
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Default inference device is CUDA.
+links:
+  repo: https://github.com/mlfarinha/pixlrelight
+  homepage: https://mlfarinha.github.io/pixl-relight/
+strengths:
+  - Accepts either a target RGB photograph or path-traced Blender Cycles passes as the lighting condition
+  - Applies per-pixel affine modulation at the source image's native resolution
+  - Feed-forward inference produces relit output in under a tenth of a second
+limitations:
+  - Model weights are released under CC BY-NC 4.0 for non-commercial use only
+  - Cycles mode requires HDR EXR passes in linear colour space
+  - Default inference device is CUDA
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-editing
+  - relighting
+  - intrinsic-conditioning
+  - transformer
+lastChecked: 2026-11-08

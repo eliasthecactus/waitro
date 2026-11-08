@@ -1,0 +1,41 @@
+id: minicpm5-2b
+name: MiniCPM5-2B
+org: OpenBMB
+released: 2026-09-06
+dateSource: huggingface
+summary: MiniCPM5-2B is a dense 2.52B-parameter causal language model for on-device deployment supporting 131072-token context and targeting coding math and agentic workloads.
+description: MiniCPM5-2B is a dense 2.52B-parameter causal language model built for on-device and local deployment with a 131072-token context and reported 2B-class open-source SOTA performance in coding math and agentic tasks.
+tasks:
+  - on-device-llm
+  - coding
+  - agents
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 2.52
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: Dense LlamaForCausalLM with 16 query and 2 KV attention heads across 42 layers
+links:
+  weights: https://huggingface.co/openbmb/MiniCPM5-2B
+strengths:
+  - Compact 2.52B dense model with native 131072-token context for local and resource-constrained deployment
+  - Apache-2.0 release with GGUF MLX and GPTQ variants published alongside the BF16 checkpoint
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - agent
+  - causal-lm
+  - dense
+lastChecked: 2026-11-08

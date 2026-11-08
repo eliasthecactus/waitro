@@ -1,0 +1,47 @@
+id: id-lora
+name: ID-LoRA
+org: unknown
+released: 2026-03-07
+dateSource: github
+summary: ID-LoRA is an in-context LoRA adapter for the LTX-2 audio-video diffusion model that generates an identity-preserving talking video from a text prompt, a first-frame image and a short reference…
+description: ID-LoRA personalizes appearance and voice in a single generative pass, built on LTX-2 (19B) and LTX-2.3 (22B). Given a structured text prompt ([VISUAL], [SPEECH], [SOUNDS]), a first-frame image for face and scene conditioning, and a ~5 s reference audio clip, it produces a talking video whose voice matches the reference speaker and whose face matches the subject. Voice and appearance are synthesized jointly in a unified latent space rather than through a cascaded pipeline, and inference is zero-shot after loading the LoRA weights. One-stage and two-stage (2x spatial upsampling) inference are supported, along with int8 quantization, and ComfyUI integration exists via a custom node and upstream native support.
+tasks:
+  - video-generation
+  - voice-cloning
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Licence metadata reports NOASSERTION and no licence text is provided.
+io:
+  in:
+    - text
+    - image
+    - audio
+  out:
+    - video
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Requires Python 3.11+ and CUDA 12.x with 24+ GB VRAM (48 GB recommended for two-stage).
+links:
+  repo: https://github.com/ID-LoRA/ID-LoRA
+  homepage: https://id-lora.github.io/
+strengths:
+  - Generates voice and appearance jointly in one unified audio-video diffusion pass rather than a cascaded pipeline
+  - "Zero-shot at inference: load the LoRA weights with no per-speaker fine-tuning"
+  - Lightweight training footprint of ~3K pairs on a single GPU
+  - Supports LTX-2 (19B) and LTX-2.3 (22B) with one-stage two-stage and Two-Stage HQ inference
+limitations:
+  - Reference audio should be approximately 5 seconds; shorter or longer clips may degrade voice identity transfer
+  - Requires CUDA with 24+ GB VRAM and 48 GB recommended for two-stage inference
+  - Licence is NOASSERTION with no licence text provided so commercial use terms are unclear
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - audio-video
+  - lora
+  - talking-head
+  - voice-identity
+lastChecked: 2026-11-08

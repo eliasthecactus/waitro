@@ -1,0 +1,44 @@
+id: infinitystar
+name: InfinityStar
+org: FoundationVision / ByteDance
+released: 2025-11-05
+dateSource: huggingface
+summary: InfinityStar is a unified spacetime autoregressive framework for high-resolution image and dynamic video synthesis supporting text-to-image text-to-video image-to-video and long-duration video…
+description: Unified spacetime autoregressive framework for high-resolution image and dynamic video synthesis.
+tasks:
+  - video-generation
+  - image-generation
+architecture: other
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT license stated in model card.
+io:
+  in:
+    - text
+  out:
+    - video
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Model card lists Blackwell GPUs using SGLang for serving.
+links:
+  repo: https://github.com/FoundationVision/InfinityStar
+  weights: https://huggingface.co/FoundationVision/InfinityStar
+strengths:
+  - Supports text-to-image and text-to-video generation
+  - Can perform long-duration video synthesis via temporal autoregression
+  - Claims first discrete autoregressive video generator capable of 720p video
+  - Reported VBench score of 83.74
+limitations:
+  - Requires custom SGLang runtime for serving
+  - No official benchmark for interactive latency was provided
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - text-to-video
+  - image-to-video
+  - autoregressive
+lastChecked: 2026-11-08

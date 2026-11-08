@@ -4,7 +4,7 @@ import {
   LucideArrowDown, LucideArrowUp, LucideChevronsUpDown, LucideDynamicIcon, LucideSearch, LucideTrophy, LucideX, LucideSlidersHorizontal,
 } from '@lucide/angular';
 import { Api } from '../core/api';
-import { accessShort, commercial, commercialOrder, date, params, platformName, price, tokens } from '../core/format';
+import { accessShort, commercial, commercialOrder, date, params, platformName, price, priceSort, tokens } from '../core/format';
 import { ModelSummary } from '../core/types';
 import { LicenseChip, Platforms } from '../ui/chips';
 import { IconTile } from '../ui/icon-tile';
@@ -17,7 +17,7 @@ const COLS: Col[] = [
   { key: 'license', label: 'License', get: m => `${commercialOrder(m.license)}${m.license.id.toLowerCase()}` },
   { key: 'params', label: 'Params', get: m => m.params?.total ?? null, num: true },
   { key: 'context', label: 'Context', get: m => m.contextTokens, num: true },
-  { key: 'price', label: 'Price / 1M', get: m => (m.pricing ? m.pricing.inputPerM + m.pricing.outputPerM / 4 : null), num: true },
+  { key: 'price', label: 'Price', get: m => priceSort(m.pricing), num: true },
   { key: 'released', label: 'Released', get: m => m.released, num: true },
 ];
 

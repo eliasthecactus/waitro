@@ -1,0 +1,40 @@
+id: mega-asr
+name: Mega-ASR
+org: Mega-ASR authors
+released: 2026-05-16
+dateSource: github
+summary: Mega-ASR is a foundation speech recognition model trained on 2.4M samples across 7 atomic acoustic conditions and 54 compound scenarios for robust in-the-wild ASR.
+description: Mega-ASR is a foundation speech recognition model trained for robust in-the-wild ASR across 7 atomic acoustic conditions and 54 compound scenarios using A2S-SFT and DG-WGPO reinforcement learning.
+tasks:
+  - speech-to-text
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: License not specified on the GitHub repository or model card
+io:
+  in:
+    - audio
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+  note: NVIDIA GPU; vLLM streaming inference supported
+links:
+  repo: https://github.com/xzf-thu/Mega-ASR
+  homepage: https://xzf-thu.github.io/Mega-ASR/
+strengths:
+  - Targets noise far-field speech obstruction echo reverberation recording artifacts electronic distortion and transmission dropout
+  - Trained on 2.4M samples spanning 7 atomic and 54 compound acoustic scenarios
+  - Reports up to nearly 30% gains over leading open and closed source SOTA in challenging acoustic environments
+limitations:
+  - RL code and optimised WebUI are not yet released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - speech-recognition
+  - robust-asr
+  - in-the-wild
+  - asr
+lastChecked: 2026-11-08

@@ -1,0 +1,41 @@
+id: wan-move
+name: Wan-Move
+org: Alibaba Wan team
+released: 2025-12-06
+dateSource: github
+summary: Wan-Move is a 14B image-to-video diffusion model that adds fine-grained point-trajectory motion control to Wan-I2V and generates 5-second 480p videos.
+description: Wan-Move is a motion-controllable video generation framework built as a minimal extension on top of the Wan2.1 codebase. It represents motion with dense point trajectories and propagates first-frame features along those trajectories to guide an off-the-shelf image-to-video model without architecture changes or extra motion modules. The released Wan-Move-14B-480P checkpoint generates 5-second 480p videos and supports single-GPU and multi-GPU inference.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - text
+    - structured
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: The 14B model can run on a single 40GB GPU with t5_cpu offload_model and bf16. Multi-GPU inference uses FSDP and xDiT USP.
+links:
+  repo: https://github.com/ali-vilab/Wan-Move
+strengths:
+  - Supports fine-grained point-level motion control using dense trajectories
+  - Can be integrated into off-the-shelf Wan-I2V-14B without architecture changes or extra motion modules
+  - Model weights and inference code are released under Apache-2.0
+limitations:
+  - The released model targets 5-second 480p video generation
+  - Single-GPU inference requires a 40GB GPU when using bf16 with t5_cpu and offload_model
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-to-video
+  - video-generation
+  - motion-control
+  - trajectory-guidance
+lastChecked: 2026-11-08

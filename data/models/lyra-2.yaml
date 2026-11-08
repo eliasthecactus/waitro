@@ -1,0 +1,44 @@
+id: lyra-2
+name: Lyra 2
+org: NVIDIA
+released: 2026-04-06
+dateSource: huggingface
+summary: Lyra 2.0 is a 14B-parameter NVIDIA image-to-3D model that generates persistent, explorable 3D Gaussian scenes from a single 480x832 image using a WAN-14B-based video generator plus a 3D…
+description: "The framework has two stages: it synthesizes a long-range video with strong global geometric consistency, then reconstructs the generated sequence into an explicit 3D representation. Per-frame 3D geometry is kept solely for information routing (retrieving relevant past frames and establishing dense correspondences with target viewpoints) while appearance comes from the generative prior, and the model is trained with self-augmented histories to correct temporal drift rather than propagate it. Input is a single image plus camera parameters (about 81 frames recommended); output is a set of 3D Gaussians with position, covariance, colour and opacity, written as a point cloud file such as .ply and rendered in real time."
+tasks:
+  - 3d-generation
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: "NVIDIA Internal Scientific Research and Development Model License: non-commercial research use only; the model and derivatives may not be distributed, deployed, sublicensed, publicly displayed or performed, or used in production or to generate works for sale or distribution."
+io:
+  in:
+    - image
+    - structured
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Designed for NVIDIA GPU-accelerated systems (Ampere, Hopper and Blackwell microarchitectures; H100 and GB200 class), Linux OS, with WAN-2.1 as runtime engine.
+links:
+  weights: https://huggingface.co/nvidia/Lyra-2.0
+  homepage: https://research.nvidia.com/labs/sil/projects/lyra2/
+strengths:
+  - Generates persistent explorable 3D Gaussian scenes from a single image
+  - 14B-parameter model developed from WAN-14B with real-time rendering of the reconstructed scene
+  - Runs on NVIDIA Ampere Hopper and Blackwell GPUs under Linux
+limitations:
+  - Released under the NVIDIA Internal Scientific Research and Development Model License for non-commercial research only
+  - Model and derivatives may not be distributed deployed or used in a production environment
+  - Input image expected at 480x832 resolution with camera parameters for around 81 frames
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - nvidia
+  - image-to-3d
+  - 3d-gaussian-splatting
+  - world-model
+lastChecked: 2026-11-08

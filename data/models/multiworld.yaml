@@ -1,0 +1,42 @@
+id: multiworld
+name: MultiWorld
+org: MultiWorld
+released: 2026-04-20
+dateSource: github
+summary: MultiWorld is a unified multi-agent multi-view video world model that controls multiple agents while preserving consistency across camera views.
+description: MultiWorld is a framework for multi-agent multi-view world modeling presented by researchers at The University of Hong Kong and SReal AI. Per the authors it uses Agent Identity Embedding and Adaptive Action Weighting for multi-agent controllability and a frozen VGGT backbone in its Global State Encoder to extract implicit 3D environmental information from partial observations. The card states that it scales across agent counts and camera views and supports autoregressive inference beyond the training context length.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: Model weights and data are CC BY-NC 4.0 for non-commercial use only; code is Apache-2.0 but commercial use of weights requires separate licensing.
+io:
+  in:
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Setup targets CUDA 12.8 with PyTorch 2.7.1 and shows distributed inference using 8 processes per node.
+links:
+  repo: https://github.com/CIntellifusion/MultiWorld
+  homepage: https://multi-world.github.io/
+strengths:
+  - Controls multiple agents while maintaining multi-view consistency
+  - Uses a frozen VGGT backbone to encode implicit 3D global state from partial observations
+  - Supports autoregressive inference to generate beyond the training context length
+limitations:
+  - Model weights are released under a non-commercial CC BY-NC 4.0 license
+  - Inference examples require distributed multi-GPU execution
+  - Released checkpoints target the It Takes Two and robotics datasets
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-world-model
+  - multi-agent
+  - multi-view
+  - video-generation
+lastChecked: 2026-11-08

@@ -1,0 +1,35 @@
+id: gpt-image-1-5
+name: GPT Image 1.5
+org: OpenAI
+summary: GPT Image 1.5 is an image generation model from OpenAI exposed through its API.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+pricing:
+  inputPerM: 8
+  outputPerM: 32
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+limitations:
+  - API only
+betterOptions:
+  - id: gpt-image-2-6
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

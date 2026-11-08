@@ -1,0 +1,43 @@
+id: cubepart
+name: CubePart
+org: research
+released: 2025-03-11
+dateSource: github
+summary: CubePart is an open-vocabulary part-controllable 3D generator that takes an input mesh and a user-defined parts schema and produces a set of meshes that assemble into a coherent object.
+tasks:
+  - 3d-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Licence terms are not asserted in the provided metadata.
+io:
+  in:
+    - 3d
+    - structured
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+  note: Requires an input mesh and a parts schema for part-controllable generation.
+links:
+  repo: https://github.com/Roblox/cube
+  homepage: https://cubepart.github.io/
+strengths:
+  - Open-vocabulary part-controllable 3D generation
+  - Outputs one mesh per schema element that assemble into a coherent object
+  - Assets can be integrated into game engines without manual post-processing
+limitations:
+  - Licence terms are not asserted in metadata
+  - Requires an input mesh and a parts schema
+  - Texture generation is listed as upcoming
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - part-controllable
+  - open-vocabulary
+  - mesh
+lastChecked: 2026-11-08

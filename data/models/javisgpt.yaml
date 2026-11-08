@@ -1,0 +1,45 @@
+id: javisgpt
+name: JavisGPT
+org: JavisGPT
+released: 2025-12-03
+dateSource: github
+summary: JavisGPT is a 7B multimodal LLM built on Qwen2.5-VL that understands audio-video inputs and generates synchronized sounding videos via JavisDiT.
+description: The card describes a unified multimodal LLM for sounding-video comprehension and generation. It is built on Qwen2.5-VL-7B-Instruct with BEATs audio features and a downstream JavisDiT generator. The authors release v0.1 and v1.0 7B-Instruct checkpoints plus training and evaluation scripts.
+tasks:
+  - video-generation
+  - image-understanding
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - video
+    - audio
+  out:
+    - text
+    - video
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Requires Qwen2.5-VL-7B-Instruct BEATs and JavisDiT checkpoints; the card documents flash-attn installation.
+links:
+  repo: https://github.com/JavisVerse/JavisGPT
+  homepage: https://javisverse.github.io/JavisGPT-page/
+strengths:
+  - Unified audio-video comprehension and synchronized sounding-video generation
+  - Released 7B-Instruct checkpoints for v0.1 and v1.0
+  - Training and evaluation scripts plus JavisInst-Omni dataset released
+limitations:
+  - Requires multiple separate pretrained components including Qwen2.5-VL BEATs and JavisDiT
+  - TAVGBench source data cannot be released due to policy issues
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - audio-video
+  - sounding-video
+  - 7b
+lastChecked: 2026-11-08

@@ -1,0 +1,50 @@
+id: deepseek-r1
+name: DeepSeek R1
+org: DeepSeek
+released: 2025-01-20
+dateSource: huggingface
+summary: DeepSeek-R1 is a 671B-parameter MoE reasoning LLM with 37B activated parameters and 128K context trained via large-scale reinforcement learning.
+description: DeepSeek R1 by DeepSeek
+tasks:
+  - reasoning
+  - coding
+  - chat
+architecture: moe-transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 684.49
+  active: 37
+contextTokens: 128000
+hardware:
+  platforms:
+    - cuda
+  note: Requires GPU serving
+links:
+  weights: https://huggingface.co/deepseek-ai/DeepSeek-R1
+strengths:
+  - Open-weights reasoning model with chain-of-thought emergence
+  - 671B total and 37B activated MoE parameters with 128K context
+  - Performance comparable to OpenAI-o1 across math code and reasoning tasks
+limitations:
+  - Hugging Face Transformers is not directly supported yet
+  - Avoid adding a system prompt; place instructions in the user prompt
+  - Recommended temperature is 0.5-0.7 to prevent repetition or incoherent outputs
+betterOptions:
+  - id: deepseek-v4-pro
+    why: A newer version from the same team.
+    aspects:
+      - quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - deepseek
+  - moe
+  - reasoning
+lastChecked: 2026-11-08

@@ -1,0 +1,47 @@
+id: clover-35b
+name: Clover 35B
+org: Diffuspace
+released: 2026-10-24
+dateSource: huggingface
+summary: Clover 35B is a text-only mixture-of-experts diffusion language model with 34.66B total parameters (about 3B active per token) and a 128K context window.
+description: Clover-35B-A3B-Preview is DiffuSpace's first release and is derived from Qwen3.6-35B-A3B. It keeps a hybrid Gated DeltaNet / full-attention MoE backbone with 40 layers 256 routed experts top-8 routing and one shared expert per layer then adds bidirectional block attention and block diffusion generation. A LowConfidence decoding scheme fills confident masked positions in parallel within each block (default block_size=32 threshold=0.95) before the block joins the causal prefix. The model supports up to 131072 tokens of prompt plus response and ships generation controls for repetition and length that are enabled by default.
+tasks:
+  - chat
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 with upstream Qwen3.6 attribution preserved
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 34.66
+  active: 3
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+  note: BF16 weights need roughly 69 GB of GPU memory plus inference state
+links:
+  weights: https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview
+  homepage: https://diffuspace.ai/blog/clover-35b/
+strengths:
+  - Block diffusion decoding with LowConfidence parallel resolution
+  - 128K context covers long prompts and long responses
+  - Only about 3B active parameters per token from a 34.66B-parameter MoE backbone
+limitations:
+  - BF16 weights require roughly 69 GB of GPU memory
+  - Very long generations can become repetitive
+  - The Hugging Face PyTorch path may differ numerically from the recommended SGLang kernels
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - diffusion
+  - block-diffusion
+  - 128k-context
+lastChecked: 2026-11-08

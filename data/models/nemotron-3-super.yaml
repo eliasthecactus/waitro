@@ -1,0 +1,48 @@
+id: nemotron-3-super
+name: Nemotron 3 Super
+org: NVIDIA
+released: 2026-03-10
+dateSource: huggingface
+summary: Nemotron 3 Super is a 120B-parameter (12B active) Mamba-2/MoE/attention hybrid language model from NVIDIA built for agentic workflows and long-context reasoning with a configurable reasoning mode.
+description: Nemotron 3 Super is a 120B-parameter (12B active) hybrid LatentMoE LLM from NVIDIA combining interleaved Mamba-2 and MoE layers with select attention layers and Multi-Token Prediction heads. It is designed for agentic workflows reasoning tool use and long-context work with a configurable reasoning mode.
+tasks:
+  - agents
+  - reasoning
+  - coding
+architecture: hybrid
+access: open-weights
+license:
+  id: nvidia-nemotron-open-model-license
+  commercial: yes
+  note: Ready for commercial use under the NVIDIA Nemotron Open Model License
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 123.61
+  active: 12
+contextTokens: 1000000
+hardware:
+  platforms:
+    - cuda
+  note: Minimum GPU requirement 8x H100-80GB
+links:
+  weights: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16
+  homepage: https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/
+strengths:
+  - Built for agentic workflows tool use and high-volume workloads such as IT ticket automation
+  - Supports up to 1M tokens of context with configurable thinking mode on or off
+  - Includes built-in MTP layers enabling native speculative decoding for faster generation
+limitations:
+  - Requires a minimum of 8x H100-80GB GPUs to run
+  - Supported languages are English French German Italian Japanese Spanish and Chinese only
+  - Reasoning mode is controlled via the chat template flag and must be configured explicitly
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - mamba
+  - long-context
+  - agentic
+lastChecked: 2026-11-08

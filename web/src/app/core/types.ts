@@ -4,7 +4,11 @@ export type Commercial = 'yes' | 'limited' | 'no' | 'unknown';
 export interface License { id: string; commercial: Commercial; note?: string }
 export interface Io { in: string[]; out: string[] }
 export interface Params { total?: number; active?: number }
-export interface Pricing { inputPerM: number; outputPerM: number; cachedInputPerM?: number; note?: string; source: string }
+export interface Pricing {
+  inputPerM?: number; outputPerM?: number; cachedInputPerM?: number;
+  perImage?: number; perSecond?: number; perMinute?: number; perMChars?: number; perMonth?: number;
+  note?: string; source: string;
+}
 export interface Ranking { task: string; taskName: string; rank: number | null; label: string; why: string; of: number }
 export interface Stats { stars?: number; lastCommit?: string; downloads?: number; likes?: number }
 

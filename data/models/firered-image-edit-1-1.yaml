@@ -1,0 +1,44 @@
+id: firered-image-edit-1-1
+name: FireRed-Image-Edit-1.1
+org: FireRedTeam
+released: 2026-03-02
+dateSource: huggingface
+summary: FireRed-Image-Edit-1.1 is a 20.4B-parameter open-weights image-to-image editing foundation model focused on identity-consistent portrait editing multi-image fusion and text-style-preserving edits.
+description: FireRed-Image-Edit-1.1 is an upgrade to FireRedTeam's general-purpose image editing foundation model. Compared with version 1.0 it targets stronger identity consistency, multi-image conditioning and domain-specialised editing such as portrait makeup and text style reference, alongside photo restoration. The release includes an open LoRA training ecosystem, a speed-up suite (distillation, quantization, static compilation) reporting 4.5s end-to-end generation within 30GB VRAM, ComfyUI node support and a GGUF lightweight format. The card reports state-of-the-art open-source results on Imgedit, Gedit and RedEdit plus human evaluations favouring prompt following and visual consistency.
+tasks:
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per model metadata.
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+params:
+  total: 20.43
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: Card reports 4.5s end-to-end generation with 30GB VRAM and lists GGUF lightweight format support.
+links:
+  weights: https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.1
+strengths:
+  - Supports multi-image conditioning and fusion of 10+ elements with agent-powered cropping and stitching
+  - Ships an open LoRA training ecosystem plus distillation quantization and static-compilation acceleration
+limitations:
+  - Reported 4.5s generation speed assumes a 30GB VRAM class GPU
+  - Benchmark claims are self-reported on Imgedit Gedit and RedEdit rather than independently reproduced
+  - Targets image editing only and is not positioned as a general text or video model
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-editing
+  - diffusion
+  - identity-consistency
+  - multi-image
+lastChecked: 2026-11-08

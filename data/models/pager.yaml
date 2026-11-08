@@ -1,0 +1,39 @@
+id: pager
+name: PaGeR
+org: Google / Meta
+released: 2026-05-26
+dateSource: github
+summary: PaGeR is a ViT-Giant panoramic geometry estimation model that predicts scale-invariant depth metric depth surface normals and sky masks from a single equirectangular image.
+tasks:
+  - depth-estimation
+  - segmentation
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/prs-eth/PaGeR
+  homepage: https://pager360.github.io/
+strengths:
+  - PaGeR returns scale-invariant depth metric depth surface normals and sky segmentation from one panoramic image
+  - It uses a fixed cubemap projection so peak VRAM and runtime do not scale with input ERP resolution
+  - It ships unified depth-only and normals-only checkpoints with CLIP-routed indoor/outdoor scale heads
+limitations:
+  - PaGeR weights are under CC BY-NC 4.0 which restricts use to academic and non-commercial purposes
+  - The unified checkpoint needs approximately 11.5 GiB of VRAM at fp16 on an RTX 4090
+  - The automatic CLIP indoor/outdoor routing was added after the paper submission so forced scene modes are needed to reproduce reported results
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - panorama
+  - geometry
+  - depth
+  - normals
+lastChecked: 2026-11-08

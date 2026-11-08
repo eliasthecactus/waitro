@@ -1,0 +1,41 @@
+id: deepgen-1-0
+name: DeepGen-1.0
+org: Unknown
+released: 2026-02-13
+dateSource: huggingface
+summary: DeepGen 1.0 is a 5B-parameter unified multimodal model combining a 3B VLM and 2B DiT for image generation editing reasoning-based generation and text rendering.
+description: DeepGen 1.0 is a lightweight unified multimodal model with only 5B parameters. It integrates general image generation, general image editing, reasoning image generation, reasoning image editing, and text rendering within a single model. The model uses a 3B VLM and a 2B DiT backbone connected by a Stacked Channel Bridging framework. Checkpoints are released as sharded ZIP files that must be merged before use.
+tasks:
+  - image-generation
+  - image-editing
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Requires NVIDIA GPU; not explicitly stated but standard for DiT+LLM checkpoints
+links:
+  weights: https://huggingface.co/deepgenteam/DeepGen-1.0
+strengths:
+  - Lightweight at 5B total parameters
+  - Competitive with models 3x to 16x larger on reported benchmarks
+  - Supports reasoning image generation and editing
+limitations:
+  - Requires merging sharded ZIP checkpoint files before use
+  - No hardware or platform requirements specified
+  - Released with Apache-2.0 licence
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - image-editing
+  - multimodal
+lastChecked: 2026-11-08

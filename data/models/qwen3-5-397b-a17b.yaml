@@ -1,0 +1,44 @@
+id: qwen3-5-397b-a17b
+name: Qwen3.5-397B-A17B
+org: Alibaba/Qwen
+released: 2026-02-16
+dateSource: huggingface
+summary: Qwen3.5-397B-A17B is a sparse Mixture-of-Experts causal vision-language model from Alibaba Qwen with 397B total and 17B activated parameters a native 262144-token context and early-fusion multimodal…
+description: n/a
+tasks:
+  - chat
+  - reasoning
+  - image-understanding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+params:
+  total: 403.4
+  active: 17
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Compatible with Hugging Face Transformers vLLM SGLang and KTransformers
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.5-397B-A17B
+strengths:
+  - Sparse MoE with 512 experts and 17B of 397B parameters activated per token
+  - Native 262144-token context extensible up to 1010000 tokens
+  - Unified vision-language foundation with strong OCR document and spatial benchmark scores
+limitations:
+  - Released weights lack the 1M default context and built-in tools of hosted Qwen3.5-Plus
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - moe
+  - long-context
+lastChecked: 2026-11-08

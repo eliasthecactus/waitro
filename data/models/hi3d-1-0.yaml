@@ -1,0 +1,42 @@
+id: hi3d-1-0
+name: Hi3D 1.0
+org: Hi3D
+released: 2026-10-16
+dateSource: huggingface
+summary: Hi3D v1.0 is an image-conditioned 3D geometry refinement model that converts a coarse mesh into higher-resolution geometry using sparse latent sampling and mesh extraction.
+description: Hi3D v1.0 refines a coarse mesh into high-resolution geometry conditioned on a reference image. It is built on the Sparc3D representation and refinement architecture with a self-pruning sparse VAE and transformer components for 512³ 1024³ and 1536³ sparse extraction-grid resolutions.
+tasks:
+  - 3d-generation
+architecture: transformer
+access: open-weights
+license:
+  id: hi3d-open-license-agreement-1.0
+  commercial: limited
+  note: Hi3D Open License Agreement 1.0 includes acceptable-use terms and clauses covering Commercial Products or Services
+io:
+  in:
+    - image
+    - 3d
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Requires an NVIDIA GPU with compute capability 8.0 or newer and a matching CUDA 12.0–12.5 toolkit; there is no CPU inference path.
+links:
+  weights: https://huggingface.co/hi3d-official/Hi3Dv1.0
+  homepage: https://www.hi3d.ai/hi3d-1-0-open-source
+strengths:
+  - Refines coarse meshes into high-resolution geometry conditioned on a reference image
+  - Supports 512³ 1024³ and 1536³ sparse extraction-grid resolutions via one two or three passes
+  - Released model artifacts include transformer_512 transformer_1024 and sparse VAE weights
+limitations:
+  - Requires Linux Python 3.10 and an NVIDIA GPU with compute capability 8.0 or newer
+  - No CPU inference path is provided
+  - The 1536³ ladder was validated only on a 96 GB NVIDIA H20
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d
+  - geometry-refinement
+  - image-to-3d
+lastChecked: 2026-11-08

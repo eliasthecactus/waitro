@@ -1,0 +1,43 @@
+id: infinisplat-v2
+name: InfiniSplat v2
+org: Unknown
+released: 2026-07-24
+dateSource: github
+summary: InfiniSplat v2 is a feed-forward 3D Gaussian splatting reconstruction model that turns multiple images (with or without camera poses) into 3D Gaussian scenes for novel-view rendering, alongside a…
+description: InfiniSplat v2 reconstructs 3D Gaussian scenes from multiple images, with or without camera poses, for novel-view rendering. The repository also hosts InfiniSplat v1 which reconstructs 3D Gaussian scenes from a single RGB image optionally guided by LiDAR depth. Both versions are installed in separate Python environments because their dependencies and weights differ. A 360-degree panorama to 3DGS example is included.
+tasks:
+  - 3d-generation
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: "Project Registration License (PRL) v1.0: free for academic research education evaluation and personal use; company university or other organizational use requires prior project registration."
+io:
+  in:
+    - image
+    - depth
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Inference follows the repository installation and inference guides; no CPU or MLX support is stated.
+links:
+  repo: https://github.com/zju3dv/InfiniSplat
+  homepage: https://zju3dv.github.io/InfiniSplat2/
+strengths:
+  - Reconstructs 3D Gaussian scenes from multiple images with or without camera poses
+  - Single-image variant can be guided by optional LiDAR depth
+  - Includes a 360-degree panorama to 3DGS workflow
+limitations:
+  - Licence allows free use only for academic research education evaluation and personal purposes
+  - Organizational use requires project registration even for non-commercial R&D and deployment
+  - v1 and v2 require separate Python environments and separate weights
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-gaussian-splatting
+  - novel-view-synthesis
+  - multi-view-reconstruction
+  - feed-forward
+lastChecked: 2026-11-08

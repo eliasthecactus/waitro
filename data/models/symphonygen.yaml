@@ -1,0 +1,44 @@
+id: symphonygen
+name: SymphonyGen
+org: SymphonyGen
+released: 2026-08-03
+dateSource: huggingface
+summary: SymphonyGen is a 3D hierarchical transformer framework (87M harmony-skeleton model plus a 124M two-stream symphony model) that generates orchestral scores conditioned on a beat-quantized multi-voice…
+description: "SymphonyGen decomposes symphonic scores along Bar, Track and Event axes with a cascading decoder architecture and conditions generation on a beat-quantized multi-voice harmony skeleton, so a few user-written chords can drive orchestration or an existing MIDI can be re-orchestrated via harmony analysis. Four packed checkpoints are released: a 1D harmony skeleton model (12 layers, hidden 768, 87M), a 3D symphony model pretrained on the SymphonyNet Dataset (33 layers, hidden 512, 124M, 2-stream cross-attention) and two GRPO-reinforced variants using a CLaMP 3 audio-embedding reward with or without a track-density term. Inference supports dissonance-averse sampling with recommended (λ_hn, λ_nn) = (1, 10) and optional register decay. Pretraining used four NVIDIA H800 GPUs for one day; generation is run through the codebase with the packed .pt checkpoints."
+tasks:
+  - music-generation
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licence per metadata; paper and code accompany the released checkpoints.
+io:
+  in:
+    - structured
+  out:
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Pretraining ran on four NVIDIA H800 GPUs; GRPO refinement used a single GPU and generation runs through the Python codebase.
+links:
+  weights: https://huggingface.co/SymphonyGen/SymphonyGen
+  homepage: https://symphonygen.github.io/
+strengths:
+  - Controllable generation through a user-writable harmony skeleton or by analyzing an existing MIDI
+  - Two GRPO-reinforced checkpoints tuned with a CLaMP 3 audio-perceptual reward
+  - Dissonance-averse sampling with published recommended settings
+  - Trained on the SymphonyNet Dataset of 728 classical and 45 632 contemporary MIDI files
+limitations:
+  - Intended as a collaborative aid for composers rather than an autonomous replacement
+  - Oriented toward contemporary cinematic scoring through its data reward and hyperparameters
+  - Outputs may inadvertently resemble existing works and require originality verification
+  - Reproduced objective metrics can differ from the paper's tables due to harmony-analysis implementation details
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - music-generation
+  - symbolic-music
+  - orchestration
+  - midi
+lastChecked: 2026-11-08

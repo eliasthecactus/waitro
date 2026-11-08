@@ -1,0 +1,43 @@
+id: audio-to-midi
+name: Audio to MIDI
+org: Mirelo
+released: 2026-07-02
+dateSource: github
+summary: MuScriptor is a transformer-decoder music transcription model from Kyutai and Mirelo available in 103M, 307M, and 1.4B parameter variants that converts audio recordings into MIDI and engraved sheet…
+description: MuScriptor is a transformer-decoder music transcription model from Kyutai and Mirelo. It is available in 103M, 307M, and 1.4B parameter variants and converts audio recordings into MIDI and engraved sheet music. The model is designed for multi-instrument transcription.
+tasks:
+  - music-generation
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: no
+  note: Code is MIT, but model weights are CC BY-NC 4.0 (non-commercial).
+io:
+  in:
+    - audio
+  out:
+    - structured
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+  note: Can run on CPU, Apple Silicon (MPS), and NVIDIA GPUs. The small variant is recommended for CPU-only machines, while the large variant is most accurate but benefits greatly from a GPU. The medium variant is the default speed/accuracy trade-off.
+links:
+  repo: https://github.com/muscriptor/muscriptor
+  homepage: https://www.mirelo.ai/blog/turning-audio-to-midi
+strengths:
+  - Can transcribe music into MIDI and sheet music (MusicXML/PDF)
+  - Detects tempo · beats · and bar lines; supports quantization and tempo correction
+  - Available in small · medium · and large sizes for CPU · Apple Silicon · or GPU
+limitations:
+  - Requires MuseScore 4+ for full sheet music export
+  - Accuracy drops on rubato recordings without steady tempo
+  - CC BY-NC 4.0 license prohibits commercial use
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - music-transcription
+  - midi
+  - sheet-music
+lastChecked: 2026-11-08

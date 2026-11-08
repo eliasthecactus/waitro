@@ -1,0 +1,38 @@
+id: gpt-5-4
+name: GPT-5.4
+org: OpenAI
+released: 2026-03-05
+dateSource: vendor
+summary: GPT-5.4 is an OpenAI API model available through hosted access. This entry is based only on the supplied name and pricing; no source-page details describe its capabilities.
+tasks:
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 400000
+pricing:
+  inputPerM: 2.5
+  outputPerM: 15
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+limitations:
+  - API only
+betterOptions:
+  - id: gpt-6-1-sol
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

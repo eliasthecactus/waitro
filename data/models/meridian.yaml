@@ -1,0 +1,43 @@
+id: meridian
+name: Meridian
+org: Viggle
+released: 2026-09-14
+dateSource: huggingface
+summary: Gemma 4 2B Instruct is a small instruction-tuned multimodal language model for local chat and image understanding.
+description: Gemma 4 2B Instruct is a compact instruction-tuned language model from Google DeepMind designed for efficient on-device and local deployment.
+tasks:
+  - chat
+  - image-understanding
+access: open-weights
+license:
+  id: minimax-h3-community-license
+  commercial: yes
+  note: Gemma Terms of Use permit commercial use subject to Google's usage restrictions.
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+contextTokens: 32768
+hardware:
+  platforms:
+    - apple-silicon
+    - cpu
+  note: Optimized for Apple silicon via MLX and for CPU/edge via GGUF and llama.cpp.
+links:
+  weights: https://huggingface.co/Viggle/Meridian
+strengths:
+  - Compact 2B parameter size suited to local inference
+  - Instruction-tuned for chat and task completion
+  - Supports text and image inputs via MLX and GGUF formats
+limitations:
+  - Multimodal support is limited to image input and text output
+  - Performance on complex reasoning tasks is lower than larger Gemma 4 variants
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - gemma
+  - dense
+  - instruct
+  - multimodal
+lastChecked: 2026-11-08

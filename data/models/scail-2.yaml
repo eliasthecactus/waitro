@@ -1,0 +1,42 @@
+id: scail-2
+name: SCAIL 2
+org: ZAI
+released: 2026-06-09
+dateSource: huggingface
+summary: SCAIL-2 is an open-source image-to-video character animation model that animates a reference character with a driving video without intermediate pose representations.
+description: SCAIL-2 is an open-source video generation model for character animation. It animates a reference character using a driving video and supports character replacement and multi-character scenarios without intermediate pose representations.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT license (metadata). Commercial use allowed under MIT terms.
+io:
+  in:
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Checkpoint layout includes Wan VAE. The model card does not specify hardware requirements.
+links:
+  repo: https://github.com/teal024/SCAIL-2
+  weights: https://huggingface.co/zai-org/SCAIL-2
+  homepage: https://teal024.github.io/SCAIL-2/
+strengths:
+  - End-to-end character animation without skeleton maps or inpainting masks
+  - Supports cross-identity character replacement and multi-character scenarios
+  - Bundles Wan VAE and T5 in the checkpoint
+limitations:
+  - Requires height and width both divisible by 32
+  - Only 512p and 704p resolutions are documented
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - image-to-video
+  - character-animation
+lastChecked: 2026-11-08

@@ -6,7 +6,7 @@ import {
   LucideExternalLink, LucidePencil, LucideSparkles, LucideTrophy, LucideInfo, LucideClock, LucideDownload,
 } from '@lucide/angular';
 import { Api } from '../core/api';
-import { accessLabel, archName, aspectName, commercial, compact, date, linkName, money, params, platformName, tokens } from '../core/format';
+import { accessLabel, archName, aspectName, commercial, compact, date, linkName, money, params, platformName, price, tokens } from '../core/format';
 import { ASPECT_ICON, IO_ICON, LINK_ICON, PLATFORM_ICON } from '../core/icons';
 import { ModelDetail } from '../core/types';
 import { IconTile } from '../ui/icon-tile';
@@ -269,7 +269,8 @@ export class ModelPage {
     ];
     if (m.params?.total) facts.push({ label: 'Parameters', value: params({ total: m.params.total }), sub: m.params.active ? `${params({ total: m.params.active })} active` : undefined });
     if (m.contextTokens) facts.push({ label: 'Context', value: tokens(m.contextTokens), sub: 'tokens' });
-    if (m.pricing) facts.push({ label: 'Price / 1M', value: `${money(m.pricing.inputPerM)} · ${money(m.pricing.outputPerM)}`, sub: 'input · output' });
+    if (m.pricing?.inputPerM !== undefined) facts.push({ label: 'Price / 1M', value: `${money(m.pricing.inputPerM)} · ${money(m.pricing.outputPerM ?? 0)}`, sub: 'input · output' });
+    else if (price(m.pricing)) facts.push({ label: 'Price', value: price(m.pricing), sub: m.pricing?.note });
     if (m.scale) facts.push({ label: 'Upscale', value: `${m.scale}×` });
     if (m.hardware?.minVramGB) facts.push({ label: 'Min VRAM', value: `${m.hardware.minVramGB} GB` });
     if (m.stats?.stars) facts.push({ label: 'GitHub stars', value: compact(m.stats.stars) });

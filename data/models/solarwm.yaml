@@ -1,0 +1,46 @@
+id: solarwm
+name: SolarWM
+org: SolarWM
+released: 2026-08-21
+dateSource: github
+summary: SolarWM is an open video world-model framework that trains camera-controlled long-horizon generators on Wan2.2 LTX-2.5 and MiniMax-H3 backbones from 5B to 33B parameters.
+description: SolarWM is an open framework for interactive video world models covering long-horizon camera-controlled video generation and real-time interaction built on Wan2.2 LTX-2.5 and MiniMax-H3 backbones spanning 5B–33B.
+tasks:
+  - video-generation
+  - video-restoration
+  - image-understanding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: limited
+  note: apache-2.0 code; weights carry backbone licences with territory restrictions
+io:
+  in:
+    - video
+    - text
+  out:
+    - video
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+  note: fp8 kv cache GQA attention
+links:
+  repo: https://github.com/Junchao-cs/SolarWM
+  homepage: https://junchao-cs.github.io/SolarWM-Web/
+strengths:
+  - Backed by 1.43M open clips (25 TB) and an open data-processing pipeline
+  - Four 5B–33B video backbones via Wan2.2 LTX-2.5 and MiniMax-H3
+  - SolarWM-H3 Realtime supports low-latency interactive generation with camera control
+limitations:
+  - Model weights are not relicensed under Apache-2.0 and carry backbone terms
+  - MiniMax H3 Community License contains territory restrictions
+  - LTX-2.5 derivatives are subject to the LTX-2.x Community License
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - solarwm
+  - solar
+  - world-model
+  - video-generation
+lastChecked: 2026-11-08

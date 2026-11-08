@@ -1,0 +1,54 @@
+id: cosmos-3
+name: Cosmos 3
+org: NVIDIA
+released: 2026-03-10
+dateSource: huggingface
+summary: Cosmos3-Nano is a 16B-parameter omnimodal transformer world model from NVIDIA that generates text, images, video, audio, and action outputs from multimodal inputs for Physical AI.
+description: Cosmos 3 is a collection of omnimodal world models capable of generating dynamic, high-quality video, image, audio, and action commands from combinations of text, image, video, and action trajectory inputs.
+tasks:
+  - video-generation
+  - image-generation
+  - image-understanding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: openmdw1.1-license
+  commercial: yes
+  note: This model is released under the OpenMDW1.1 license and is ready for commercial and non-commercial use.
+io:
+  in:
+    - text
+    - image
+    - video
+    - audio
+    - structured
+  out:
+    - text
+    - image
+    - video
+    - audio
+    - structured
+params:
+  total: 15.75
+hardware:
+  platforms:
+    - cuda
+  note: The model is designed and/or optimized to run on NVIDIA GPU-accelerated systems, leveraging CUDA libraries for faster training and inference compared to CPU-only solutions.
+links:
+  weights: https://huggingface.co/nvidia/Cosmos3-Nano
+  homepage: https://developer.nvidia.com/blog/develop-physical-ai-reasoning-world-and-action-models-with-nvidia-cosmos-3/
+strengths:
+  - Omnimodal generation and reasoning across text image video audio and action trajectories
+  - Mixture-of-Transformers combines autoregressive token generation with diffusion denoising
+  - Commercial use allowed under OpenMDW1.1 and optimized for NVIDIA Ampere/Blackwell/Hopper GPUs
+limitations:
+  - The Generator text input is capped at 4096 tokens · and video input is capped at 5 frames
+  - Audio input is capped at 0.5 second · and only BF16 precision is officially tested
+  - Requires NVIDIA Ampere/Blackwell/Hopper GPUs on Linux
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - cosmos
+  - nvidia
+  - omnimodal
+  - world-model
+lastChecked: 2026-11-08

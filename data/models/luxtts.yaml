@@ -1,0 +1,43 @@
+id: luxtts
+name: LuxTTS
+org: LuxTTS
+released: 2026-01-23
+dateSource: github
+summary: LuxTTS is a lightweight ZipVoice-based text-to-speech model for high-quality voice cloning with 48 kHz output that runs faster than realtime even on CPU.
+tasks:
+  - text-to-speech
+  - voice-cloning
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Released under Apache-2.0 for both model and code.
+io:
+  in:
+    - text
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+    - cpu
+    - apple-silicon
+    - onnx
+  note: Fits within 1 GB of VRAM; runs on NVIDIA GPUs (cuda) CPUs and Apple MPS; float32 inference currently with float16 code planned.
+links:
+  repo: https://github.com/ysharma3501/LuxTTS
+strengths:
+  - "Clarity: generates 48 kHz speech instead of the usual 24 kHz"
+  - "Speed: up to 150x realtime on a single GPU and faster than realtime on CPUs"
+  - SOTA-level voice cloning reported on par with models 10x larger
+limitations:
+  - Needs a reference clip of at least 3 seconds for voice cloning
+  - Currently runs in float32; the float16 inference code is not yet released
+  - Higher t_shift can improve quality at the cost of worse WER
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - tts
+  - speech
+lastChecked: 2026-11-08

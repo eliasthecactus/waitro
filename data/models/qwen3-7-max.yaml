@@ -1,0 +1,33 @@
+id: qwen3-7-max
+name: Qwen3.7-Max
+org: Qwen (Alibaba)
+summary: Qwen3.7-Max is a hosted large language model from Alibaba's Qwen family, accessed through an API rather than downloaded weights.
+tasks:
+  - chat
+  - reasoning
+  - coding
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://qwen.ai/blog?id=qwen3.7
+limitations:
+  - API only
+betterOptions:
+  - id: qwen3-8-max
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - qwen
+lastChecked: 2026-11-08

@@ -1,0 +1,38 @@
+id: telestyle-v2
+name: TeleStyle V2
+org: unknown
+released: 2026-06-10
+dateSource: huggingface
+summary: TeleStyle V2 is a diffusion-based image style transfer and editing model released as LoRA variants for Qwen-Image-Edit with self-distillation and distribution-matching distillation.
+tasks:
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+links:
+  weights: https://huggingface.co/Tele-AI/TeleStyleV2
+  homepage: https://witcherofresearch.github.io/TeleStyleV2/
+strengths:
+  - Performs content-preserving style transfer and image editing built on Qwen-Image-Edit LoRA variants
+  - Released as diffusers LoRA releases for QIE-2509 and QIE-2511
+  - Apache-2.0 licensed with code model and demos published
+limitations:
+  - The SenseNova variant is an experimental pixel-space SFT described by the authors as hard to train with much room to improve
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - style-transfer
+  - image-editing
+  - lora
+  - qwen-image-edit
+lastChecked: 2026-11-08

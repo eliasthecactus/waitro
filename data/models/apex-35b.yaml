@@ -1,0 +1,49 @@
+id: apex-35b
+name: Apex 35B
+org: Apex
+released: 2026-10-28
+dateSource: huggingface
+summary: Apex-35B-V1.0 is a 35B-parameter sparse MoE text model with about 3B active parameters and a 262,144-token context for coding agents and research workflows.
+description: Built on Qwen3.6-35B-A3B and further trained on proprietary datasets and research trajectories per the card. It uses a sparse mixture-of-experts architecture with 35B total parameters and approximately 3B activated per token. The authors report benchmark results across research agentic coding and reasoning categories.
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 permissive licence.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 35.95
+  active: 3
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: BF16 weights are about 72 GB; the card says one GPU with 141 GB or more can run full context with tensor parallel size 1 while smaller GPUs require larger tensor parallel sizes. GGUF builds are available for llama.cpp and other local runtimes.
+links:
+  weights: https://huggingface.co/Apexintelligence-AI/Apex-35B-V1.0
+  homepage: https://www.apexin.com/apex-35b/
+strengths:
+  - Sparse MoE with 35B total and about 3B active parameters
+  - 262144-token context shared by input and output
+  - GGUF builds from Q8_0 to IQ1_S for llama.cpp and local runtimes
+limitations:
+  - BF16 weights are about 72 GB
+  - Full context recommends a GPU with 141 GB or more
+  - Benchmark results are reported by the authors and include internal benchmarks
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe
+  - long-context
+  - coding
+  - agents
+lastChecked: 2026-11-08

@@ -1,0 +1,43 @@
+id: newbie-image-exp0-1
+name: NewBie-image-Exp0.1
+org: NewBieAi-lab
+released: 2025-11-30
+dateSource: huggingface
+summary: A 3.5B parameter DiT text-to-image base model pretrained on anime data with Gemma3 and Jina CLIP text conditioning.
+description: NewBie image Exp0.1 is a 3.5B parameter DiT text-to-image base model built on Next-DiT and developed from research on the Lumina architecture. It uses Gemma3-4B-it and Jina CLIP v2 as text encoders and the FLUX.1-dev 16-channel VAE. It is pretrained on high-quality anime data and supports natural language tags and XML-structured prompts.
+tasks:
+  - image-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: newbie-nc-1.0
+  commercial: no
+  note: Model weights use the Newbie-NC-1.0 license and are restricted to non-commercial use; derivatives including LoRAs and merges inherit the restriction. Code is Apache-2.0.
+io:
+  in:
+    - text
+  out:
+    - image
+params:
+  total: 3.49
+hardware:
+  platforms:
+    - cuda
+  note: Quickstart runs on CUDA with bfloat16 or float16; the card recommends installing FlashAttention and Triton.
+links:
+  weights: https://huggingface.co/NewBie-AI/NewBie-image-Exp0.1
+  homepage: https://modelscope.cn/models/NewBieAi-lab/NewBie-image-Exp0.1
+strengths:
+  - Pretrained on high-quality anime data for detailed anime-style images
+  - Uses Gemma3-4B-it and Jina CLIP v2 for prompt understanding and instruction adherence
+  - XML-structured prompts reportedly improve attention binding and attribute disentanglement in multi-character scenes
+limitations:
+  - Model weights are licensed for non-commercial use only
+  - Derivatives including LoRAs and merges inherit the non-commercial restriction
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-image
+  - anime
+  - dit
+  - next-dit
+lastChecked: 2026-11-08

@@ -1,0 +1,46 @@
+id: realrestorer
+name: RealRestorer
+org: Unknown
+released: 2026-03-25
+dateSource: huggingface
+summary: RealRestorer is a 12.44B-parameter diffusion-based real-world image restoration model built on large-scale image editing models that restores degraded images from an input image and text prompt…
+description: "RealRestorer is a generalizable real-world image restoration model presented in the paper RealRestorer: Towards Generalizable Real-World Image Restoration with Large-Scale Image Editing Models. It is built on top of large-scale image editing models and is designed to restore degraded real images while preserving the original scene structure semantic content and fine-grained details. Inference uses the RealRestorerPipeline in a patched local diffusers checkout with an image prompt plus a restoration instruction such as deblurring dehazing denoising or lens flare removal. The release includes checkpoints and the RealIR-Bench benchmark."
+tasks:
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: no
+  note: Card states the model and benchmark assets are intended for non-commercial academic research use only; code is intended for Apache 2.0.
+io:
+  in:
+    - image
+    - text
+  out:
+    - image
+params:
+  total: 12.44
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: Recommended inference uses CUDA with bfloat16; pipeline supports model CPU offload.
+links:
+  weights: https://huggingface.co/RealRestorer/RealRestorer
+  homepage: https://yfyang007.github.io/RealRestorer/
+strengths:
+  - Handles multiple real-world degradations including blur compression artifacts lens flare moiré haze low-light noise rain and reflections
+  - Built on large-scale image editing models to preserve scene structure and fine-grained details
+  - Checkpoints and the RealIR-Bench benchmark are released
+limitations:
+  - Model weights are restricted to non-commercial academic research use
+  - Requires a patched local diffusers checkout from the RealRestorer repository
+  - Recommended inference needs CUDA with bfloat16 and 28 diffusion steps
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-restoration
+  - diffusion
+  - real-world-degradation
+  - diffusers
+lastChecked: 2026-11-08

@@ -1,0 +1,41 @@
+id: wandancer
+name: WanDancer
+org: Alibaba (Wan / HumanAIGC team)
+released: 2026-07-10
+dateSource: huggingface
+summary: Wan-Dancer is a 14B diffusion model that generates minute-scale rhythmic dance videos from a reference image and music track using hierarchical keyframe planning and local refinement.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache 2.0 — open weights and inference code released.
+io:
+  in:
+    - image
+    - audio
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  weights: https://huggingface.co/Wan-AI/Wan-Dancer-14B
+  homepage: https://humanaigc.github.io/wan-dancer-project/
+strengths:
+  - Generates long-duration dance video with global structure and temporal continuity from full-track music
+  - Hierarchical design decouples global keyframe planning from local high-resolution temporal refinement
+  - Supports Chinese classical K-Pop street tap and Latin dance styles via prompt files
+limitations:
+  - "Two-stage inference: requires running global keyframe stage before local refinement stage"
+  - CUDA PyTorch stack with flash-attn and xfuser pinned dependency versions
+  - Dance styles driven by provided prompt templates for five genres
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - diffusion
+  - music-to-dance
+lastChecked: 2026-11-08

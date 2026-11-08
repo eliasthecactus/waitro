@@ -1,0 +1,49 @@
+id: ornith-1-0
+name: Ornith 1.0
+org: Deep Reinforce
+released: 2026-06-23
+dateSource: huggingface
+summary: Ornith 1.0 397B is a 396.8B-parameter mixture-of-experts reasoning and agentic-coding LLM from Deep Reinforce that emits think blocks and well-formed tool calls, served through vLLM SGLang or…
+description: Ornith-1.0-397B is the largest member of the Ornith 1.0 family of open-source agentic coding models, post-trained on top of Gemma 4 and Qwen 3.5. It is a reasoning model whose assistant turn opens with a block before the final answer, and it emits <tool_call> blocks that servers parse into OpenAI-style tool_calls. The card reports state-of-the-art results among open-source models of comparable size on Terminal-Bench 2.1, SWE-bench Verified/Pro/Multilingual, NL2Repo, Claw-eval and SWE Atlas, and documents OpenAI-compatible serving recipes for vLLM, SGLang and Hugging Face Transformers on a single 8x80GB GPU node with tensor parallelism.
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licensed per the model card; stated to be globally accessible and free from regional limitations.
+io:
+  in:
+    - text
+  out:
+    - text
+    - structured
+params:
+  total: 396.8
+contextTokens: 262144
+hardware:
+  platforms:
+    - cuda
+  note: Card's serving recipes target a single 8x80GB GPU node at tensor-parallel 8 with a 262144 max model length.
+links:
+  weights: https://huggingface.co/ornith-ai/Ornith-1.0-397B
+  homepage: https://deep-reinforce.com/ornith_1_0.html
+strengths:
+  - State-of-the-art among open-source models of comparable size on agentic coding benchmarks
+  - Reasoning traces and tool calls separated by the serving reasoning parser
+  - Works out of the box with OpenAI-compatible endpoints and agent frameworks
+  - MIT licence with no regional limitations
+limitations:
+  - Requires a multi-GPU node (8x80GB at tensor-parallel 8) to serve
+  - "Needs recent runtimes: Transformers 5.8.1 or later vLLM 0.19.1 or later SGLang 0.5.9 or later"
+  - 396.8B total parameters make local single-GPU deployment impractical
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - agentic-coding
+  - moe
+  - reasoning-model
+  - tool-calling
+lastChecked: 2026-11-08

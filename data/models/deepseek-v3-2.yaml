@@ -1,0 +1,50 @@
+id: deepseek-v3-2
+name: DeepSeek-V3.2
+org: DeepSeek
+released: 2025-12-01
+dateSource: huggingface
+summary: DeepSeek-V3.2 is a 685.36B-parameter open-weights text-generation model built for efficient long-context reasoning and agentic tool use.
+tasks:
+  - reasoning
+  - agents
+  - coding
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License; open weights and repository.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 685.36
+contextTokens: 128000
+hardware:
+  platforms:
+    - cuda
+  note: Local deployment via the DeepSeek-V3.2-Exp repository is recommended; no hardware requirements are detailed in the card.
+links:
+  weights: https://huggingface.co/deepseek-ai/DeepSeek-V3.2
+  homepage: https://api-docs.deepseek.com/news/news251201
+strengths:
+  - Uses DeepSeek Sparse Attention to reduce computational complexity for long-context scenarios
+  - Supports reasoning integrated with tool use through scalable agentic post-training
+  - Released under the MIT License with model weights
+limitations:
+  - The DeepSeek-V3.2-Speciale variant is reasoning-only and does not support tool calling
+  - The developer role is reserved for search agent scenarios
+betterOptions:
+  - id: deepseek-v4-pro
+    why: A newer version from the same team.
+    aspects:
+      - quality
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - deepseek
+  - text-generation
+  - reasoning
+  - agents
+lastChecked: 2026-11-08

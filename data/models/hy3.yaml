@@ -1,0 +1,47 @@
+id: hy3
+name: Hy3
+org: Tencent
+released: 2026-07-02
+dateSource: huggingface
+summary: Hy3 is a 295B-parameter Mixture-of-Experts text model with 21B active parameters plus 3.8B MTP parameters and a 256K context window.
+tasks:
+  - chat
+  - coding
+  - agents
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache License 2.0
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 298.79
+  active: 21
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+  note: Serving guidance targets 8 GPUs such as H20-3e
+links:
+  weights: https://huggingface.co/tencent/Hy3
+  homepage: https://hy.tencent.com/research/hy3
+strengths:
+  - 295B-parameter MoE with 21B active parameters and 3.8B MTP parameters
+  - 256K context length for long-dialogue and long-context tasks
+  - Improved agentic tool-call reliability and reduced hallucination in internal evaluations
+limitations:
+  - 295B total size requires multi-GPU serving such as 8 H20-3e GPUs
+  - Base weights are BF16
+  - Large total parameter count is not suited to single-GPU or on-device deployment
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text
+  - chat
+  - coding
+  - agents
+lastChecked: 2026-11-08

@@ -1,0 +1,39 @@
+id: gemini-robotics-er-2
+name: Gemini Robotics ER 2
+org: Google DeepMind
+summary: Gemini Robotics ER 2 is a Google DeepMind model for embodied reasoning and robotics applications.
+tasks:
+  - agents
+  - reasoning
+  - image-understanding
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+pricing:
+  inputPerM: 1
+  outputPerM: 5
+  note: gemini-robotics-er-2-preview pricing 1/5 until 2026-12-31
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Targets embodied reasoning for robotics
+  - Accepts multimodal inputs such as images
+limitations:
+  - API only
+  - Preview release
+  - Limited details in the provided source
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

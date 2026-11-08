@@ -1,0 +1,45 @@
+id: spark-x2-6-1-7b
+name: Spark-X2.6-1.7B
+org: XHToken
+released: 2026-10-19
+dateSource: huggingface
+summary: A 1.71B-parameter compact general-purpose transformer language model for on-device deployment with configurable thinking levels and long-context support.
+description: Spark-X2.6-1.7B is the second model in XHToken's Spark-X2.6 series and follows Spark-X2.5-1.7B, retaining exactly the same architecture while gaining capability through improved post-training. The card reports improvements in coding, agentic tool use, long-context reasoning, multilingual and general tasks, plus leading decoding throughput among similarly sized on-device models it was compared against. It offers three configurable thinking levels (none, low, high); switching from high to low reduces the average score by 4.0 points while cutting average output length by 37.3%. Weights and configuration files are released in Hugging Face Transformers format (transformers==4.57.1) and the card documents serving with SGLang and vLLM on NVIDIA GPUs and Ascend NPUs, plus an optimized llama.cpp implementation.
+tasks:
+  - on-device-llm
+  - coding
+  - agents
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 1.71
+contextTokens: 1048576
+hardware:
+  platforms:
+    - cuda
+    - cpu
+  note: Card documents NVIDIA GPU serving (SGLang and vLLM examples on RTX 4090) plus Ascend NPU images and an optimized llama.cpp implementation; the 1,048,576-token context setting requires sufficient device memory.
+links:
+  weights: https://huggingface.co/XHToken/Spark-X2.6-1.7B
+strengths:
+  - Same architecture as Spark-X2.5-1.7B with capability gains from improved post-training
+  - Configurable thinking budget (none / low / high) to trade quality for latency and cost
+  - Reported leading decoding throughput among comparable on-device models at shorter context lengths
+limitations:
+  - The full 1 ·048 ·576-token context setting requires sufficient device memory
+  - Transformers usage pins transformers==4.57.1 with trust_remote_code
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-generation
+  - on-device
+  - long-context
+  - reasoning-budget
+lastChecked: 2026-11-08

@@ -1,0 +1,42 @@
+id: physx-omni
+name: PhysX Omni
+org: research
+released: 2026-05-20
+dateSource: github
+summary: PhysX-Omni is a unified model for simulation-ready physical 3D generation of rigid deformable and articulated objects from conditioning images.
+description: PhysX-Omni combines a Qwen2.5 vision-language model with a TRELLIS decoder to generate physical 3D objects and convert them to URDF and XML. The release includes code a pretrained model from Hugging Face plus the PhysXVerse dataset and PhysX-Bench benchmark tooling. Per the authors it targets rigid deformable and articulated objects.
+tasks:
+  - 3d-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Distributed under the S-Lab License; full terms are not included in the provided card.
+io:
+  in:
+    - image
+  out:
+    - 3d
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires a CUDA GPU environment with dependencies such as xformers flash-attn spconv kaolin and nvdiffrast.
+links:
+  repo: https://github.com/ziangcao0312/PhysX-Omni
+  homepage: https://physx-omni.github.io/
+strengths:
+  - Generates simulation-ready 3D objects including rigid deformable and articulated types
+  - Produces URDF and XML outputs for simulation use
+  - Released with code and a pretrained model plus benchmark and dataset tooling
+limitations:
+  - Setup requires CUDA dependencies such as xformers flash-attn and nvdiffrast
+  - Generation relies on a TRELLIS decoder and a conditioning image rendering pipeline
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - simulation-ready
+  - physical-3d
+  - rigid
+lastChecked: 2026-11-08

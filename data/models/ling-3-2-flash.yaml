@@ -1,0 +1,34 @@
+id: ling-3-2-flash
+name: Ling 3.2 Flash
+org: Ant Group
+summary: Ling 3.2 Flash is the latest-generation native multimodal model in Ant Group's open-sourced Ling series.
+tasks:
+  - chat
+  - reasoning
+  - agents
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://developer.ant-ling.com/en/docs/models/ling/
+strengths:
+  - Native multimodal understanding of image text and video
+  - 1M context window for long documents and long video
+  - MoE design with 560B total and 25B activated parameters balances capacity and inference efficiency
+limitations:
+  - API only
+notes: Summary from the official announcement page.
+tags:
+  - ant
+lastChecked: 2026-11-08

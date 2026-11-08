@@ -1,0 +1,43 @@
+id: actionable-world-representation
+name: Actionable World Representation
+org: WorldString-IEI
+released: 2026-06-04
+dateSource: github
+summary: WorldString is a neural interactive digital twin that maps keypoint-based states to 3D point clouds for articulated and soft objects.
+tasks:
+  - 3d-generation
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: License is unspecified so commercial use is unclear
+io:
+  in:
+    - structured
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+    - cpu
+    - apple-silicon
+  note: Runs on CPU or NVIDIA CUDA and provides a Gradio demo
+links:
+  repo: https://github.com/MaureenZOU/worldstring
+  homepage: https://worldstring-iei.github.io/
+strengths:
+  - Provides checkpoints for interactive point-cloud visualization of XHand Right Unitree Go2 and Unitree H1
+  - Models articulated and soft objects from point clouds or RGB-D video
+  - Runs on CPU or NVIDIA CUDA and provides a Gradio demo
+limitations:
+  - Training code and open training data are not yet released
+  - License is unspecified so commercial use is unclear
+  - Checkpoint files may need separate download before the demo runs
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-generation
+  - structured-to-3d
+  - articulated-objects
+  - soft-objects
+lastChecked: 2026-11-08

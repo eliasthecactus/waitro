@@ -1,0 +1,39 @@
+id: warp-as-history
+name: Warp as History
+org: Warp as History
+released: 2026-05-12
+dateSource: github
+summary: Warp as History is a diffusion-based video generation model that produces camera-controlled videos from a single image (and optional camera poses) using a LoRA adaptation trained from one video.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - structured
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/yyfz/Warp-as-History
+  homepage: https://yyfz.github.io/warp-as-history/
+strengths:
+  - Generates camera-controlled video from a single image and camera trajectory
+  - Supports realtime interactive viewpoint manipulation using a LoRA adapter
+  - Learns from only one camera-annotated training video
+limitations:
+  - Requires multiple pretrained checkpoints (Helios-Distilled Pi3X LoRA) and CUDA setup
+  - Realtime performance depends on H200-class hardware and specific FlashAttention versions
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - camera-control
+  - realtime
+lastChecked: 2026-11-08

@@ -1,0 +1,43 @@
+id: proxypose
+name: ProxyPose
+org: Unknown
+released: 2026-07-04
+dateSource: github
+summary: ProxyPose is a video-to-video diffusion model built on Wan2.1-T2V (14B or 1.3B) with LoRA adapters that outputs a full 6-DoF pose trajectory from one query pixel in a video.
+description: "ProxyPose: 6-DoF Pose Tracking via Video-to-Video Translation. One query pixel in, a full 6-DoF pose trajectory out."
+tasks:
+  - image-understanding
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: License is unspecified in the model card and repository metadata.
+io:
+  in:
+    - video
+    - structured
+  out:
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires CUDA-enabled PyTorch and PyTorch3D; two model sizes allow 14B for quality or 1.3B for lower VRAM.
+links:
+  repo: https://github.com/ruihangzhang97/proxypose
+  homepage: https://ruihangzhang97.github.io/proxypose/
+strengths:
+  - Tracks full 6-DoF pose trajectory from a single query pixel in a video
+  - "Provides two model sizes: 14B for best quality and 1.3B for speed and lower VRAM"
+  - Weights download automatically on first run including LoRA adapters from HuggingFace
+limitations:
+  - Installation requires a CUDA GPU and PyTorch3D
+  - License is unspecified which creates commercial-use uncertainty
+  - Default focal length assumes 45° horizontal FOV unless Depth Anything 3 is used
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - pose-tracking
+  - video-to-video
+  - diffusion
+  - wan2-1
+lastChecked: 2026-11-08

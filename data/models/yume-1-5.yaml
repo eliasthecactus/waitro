@@ -1,0 +1,43 @@
+id: yume-1-5
+name: YUME 1.5
+org: YUME
+released: 2025-12-26
+dateSource: huggingface
+summary: Yume-1.5 is a 5.2B-parameter text-controlled interactive world generation model that produces long continuous videos from a single image or text prompt with real-time streaming acceleration.
+tasks:
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+    - text
+  out:
+    - video
+params:
+  total: 5.2
+hardware:
+  platforms:
+    - cuda
+  note: Inference is run through the project's image-to-video scripts
+links:
+  weights: https://huggingface.co/stdstu123/Yume-5B-720P
+  homepage: https://stdstu12.github.io/YUME-Project/
+strengths:
+  - Long-video world generation via unified context compression with linear attention
+  - Real-time acceleration through bidirectional attention distillation
+  - Text-controlled generation of specific world events
+limitations:
+  - Real-time streaming relies on bidirectional attention distillation within the framework
+  - Long rollouts depend on unified context compression with linear attention
+  - Interactive keyboard exploration is tied to the project's own streaming pipeline
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-to-video
+  - world-model
+  - interactive
+  - long-video
+lastChecked: 2026-11-08

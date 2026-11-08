@@ -1,0 +1,43 @@
+id: longcat-audiodit
+name: LongCat-AudioDiT
+org: Meituan LongCat
+released: 2026-03-30
+dateSource: huggingface
+summary: LongCat-AudioDiT is a 3.83B-parameter non-autoregressive diffusion text-to-speech model that synthesizes speech in the waveform latent space and supports zero-shot voice cloning.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT License covering both model weights and source code; no rights to Meituan trademarks or patents.
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+params:
+  total: 3.83
+hardware:
+  platforms:
+    - cuda
+links:
+  repo: https://github.com/meituan-longcat/LongCat-AudioDiT
+  weights: https://huggingface.co/meituan-longcat/LongCat-AudioDiT-3.5B
+strengths:
+  - Zero-shot voice cloning with Seed benchmark speaker similarity of 0.818 (ZH) and 0.797 (ZH-Hard) for the 3.5B variant
+  - Operates directly in waveform latent space using only a Wav-VAE and a diffusion backbone
+  - Released under MIT with weights and code available
+limitations:
+  - Inference examples target CUDA GPUs with half-precision VAE execution
+  - Diffusion sampling requires setting latent frame duration and step count manually
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - diffusion
+  - wav-vae
+lastChecked: 2026-11-08

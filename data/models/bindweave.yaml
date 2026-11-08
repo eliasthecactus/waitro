@@ -1,0 +1,40 @@
+id: bindweave
+name: BindWeave
+org: ByteDance
+released: 2025-11-04
+dateSource: huggingface
+summary: BindWeave is a subject-consistent image-to-video generation framework from ByteDance built on an MLLM-DiT architecture for single- and multi-subject prompts.
+description: BindWeave is a unified subject-consistent video generation framework for single- and multi-subject prompts built on an MLLM-DiT architecture that couples a pretrained multimodal large language model with a diffusion transformer.
+tasks:
+  - video-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: GPU execution is implied by the image-to-video diffusion pipeline; the card does not specify hardware requirements.
+links:
+  weights: https://huggingface.co/ByteDance/BindWeave
+  homepage: https://lzy-dot.github.io/BindWeave/
+strengths:
+  - Supports single- and multi-subject prompts for subject-consistent video generation
+  - Uses an MLLM-DiT architecture with entity grounding and representation alignment
+  - Reports a 57.61 total score on OpenS2V-Eval
+limitations:
+  - Subject consistency is the stated focus; other video-generation capabilities are not detailed
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - subject-consistent
+  - image-to-video
+  - mllm-dit
+lastChecked: 2026-11-08

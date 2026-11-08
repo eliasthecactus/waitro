@@ -1,0 +1,43 @@
+id: qwen3-tts
+name: Qwen3-TTS
+org: Alibaba (Qwen team)
+released: 2026-01-21
+dateSource: huggingface
+summary: Qwen3-TTS is a 1.92B-parameter open-weights text-to-speech model family with a discrete multi-codebook LM architecture streaming synthesis and instruction-based voice control across ten languages.
+description: Qwen3-TTS is an end-to-end text-to-speech model family from Alibaba's Qwen team. It covers Chinese English Japanese Korean German French Russian Portuguese Spanish and Italian and supports instruction-driven control of timbre emotion and prosody. The released family includes CustomVoice VoiceDesign and Base models in 1.7B and 0.6B sizes with streaming and non-streaming generation.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - audio
+params:
+  total: 1.92
+hardware:
+  platforms:
+    - cuda
+  note: The card recommends FlashAttention 2 and shows CUDA device loading.
+links:
+  repo: https://github.com/flybirdxx/ComfyUI-Qwen-TTS
+  weights: https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+strengths:
+  - Covers ten languages and multiple dialectal voice profiles
+  - Supports streaming generation with end-to-end synthesis latency as low as 97ms
+  - Provides instruction control over timbre emotion and prosody
+limitations:
+  - FlashAttention 2 is recommended and requires compatible GPU hardware
+  - Some models mentioned in the technical report are not yet released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - streaming
+  - multilingual
+lastChecked: 2026-11-08

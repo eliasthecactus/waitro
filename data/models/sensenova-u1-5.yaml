@@ -1,0 +1,48 @@
+id: sensenova-u1-5
+name: SenseNova U1.5
+org: SenseNova
+released: 2026-08-19
+dateSource: huggingface
+summary: SenseNova U1.5 (8B-MoT) is a native unified multimodal image generation and editing model that produces high-fidelity images with strong text rendering and supports precise instruction-based edits.
+description: SenseNova U1.5 (8B-MoT) is a native unified multimodal checkpoint built on the NEO-unify architecture for high-quality image generation and reliable instruction-based image editing.
+tasks:
+  - image-generation
+  - image-editing
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Released under the Apache 2.0 License; weights are publicly available on Hugging Face and are not gated.
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+params:
+  total: 17.53
+hardware:
+  platforms:
+    - cuda
+  note: Reference inference targets NVIDIA GPUs with CUDA 12.8 and PyTorch 2.8.
+links:
+  weights: https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT
+  homepage: https://modelscope.ai/models/SenseNova/SenseNova-U1.5-8B-MoT
+strengths:
+  - Generates and edits images natively up to 4K resolution with coherent structure and lighting
+  - Legible Chinese and English text rendering suited to posters infographics and brand assets
+  - Precise region- and object-level control via bounding boxes visual markers and single- or multi-image references
+  - Editing preserves subject identity and unedited content across local text insertion and replacement edits
+limitations:
+  - Some prompts yield excessive high-frequency detail or oversaturated colors which can be mitigated by lowering cfg_scale
+  - Dense lengthy small or mixed Chinese-English text in images may contain errors
+  - Broad multi-turn or multi-reference edits may drift when many regions must be preserved
+  - Small faces hands limbs and fine object structures may remain unstable
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-generation
+  - image-editing
+  - multimodal
+  - text-rendering
+lastChecked: 2026-11-08

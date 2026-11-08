@@ -1,0 +1,43 @@
+id: index-tts-2-5
+name: Index TTS 2.5
+org: IndexTeam
+released: 2026-08-10
+dateSource: huggingface
+summary: A ~0.8B-parameter autoregressive zero-shot TTS model with a GPT backbone and flow-matching mel decoder that clones voices from a single reference clip in five languages with emotion and speed control.
+description: IndexTTS 2.5 is an autoregressive zero-shot text-to-speech system with a GPT backbone a flow-matching speech-to-mel decoder and a BigVGAN vocoder that clones a voice from a single reference clip across Chinese English Japanese Spanish and Arabic
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: hybrid
+access: open-weights
+license:
+  id: bilibili-model-license
+  commercial: limited
+  note: bilibili Model Use License Agreement
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Inference needs an NVIDIA GPU with roughly 6 GB of VRAM
+links:
+  weights: https://huggingface.co/IndexTeam/IndexTTS-2.5
+strengths:
+  - Zero-shot voice cloning from a single reference audio clip with cross-lingual transfer
+  - Emotion control via an 8-value vector disentangled from timbre plus speaking-speed control
+  - Covers Chinese English Japanese Spanish and Arabic with Pinyin CMU phoneme and Kana pronunciation control
+limitations:
+  - Long text is split into segments concatenated with short silences so prosody is not modelled across segment boundaries
+  - Text-described emotion requires the QwenEmotion model loaded via use_qwen_emo and fails at inference if enabled without it
+  - The model does not verify that the reference speaker consented to cloning and the licence requires a separate licence above 100M monthly active users or RMB 1B annual revenue
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - zero-shot
+  - multilingual
+lastChecked: 2026-11-08

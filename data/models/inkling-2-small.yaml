@@ -1,0 +1,40 @@
+id: inkling-2-small
+name: Inkling 2 Small
+org: Thinking Machines Lab
+released: 2026-11-05
+dateSource: vendor
+summary: Inkling 2 Small is Thinking Machines Lab's second-generation Mixture-of-Experts model with 594B total parameters and 17B active parameters. It accepts image inputs and supports variable effort.
+tasks:
+  - coding
+  - agents
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+    - code
+    - 3d
+contextTokens: 10000
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://thinkingmachines.ai/news/inkling-2-small/
+strengths:
+  - Strong long-horizon agentic coding and autoresearch
+  - Uses visual feedback to build and refine websites games and 3D designs
+  - MoE with 594B total and 17B active parameters plus variable effort
+limitations:
+  - API only
+  - Initially closed weights available through Tinker only
+  - Full Apache 2.0 weights pending external safety testing and red-teaming
+notes: Summary from the official announcement page.
+tags:
+  - thinking
+lastChecked: 2026-11-08

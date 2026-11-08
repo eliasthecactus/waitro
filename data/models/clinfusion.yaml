@@ -1,0 +1,45 @@
+id: clinfusion
+name: ClinFusion 32B / 8B
+org: Alibaba DAMO Academy
+released: 2026-03-03
+dateSource: github
+summary: ClinFusion is an open-weights vision-centric multimodal LLM system in 8B and 32B sizes for holistic medical understanding across 2D and native 3D images.
+description: ClinFusion is presented as a vision-centric multimodal LLM system for medical use. It combines multiple vision encoders and Qwen3-VL base models. The released checkpoints are ClinFusion-8B and ClinFusion-32B under Apache-2.0.
+tasks:
+  - medical
+  - image-understanding
+  - agents
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 per repository metadata.
+io:
+  in:
+    - text
+    - image
+    - 3d
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+    - browser
+  note: The card documents CUDA Flash-Attention setup and mentions a browser demo for ClinFusion-8B.
+links:
+  repo: https://github.com/alibaba-damo-academy/ClinFusion
+strengths:
+  - Open weights for 8B and 32B variants under Apache-2.0
+  - Supports 2D and native 3D medical image understanding plus report generation and VQA
+  - Reports state-of-the-art results on 20 of 24 medical benchmarks versus open-source medical MLLMs
+limitations:
+  - Focused on medical-domain use rather than general-purpose tasks
+  - Requires CUDA and Flash-Attention for supported inference
+  - Browser demo notes English may be better than Chinese
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - medical
+  - multimodal
+  - vision-centric
+  - qwen3-vl
+lastChecked: 2026-11-08

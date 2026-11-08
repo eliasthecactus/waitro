@@ -1,0 +1,49 @@
+id: wevisone-vl
+name: WeVisOne-VL
+org: Tencent
+released: 2026-10-22
+dateSource: huggingface
+summary: WeVisOne-VL is a 4.83B-parameter open-weights vision-language model from Tencent WeChat Vision built on Qwen3-VL that unifies object-level detection localization counting pointing and OCR with…
+description: WeVisOne-VL is a unified vision-language model developed by WeChat Vision at Tencent Inc. and built upon Qwen3-VL. It combines object-level perception (open-vocabulary object detection referring localization object counting object pointing and OCR) with pixel-level perception (referring segmentation and promptable alpha matting) through structured next-token prediction and a lightweight 9.6M-parameter pixel decoder. The release is intended for research in visual grounding referring localization pointing counting OCR localization referring segmentation and image matting.
+tasks:
+  - object-detection
+  - segmentation
+  - ocr
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Tencent-authored code is released under Apache License 2.0; third-party components retain their original licenses.
+io:
+  in:
+    - image
+    - text
+  out:
+    - text
+    - mask
+    - structured
+params:
+  total: 4.83
+hardware:
+  platforms:
+    - cuda
+  note: Inference package supports device auto-selection with bfloat16.
+links:
+  weights: https://huggingface.co/tencent/WeVisOne-VL-4B
+  homepage: https://tencent.github.io/WeVisOne-VL/
+strengths:
+  - Unifies open-vocabulary object detection referring localization counting pointing and OCR with referring segmentation and promptable alpha matting in one model
+  - Uses structured next-token prediction with dedicated coordinate tokens and a 9.6M-parameter pixel decoder for dense outputs
+  - Released as open weights under Apache-2.0 for research use
+limitations:
+  - Alpha matte quality is sensitive to image resolution severe occlusion complex transparency and prompt phrasing
+  - Generates structured outputs without explicit chain-of-thought and targets single-turn image perception; video grids are rejected by the pixel decoder
+  - Not intended for autonomous high-impact decisions or identifying individuals
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - vision-language
+  - visual-grounding
+  - object-detection
+  - segmentation
+lastChecked: 2026-11-08

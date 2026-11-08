@@ -1,0 +1,42 @@
+id: lightonocr-2-1b
+name: LightOnOCR-2-1B
+org: LightOn
+released: 2026-01-16
+dateSource: huggingface
+summary: LightOnOCR-2-1B is a 1B-parameter end-to-end vision-language OCR model that converts documents scans and images into clean naturally ordered text.
+description: 1B-parameter end-to-end vision-language OCR model that converts documents scans and images into clean naturally ordered text.
+tasks:
+  - ocr
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache License 2.0
+io:
+  in:
+    - image
+  out:
+    - text
+params:
+  total: 1.01
+hardware:
+  platforms:
+    - cuda
+    - apple-silicon
+    - cpu
+links:
+  weights: https://huggingface.co/lightonai/LightOnOCR-2-1B
+strengths:
+  - Converts PDFs scans and images into clean naturally ordered text in one end-to-end model
+  - Apache-2.0 licensed and supports LoRA fine-tuning and domain adaptation
+limitations:
+  - Requires latest Transformers v5 for Transformers usage
+  - PDFs should be rendered at 200 DPI with a 1540px longest dimension
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - ocr
+  - document-parsing
+  - vision-language
+  - multilingual
+lastChecked: 2026-11-08

@@ -1,0 +1,44 @@
+id: segvigen
+name: SegviGen
+org: Unknown
+released: 2026-03-17
+dateSource: github
+summary: SegviGen is a framework for 3D part segmentation that repurposes large-scale 3D generative models to predict part-indicative colors while reconstructing geometry.
+description: SegviGen unifies interactive part segmentation full segmentation and 2D segmentation-map-guided full segmentation in one architecture. The authors state it requires only 0.32% training data by reusing 3D generative priors. They report a 40% IoU@1 gain for single-click interaction and a 15% overall IoU improvement for unguided full segmentation versus P3-SAM.
+tasks:
+  - segmentation
+architecture: other
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT for SegviGen; bundled trellis2 code remains subject to TRELLIS.2 original license terms.
+io:
+  in:
+    - 3d
+    - image
+    - mask
+    - structured
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Requires Linux and an NVIDIA GPU with at least 24GB memory.
+links:
+  repo: https://github.com/Nelipot-Lee/SegviGen
+  homepage: https://fenghora.github.io/SegviGen-Page/
+strengths:
+  - Requires only 0.32% training data per the authors
+  - Unifies interactive full and 2D-guided segmentation in one architecture
+  - Reports 40% IoU@1 gain for single-click interaction and 15% overall IoU gain for unguided full segmentation versus P3-SAM
+limitations:
+  - Requires a Linux system with an NVIDIA GPU of at least 24GB memory
+  - Inherits TRELLIS.2 code under its original license terms
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-part-segmentation
+  - trellis2
+  - data-efficient
+  - interactive-segmentation
+lastChecked: 2026-11-08

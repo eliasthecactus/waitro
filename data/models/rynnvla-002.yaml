@@ -1,0 +1,46 @@
+id: rynnvla-002
+name: RynnVLA-002
+org: Alibaba DAMO Academy
+released: 2025-11-20
+dateSource: huggingface
+summary: RynnVLA-002 is an autoregressive vision-language-action and world model that unifies action understanding with image generation and reports 97.4% success on LIBERO.
+description: RynnVLA-002 is an autoregressive action world model from Alibaba DAMO Academy that integrates a Vision-Language-Action model and a world model in one framework. It adds a continuous Action Transformer plus wrist-camera input and generation and state input. It reports 97.4% success on the LIBERO benchmark and provides VLA and world-model checkpoints on Hugging Face.
+tasks:
+  - agents
+  - image-generation
+  - image-understanding
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Apache-2.0 for code and assets unless specified otherwise
+io:
+  in:
+    - text
+    - image
+    - structured
+  out:
+    - image
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Platform support is not stated in the model card.
+links:
+  repo: https://github.com/alibaba-damo-academy/RynnVLA-002
+  weights: https://huggingface.co/Alibaba-DAMO-Academy/RynnVLA-002
+strengths:
+  - Unifies VLA action modeling and world-model image generation in one framework
+  - Adds continuous Action Transformer plus wrist-camera and state inputs
+  - Reports 97.4% success on the LIBERO benchmark
+limitations:
+  - Licence text says Apache 2.0 unless otherwise specified
+  - Evaluation is limited to LIBERO manipulation benchmarks
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - vision-language-action
+  - world-model
+  - autoregressive
+  - libero
+lastChecked: 2026-11-08

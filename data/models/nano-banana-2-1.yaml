@@ -1,0 +1,37 @@
+id: nano-banana-2-1
+name: Nano Banana 2.1
+org: Google
+released: 2026-06-23
+dateSource: vendor
+summary: Google's Nano Banana 2.1 image generation and editing model, served through the Gemini API.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+contextTokens: 200000
+pricing:
+  inputPerM: 0.0038
+  outputPerM: 0.015
+  perImage: 0.0336
+  perSecond: 0.08
+  perMinute: 0.417
+  note: gemini-nano-banana-2.1 $0.0336 per 1K image
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

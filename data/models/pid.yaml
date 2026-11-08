@@ -1,0 +1,41 @@
+id: pid
+name: PiD
+org: NVIDIA
+released: 2026-04-28
+dateSource: huggingface
+summary: PiD is a Pixel Diffusion Decoder by NVIDIA that reformulates latent-to-pixel decoding as a conditional pixel-space diffusion model to produce super-resolved images in a single pass.
+description: PiD acts as a latent-to-pixel decoder that denoises directly in high-resolution pixel space unifying decoding and upsampling into one generative module. The checkpoints are designed to work across several major Latent Diffusion Models such as FLUX SD3 SDXL Qwen-Image and DINOv2 via specific VAE weights.
+tasks:
+  - image-generation
+  - image-upscaling
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: limited
+  note: Permitted use is restricted to non-commercial research or evaluation purposes.
+io:
+  in:
+    - structured
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Not specified.
+links:
+  weights: https://huggingface.co/nvidia/PiD
+  homepage: https://research.nvidia.com/labs/sil/projects/pid/
+strengths:
+  - Unifies decoding and upsampling into a single module
+  - Operates directly in high-resolution pixel space
+  - Supports multiple latent space backbones
+limitations:
+  - Restricted to non-commercial use
+  - Requires external encoder/decoder VAE weights
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - nvidia
+  - image-generation
+  - upscaling
+lastChecked: 2026-11-08

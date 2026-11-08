@@ -1,0 +1,44 @@
+id: r2t2
+name: R2T2
+org: Unknown
+released: 2026-09-10
+dateSource: huggingface
+summary: R2T2 是基于 Qwen3-ASR-1.7B 适配的低延迟稳定前缀流式 ASR…
+description: R2T2（Real Real-Time Transcription）是由网易有道 Confucius4 团队提出的低延迟、高准确率稳定前缀流式语音识别（ASR）模型。它基于 Qwen3-ASR-1.7B 适配，在 1500 小时中英文音频上采用最长稳定前缀（LSP）学习进行两阶段 SFT 与 GRPO 训练，仅更新语言解码器并冻结音频编码器与投影器。模型支持 80 ms 至 2 s 的可配置解码块，以单调输出模式永久提交转写文本而不回改，适用于实时字幕、同传、下游 NLP 与 LLM 智能体等场景；同一检查点同时支持离线全上下文转写与流式推理。
+tasks:
+  - speech-to-text
+architecture: transformer
+access: open-weights
+license:
+  id: netease-model-use-license-agreement
+  commercial: unknown
+io:
+  in:
+    - audio
+  out:
+    - text
+params:
+  total: 2.04
+hardware:
+  platforms:
+    - api
+    - cuda
+  note: vLLM 推理 / Hugging Face transformers 离线 / 可选 llama.cpp 解码；报告发射延迟不含服务与网络时间
+links:
+  weights: https://huggingface.co/netease-youdao/Confucius4-R2T2
+  homepage: https://r2t2.ai/
+strengths:
+  - 支持 80 ms 至 2 s 可配置解码块且无需重训练
+  - 160 ms + 1 个暂定 token 下识别错误率 5.76%（基线 21.01%）
+  - 同一检查点兼顾流式与离线全上下文转写
+limitations:
+  - 训练仅使用中英文音频（跨语种迁移在 10 种额外语言的 18 个测试集上评估）
+  - 160 ms 流式设置下 5.76% 的错误率仍略高于全上下文参考 5.15%
+  - 许可证为网易自定义协议且文本缺失，商业使用范围未知
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - ----
+  - ---asr
+  - ---
+  - ---
+lastChecked: 2026-11-08

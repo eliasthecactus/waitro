@@ -1,0 +1,43 @@
+id: clm-v0-1-8b
+name: CLM v0.1 8B
+org: Contrastive-LM
+released: 2026-09-21
+dateSource: huggingface
+summary: CLM-8B is an 8B-encoder contrastive scoring model that ranks states and actions by connecting them with lightweight state and action projection heads.
+description: CLM-8B is a contrastive 'System One' scorer that adds a state head and an action head on top of a frozen Qwen3-8B encoder trained with a bidirectional InfoNCE loss. It ranks or scores candidate actions and answers rather than generating text, and can be fine-tuned cheaply as a verifier for agentic tasks.
+tasks:
+  - agents
+  - embeddings
+  - reasoning
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: CLM-8B weights and the base Qwen3-8B encoder are both Apache 2.0.
+io:
+  in:
+    - text
+  out:
+    - structured
+hardware:
+  platforms:
+    - cuda
+  note: Requires a Qwen3-8B embedding server (e.g. vLLM with --runner pooling); the heads are small and cheap to train.
+links:
+  weights: https://huggingface.co/Contrastive-LM/CLM-v0.1-8B
+strengths:
+  - Up to 9x lower latency than Jev zero-shot on computer-use gaming and tool-calling tasks
+  - State and action caching gives 13x speedup over Jev with ~1k candidates
+  - Only the small heads are trained so fine-tuning as a verifier is cheap
+limitations:
+  - "Encoder-locked: heads require Qwen3-8B last-token-pooled embeddings"
+  - "No generation: only scores supplied candidates and probabilities are relative to that set"
+  - SOTA agentic benchmark numbers come from fine-tuned heads not this zero-shot checkpoint
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - contrastive
+  - system-one
+  - ranking
+  - verifier
+lastChecked: 2026-11-08

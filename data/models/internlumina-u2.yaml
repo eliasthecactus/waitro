@@ -1,0 +1,47 @@
+id: internlumina-u2
+name: InternLumina-U2
+org: InternLM
+released: 2026-09-01
+dateSource: huggingface
+summary: A 16B-parameter MoE diffusion multimodal model with 1B active parameters for omni-visual understanding image generation and editing.
+description: InternLumina-U2 is a 16B-parameter MoE diffusion multimodal model with 1B active parameters that supports image understanding generation and editing along with text and video and 3D understanding in a unified framework.
+tasks:
+  - image-generation
+  - image-editing
+  - image-understanding
+architecture: moe-transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+    - 3d
+  out:
+    - text
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Checkpoints are provided for NVIDIA GPUs and Huawei Ascend NPUs
+links:
+  weights: https://huggingface.co/internlm/InternLumina-U2
+  homepage: https://internlm.github.io/InternLumina-U2/
+strengths:
+  - Unified any-to-any handling of text image video and 3D understanding
+  - Sparse 16B MoE design activates only 1B parameters
+  - Apache 2.0 open weights with NVIDIA and Ascend checkpoints
+limitations:
+  - Benchmark results are preliminary and partial
+  - Full technical report is still upcoming
+  - Checkpoints are split between Ascend and NVIDIA hardware stacks
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - multimodal
+  - moe
+  - diffusion
+  - any-to-any
+lastChecked: 2026-11-08

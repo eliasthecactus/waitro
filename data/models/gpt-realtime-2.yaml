@@ -1,0 +1,40 @@
+id: gpt-realtime-2
+name: GPT Realtime 2
+org: OpenAI
+released: 2026-04-06
+dateSource: vendor
+summary: GPT Realtime 2 is an API-hosted realtime audio model from OpenAI. The provided price line lists audio pricing at 32/64 per 1M tokens.
+tasks:
+  - chat
+  - speech-to-text
+  - text-to-speech
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - audio
+    - text
+  out:
+    - audio
+    - text
+contextTokens: 128000
+pricing:
+  inputPerM: 0.4
+  outputPerM: 1.6
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths:
+  - API-hosted
+  - Realtime audio interaction
+limitations:
+  - API only
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

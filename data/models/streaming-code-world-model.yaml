@@ -1,0 +1,43 @@
+id: streaming-code-world-model
+name: Streaming Code World Model
+org: unknown
+released: 2026-10-02
+dateSource: github
+summary: A causal streaming video world model built on Code World Model and MiniMax-H3 that generates 0.71 s chunks from a start image and proxy with a 4-step distilled sampler.
+description: Streaming Code World Model implements a causal streaming version of Code World Model. It generates 0.71 s video chunks from a start image and proxy so far with no access to future chunks. Per the authors a chunk renders in 5.1 s on one H200 using a 4-step distilled model.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: No licence is stated in the metadata; commercial use terms are unknown.
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Sampling runs on one NVIDIA H200 (141 GB); peak GPU memory is 123 GB in bf16 and 108 GB with --fp8. 80 GB GPUs are not supported yet.
+links:
+  repo: https://github.com/TingtingLiao/streaming-code-world-model
+strengths:
+  - Causal streaming generation with no access to future chunks
+  - 4-step DMD self forcing is reported 9x faster than 35-step sampling and more accurate
+  - Uses FlashAttention-3 optional FP8 and a sliding 6-chunk attention span
+limitations:
+  - Requires one NVIDIA H200 with 141 GB; 80 GB GPUs are not supported yet
+  - Runs at 5.1 s per chunk on one H200 and is not yet real time
+  - Licence is unspecified in the model metadata
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - streaming
+  - world-model
+  - diffusion-forcing
+lastChecked: 2026-11-08

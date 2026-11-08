@@ -1,0 +1,42 @@
+id: scenebloom
+name: SceneBloom
+org: unknown
+released: 2026-10-23
+dateSource: github
+summary: SceneBloom is an agentic framework that generates realistic and diverse simulation-ready indoor 3D environments from text prompts by combining FLUX-based visual layout sampling with contract-guided…
+description: SceneBloom generates indoor environments for embodied learning. It samples functional zones and layout proposals with FLUX and LoRA adapters, extracts and fits relations, refines layouts, completes wall and small objects, assigns floor and wall materials, renders previews with Genesis, and exports a Habitat-compatible scene.glb. It supports bedroom, living room, dining room, office, and bathroom room types. The pipeline runs on one GPU and uses Qwen3-VL-8B-Instruct through OpenRouter for zoning, relation extraction, and scene completion. LoRA adapters and assets are downloaded separately, and FLUX.1 [dev] requires gated Hugging Face access.
+tasks:
+  - 3d-generation
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 for SceneBloom; FLUX.1 [dev] is a gated third-party dependency.
+io:
+  in:
+    - text
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: Runs the whole pipeline on one GPU.
+links:
+  repo: https://github.com/Tinaliu0123/scenebloom
+  homepage: https://tinaliu0123.github.io/scenebloom/
+strengths:
+  - Generates simulation-ready indoor 3D scenes and exports them as Habitat-compatible scene.glb
+  - "Supports five room types: bedroom living room dining room office and bathroom"
+  - Releases LoRA adapters and an extensible asset library under Apache-2.0
+limitations:
+  - Requires a gated FLUX.1 [dev] model and an OpenRouter API key for Qwen3-VL-8B-Instruct
+  - Downloads about 42 GB of third-party models and about 3 GB of SceneBloom assets
+  - "The text prompt is limited to five room types: bedroom living room dining room office and bathroom"
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 3d-scene-generation
+  - indoor-environments
+  - embodied-learning
+  - habitat-sim
+lastChecked: 2026-11-08

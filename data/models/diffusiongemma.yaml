@@ -1,0 +1,49 @@
+id: diffusiongemma
+name: DiffusionGemma
+org: Google
+released: 2026-06-09
+dateSource: huggingface
+summary: DiffusionGemma is a 25.2B total and 3.8B active open-weights Mixture-of-Experts multimodal model from Google DeepMind that uses discrete diffusion to generate text from text image and video inputs.
+description: A multimodal instruction-tuned model built on the 26B A4B MoE Gemma 4 architecture. It uses an encoder-decoder design with discrete text diffusion and block-autoregressive multi-canvas sampling.
+tasks:
+  - chat
+  - reasoning
+  - image-understanding
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - text
+params:
+  total: 25.82
+  active: 3.8
+contextTokens: 256000
+hardware:
+  platforms:
+    - cuda
+  note: Optimized for small batch size inference on a single capable accelerator.
+links:
+  weights: https://huggingface.co/google/diffusiongemma-26B-A4B-it
+  homepage: https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/
+strengths:
+  - Block-autoregressive discrete diffusion denoises 256-token canvases in parallel
+  - Supports interleaved text image and video inputs with up to 256K context
+  - Apache-2.0 open weights include thinking mode and function calling
+limitations:
+  - Scores below Gemma 4 26B A4B on MMLU Pro AIME 2026 and LiveCodeBench v6
+  - Long-context MRCR v2 8 needle 128k average is 32.0%
+  - Optimized for small batch size inference on a single capable accelerator
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - google
+  - moe
+  - diffusion
+  - multimodal
+lastChecked: 2026-11-08

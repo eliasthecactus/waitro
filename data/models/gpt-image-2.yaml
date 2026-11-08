@@ -1,0 +1,44 @@
+id: gpt-image-2
+name: GPT Image 2
+org: OpenAI
+released: 2026-04-21
+dateSource: vendor
+summary: GPT Image 2 is OpenAI's image generation model available via API access as an API or hosted endpoint.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+pricing:
+  inputPerM: 22.6
+  outputPerM: 49.4
+  perImage: 9.7
+  perSecond: 0.04
+  perMinute: 2.4
+  source: https://developers.openai.com/api/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths:
+  - High image quality
+  - Improved instruction following
+  - Multi-image composition
+limitations:
+  - API only
+betterOptions:
+  - id: gpt-image-2-6
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - openai
+lastChecked: 2026-11-08

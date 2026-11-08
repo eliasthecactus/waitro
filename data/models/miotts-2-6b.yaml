@@ -1,0 +1,45 @@
+id: miotts-2-6b
+name: MioTTS-2.6B
+org: Aratako
+released: 2026-02-09
+dateSource: huggingface
+summary: MioTTS-2.6B is a lightweight 2.6B-parameter LLM-based text-to-speech model for English and Japanese with zero-shot voice cloning and low latency.
+description: MioTTS-2.6B is a text-to-speech model built on an LLM architecture with zero-shot voice cloning and bilingual English/Japanese support. It uses the MioCodec-25Hz-24kHz audio codec and is initialized from LiquidAI/LFM2-2.6B.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: other
+access: open-weights
+license:
+  id: lfm1.0
+  commercial: limited
+  note: LFM Open License v1.0 with a $10M annual revenue threshold for commercial use.
+io:
+  in:
+    - text
+    - audio
+  out:
+    - audio
+params:
+  total: 2.59
+hardware:
+  platforms:
+    - cuda
+  note: RTF measured on NVIDIA RTX 5090 with vLLM 0.15.1.
+links:
+  weights: https://huggingface.co/Aratako/MioTTS-2.6B
+strengths:
+  - English and Japanese bilingual support
+  - Zero-shot voice cloning from a short reference audio clip
+  - Low RTF of 0.135-0.145 on NVIDIA RTX 5090 with vLLM
+limitations:
+  - Commercial use is limited to entities below $10M annual revenue
+  - Voice cloning of real people requires consent and privacy care
+  - Developers disclaim liability for misuse
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - text-to-speech
+  - voice-cloning
+  - english
+  - japanese
+lastChecked: 2026-11-08

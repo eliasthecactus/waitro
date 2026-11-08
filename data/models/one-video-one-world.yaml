@@ -1,0 +1,44 @@
+id: one-video-one-world
+name: One Video One World
+org: One Video One World
+released: 2026-06-28
+dateSource: github
+summary: OVOW is a training-free research system that reconstructs instance-level simulation-ready 4D mesh scenes from a single monocular video or image and exports an animated GLB with rendered comparison…
+description: OVOW is a training-free research system that reconstructs instance-level simulation-ready 4D mesh scenes from a single monocular video or image and exports an animated GLB with rendered comparison videos.
+tasks:
+  - 3d-generation
+architecture: other
+access: open-weights
+license:
+  id: Unspecified
+  commercial: no
+  note: Source-available research release with bundled third-party non-commercial components
+io:
+  in:
+    - image
+    - video
+  out:
+    - 3d
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Linux NVIDIA GPU with about 40GB VRAM recommended and about 120GB disk
+links:
+  repo: https://github.com/yisuanwang/OVOW
+  homepage: https://onevideooneworld.github.io/
+strengths:
+  - Reconstructs instance-level 4D mesh scenes from a single monocular video or image
+  - Exports full-scene animated GLB plus rendered comparison videos
+  - Supports resident serving to load heavy models once for batch runs
+limitations:
+  - Non-commercial research use only due bundled third-party components
+  - Requires Linux NVIDIA GPU with about 40GB VRAM and about 120GB disk
+  - Runtime is about 19-22 minutes per video end-to-end
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - 4d-reconstruction
+  - 3d-generation
+  - monocular-video
+  - training-free
+lastChecked: 2026-11-08

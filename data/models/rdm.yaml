@@ -1,0 +1,43 @@
+id: rdm
+name: RDM
+org: RDM
+released: 2023-07-28
+dateSource: huggingface
+summary: RDM is a small AutoTrain-trained multi-class image classification model hosted on Hugging Face with validation accuracy of 0.933.
+description: "RDM is a multi-class image classification model trained with Hugging Face AutoTrain (problem type: multi-class classification) and published by RDM as open weights. The card reports validation loss 0.184 with accuracy 0.933 macro F1 0.934 and weighted F1 0.936. The training task is image classification so the model takes an image and returns a predicted class label. The Hub metadata lists the pipeline as image-classification and the model is not gated. The licence is not specified in the metadata or card so commercial use terms are unknown. No architecture or platform details are stated in the card."
+tasks:
+  - image-understanding
+  - object-detection
+architecture: transformer
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: Licence text is not present; the metadata licence field is unknown so commercial terms cannot be confirmed.
+io:
+  in:
+    - image
+  out:
+    - structured
+params:
+  total: 0.09
+hardware:
+  platforms:
+    - cuda
+  note: No hardware or precision details are provided in the card.
+links:
+  weights: https://huggingface.co/rdmpage/autotrain-pagex-78162140824
+  homepage: https://alan-lanfeng.github.io/rdm/
+strengths:
+  - Lightweight AutoTrain image classification model released as open weights on the Hub
+limitations:
+  - No details on training data classes or intended deployment settings
+  - Licence is unspecified so commercial use is unclear
+  - Only aggregate validation metrics are reported without benchmark context
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-classification
+  - autotrain
+  - multi-class
+  - classification
+lastChecked: 2026-11-08

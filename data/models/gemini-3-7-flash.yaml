@@ -1,0 +1,37 @@
+id: gemini-3-7-flash
+name: Gemini 3.7 Flash
+org: Google
+summary: Gemini 3.7 Flash is a hosted Gemini model from Google exposed through the Gemini API and Google AI Studio.
+tasks:
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+    - image
+  out:
+    - text
+contextTokens: 1000000
+hardware:
+  platforms:
+    - api
+links:
+  docs: https://aistudio.google.com/
+strengths:
+  - Fast Flash-tier model from Google
+  - Served via the Gemini API in Google AI Studio
+limitations:
+  - API only
+  - Capabilities beyond general chat are unconfirmed here
+betterOptions:
+  - id: gemini-3-8-flash
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - google
+lastChecked: 2026-11-08

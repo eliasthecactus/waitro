@@ -1,0 +1,43 @@
+id: higgs-audio-v3
+name: Higgs Audio v3
+org: Boson AI
+released: 2026-03-25
+dateSource: huggingface
+summary: Speech-to-text model that pairs a Whisper-Large-v3 encoder with a Qwen3-1.7B decoder for 2.68B total parameters.
+tasks:
+  - speech-to-text
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - audio
+  out:
+    - text
+params:
+  total: 2.68
+  active: 1.7
+hardware:
+  platforms:
+    - cuda
+  note: 2.68B total parameters; runs on NVIDIA GPU via CUDA device_map in the example
+links:
+  weights: https://huggingface.co/bosonai/higgs-audio-v3-stt
+  homepage: https://www.boson.ai/blog/higgs-audio-v3-tts
+strengths:
+  - Provides a thinking mode for improved transcription accuracy
+  - Transcribe pipeline includes deterministic word- and phrase-level repetition-loop collapse
+  - Apache-2.0 licensed open weights with a published updated checkpoint and training-data refresh
+limitations:
+  - Custom architecture requires trust_remote_code=True and eager attention when loading
+  - Audio preprocessing needs the separate boson_multimodal library
+  - Input must be 16kHz mono WAV
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - automatic-speech-recognition
+  - whisper-large-v3-encoder
+  - qwen3-decoder
+  - trust-remote-code
+lastChecked: 2026-11-08

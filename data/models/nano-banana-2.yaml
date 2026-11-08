@@ -1,0 +1,45 @@
+id: nano-banana-2
+name: Nano Banana 2
+org: Google
+released: 2025-08-26
+dateSource: vendor
+summary: Nano Banana 2 is a Google API-hosted image-generation model. The price line lists gemini-3.1-flash-image at $0.067 per 1K images.
+tasks:
+  - image-generation
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - image
+contextTokens: 1000000
+pricing:
+  inputPerM: 0.067
+  outputPerM: 0.3
+  perImage: 0.067
+  perMinute: 0.067
+  note: gemini-3.1-flash-image $0.067 per 1K image (per-image price 0.000067)
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - API-hosted
+  - Per-image pricing listed
+limitations:
+  - API only
+  - Capability details unspecified
+betterOptions:
+  - id: nano-banana-2-1
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

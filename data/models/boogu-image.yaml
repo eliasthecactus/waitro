@@ -1,0 +1,44 @@
+id: boogu-image
+name: Boogu Image
+org: Unknown
+released: 2026-06-16
+dateSource: huggingface
+summary: Boogu-Image-0.1-Edit is a 10B-parameter Apache-2.0 image-to-image editing model with bilingual Chinese-English text rendering and editing capabilities.
+description: The card describes Boogu-Image-0.1-Edit as part of a unified Apache-2.0 image generation and editing model family released with checkpoints and inference code. Per the authors it handles edits such as object insertion replacement and removal attribute changes background replacement and Chinese-English text editing. It supports output resolutions up to 2K but the card notes results are more stable at 1K and only one reference image is supported for now.
+tasks:
+  - image-editing
+architecture: other
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache-2.0 licence; the card states this is a research project and that the team provides no official paid API or commercial service.
+io:
+  in:
+    - text
+    - image
+  out:
+    - image
+params:
+  total: 10.29
+hardware:
+  platforms:
+    - cuda
+  note: 10B-parameter model with an fp8 variant; the card also announces NPU support and vLLM-Omni support.
+links:
+  weights: https://huggingface.co/Boogu/Boogu-Image-0.1-Edit
+  homepage: https://boogu.org/
+strengths:
+  - Strong single-image editing per the authors
+  - Bilingual Chinese-English text rendering and text editing
+  - Apache-2.0 open-source checkpoints and inference code
+limitations:
+  - Only one reference image is supported for now
+  - Results are reported as more stable at 1K than 2K
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - image-editing
+  - image-to-image
+  - text-rendering
+  - bilingual
+lastChecked: 2026-11-08

@@ -1,0 +1,39 @@
+id: gemini-3-6-flash
+name: Gemini 3.6 Flash
+org: Google
+summary: Gemini 3.6 Flash is a hosted Google model in the Gemini Flash line served via API.
+tasks:
+  - chat
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+contextTokens: 1000000
+pricing:
+  inputPerM: 0.75
+  outputPerM: 3.75
+  note: gemini-3.6-flash 0.75/3.75 until 2026-12-31
+  source: https://aistudio.google.com/docs/pricing
+hardware:
+  platforms:
+    - api
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths:
+  - Flash tier positioning targets low-latency hosted inference
+limitations:
+  - API only
+betterOptions:
+  - id: gemini-3-8-flash
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Few details verified yet.
+tags:
+  - google
+lastChecked: 2026-11-08

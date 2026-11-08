@@ -1,0 +1,39 @@
+id: permavid
+name: PermaVid
+org: Unknown
+released: 2026-06-04
+dateSource: github
+summary: PermaVid is a 14B video generation model built on Wan2.1-VACE-14B that maintains consistency across camera motion and global or local edits using disentangled context memory.
+tasks:
+  - video-generation
+access: open-weights
+license:
+  id: Unspecified
+  commercial: unknown
+  note: unknown
+io:
+  in:
+    - text
+    - image
+    - video
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Requires CUDA GPU setup
+links:
+  repo: https://github.com/YS-IMTech/PermaVid
+  homepage: https://ys-imtech.github.io/projects/PermaVid/
+strengths:
+  - Maintains video consistency across camera moves and style or scene edits
+  - Supports interactive keyboard camera control and batch local edits including add remove and replace
+  - Provides a low-VRAM inference variant
+limitations:
+  - Requires CUDA GPU setup and multiple large checkpoints
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - camera-control
+  - video-editing
+lastChecked: 2026-11-08

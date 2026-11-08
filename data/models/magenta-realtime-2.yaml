@@ -1,0 +1,43 @@
+id: magenta-realtime-2
+name: Magenta Realtime 2
+org: Google
+released: 2026-05-28
+dateSource: huggingface
+summary: Magenta RealTime 2 is an open-weights music generation model from Google for on-device streaming generation in 2.4B base and 230M small configurations with low-latency control from text audio and…
+description: Magenta RealTime 2 is an open-weights music generation model from Google for on-device streaming generation in 2.4B base and 230M small configurations with low-latency control from text audio and MIDI.
+tasks:
+  - music-generation
+architecture: transformer
+access: open-weights
+license:
+  id: CC-BY-4.0
+  commercial: yes
+  note: Model weights are released under Creative Commons Attribution 4.0 International; the accompanying codebase is Apache 2.0.
+io:
+  in:
+    - text
+    - audio
+    - structured
+  out:
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Training used Tensor Processing Unit (TPU) hardware and JAX; the card presents the model as tuned for on-device streaming generation.
+links:
+  weights: https://huggingface.co/google/magenta-realtime-2
+  homepage: https://magenta.withgoogle.com/magenta-realtime-2
+strengths:
+  - Supports continuous real-time instrumental music generation with roughly 200 ms latency control
+  - Can be steered by text prompts audio examples and MIDI
+  - Open weights under CC-BY-4.0 with Apache 2.0 code
+limitations:
+  - Trained primarily on instrumental data and may generate non-lexical vocal sounds with specific prompting
+  - Has genre coverage limitations similar to the prior Magenta RealTime model
+  - Fine-tuning support is not yet available
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - music-generation
+  - real-time
+  - on-device
+lastChecked: 2026-11-08

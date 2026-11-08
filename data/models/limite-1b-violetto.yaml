@@ -1,0 +1,45 @@
+id: limite-1b-violetto
+name: Limite 1B Violetto
+org: Paradigma
+released: 2026-09-21
+dateSource: huggingface
+summary: Limite 1B Violetto is a 1.04B-parameter dense autoregressive transformer trained from scratch on under 300B curated tokens for high-throughput competition-level mathematical reasoning with context…
+description: Limite 1B Violetto is Paradigma's first model, a dense autoregressive transformer with an architecture inspired by community pre-training speedrun work. It was trained from scratch on a mixture of less than 300B highly curated tokens and handles sequences up to 131k tokens. Post-training combines synthetic data generation, curated SFT and RL to reach competition-level math results; the card reports an average of 74.25% on BeyondAIME. The model is intentionally lightly instruction-tuned for single-turn use with only the canonical system prompt and current user message, and it responds with reasoning patterns unlike a general assistant. Serving is supported through a Limite vLLM plugin or the Hugging Face Transformers APIs (custom architecture code requires trust_remote_code=True), validated on NVIDIA H100 with CUDA 13.0.
+tasks:
+  - reasoning
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Model weights and vLLM serving code released under Apache-2.0.
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 1.04
+contextTokens: 131072
+hardware:
+  platforms:
+    - cuda
+  note: Validated on NVIDIA H100; vLLM plugin setup targets Linux x86-64 with CUDA 13.0-compatible NVIDIA driver.
+links:
+  weights: https://huggingface.co/paradigma-inc/limite-1b-violetto
+  homepage: https://paradigma.inc/blog/limite-1b-violetto
+strengths:
+  - High mathematical capability per parameter on competition-level benchmarks
+  - Trained on less than 300B curated tokens with sequences up to 131k tokens
+  - Apache-2.0 licensed weights and serving code
+limitations:
+  - Designed for single-turn math reasoning rather than general instruction following
+  - Can lose the scope of a prompt and reinterpret it as a different mathematical task
+  - Transformers path supports one model replica per process with no tensor or pipeline parallelism
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - math
+  - reasoning
+  - 1b
+  - dense-transformer
+lastChecked: 2026-11-08

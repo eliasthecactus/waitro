@@ -1,0 +1,44 @@
+id: bark3
+name: Bark3
+org: Underdog
+released: 2026-10-15
+dateSource: huggingface
+summary: Bark 3.0 Clean is a 0.6B-parameter English speech recognition model in a 180 MB download that removes disfluencies such as 'um' and false starts to produce clean transcripts.
+description: Bark 3.0 Clean is a 0.6B-parameter English speech recognition model in a 180 MB download that removes disfluencies such as 'um' and false starts to produce clean transcripts. It is designed for dictation and readable transcripts and reports 4.08% WER against cleaned DisfluencySpeech transcripts.
+tasks:
+  - speech-to-text
+architecture: transformer
+access: open-weights
+license:
+  id: CC-BY-NC-4.0
+  commercial: no
+  note: "CC BY-NC 4.0: non-commercial use only; commercial licensing available via license@conway.tech"
+io:
+  in:
+    - audio
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+    - cpu
+    - apple-silicon
+  note: Runs on CUDA or CPU via PyTorch and on Apple silicon via MLX; 1.25 GB memory when unpacked.
+links:
+  weights: https://huggingface.co/ConwayResearch/Underdog-Bark-3.0-Clean
+  homepage: https://underdog.ai/bark
+strengths:
+  - Built-in disfluency removal avoids a second cleanup model
+  - 180 MB download and 1.25 GB memory footprint suit on-device use
+  - Scores 1.71% WER on LibriSpeech clean matching Bark 3.0 Plus
+limitations:
+  - English only
+  - CC BY-NC 4.0 licence prohibits commercial use without a separate licence
+  - Cleanup output penalizes it on verbatim-reference sets such as AMI and GigaSpeech
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - speech-recognition
+  - english
+  - disfluency-removal
+  - on-device
+lastChecked: 2026-11-08

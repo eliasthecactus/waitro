@@ -1,0 +1,45 @@
+id: ming-3-0-tts
+name: Ming 3.0 TTS
+org: Ant Group
+released: 2026-09-22
+dateSource: huggingface
+summary: Ming 3.0 TTS is a dense 0.5B multilingual text-to-speech model built on a Qwen2.5-0.5B backbone that offers zero-shot voice cloning voice design and free-form paralinguistic style control.
+tasks:
+  - text-to-speech
+  - voice-cloning
+architecture: transformer
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: MIT licence per repository metadata
+io:
+  in:
+    - text
+  out:
+    - audio
+params:
+  total: 1.48
+  active: 0.5
+hardware:
+  platforms:
+    - cuda
+  note: Tested on NVIDIA H800-80GB and H20-96G with CUDA 12.4; flash-attn optional with PyTorch SDPA fallback
+links:
+  weights: https://huggingface.co/inclusionAI/Ming-3.0-tts-0.5B
+  homepage: https://nomorecoding.github.io/Ming-3.0-tts/
+strengths:
+  - Dense 0.5B multilingual TTS with Chinese English German Spanish French Korean and Japanese plus Sichuanese and Cantonese
+  - Zero-shot voice cloning from a short reference clip and voice design from a natural-language speaker description
+  - 14 inline paralinguistic tags plus explicit emotion speed pitch and volume control at 44.1 kHz
+limitations:
+  - Speaker similarity is weaker than content accuracy with French the clearest multilingual gap
+  - NVBench Multi trails Single so stability with several paralinguistic events in one sentence is still improving
+  - Pitch control is less accurate than speed and volume and open-ended voice design trails the strongest evaluated system
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - tts
+  - voice-cloning
+  - multilingual
+  - paralinguistic
+lastChecked: 2026-11-08

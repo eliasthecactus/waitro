@@ -1,0 +1,42 @@
+id: logos
+name: LOGOS
+org: Alibaba Tongyi Lab
+released: 2026-06-14
+dateSource: github
+summary: LOGOS is a 1B–8B-parameter autoregressive Transformer family that uses a shared scientific-grammar token space to generate and predict proteins small molecules materials and chemical reactions.
+description: LOGOS is a family of autoregressive Transformer models (1B–8B parameters) from Alibaba Tongyi Lab trained on a unified scientific grammar that tokenizes proteins antibodies small molecules reactions and materials into one shared sequence space.
+tasks:
+  - life-sciences
+  - medical
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Apache License 2.0.
+io:
+  in:
+    - text
+  out:
+    - text
+hardware:
+  platforms:
+    - cuda
+  note: Card recommends an NVIDIA PyTorch Docker image and a CUDA-compatible GPU.
+links:
+  repo: https://github.com/LOGOS-Hub/LOGOS
+strengths:
+  - One autoregressive model handles proteins small molecules materials reactions antibodies and their interactions
+  - Shared scientific grammar allows generation prediction and design without natural-language intermediaries
+  - Parameter range spans 1B to 8B with stable scaling reported
+limitations:
+  - Requires an NVIDIA CUDA GPU and a downloaded checkpoint to run inference
+  - Only four representative downstream inference scripts are provided
+  - No explicit 3D geometry modelling; spatial contacts are captured only as tokens
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - protein
+  - small-molecule
+  - material
+  - retrosynthesis
+lastChecked: 2026-11-08

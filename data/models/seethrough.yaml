@@ -1,0 +1,43 @@
+id: seethrough
+name: SeeThrough
+org: shitagaki-lab
+released: 2026-03-31
+dateSource: github
+summary: SeeThrough is an open-source pipeline that decomposes a single anime character illustration into up to 23 inpainted semantic layers with inferred drawing order and exports a layered PSD.
+tasks:
+  - segmentation
+  - image-editing
+architecture: hybrid
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - structured
+    - mask
+    - depth
+hardware:
+  platforms:
+    - cuda
+    - rocm
+  note: CUDA 12.8 and ROCm wheels documented
+links:
+  repo: https://github.com/shitagaki-lab/see-through
+strengths:
+  - Produces up to 23 semantically separated inpainted layers including hair/face/eyes/clothing/accessories
+  - Includes pseudo-depth estimation and body-part segmentation for layer stratification
+  - Provides group offload/NF4 quantization/block-swap modes for low-VRAM GPUs
+limitations:
+  - Focused on anime character illustrations
+  - Default pipeline requires approximately 12-16 GB VRAM at 1280 resolution
+  - Head and body separation runs in two continuous stages and may be slower than the paper model
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - layer-decomposition
+  - anime
+  - psd-export
+  - image-editing
+lastChecked: 2026-11-08

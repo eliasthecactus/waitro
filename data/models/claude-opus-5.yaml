@@ -1,0 +1,47 @@
+id: claude-opus-5
+name: Claude Opus 5
+org: Anthropic
+released: 2026-07-24
+dateSource: vendor
+summary: Anthropic's Claude Opus 5 is a frontier agentic and coding model positioned as near Claude Fable 5 intelligence at half the price and default on Claude Max.
+tasks:
+  - chat
+  - coding
+  - reasoning
+access: api
+license:
+  id: Proprietary
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - text
+    - code
+pricing:
+  inputPerM: 5
+  outputPerM: 25
+  source: https://platform.claude.com/docs/en/about-claude/pricing
+hardware:
+  platforms:
+    - api
+links:
+  homepage: https://www.anthropic.com/news/claude-opus-5
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths:
+  - Near Fable 5 intelligence at half the price
+  - State-of-the-art on coding and knowledge-work evaluations
+  - Strong agentic verification and iteration
+limitations:
+  - API only
+  - Trails Mythos 5 on cybersecurity tasks
+  - Performance varies with effort setting
+betterOptions:
+  - id: claude-opus-5-5
+    why: A newer version in the same model line.
+    aspects:
+      - quality
+notes: Summary from the official announcement page.
+tags:
+  - anthropic
+lastChecked: 2026-11-08

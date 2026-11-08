@@ -1,0 +1,40 @@
+id: videomdm
+name: VideoMDM
+org: VideoMDM team
+released: 2026-06-07
+dateSource: github
+summary: VideoMDM is a diffusion model for text-to-3D human motion generation trained with only 2D pose supervision from monocular video.
+tasks:
+  - 3d-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: MIT
+  commercial: yes
+  note: LPDDR4X LPDDR5 LPDDR5X
+io:
+  in:
+    - text
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: LPDDR4X LPDDR5 LPDDR5X
+links:
+  repo: https://github.com/Amir-Mann/VideoMDM_release
+  homepage: https://videomdm.github.io/
+strengths:
+  - Generates 3D human motion from text prompts
+  - Trained with only 2D pose supervision from monocular video
+  - Provides pretrained checkpoints for HumanML3D Fit3D and NBA
+limitations:
+  - Data-processing code and processed datasets are not included in the initial release
+  - Requires external dependencies and datasets with separate licenses
+  - Checkpoints depend on a specified lifter or teacher for each dataset
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - cuda
+  - diffusion
+  - motion-generation
+lastChecked: 2026-11-08

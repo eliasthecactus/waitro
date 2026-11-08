@@ -1,0 +1,44 @@
+id: matrix-game-4-0
+name: Matrix-Game 4.0
+org: Skywork
+released: 2026-10-12
+dateSource: huggingface
+summary: Skywork's Matrix-Game 4.0 is a set of three scene-specialized causal video-to-video renderers (castle, Egypt, city racing) with ~5B BF16 parameters each that re-render clean low-poly game footage.
+description: "Matrix-Game 4.0 ships three scene checkpoints: Medieval Castle, Ancient Egypt and City Racing, each with 5,001,016,512 BF16 parameters. An executable game handles gameplay, physics and input while the model re-renders clean low-poly RGB at 480x864, with HUD and sound kept as separate frame-aligned layers. A quality preset uses Wan VAE with two denoising steps and a realtime preset uses the TAEHV codec with one step plus CUDA graphs. The weights require the project's inference source and are not drop-in Diffusers pipelines."
+tasks:
+  - video-generation
+architecture: transformer
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Scene weights and game assets are Apache-2.0; shared Wan/umT5 resources keep upstream Apache-2.0 terms and TAEHV is MIT; racing audio includes CC0 and CC BY 3.0 material requiring retained credits.
+io:
+  in:
+    - image
+    - text
+  out:
+    - video
+hardware:
+  platforms:
+    - cuda
+  note: Realtime preset relies on an optimized single-GPU DiT with CUDA graphs; the card states there is no guaranteed frame rate or consumer-GPU memory fit.
+links:
+  weights: https://huggingface.co/Skywork/Matrix-Game-4.0
+  homepage: https://matrix-game-v4-0.github.io/page/
+strengths:
+  - Three scene-specialized checkpoints for castle · Egypt and racing environments
+  - "Two presets trade quality for cost: two-step Wan VAE or one-step TAEHV"
+  - Outputs clean RGB separately from HUD and sound layers
+limitations:
+  - Specialized to the supplied low-poly scenes and camera profiles
+  - Unseen geometry rapid camera motion and occlusion can cause appearance drift or geometry errors
+  - Neural output does not affect collision or gameplay
+  - Weights need the project inference source rather than standard Diffusers pipelines
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-to-video
+  - game-rendering
+  - causal
+  - diffusion-transformer
+lastChecked: 2026-11-08

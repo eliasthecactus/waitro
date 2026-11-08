@@ -1,0 +1,45 @@
+id: jing
+name: Jing
+org: XGen Labs
+released: 2026-09-16
+dateSource: huggingface
+summary: XGEN-JING (JING-Flash-v1) is an egocentric interactive experience model built on MiniMax-H3 that generates first-person video and audio from camera actions, reference images and observation history.
+description: JING takes keyboard-style movement and look/turn controls plus up to five ordered reference images (characters objects scenes) and a sequence of prompts, and produces joint first-person video and audio for navigation object interaction and dialogue. Actions are encoded as key slices (w/s/a/d for movement i/k for look and j/l for turn) with one control entry per repeated frame slice. The released JING-Flash-v1 transformer is a four-step bidirectional model that pairs with Diffusers-format MiniMax-H3 for the text encoder tokenizer processor video/audio VAEs and schedulers; weights are fetched automatically from Hugging Face on first use. A companion Prompt skills tool turns stories plus reference images into validated case JSON files for the demo.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: minimax-h3-community-license-agreement
+  commercial: limited
+  note: "MiniMax H3 Community License Agreement: territory-limited grant that excludes the European Union the United Kingdom the Republic of Korea and the United States of America"
+io:
+  in:
+    - text
+    - image
+  out:
+    - video
+    - audio
+hardware:
+  platforms:
+    - cuda
+  note: Validated on six NVIDIA H100 GPUs (one text encoder one video/audio VAE pair four for the DiT with sequence parallelism) with Python 3.12 CUDA 13 wheels FlashAttention-4 and SGLang 0.4.7+cu130
+links:
+  weights: https://huggingface.co/XGENlabs/XGEN-JING
+  homepage: https://xgenlabs.ai/research/generative-world-simulation
+strengths:
+  - Keyboard camera control covers movement and look turning within one prompt slice
+  - Generates video and audio together for object interaction and character dialogue
+  - Reference-image conditioning composes characters objects and scenes for the same starting point
+  - Four-step inference keeps the sampling loop short
+limitations:
+  - Needs six H100-class GPUs and a pinned CUDA 13 stack to run the demo
+  - Causal model is listed as coming soon; only the bidirectional FLASH-v1 weights are out
+  - License grant excludes the EU UK South Korea and the United States
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-generation
+  - world-model
+  - egocentric
+  - audio-video
+lastChecked: 2026-11-08

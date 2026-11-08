@@ -1,0 +1,45 @@
+id: waypoint-1-5
+name: Waypoint 1.5
+org: Overworld
+released: 2026-04-08
+dateSource: huggingface
+summary: Waypoint-1.5-1B is a 1.2B-parameter open-weights real-time interactive video world model from Overworld that generates frames from image or video conditioning plus keyboard/mouse inputs on consumer…
+description: Waypoint-1.5-1B is a 1.2B-parameter open-weights real-time interactive video world model from Overworld that generates frames from image or video conditioning plus keyboard/mouse inputs on consumer NVIDIA GPUs.
+tasks:
+  - video-generation
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+  note: Licensed under Apache 2.0
+io:
+  in:
+    - image
+    - video
+  out:
+    - video
+params:
+  total: 1.86
+  active: 1.2
+hardware:
+  platforms:
+    - cuda
+  note: "Recommended GPU: RTX 5090; supported: desktop RTX 30 Series and later"
+links:
+  weights: https://huggingface.co/Overworld/Waypoint-1.5-1B
+  homepage: https://over.world/blog/waypoint-1-5
+strengths:
+  - Real-time interactive video generation on consumer RTX 30-series and newer GPUs
+  - 512-frame frame context for persistent world rollouts
+  - Apache 2.0 open weights
+limitations:
+  - Not a guaranteed physically accurate simulator
+  - Long interactive rollouts may drift or collapse
+  - Performance varies by hardware and runtime stack
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - waypoint-1-5
+  - overworld
+  - waypoint-1-5
+  - real-time
+lastChecked: 2026-11-08

@@ -1,0 +1,48 @@
+id: iquest-q1
+name: IQuest Q1
+org: IQuestLab
+released: 2026-09-28
+dateSource: huggingface
+summary: IQuest Q1 is a 320B-total-parameter mixture-of-experts text model from IQuest with about 15B parameters activated per token built for agentic coding reasoning and multi-step tool use over a…
+description: IQuest Q1 is a Mixture-of-Experts (MoE) text model developed by IQuest for agentic coding reasoning and multi-step tool use. It has approximately 320B total parameters with an estimated 15B activated per token across 88 transformer layers 256 experts (8 activated) and a hybrid 3 SWA + 1 FA attention pattern with a 4096-token sliding window. It supports a 524288-token context and ships with MTP layers for speculative decoding. Deployment guidance covers SGLang and vLLM on CUDA using tensor parallelism plus tool-call and reasoning parsers. It is text-only with no multimodal capability.
+tasks:
+  - coding
+  - agents
+  - reasoning
+architecture: moe-transformer
+access: open-weights
+license:
+  id: iquest-q1
+  commercial: limited
+  note: Modified MIT License requiring prominent IQuest-Q1 display in commercial products or services
+io:
+  in:
+    - text
+  out:
+    - text
+params:
+  total: 320.32
+  active: 15
+contextTokens: 524288
+hardware:
+  platforms:
+    - cuda
+  note: Recommended deployment with SGLang or vLLM on CUDA GPU servers using tensor parallelism (tp-size 8 in the provided recipes) and bfloat16.
+links:
+  repo: https://github.com/IQuestLab/IQuest-Q1
+  weights: https://huggingface.co/IQuestLab/IQuest-Q1
+strengths:
+  - MoE design with roughly 320B total parameters and about 15B activated per token
+  - Native 524288-token context for long agentic coding sessions
+  - Tool-call and reasoning parsers plus an MTP draft model for SGLang and vLLM speculative decoding
+limitations:
+  - Text-only model with no multimodal capability
+  - Production deployment needs multi-GPU tensor parallel serving (tp-size 8 in the example recipes)
+  - Modified MIT licence requires visible IQuest-Q1 attribution for commercial products or services
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - moe-transformer
+  - agentic-coding
+  - tool-use
+  - long-context
+lastChecked: 2026-11-08

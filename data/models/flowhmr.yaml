@@ -1,0 +1,41 @@
+id: flowhmr
+name: FlowHMR
+org: FlowHMR
+released: 2026-09-30
+dateSource: huggingface
+summary: FlowHMR is a flow-matching model for recovering physically plausible global 3D human motion from monocular video.
+description: FlowHMR formulates monocular video motion capture as video-conditioned motion generation and pretrains a flow matching model for this task. It post-trains with GRPO using fidelity and tracking rewards so outputs stay faithful to the input video while being more physically trackable. Per the authors it introduces Wild-4K and reports an 82.47% physical tracking success rate versus 62.82% for GVHMR.
+tasks:
+  - 3d-generation
+architecture: other
+access: open-weights
+license:
+  id: flowhmr-license
+  commercial: no
+  note: Non-commercial educational research and non-profit use only; commercial use requires permission.
+io:
+  in:
+    - video
+  out:
+    - 3d
+hardware:
+  platforms:
+    - cuda
+  note: No hardware requirements are stated in the model card.
+links:
+  weights: https://huggingface.co/fafsaf1/flowhmr-0.46B
+  homepage: https://flowhmr.github.io/
+strengths:
+  - Generates diverse motion candidates from monocular video using flow matching
+  - Post-training rewards favor video fidelity and physical trackability
+  - Per the authors achieves an 82.47% physical tracking success rate compared with 62.82% for GVHMR
+limitations:
+  - Model weights are licensed for non-commercial use only
+  - Reported physical tracking success is 82.47% so tracking failures remain possible
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - motion-capture
+  - 3d-human-motion
+  - flow-matching
+  - video
+lastChecked: 2026-11-08

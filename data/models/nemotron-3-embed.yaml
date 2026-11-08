@@ -1,0 +1,42 @@
+id: nemotron-3-embed
+name: Nemotron 3 Embed
+org: NVIDIA
+released: 2026-07-14
+dateSource: huggingface
+summary: Nemotron 3 Embed is a 1.14B-parameter transformer text embedding model from NVIDIA that produces 2048-dimensional multilingual dense vectors for retrieval and semantic similarity.
+description: Nemotron-3-Embed-1B-BF16 is a transformer-based text embedding model trained by NVIDIA for retrieval and semantic similarity tasks. It was evaluated across 34 languages and is intended for multilingual RAG and semantic search workflows. The model outputs a 2048-dimensional dense embedding per input text and supports dynamic embedding sizes by slicing and re-normalizing the vector.
+tasks:
+  - embeddings
+architecture: transformer
+access: open-weights
+license:
+  id: openmdw-1.1
+  commercial: yes
+io:
+  in:
+    - text
+  out:
+    - embedding
+params:
+  total: 1.14
+hardware:
+  platforms:
+    - cuda
+  note: The model is optimized for NVIDIA GPU-accelerated systems and the card provides CUDA-enabled PyTorch setup instructions.
+links:
+  weights: https://huggingface.co/nvidia/Nemotron-3-Embed-1B-BF16
+strengths:
+  - Multilingual retrieval model evaluated across 34 languages
+  - Produces 2048-dimensional dense embeddings for retrieval and semantic search
+  - Supports slicing to smaller embedding sizes with L2 re-normalization
+limitations:
+  - Max sequence length is 32768 tokens so longer inputs need chunking or truncation
+  - BF16 checkpoints require Transformers 5.2.0 or above and CUDA-enabled PyTorch
+  - "Retrieval use requires query: and passage: prefixes"
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - nvidia
+  - embedding
+  - multilingual
+  - retrieval
+lastChecked: 2026-11-08

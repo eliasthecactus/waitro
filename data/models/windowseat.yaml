@@ -1,0 +1,37 @@
+id: windowseat
+name: WindowSeat
+org: Huawei & Bayer Lab
+released: 2025-11-28
+dateSource: huggingface
+summary: WindowSeat is an image-to-image latent diffusion model built by LoRA adaptation of Qwen-Image-Edit-2509 that removes reflections from a single photo in one step.
+description: WindowSeat is a single-image reflection removal model released as a LoRA-adapted derivative of Qwen/Qwen-Image-Edit-2509. It performs end-to-end single-step latent diffusion reflection removal from one image and is implemented with PyTorch Transformers and PEFT.
+tasks:
+  - image-editing
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Requires PyTorch Transformers and PEFT
+links:
+  weights: https://huggingface.co/huawei-bayerlab/windowseat-reflection-removal-v1-0
+strengths:
+  - Single-step end-to-end reflection removal from one image
+  - LoRA adaptation of Qwen-Image-Edit-2509
+  - Released under Apache-2.0
+limitations:
+  - Requires PyTorch Transformers and PEFT
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - reflection-removal
+  - image-editing
+  - diffusion
+lastChecked: 2026-11-08

@@ -1,0 +1,41 @@
+id: relitlive
+name: RelitLive
+org: RelitLive
+released: 2026-02-03
+dateSource: github
+summary: RelitLive is a diffusion-based video relighting framework that jointly generates relit videos and environment videos without camera pose priors.
+description: A diffusion-based video relighting framework that jointly generates relit videos and environment videos without camera pose priors.
+tasks:
+  - video-generation
+architecture: diffusion
+access: open-weights
+license:
+  id: Apache-2.0
+  commercial: yes
+io:
+  in:
+    - image
+  out:
+    - image
+hardware:
+  platforms:
+    - cuda
+  note: Requires an NVIDIA GPU with CUDA 12.4 or a compatible version and at least 24 GB VRAM recommended.
+links:
+  repo: https://github.com/zhuxing0/Relit-LiVE
+  homepage: https://zhuxing0.github.io/projects/Relit-LiVE/
+strengths:
+  - Jointly generates relighting and environment videos for realistic reflections and shadows
+  - Produces temporally stable relighting without requiring camera pose knowledge
+  - Supports 25/57-frame 480x832 video and single-frame 1024x1472 relighting
+limitations:
+  - Requires the Wan2.1-T2V-1.3B base model weights in addition to Relit-LiVE checkpoints
+  - Full inference pipeline needs the cosmos-transfer1-diffusion-renderer setup
+  - Training code dataset and full data pipeline are not released
+notes: Drafted from the model card; date, licence and size taken from Hugging Face/GitHub metadata.
+tags:
+  - video-relighting
+  - diffusion
+  - environment-map
+  - temporal-stability
+lastChecked: 2026-11-08
