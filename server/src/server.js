@@ -9,7 +9,7 @@ import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import {
   PORT, CATALOG_DIR, WEB_DIR, DATA_DIR, REPO_URL, VERSION,
-  AI_ENABLED, AI_MODEL, AI_PER_IP_PER_HOUR, AI_PER_DAY, CACHE_DAYS,
+  AI_ENABLED, AI_PROVIDER, AI_MODEL, AI_PER_IP_PER_HOUR, AI_PER_DAY, CACHE_DAYS,
 } from './config.js';
 import { loadCatalog } from './catalog.js';
 import { askClaude, sanitizeAnswer, keywordAnswer, MAX_QUERY } from './search.js';
@@ -66,6 +66,8 @@ export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENAB
       return keywordAnswer(catalog, q, 'AI search is unavailable right now, so these are keyword matches.');
     }
     if (res.refused) return keywordAnswer(catalog, q, 'The AI declined this request, so these are keyword matches.');
+    const u = res.usage || {};
+    console.log(`AI search: ${u.prompt_tokens ?? u.input_tokens ?? '?'} in (${u.prompt_tokens_details?.cached_tokens ?? u.cache_read_input_tokens ?? 0} cached), ${u.completion_tokens ?? u.output_tokens ?? '?'} out${u.cost != null ? `, $${u.cost.toFixed(4)}` : ''}`);
     const result = { mode: 'ai', ...sanitizeAnswer(catalog, res.answer) };
     store.prepare('INSERT OR REPLACE INTO search_cache (key, created, result) VALUES (?, ?, ?)').run(key, now(), JSON.stringify(result));
     return result;
@@ -226,7 +228,7 @@ export function startServer({ port = PORT, catalogDir = CATALOG_DIR, webDir = WE
         .end(JSON.stringify({ error: status === 500 ? 'Something went wrong' : e.message }));
     }
   });
-  server.listen(port, () => console.log(`Waitro ${VERSION} on :${port} with ${catalog.models.length} models, AI search ${opts.aiEnabled ?? AI_ENABLED ? `on (${AI_MODEL})` : 'off'}`));
+  server.listen(port, () => console.log(`Waitro ${VERSION} on :${port} with ${catalog.models.length} models, AI search ${opts.aiEnabled ?? AI_ENABLED ? `on (${AI_PROVIDER}, ${AI_MODEL})` : 'off'}`));
   return server;
 }
 

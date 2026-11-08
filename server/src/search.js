@@ -5,7 +5,7 @@
  * pipeline hand-off against the catalog, so made-up models or broken chains never reach the page.
  */
 import Anthropic from '@anthropic-ai/sdk';
-import { AI_MODEL, AI_EFFORT } from './config.js';
+import { AI_MODEL, AI_EFFORT, AI_PROVIDER, OPENROUTER_KEY, SITE_URL } from './config.js';
 
 export const MAX_QUERY = 600;
 
@@ -77,8 +77,50 @@ const SCHEMA = {
 let client;
 const getClient = () => (client ??= new Anthropic());
 
-/** Calls Claude. Kept separate so tests can swap it out. */
-export async function askClaude(catalog, query) {
+/** Calls the configured provider. Kept separate so tests can swap it out. */
+export function askClaude(catalog, query) {
+  return AI_PROVIDER === 'openrouter' ? askOpenRouter(catalog, query) : askAnthropic(catalog, query);
+}
+
+/** OpenRouter's OpenAI-style chat API, with Claude's prompt cache on the catalog block. */
+async function askOpenRouter(catalog, query) {
+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${OPENROUTER_KEY}`,
+      'content-type': 'application/json',
+      'http-referer': SITE_URL,
+      'x-title': 'Waitro',
+    },
+    body: JSON.stringify({
+      model: AI_MODEL,
+      max_tokens: 16000,
+      reasoning: { effort: AI_EFFORT },
+      response_format: { type: 'json_schema', json_schema: { name: 'waitro_answer', strict: true, schema: SCHEMA } },
+      messages: [
+        { role: 'system', content: [
+          { type: 'text', text: SYSTEM },
+          { type: 'text', text: catalog.digest, cache_control: { type: 'ephemeral' } },
+        ] },
+        { role: 'user', content: query },
+      ],
+    }),
+    signal: AbortSignal.timeout(120_000),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || data.error) {
+    const err = new Error(data.error?.message || `OpenRouter returned ${res.status}`);
+    err.status = data.error?.code || res.status;
+    throw err;
+  }
+  const choice = data.choices?.[0];
+  if (!choice) throw new Error('OpenRouter returned no answer');
+  if (choice.finish_reason === 'content_filter' || choice.message?.refusal) return { refused: true };
+  if (choice.finish_reason === 'length') throw new Error('AI answer was cut off');
+  return { answer: JSON.parse(choice.message.content), usage: data.usage };
+}
+
+async function askAnthropic(catalog, query) {
   const response = await getClient().beta.messages.create({
     model: AI_MODEL,
     max_tokens: 16000,

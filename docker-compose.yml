@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
       # Optional: WAITRO_MODEL, WAITRO_EFFORT, WAITRO_AI_PER_IP_PER_HOUR, WAITRO_AI_PER_DAY, WAITRO_CACHE_DAYS
     volumes:
       - ./container/waitro/data:/data

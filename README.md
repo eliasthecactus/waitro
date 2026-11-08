@@ -9,7 +9,7 @@ Describe what you want to do ("upscale old home videos on my Mac", "transcribe m
 - **The catalog is plain YAML** in `data/`: one file per model in `data/models/`, editorial top picks per task in `data/rankings/`, and the list of tasks in `data/taxonomy.yaml`. CI rejects anything that doesn't validate.
 - **The server** (`server/`, Node 24, no framework) loads the catalog into memory and SQLite (full-text index), serves the API and the web app.
 - **The web app** (`web/`) is plain JS modules, no build step.
-- **AI search** sends the whole catalog (as a compact, prompt-cached digest) and the request to Claude, which answers with structured JSON. The server drops any model id that isn't in the catalog and flags chains whose input and output types don't connect. Answers are cached for a week, and there are per-IP and per-day limits. Without an API key, search falls back to keyword matching.
+- **AI search** sends the whole catalog (as a compact, prompt-cached digest) and the request to Claude via OpenRouter, which answers with structured JSON. The server drops any model id that isn't in the catalog and flags chains whose input and output types don't connect. Answers are cached for a week, and there are per-IP and per-day limits. Without an API key, search falls back to keyword matching.
 - **Stats** (GitHub stars, Hugging Face downloads) are refreshed nightly into `data/stats.json`.
 
 ## Run locally
@@ -22,7 +22,7 @@ npm test
 npm run validate       # check data/
 ```
 
-Set `ANTHROPIC_API_KEY` to turn on AI search. Optional settings are in `.env.example`.
+Put `OPENROUTER_API_KEY` (or `ANTHROPIC_API_KEY`) in `.env` at the repo root to turn on AI search; `npm run dev` loads it. Optional settings are in `.env.example`.
 
 ## Deploy
 
