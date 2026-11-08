@@ -2,7 +2,7 @@
 
 Each model is one file, `data/models/<id>.yaml`, where `<id>` is lowercase-kebab-case. Copy an existing file of the same kind as a starting point (for example `relayvsr.yaml` for an open model, `claude-opus-5-5.yaml` for an API model).
 
-Run `npm run validate` in `server/` before opening a pull request. Unknown fields are errors, so typos get caught.
+Run `npm test` in `tools/` before opening a pull request. Unknown fields are errors, so typos get caught.
 
 ## Rules
 

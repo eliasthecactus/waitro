@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 3 * * *' # nightly rebuild with fresh GitHub/Hugging Face stats
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            tools/package-lock.json
+            web/package-lock.json
+      - id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Validate catalog and run tests
+        run: npm ci && npm test
+        working-directory: tools
+      - name: Build data with fresh stats
+        run: npm run data
+        working-directory: tools
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build web app
+        run: npm ci --no-audit --no-fund && npx ng build --base-href "${{ steps.pages.outputs.base_path }}/"
+        working-directory: web
+      - name: One HTML file per route, plus 404.html
+        run: node tools/src/spa-routes.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

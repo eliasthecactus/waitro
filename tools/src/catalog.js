@@ -1,11 +1,10 @@
 /*
- * Loads the YAML catalog, validates it and builds what the API needs:
- * enriched model objects, a full-text index and a compact digest for the AI search.
+ * Loads the YAML catalog, validates it and builds what the site needs:
+ * enriched model objects, rankings and a compact digest for the AI search.
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { DatabaseSync } from 'node:sqlite';
 import YAML from 'yaml';
 import { validateCatalog, taxonomyInfo } from './validate.js';
 
@@ -28,8 +27,9 @@ export function readCatalog(dir) {
   };
 }
 
-export function loadCatalog(dir) {
+export function loadCatalog(dir, { stats } = {}) {
   const raw = readCatalog(dir);
+  if (stats) raw.stats = stats;
   const errors = validateCatalog(raw);
   if (errors.length) {
     const err = new Error(`Catalog has ${errors.length} problem(s):\n  ${errors.join('\n  ')}`);
@@ -63,18 +63,6 @@ export function buildCatalog({ taxonomy, models, rankings, stats }) {
     }
   }
 
-  const index = new DatabaseSync(':memory:');
-  index.exec(`CREATE VIRTUAL TABLE fts USING fts5(id UNINDEXED, name, body, tokenize = 'porter unicode61')`);
-  const insert = index.prepare('INSERT INTO fts (id, name, body) VALUES (?, ?, ?)');
-  for (const m of list) {
-    const body = [
-      m.org, m.summary, m.description, m.tasks.map(id => taskById.get(id).name).join(' '),
-      (m.tags || []).join(' '), (m.strengths || []).join(' '), m.hardware?.note, m.license.id,
-      m.io.in.join(' '), m.io.out.join(' '), (m.hardware?.platforms || []).join(' '),
-    ].filter(Boolean).join(' ');
-    insert.run(m.id, `${m.name} ${m.id.replaceAll('-', ' ')}`, body);
-  }
-
   const digest = buildDigest(list, rankingByTask, taskById);
   const hash = createHash('sha256').update(JSON.stringify({ models, rankings })).digest('hex').slice(0, 16);
 
@@ -86,13 +74,6 @@ export function buildCatalog({ taxonomy, models, rankings, stats }) {
     rankings: rankingByTask,
     digest,
     hash,
-    keywordSearch(query, limit = 10) {
-      const terms = (query.toLowerCase().match(/[\p{L}\p{N}]{2,}/gu) || []).slice(0, 12);
-      if (!terms.length) return [];
-      const match = terms.map(w => `"${w}"*`).join(' OR ');
-      return index.prepare('SELECT id, bm25(fts, 4.0, 1.0) AS score FROM fts WHERE fts MATCH ? ORDER BY score LIMIT ?')
-        .all(match, limit).map(r => r.id);
-    },
   };
 }
 

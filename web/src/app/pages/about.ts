@@ -11,7 +11,7 @@ import { Api } from '../core/api';
       <p class="eyebrow">About</p>
       <h1 class="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">Finding the right model shouldn’t take a week of research.</h1>
       <p class="mt-6 text-lg leading-relaxed text-muted">
-        There are millions of AI models and new ones every week. Waitro is a small, hand-checked index of the ones worth knowing,
+        There are millions of AI models and new ones every week. Waitro is a curated index of the ones worth knowing,
         with the facts you need to choose: what a model does, what it runs on, what it costs and what its licence allows.
       </p>
       <div class="mt-12 grid gap-4 sm:grid-cols-2">
@@ -41,11 +41,11 @@ import { Api } from '../core/api';
 export class AboutPage {
   protected readonly api = inject(Api);
   protected readonly features = [
-    { icon: LucideSparkles, title: 'Search by goal', text: 'Describe what you want to achieve. Claude reads the whole index and picks the models that fit, with reasons and trade-offs.' },
+    { icon: LucideSparkles, title: 'Search by goal', text: 'Describe what you want to achieve. With your own OpenRouter key, an AI model reads the whole index in your browser and picks the models that fit, with reasons and trade-offs.' },
     { icon: LucideRoute, title: 'Chains of models', text: 'When one model can’t do the job, Waitro suggests a chain and checks that each step’s input and output fit together.' },
-    { icon: LucideBadgeCheck, title: 'Checked facts', text: 'Every entry is checked against the model card, paper, repo or vendor pricing page. Authors’ own numbers are marked as self-reported.' },
+    { icon: LucideBadgeCheck, title: 'Checked facts', text: 'Every entry is based on the model card, paper, repo or vendor pricing page, with dates, licences and sizes taken from Hugging Face or GitHub. Authors’ own numbers are marked as self-reported.' },
     { icon: LucideTrophy, title: 'Top picks and replacements', text: 'Each task has dated editorial picks, and when a newer or more efficient model replaces one, its page says so at the top.' },
-    { icon: LucideShieldCheck, title: 'Only real models', text: 'The AI can only recommend models that are in the index. Anything else is dropped before it reaches you.' },
+    { icon: LucideShieldCheck, title: 'Only real models, no server', text: 'The AI can only recommend models that are in the index; anything else is dropped. Waitro is a static site, so your key and searches go only to OpenRouter.' },
     { icon: LucideGitPullRequest, title: 'Open and reviewable', text: 'The whole catalog lives in git, so every change is visible and anyone can suggest fixes.' },
   ];
 }

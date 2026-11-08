@@ -42,7 +42,7 @@ import { UserKey } from '../core/key';
 
         <p class="flex gap-2 rounded-xl bg-subtle p-3 text-[13px] leading-snug text-muted">
           <svg lucideShieldCheck [size]="16" class="mt-px shrink-0" />
-          The key is saved only in this browser and sent with your searches over HTTPS. The Waitro server passes it to OpenRouter for that request and never stores or logs it. You can remove it any time.
+          The key is saved only in this browser and sent straight to OpenRouter with your searches. Waitro has no server, so the key never goes anywhere else. You can remove it any time.
         </p>
 
         <div class="flex flex-wrap items-center justify-between gap-2">

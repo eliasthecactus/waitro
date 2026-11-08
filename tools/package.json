@@ -1,0 +1,19 @@
+{
+  "name": "waitro-tools",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "validate": "node src/validate-cli.mjs",
+    "data": "node src/build-data.mjs",
+    "data:fast": "node src/build-data.mjs --no-stats",
+    "test": "node --test test/*.test.js",
+    "preview": "node src/preview.mjs"
+  },
+  "dependencies": {
+    "yaml": "2.9.1"
+  }
+}

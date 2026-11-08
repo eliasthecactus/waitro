@@ -25,7 +25,7 @@ import { Theme } from './core/theme';
             </a>
           }
         </nav>
-        @if (api.meta()?.userAi) {
+        @if (api.meta()) {
           <button type="button" (click)="userKey.open()"
                   class="relative grid size-9 place-items-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink"
                   [title]="userKey.key() ? 'Your OpenRouter key is set' : 'Add your OpenRouter key for AI search'" aria-label="OpenRouter key">
@@ -54,7 +54,7 @@ import { Theme } from './core/theme';
       <div class="wrap flex flex-col gap-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div class="max-w-sm">
           <div class="flex items-center gap-2"><img src="icon.svg" alt="" class="size-6" /><span class="font-semibold tracking-tight">waitro</span></div>
-          <p class="mt-3 text-sm text-muted">Which AI is the right one? A hand-checked index of AI models, with facts taken from model cards, papers, repos and vendor pages.</p>
+          <p class="mt-3 text-sm text-muted">Which AI is the right one? A curated index of AI models, with facts taken from model cards, papers, repos and vendor pages.</p>
         </div>
         <div class="flex gap-12 text-sm">
           <div class="flex flex-col gap-2">

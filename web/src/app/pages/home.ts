@@ -76,7 +76,7 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
         <div class="mx-auto max-w-3xl text-center">
           <a routerLink="/models" class="fade-up inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1 text-xs text-muted backdrop-blur transition hover:border-line-strong hover:text-ink">
             <span class="relative flex size-2"><span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60"></span><span class="relative inline-flex size-2 rounded-full bg-emerald-500"></span></span>
-            <span class="num">{{ api.meta()?.count }}</span> hand-checked models · updated {{ updated() }}
+            <span class="num">{{ api.meta()?.count }}</span> curated models · updated {{ updated() }}
             <svg lucideArrowRight [size]="12" />
           </a>
           <h1 class="fade-up mt-6 text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.035em] sm:text-7xl">
@@ -99,15 +99,12 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
               </div>
               <div class="flex items-center justify-between gap-3 px-3 pb-3 pt-2 sm:px-4">
                 <span class="flex min-w-0 items-center gap-1.5 pl-1 text-xs text-faint">
-                  @if (api.meta()?.userAi && userKey.key()) {
+                  @if (userKey.key()) {
                     <svg lucideSparkles [size]="12" class="shrink-0" /> AI search with
                     <button type="button" class="inline-flex items-center gap-1 rounded-md px-1 py-0.5 font-medium text-emerald-600 hover:bg-subtle dark:text-emerald-400" (click)="userKey.open()"><svg lucideKeyRound [size]="12" />your key</button>
-                  } @else if (api.meta()?.userAi && !api.meta()?.serverAi) {
+                  } @else {
                     <button type="button" class="inline-flex items-center gap-1.5 rounded-md px-1 py-0.5 font-medium text-amber-700 hover:bg-subtle dark:text-amber-400" (click)="userKey.open()"><svg lucideKeyRound [size]="12" />Add your OpenRouter key for AI search</button>
-                  } @else if (api.meta()?.serverAi) {
-                    <svg lucideSparkles [size]="12" class="shrink-0" /> AI search over the whole index
-                    @if (api.meta()?.userAi) { <button type="button" class="rounded-md px-1 py-0.5 underline-offset-2 hover:underline" (click)="userKey.open()">· use your own key</button> }
-                  } @else { <svg lucideInfo [size]="12" /> Keyword search (AI not configured) }
+                  }
                 </span>
                 <button type="submit" class="btn btn-primary !rounded-xl !py-2" [disabled]="state.busy()">
                   @if (state.busy()) { <svg lucideLoaderCircle [size]="16" class="animate-spin" /> Thinking }

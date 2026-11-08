@@ -62,14 +62,12 @@ export interface ModelDetail extends Omit<ModelSummary, 'platforms' | 'minVramGB
   editUrl: string;
 }
 
-export interface Task { id: string; name: string; count: number; ranked: boolean }
+export interface Task { id: string; name: string; domain: string; count: number; ranked: boolean }
 export interface Domain { id: string; name: string; tasks: Task[] }
 export interface Meta {
   version: string;
   repo: string;
-  ai: boolean;
-  serverAi: boolean;
-  userAi: boolean;
+  builtAt: string;
   catalogHash: string;
   count: number;
   domains: Domain[];
