@@ -25,8 +25,8 @@ import { IconTile } from '../ui/icon-tile';
         <a routerLink="/models" class="btn btn-ghost mt-6"><svg lucideArrowLeft [size]="15" />All models</a>
       </div>
     } @else if (m(); as m) {
-      <div class="relative">
-        <div class="hero-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 opacity-70"></div>
+      <div class="relative -mt-15 pt-15">
+        <div class="hero-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 opacity-70"></div>
         <div class="wrap pt-8 sm:pt-10">
           <nav class="flex flex-wrap items-center gap-1.5 text-sm text-muted">
             <a routerLink="/models" class="flex items-center gap-1 hover:text-ink"><svg lucideArrowLeft [size]="14" />All models</a>

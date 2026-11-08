@@ -10,7 +10,8 @@ import { Theme } from './core/theme';
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, RouterLinkActive, LucideDynamicIcon, LucideGitBranch, LucideKeyRound, KeyDialog],
   template: `
-    <header class="sticky top-0 z-40 border-b border-line bg-bg/95 backdrop-blur-xl transition-shadow duration-200" [class.shadow-header]="scrolled()">
+    <header class="sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-300"
+            [class]="scrolled() ? 'border-line bg-bg/90 shadow-header backdrop-blur-xl' : 'border-transparent bg-transparent'">
       <div class="wrap flex h-15 items-center gap-2">
         <a routerLink="/" class="mr-2 flex items-center gap-2.5 rounded-lg" aria-label="Waitro home">
           <img src="icon.svg" alt="" class="size-7" />
@@ -78,7 +79,7 @@ export class App {
   protected readonly scrolled = signal(false);
   protected readonly api = inject(Api);
   constructor() {
-    window.addEventListener('scroll', () => this.scrolled.set(window.scrollY > 4), { passive: true });
+    window.addEventListener('scroll', () => this.scrolled.set(window.scrollY > 24), { passive: true });
   }
   protected readonly theme = inject(Theme);
   protected readonly userKey = inject(UserKey);

@@ -13,8 +13,8 @@ import { ModelCard } from '../ui/model-card';
   imports: [RouterLink, IconTile, ModelCard, LucideArrowLeft, LucideTrophy, LucideArrowUpRight, LucideInfo],
   template: `
     @if (t(); as t) {
-      <div class="relative">
-        <div class="hero-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 opacity-60"></div>
+      <div class="relative -mt-15 pt-15">
+        <div class="hero-glow pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 opacity-60"></div>
         <div class="wrap pt-8 sm:pt-10">
           <a routerLink="/tasks" class="flex w-fit items-center gap-1 text-sm text-muted hover:text-ink"><svg lucideArrowLeft [size]="14" />All tasks</a>
           <div class="mt-6 flex items-center gap-4">

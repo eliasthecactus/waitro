@@ -69,7 +69,7 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
   ],
   template: `
     <!-- Hero -->
-    <section class="relative overflow-hidden">
+    <section class="relative -mt-15 overflow-hidden pt-15">
       <div class="hero-glow pointer-events-none absolute inset-0 -z-10"></div>
       <div class="grid-bg pointer-events-none absolute inset-0 -z-10 opacity-60"></div>
       <div class="wrap pb-10 pt-14 sm:pt-24">
