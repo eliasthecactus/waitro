@@ -1,0 +1,20 @@
+id: qwen3-coder-next
+name: Qwen3-Coder-Next
+org: Qwen (Alibaba)
+released: 2026-01-30
+dateSource: huggingface
+summary: Open coding-agent model with 80B total but only 3B active parameters, 256K context, Apache-2.0.
+tasks: [coding, agents]
+architecture: moe-transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [code, text] }
+params: { total: 80, active: 3 }
+contextTokens: 256000
+hardware: { platforms: [cuda, apple-silicon], note: Fast on a single workstation thanks to 3B active parameters. }
+links:
+  weights: https://huggingface.co/Qwen/Qwen3-Coder-Next
+strengths: [Very cheap per token, Long-horizon tool use, Works with common IDE agent scaffolds]
+limitations: [Needs roughly 45 GB of memory at 4-bit for the full weights]
+tags: [qwen, coding, local]
+lastChecked: 2026-11-08

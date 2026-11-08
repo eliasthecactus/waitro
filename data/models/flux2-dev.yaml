@@ -1,0 +1,23 @@
+id: flux2-dev
+name: FLUX.2 [dev]
+org: Black Forest Labs
+released: 2025-11-22
+dateSource: huggingface
+summary: Large 32B open-weights image generation and editing model, non-commercial licence.
+tasks: [image-generation, image-editing]
+architecture: diffusion
+access: open-weights
+license: { id: FLUX-non-commercial, commercial: no, note: Commercial use needs a licence from BFL. }
+io: { in: [text, image], out: [image] }
+params: { total: 32.2 }
+hardware: { platforms: [cuda], note: Needs a large GPU; NVFP4 and community quantised builds exist. }
+links:
+  weights: https://huggingface.co/black-forest-labs/FLUX.2-dev
+strengths: [High quality, Multi-reference editing]
+limitations: [Non-commercial licence, Heavy]
+betterOptions:
+  - id: flux2-klein
+    why: The 4B klein is Apache-2.0, runs on a consumer GPU and is far faster, if you can accept a lower quality ceiling.
+    aspects: [license, speed, memory]
+tags: [flux]
+lastChecked: 2026-11-08

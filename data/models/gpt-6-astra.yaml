@@ -1,0 +1,18 @@
+id: gpt-6-astra
+name: GPT-6 Astra
+org: OpenAI
+summary: OpenAI's flagship API model.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+pricing: { inputPerM: 10, outputPerM: 50, cachedInputPerM: 1, note: "Short-context rate (up to 272K input tokens).", source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths: [Frontier capability]
+limitations: [API only, Expensive]
+notes: Third-party sources give 2026-09-03 as release date; not confirmed by OpenAI yet.
+tags: [openai, frontier]
+lastChecked: 2026-11-08

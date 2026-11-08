@@ -1,0 +1,17 @@
+id: gpt-6-astra-law
+name: GPT-6 Astra (law configuration)
+org: OpenAI
+summary: Legal configuration of GPT-6 Astra, listed separately on OpenAI's API pricing page.
+tasks: [legal]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text], out: [text] }
+pricing: { inputPerM: 10, outputPerM: 50, cachedInputPerM: 1, source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+limitations: [API only, Few public details checked yet]
+notes: Only pricing verified so far.
+tags: [openai, law]
+lastChecked: 2026-11-08

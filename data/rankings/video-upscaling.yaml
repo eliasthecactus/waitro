@@ -1,0 +1,19 @@
+task: video-upscaling
+updated: 2026-11-08
+picks:
+  - id: seedvr2
+    rank: 1
+    label: "Best quality"
+    why: "The reference for badly degraded real-world footage, if you have the GPU."
+  - id: relayvsr
+    rank: 2
+    label: "Most efficient"
+    why: "Near real time at 1080p in about 14 GB VRAM. New, numbers not reproduced yet."
+  - id: flashvsr
+    rank: 3
+    label: "Proven and fast"
+    why: "The established fast diffusion upscaler with ComfyUI support."
+  - id: real-esrgan
+    rank: 4
+    label: "Runs on a Mac"
+    why: "Works on almost any hardware; frame by frame, so expect some flicker."

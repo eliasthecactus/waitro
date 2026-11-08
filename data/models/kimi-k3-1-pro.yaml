@@ -1,0 +1,20 @@
+id: kimi-k3-1-pro
+name: Kimi K3.1 Pro
+org: Moonshot AI
+released: 2026-11-02
+dateSource: huggingface
+summary: 2.8T-parameter open-weights multimodal agent model (104B active) with a 1M-token context.
+tasks: [chat, coding, agents]
+architecture: moe-transformer
+access: both
+license: { id: Kimi-K3.1-Pro, commercial: limited, note: "Modified permissive licence; products with over 100M monthly users or $20M monthly revenue must display 'Kimi K3.1 Pro'." }
+io: { in: [text, image], out: [text, code] }
+params: { total: 2800, active: 104 }
+contextTokens: 1048576
+hardware: { platforms: [cuda], note: MXFP4 weights; multi-GPU server. }
+links:
+  weights: https://huggingface.co/moonshotai/Kimi-K3.1-Pro
+strengths: [Agentic coding, 3D creation and financial research per Moonshot, 1M context]
+limitations: [Enormous]
+tags: [kimi, moe, frontier-open]
+lastChecked: 2026-11-08

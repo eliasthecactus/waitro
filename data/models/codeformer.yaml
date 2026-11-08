@@ -1,0 +1,18 @@
+id: codeformer
+name: CodeFormer
+org: Shangchen Zhou et al. (S-Lab, NTU)
+released: 2022-06-21
+dateSource: github
+summary: Blind face restoration for old or low-quality photos and video frames.
+tasks: [face-restoration]
+architecture: transformer
+access: open-weights
+license: { id: S-Lab-1.0, commercial: no, note: Non-commercial use only. }
+io: { in: [image], out: [image] }
+hardware: { platforms: [cuda, cpu, apple-silicon] }
+links:
+  repo: https://github.com/sczhou/CodeFormer
+strengths: [Fidelity slider between realism and identity, Very widely used]
+limitations: [Non-commercial licence, Can over-smooth or change identity at high strength]
+tags: [faces, restoration]
+lastChecked: 2026-11-08

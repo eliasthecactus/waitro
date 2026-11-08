@@ -1,0 +1,19 @@
+id: unlimited-ocr-2
+name: Unlimited-OCR 2
+org: Baidu
+released: 2026-10-26
+dateSource: huggingface
+summary: 3B document parsing model that handles arbitrarily long documents within a finite context window.
+tasks: [ocr]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [image], out: [text, structured] }
+params: { total: 3.3 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/baidu/Unlimited-OCR-2
+strengths: [Ultra-long documents, Permissive licence]
+limitations: [Very new]
+tags: [documents, pdf]
+lastChecked: 2026-11-08

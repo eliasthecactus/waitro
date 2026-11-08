@@ -1,0 +1,36 @@
+id: real-esrgan
+name: Real-ESRGAN
+org: Xintao Wang et al.
+released: 2021-07-19
+dateSource: github
+summary: Classic GAN upscaler for images and video frames; runs almost anywhere, including Apple Silicon via ncnn-vulkan.
+description: |
+  Practical blind super-resolution trained on synthetic degradations. For video it upscales each frame separately,
+  which is fast and simple but can flicker. Includes an anime video model (realesr-animevideov3).
+tasks: [image-upscaling, video-upscaling]
+architecture: gan
+access: open-weights
+license: { id: BSD-3-Clause, commercial: yes }
+io: { in: [image, video], out: [image, video] }
+scale: 4
+hardware:
+  platforms: [cuda, apple-silicon, cpu, rocm]
+  note: realesrgan-ncnn-vulkan runs on Macs, AMD and Intel GPUs.
+links:
+  repo: https://github.com/xinntao/Real-ESRGAN
+  homepage: https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan
+strengths:
+  - Runs on nearly any hardware
+  - Fast, mature, huge community
+limitations:
+  - Frame by frame, so video can flicker
+  - Less natural detail than diffusion upscalers
+betterOptions:
+  - id: flashvsr
+    why: For video, FlashVSR looks at neighbouring frames, so results are temporally stable with much more natural detail. Needs an NVIDIA GPU.
+    aspects: [quality]
+  - id: relayvsr
+    why: Same temporal-stability advantage as FlashVSR, and faster on paper. NVIDIA only.
+    aspects: [quality, speed]
+tags: [gan, mac, anime, classic]
+lastChecked: 2026-11-08

@@ -1,0 +1,11 @@
+task: embeddings
+updated: 2026-11-08
+picks:
+  - id: embeddinggemma-2
+    rank: 1
+    label: "Multimodal and tiny"
+    why: "Text, images, audio and video in one space; runs on device."
+  - id: qwen3-embedding
+    rank: 2
+    label: "Text with rerankers"
+    why: "Mature text embeddings with matching rerankers."

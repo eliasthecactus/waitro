@@ -1,0 +1,15 @@
+task: speech-to-text
+updated: 2026-11-08
+picks:
+  - id: nemotron-3-5-transcribe
+    rank: 1
+    label: "Most accurate"
+    why: "Lowest error rates of the open models here and hour-long recordings. Needs a GPU."
+  - id: parakeet-tdt-0-6b-v3
+    rank: 2
+    label: "Fastest"
+    why: "Small and high throughput for 25 European languages."
+  - id: whisper-large-v3-turbo
+    rank: 3
+    label: "Runs anywhere"
+    why: "About 100 languages, runs on a Mac or phone, best tooling."

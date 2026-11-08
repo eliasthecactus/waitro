@@ -1,0 +1,19 @@
+id: parakeet-tdt-0-6b-v3
+name: Parakeet TDT 0.6B v3
+org: NVIDIA
+released: 2025-08-04
+dateSource: huggingface
+summary: 600M-parameter high-throughput speech recognition for 25 European languages with automatic language detection.
+tasks: [speech-to-text]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-4.0, commercial: yes }
+io: { in: [audio], out: [text] }
+params: { total: 0.63 }
+hardware: { platforms: [cuda, cpu], note: NeMo toolkit; community ports for Apple Silicon exist. }
+links:
+  weights: https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
+strengths: [Very fast, Small, Automatic language detection]
+limitations: [25 European languages only]
+tags: [asr, nemo]
+lastChecked: 2026-11-08

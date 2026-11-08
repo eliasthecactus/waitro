@@ -1,0 +1,29 @@
+id: whisper-large-v3-turbo
+name: Whisper large-v3-turbo
+org: OpenAI
+released: 2024-10-01
+dateSource: huggingface
+summary: Multilingual speech recognition that runs everywhere; turbo cuts the decoder from 32 to 4 layers.
+tasks: [speech-to-text]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [audio], out: [text] }
+params: { total: 0.81 }
+hardware:
+  platforms: [cuda, apple-silicon, cpu, onnx]
+  note: whisper.cpp, MLX and faster-whisper builds available.
+links:
+  weights: https://huggingface.co/openai/whisper-large-v3-turbo
+  repo: https://github.com/openai/whisper
+strengths: [Around 100 languages, Runs on a Mac or even a phone, Huge tooling ecosystem]
+limitations: [Slightly lower accuracy than large-v3, Can hallucinate on silence]
+betterOptions:
+  - id: parakeet-tdt-0-6b-v3
+    why: Smaller and built for high throughput, if your audio is in one of its 25 European languages.
+    aspects: [speed]
+  - id: nemotron-3-5-transcribe
+    why: Lower error rates on NVIDIA's multilingual benchmarks and handles hour-long recordings, at the cost of a much bigger model.
+    aspects: [quality]
+tags: [asr, mac, classic]
+lastChecked: 2026-11-08

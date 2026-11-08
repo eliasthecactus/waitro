@@ -1,0 +1,20 @@
+id: lfm3-1-7b
+name: LFM3 1.7B
+org: Liquid AI
+released: 2026-10-23
+dateSource: huggingface
+summary: 1.7B agent-tuned model for phones and laptops, about 1 GB at 4-bit, 256K context.
+tasks: [on-device-llm, agents]
+architecture: hybrid
+access: open-weights
+license: { id: LFM-1.0, commercial: limited, note: "Free commercial use only for companies under $10M annual revenue." }
+io: { in: [text], out: [text] }
+params: { total: 1.73 }
+contextTokens: 262144
+hardware: { platforms: [cpu, apple-silicon, cuda, browser] }
+links:
+  weights: https://huggingface.co/LiquidAI/LFM3-1.7B
+strengths: [Tiny, Trained for agent harnesses and tool calls, Easy to fine-tune on one GPU]
+limitations: [Revenue cap in the licence, Small-model knowledge limits]
+tags: [edge, tiny, mac]
+lastChecked: 2026-11-08

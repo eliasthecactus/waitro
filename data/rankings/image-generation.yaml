@@ -1,0 +1,15 @@
+task: image-generation
+updated: 2026-11-08
+picks:
+  - id: flux2-klein
+    rank: 1
+    label: "Best open pick for most people"
+    why: "Sub-second, consumer GPU, Apache-2.0 at 4B."
+  - id: flux2-dev
+    rank: 2
+    label: "Highest open quality"
+    why: "Bigger and better, but non-commercial and heavy."
+  - id: qwen-image-2-1
+    rank: 3
+    label: "Strong editing"
+    why: "Generation and editing in one 7B model; research licence."

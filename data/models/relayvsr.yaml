@@ -1,0 +1,41 @@
+id: relayvsr
+name: RelayVSR
+org: Xijun Wang, Xin Li, Zirui Lang, Suhang Yao, Haoran Li, Zhibo Chen
+released: 2026-09-29
+dateSource: github
+summary: 4× streaming video upscaler where a big Wan model handles sparse keyframes and a small network fills every frame in between.
+description: |
+  A large Wan-based generative model produces reference latents only for keyframes (every 15 frames by default).
+  A lightweight Dual-Memory Video Transformer then super-resolves every frame from those references plus the
+  low-resolution video. The large model is trained with reinforcement learning on the quality of the final video,
+  so keyframe errors don't pile up across the clip.
+tasks: [video-upscaling]
+architecture: hybrid
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [video], out: [video] }
+scale: 4
+weightsSizeGB: 10.2
+hardware:
+  platforms: [cuda]
+  minVramGB: 14
+  note: Linux and an NVIDIA GPU. 13.8 GB peak at 1080p output on an A100 (authors' numbers).
+links:
+  repo: https://github.com/kopperx/RelayVSR
+  paper: https://arxiv.org/abs/2609.37850
+  weights: https://huggingface.co/kopper/RelayVSR
+  homepage: https://kopperx.github.io/RelayVSR/
+benchmarks:
+  - { name: Speed, score: 29.29, unit: FPS, setting: "1080p output, A100 80GB, 15-frame keyframe interval", selfReported: true, source: https://kopperx.github.io/RelayVSR/ }
+  - { name: Peak VRAM, score: 13.82, unit: GB, setting: "1080p output, A100 80GB", selfReported: true, source: https://kopperx.github.io/RelayVSR/ }
+  - { name: First-frame latency, score: 0.327, unit: s, setting: "1080p output, A100 80GB", selfReported: true, source: https://kopperx.github.io/RelayVSR/ }
+strengths:
+  - Close to real time at 1080p on one data-centre GPU
+  - Fits on a 16 GB card at 1080p
+  - --window-size trades speed against quality
+limitations:
+  - Inference code only, no ComfyUI node yet
+  - Drops the audio track; copy it back with ffmpeg
+  - Very new (Sept 2026); speed numbers not independently reproduced yet
+tags: [diffusion, streaming, wan, real-world]
+lastChecked: 2026-11-08

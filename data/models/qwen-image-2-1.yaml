@@ -1,0 +1,19 @@
+id: qwen-image-2-1
+name: Qwen-Image 2.1
+org: Qwen (Alibaba)
+released: 2026-09-14
+dateSource: huggingface
+summary: Unified text-to-image generation and editing with a 7B visual generation component.
+tasks: [image-generation, image-editing]
+architecture: diffusion
+access: open-weights
+license: { id: Qwen-Research, commercial: no, note: "Research and evaluation only. Models trained on its outputs must say 'Built with Qwen'." }
+io: { in: [text, image], out: [image] }
+params: { total: 7.1 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/Qwen/Qwen-Image-2.1
+strengths: [Generation and editing in one model, Efficient for its quality]
+limitations: [Non-commercial research licence]
+tags: [qwen, comfyui]
+lastChecked: 2026-11-08

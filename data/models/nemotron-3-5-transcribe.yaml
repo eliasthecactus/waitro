@@ -1,0 +1,25 @@
+id: nemotron-3-5-transcribe
+name: Nemotron 3.5 Transcribe 30B-A4B
+org: NVIDIA
+released: 2026-10-07
+dateSource: huggingface
+summary: Offline speech model for transcription in 40 languages, recordings up to one hour, about 4.3B active parameters.
+description: |
+  Hybrid mixture-of-experts speech and audio model that takes recordings plus text instructions and optional
+  context. 65,536-token context. Released in BF16, FP8 and NVFP4.
+tasks: [speech-to-text]
+architecture: moe-transformer
+access: open-weights
+license: { id: OpenMDW-1.1, commercial: yes }
+io: { in: [audio, text], out: [text] }
+params: { total: 33.7, active: 4.3 }
+contextTokens: 65536
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B
+benchmarks:
+  - { name: Multilingual Open ASR Leaderboard (7 languages), score: 4.62, unit: mean WER %, lowerIsBetter: true, selfReported: true, source: https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B }
+strengths: [Hour-long recordings, Instructions and context in the prompt, 40 languages]
+limitations: [Needs a real GPU]
+tags: [asr, moe]
+lastChecked: 2026-11-08

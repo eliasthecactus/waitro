@@ -1,0 +1,17 @@
+id: gemini-3-8-flash
+name: Gemini 3.8 Flash
+org: Google
+summary: Google's current fast, low-cost Gemini model.
+tasks: [chat, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, video, audio], out: [text, code] }
+pricing: { inputPerM: 0.75, outputPerM: 3.75, note: "Through 2026-12-31, then $1.50 / $7.50 from 2027-01-01.", source: https://aistudio.google.com/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths: [Cheap, Multimodal input]
+limitations: [API only, Price doubles on 2027-01-01]
+tags: [google, gemini]
+lastChecked: 2026-11-08

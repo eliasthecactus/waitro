@@ -1,0 +1,20 @@
+id: kokoro-82m
+name: Kokoro 82M
+org: hexgrad
+released: 2024-12-26
+dateSource: huggingface
+summary: Tiny 82M-parameter text-to-speech with quality close to much bigger models, Apache-2.0.
+tasks: [text-to-speech]
+architecture: other
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [audio] }
+params: { total: 0.082 }
+hardware: { platforms: [cpu, cuda, apple-silicon, browser, onnx] }
+links:
+  weights: https://huggingface.co/hexgrad/Kokoro-82M
+  repo: https://github.com/hexgrad/kokoro
+strengths: [Runs on CPU and in the browser, Very cheap to serve]
+limitations: [Fixed voice set without cloning, Limited languages]
+tags: [tts, tiny, on-device]
+lastChecked: 2026-11-08

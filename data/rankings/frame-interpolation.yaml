@@ -1,0 +1,7 @@
+task: frame-interpolation
+updated: 2026-11-08
+picks:
+  - id: rife
+    rank: 1
+    label: "Default choice"
+    why: "Fast, maintained and runs everywhere."

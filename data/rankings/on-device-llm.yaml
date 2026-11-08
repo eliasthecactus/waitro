@@ -1,0 +1,9 @@
+task: on-device-llm
+updated: 2026-11-08
+picks:
+  - id: gemma-4
+    label: "Best all-round small family"
+    why: "Apache-2.0, multimodal, from phone to workstation sizes."
+  - id: lfm3-1-7b
+    label: "Smallest agent model"
+    why: "About 1 GB at 4-bit, trained for tool calls. Revenue cap in licence."

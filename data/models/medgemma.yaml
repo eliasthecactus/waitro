@@ -1,0 +1,25 @@
+id: medgemma
+name: MedGemma
+org: Google
+released: 2025-05-19
+dateSource: huggingface
+summary: Gemma-based medical text and image models (4B and 27B) for building health AI applications.
+description: |
+  Variants for medical text and medical images such as radiology and pathology. MedGemma 1.5 4B was released in
+  January 2026. Developer foundation models, not validated for direct clinical use.
+tasks: [medical]
+architecture: transformer
+access: open-weights
+license: { id: HAI-DEF, commercial: limited, note: "Health AI Developer Foundations terms. Not for direct clinical use without your own validation. Gated." }
+io: { in: [text, image], out: [text] }
+hardware: { platforms: [cuda, apple-silicon], note: The 4B runs on a laptop. }
+variants:
+  - { name: 1.5 4B, params: 4.3, weights: https://huggingface.co/google/medgemma-1.5-4b-it }
+  - { name: 27B multimodal, params: 27.4, weights: https://huggingface.co/google/medgemma-27b-it }
+  - { name: 27B text, params: 27, weights: https://huggingface.co/google/medgemma-27b-text-it }
+links:
+  weights: https://huggingface.co/google/medgemma-1.5-4b-it
+strengths: [Open weights you can run on-premises, Medical image understanding]
+limitations: [Not a medical device, Gated licence]
+tags: [health, radiology, gemma]
+lastChecked: 2026-11-08

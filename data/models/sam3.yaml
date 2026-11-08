@@ -1,0 +1,23 @@
+id: sam3
+name: SAM 3.1
+org: Meta
+released: 2026-03-26
+dateSource: huggingface
+summary: Segment and track anything in images and video from text prompts or clicks, boxes and masks.
+description: |
+  SAM 3 ("Segment Anything with Concepts") detects, segments and tracks objects using text or visual prompts.
+  SAM 3.1 (March 2026) adds Object Multiplex, a shared-memory approach that makes multi-object tracking
+  significantly faster.
+tasks: [segmentation]
+architecture: transformer
+access: open-weights
+license: { id: SAM-License, commercial: yes, note: Custom Meta licence (royalty-free); read the terms. Weights are gated. }
+io: { in: [image, video, text], out: [mask] }
+hardware: { platforms: [cuda] }
+links:
+  repo: https://github.com/facebookresearch/sam3
+  weights: https://huggingface.co/facebook/sam3.1
+strengths: [Text prompts like "all red cars", Images and video, Fast multi-object tracking in 3.1]
+limitations: [Gated download]
+tags: [meta, tracking]
+lastChecked: 2026-11-08

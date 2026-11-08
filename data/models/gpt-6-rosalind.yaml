@@ -1,0 +1,17 @@
+id: gpt-6-rosalind
+name: GPT-6 Rosalind
+org: OpenAI
+summary: OpenAI's life-sciences model, listed separately on its API pricing page.
+tasks: [life-sciences, medical]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text], out: [text] }
+pricing: { inputPerM: 15, outputPerM: 75, cachedInputPerM: 1.5, source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+limitations: [API only, Few public details checked yet]
+notes: Only pricing verified so far; capabilities and access terms still to be documented.
+tags: [openai, biology]
+lastChecked: 2026-11-08

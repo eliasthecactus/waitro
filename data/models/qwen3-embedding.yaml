@@ -1,0 +1,25 @@
+id: qwen3-embedding
+name: Qwen3 Embedding
+org: Qwen (Alibaba)
+released: 2025-06-03
+dateSource: huggingface
+summary: Text embedding and reranking models in 0.6B, 4B and 8B, 100+ languages including code.
+tasks: [embeddings]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, code], out: [embedding] }
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+variants:
+  - { name: 0.6B, params: 0.6, weights: https://huggingface.co/Qwen/Qwen3-Embedding-0.6B }
+  - { name: 8B, params: 7.6, weights: https://huggingface.co/Qwen/Qwen3-Embedding-8B }
+links:
+  weights: https://huggingface.co/Qwen/Qwen3-Embedding-8B
+strengths: [Matching rerankers, Instruction-aware, Multilingual]
+limitations: [Text only]
+betterOptions:
+  - id: embeddinggemma-2
+    why: Newer, smaller than the 8B and also embeds images, audio and video. Check retrieval quality on your own data.
+    aspects: [size, modalities]
+tags: [rag, search]
+lastChecked: 2026-11-08

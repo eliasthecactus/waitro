@@ -1,0 +1,29 @@
+id: basicvsr-pp
+name: BasicVSR++
+org: Kelvin C.K. Chan et al.
+released: 2022-03-05
+dateSource: github
+summary: Recurrent video super-resolution with propagation and alignment; stable on clean footage.
+description: |
+  Video super-resolution network (CVPR 2022) that propagates information across frames with flow-guided
+  deformable alignment. Strong on clean or mildly degraded content; RealBasicVSR is the real-world variant.
+tasks: [video-upscaling]
+architecture: cnn
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [video], out: [video] }
+scale: 4
+hardware: { platforms: [cuda] }
+links:
+  repo: https://github.com/ckkelvinchan/BasicVSR_PlusPlus
+strengths: [Temporally consistent, Lighter than diffusion models]
+limitations: [Weak on heavily degraded real-world video, Repo no longer updated since 2023]
+betterOptions:
+  - id: seedvr2
+    why: Far better on real-world degraded footage.
+    aspects: [quality]
+  - id: relayvsr
+    why: Newer diffusion-quality detail at near real-time speed (authors' numbers).
+    aspects: [quality, speed]
+tags: [classic, temporal]
+lastChecked: 2026-11-08

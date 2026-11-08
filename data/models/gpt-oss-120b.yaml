@@ -1,0 +1,22 @@
+id: gpt-oss-120b
+name: gpt-oss-120b
+org: OpenAI
+released: 2025-08-04
+dateSource: huggingface
+summary: OpenAI's open-weights reasoning model, 117B with 5.1B active, fits one 80 GB GPU. Apache-2.0.
+tasks: [chat, reasoning, agents]
+architecture: moe-transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [text, code] }
+params: { total: 117, active: 5.1 }
+hardware: { platforms: [cuda, apple-silicon], note: One H100 / MI300X; the 20B variant runs on 16 GB machines. }
+variants:
+  - { name: 120b, params: 117, weights: https://huggingface.co/openai/gpt-oss-120b }
+  - { name: 20b, params: 21, weights: https://huggingface.co/openai/gpt-oss-20b }
+links:
+  weights: https://huggingface.co/openai/gpt-oss-120b
+strengths: [Apache-2.0, Cheap to run for its quality]
+limitations: [Needs the harmony prompt format, From August 2025; newer open models are stronger]
+tags: [openai, local]
+lastChecked: 2026-11-08

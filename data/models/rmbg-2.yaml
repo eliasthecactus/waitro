@@ -1,0 +1,19 @@
+id: rmbg-2
+name: RMBG 2.0
+org: BRIA AI
+released: 2024-10-29
+dateSource: huggingface
+summary: Small, accurate background removal model.
+tasks: [background-removal]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-NC-4.0, commercial: no, note: Commercial use needs an agreement with BRIA. }
+io: { in: [image], out: [mask, image] }
+params: { total: 0.22 }
+hardware: { platforms: [cuda, cpu, apple-silicon, onnx] }
+links:
+  weights: https://huggingface.co/briaai/RMBG-2.0
+strengths: [Tiny, Clean edges on hair and fine detail]
+limitations: [Non-commercial without an agreement, Gated]
+tags: [cutout]
+lastChecked: 2026-11-08

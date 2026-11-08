@@ -1,0 +1,20 @@
+id: deepseek-v4-pro
+name: DeepSeek V4 Pro
+org: DeepSeek
+released: 2026-04-22
+dateSource: huggingface
+summary: 1.6T-parameter MoE (49B active) with a one-million-token context, MIT licence.
+tasks: [chat, coding, reasoning]
+architecture: moe-transformer
+access: both
+license: { id: MIT, commercial: yes }
+io: { in: [text], out: [text, code] }
+params: { total: 1600, active: 49 }
+contextTokens: 1000000
+hardware: { platforms: [cuda], note: Multi-GPU server. }
+links:
+  weights: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro
+strengths: [1M context with hybrid sparse attention, MIT licence]
+limitations: [Huge]
+tags: [deepseek, moe, long-context]
+lastChecked: 2026-11-08

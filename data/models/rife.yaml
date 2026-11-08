@@ -1,0 +1,24 @@
+id: rife
+name: RIFE (Practical-RIFE)
+org: hzwer (Zhewei Huang et al.)
+released: 2020-11-12
+dateSource: github
+summary: Real-time frame interpolation, the usual way to turn 24/30 fps into 60 fps or slow motion.
+description: |
+  Real-Time Intermediate Flow Estimation (ECCV 2022). Practical-RIFE ships newer, more robust checkpoints and is
+  still maintained. Commonly chained after an upscaler.
+tasks: [frame-interpolation]
+architecture: cnn
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [video], out: [video] }
+hardware:
+  platforms: [cuda, apple-silicon, cpu, rocm]
+  note: rife-ncnn-vulkan builds run on Macs.
+links:
+  repo: https://github.com/hzwer/Practical-RIFE
+  paper: https://github.com/hzwer/ECCV2022-RIFE
+strengths: [Fast, Runs on almost anything, Built into many tools]
+limitations: [Artifacts on very fast motion]
+tags: [interpolation, mac, comfyui]
+lastChecked: 2026-11-08

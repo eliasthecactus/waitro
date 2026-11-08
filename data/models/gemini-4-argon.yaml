@@ -1,0 +1,18 @@
+id: gemini-4-argon
+name: Gemini 4 Argon
+org: Google
+summary: Google's newest flagship Gemini model, at an introductory price until the end of November 2026.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, video, audio], out: [text, code] }
+pricing: { inputPerM: 2, outputPerM: 10, note: "Introductory through 2026-11-30, then $4 / $20 from 2026-12-01. Paid tier only.", source: https://aistudio.google.com/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://aistudio.google.com/docs/pricing
+strengths: [Multimodal input]
+limitations: [API only, Price doubles on 2026-12-01]
+notes: Release date not verified yet.
+tags: [google, gemini, frontier]
+lastChecked: 2026-11-08

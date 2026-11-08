@@ -1,0 +1,23 @@
+id: omnivoice
+name: OmniVoice
+org: k2-fsa
+released: 2026-03-30
+dateSource: huggingface
+summary: Zero-shot text-to-speech and voice cloning in over 600 languages.
+description: |
+  Diffusion language model-style TTS with voice cloning from a short reference clip and voice design from
+  attributes such as gender, age, pitch, accent or whispering.
+tasks: [text-to-speech, voice-cloning]
+architecture: diffusion
+access: open-weights
+license: { id: CC-BY-NC-4.0, commercial: no, note: "Code is Apache-2.0; the trained weights are CC-BY-NC because of the training data." }
+io: { in: [text, audio], out: [audio] }
+params: { total: 0.61 }
+hardware: { platforms: [cuda] }
+links:
+  repo: https://github.com/k2-fsa/OmniVoice
+  weights: https://huggingface.co/k2-fsa/OmniVoice
+strengths: [600+ languages, Voice cloning and voice design]
+limitations: [Non-commercial weights]
+tags: [tts, cloning, multilingual]
+lastChecked: 2026-11-08

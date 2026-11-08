@@ -1,0 +1,22 @@
+id: claude-fable-5-1
+name: Claude Fable 5.1
+org: Anthropic
+summary: Anthropic's most capable widely released model, for the hardest reasoning and long-running agent work.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+contextTokens: 1000000
+maxOutputTokens: 128000
+pricing: { inputPerM: 10, outputPerM: 50, source: https://platform.claude.com/docs/en/about-claude/pricing }
+hardware: { platforms: [api] }
+links:
+  homepage: https://www.anthropic.com/claude
+  docs: https://platform.claude.com/docs/en/about-claude/models/overview
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+strengths: [Top-tier reasoning and coding, 1M-token context]
+limitations: [Most expensive Claude tier, Long turns on hard tasks]
+notes: Release date not added yet (not verified from Anthropic).
+tags: [claude, frontier]
+lastChecked: 2026-11-08

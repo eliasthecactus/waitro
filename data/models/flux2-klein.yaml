@@ -1,0 +1,28 @@
+id: flux2-klein
+name: FLUX.2 [klein]
+org: Black Forest Labs
+released: 2026-01-14
+dateSource: huggingface
+summary: Fast compact image generation and editing; the 4B version is Apache-2.0 and runs on consumer GPUs.
+description: |
+  Rectified flow transformer that unifies text-to-image generation and multi-reference editing. BFL calls it their
+  fastest image model family, with end-to-end inference under a second. The 4B fits in about 13 GB VRAM.
+tasks: [image-generation, image-editing]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes, note: "4B only. The 9B variant uses the FLUX non-commercial licence." }
+io: { in: [text, image], out: [image] }
+params: { total: 4 }
+hardware:
+  platforms: [cuda]
+  minVramGB: 13
+  note: RTX 3090 / 4070 and up for the 4B.
+variants:
+  - { name: 4B, params: 4, weights: https://huggingface.co/black-forest-labs/FLUX.2-klein-4B, note: Apache-2.0 }
+  - { name: 9B, params: 9, weights: https://huggingface.co/black-forest-labs/FLUX.2-klein-9B, note: Non-commercial licence }
+links:
+  weights: https://huggingface.co/black-forest-labs/FLUX.2-klein-4B
+strengths: [Sub-second generation, Generation and editing in one model, Permissive licence for the 4B]
+limitations: [Lower ceiling than the 32B FLUX.2 dev]
+tags: [flux, consumer-gpu, fast]
+lastChecked: 2026-11-08

@@ -1,0 +1,27 @@
+id: gemma-4
+name: Gemma 4
+org: Google DeepMind
+released: 2026-03-02
+dateSource: huggingface
+summary: Apache-2.0 open model family from 2B-effective to 31B, multimodal, 140+ languages; the small ones run on phones.
+tasks: [chat, on-device-llm, coding]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, image, audio], out: [text] }
+contextTokens: 256000
+hardware:
+  platforms: [cuda, apple-silicon, cpu, browser]
+  note: Small models (E2B, E4B) have 128K context; medium ones 256K. Audio input on E2B, E4B and 12B.
+variants:
+  - { name: E2B, weights: https://huggingface.co/google/gemma-4-E2B-it }
+  - { name: E4B, params: 8, weights: https://huggingface.co/google/gemma-4-E4B-it }
+  - { name: 12B, params: 12, weights: https://huggingface.co/google/gemma-4-12B-it }
+  - { name: 26B A4B, params: 26, weights: https://huggingface.co/google/gemma-4-26B-A4B-it, note: MoE }
+  - { name: 31B, params: 31.3, weights: https://huggingface.co/google/gemma-4-31B-it }
+links:
+  weights: https://huggingface.co/google/gemma-4-31B-it
+strengths: [Apache-2.0, Sizes for every device, Multilingual]
+limitations: [Below the largest open models on hard reasoning]
+tags: [gemma, google, local, mac]
+lastChecked: 2026-11-08

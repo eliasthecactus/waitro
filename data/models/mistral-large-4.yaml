@@ -1,0 +1,20 @@
+id: mistral-large-4
+name: Mistral Large 4
+org: Mistral AI
+released: 2026-09-30
+dateSource: huggingface
+summary: 1T-parameter multimodal MoE (about 49B active) from Europe, 1M context, 160+ languages.
+tasks: [chat, coding, agents, legal, cybersecurity]
+architecture: moe-transformer
+access: both
+license: { id: Mistral-Ecosystem-Open-Weight, commercial: limited, note: "Modified MIT; commercial use allowed, but running a model-as-a-service business needs a separate licence." }
+io: { in: [text, image], out: [text, code] }
+params: { total: 1000, active: 49 }
+contextTokens: 1000000
+hardware: { platforms: [cuda], note: Multi-GPU server. }
+links:
+  weights: https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B
+strengths: [Every official EU language, "Good on cybersecurity, finance and law per Mistral", Low/medium/high reasoning modes]
+limitations: [Enormous, MaaS restriction]
+tags: [mistral, europe, moe]
+lastChecked: 2026-11-08

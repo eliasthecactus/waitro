@@ -1,0 +1,22 @@
+id: qwen3-8-27b
+name: Qwen3.8 27B
+org: Qwen (Alibaba)
+released: 2026-08-05
+dateSource: huggingface
+summary: Dense 27B open-weights multimodal model, Apache-2.0, one of the most downloaded open models right now.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: both
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+params: { total: 27.8 }
+contextTokens: 262144
+hardware:
+  platforms: [cuda, apple-silicon, cpu]
+  note: Fits one 24–32 GB GPU when quantised; FP8 and many GGUF builds exist. Context extends to about 1M tokens.
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.8-27B
+strengths: [Permissive licence, Runs locally, Huge fine-tune ecosystem]
+limitations: [Far behind frontier API models on the hardest tasks]
+tags: [qwen, local, multimodal]
+lastChecked: 2026-11-08

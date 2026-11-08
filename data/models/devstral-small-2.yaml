@@ -1,0 +1,24 @@
+id: devstral-small-2
+name: Devstral Small 2 (24B)
+org: Mistral AI
+released: 2025-11-28
+dateSource: huggingface
+summary: 24B dense agentic coding model, Apache-2.0, 256K context; fits one GPU.
+tasks: [coding, agents]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [code, text] }
+params: { total: 24 }
+contextTokens: 256000
+hardware: { platforms: [cuda, apple-silicon] }
+links:
+  weights: https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512
+strengths: [Single GPU, Built for codebase exploration and multi-file edits]
+limitations: [Older than current open coders]
+betterOptions:
+  - id: qwen3-coder-next
+    why: Newer, and only 3B active parameters so it generates much faster per token. Compare on your own repo before switching.
+    aspects: [speed]
+tags: [mistral, coding, local]
+lastChecked: 2026-11-08

@@ -1,0 +1,19 @@
+id: pyannote-community-1
+name: pyannote speaker-diarization community-1
+org: pyannote
+released: 2025-04-15
+dateSource: huggingface
+summary: Who spoke when. The standard open speaker diarization pipeline; pair it with a speech-to-text model.
+tasks: [diarization]
+architecture: other
+access: open-weights
+license: { id: CC-BY-4.0, commercial: yes, note: Gated on Hugging Face. }
+io: { in: [audio], out: [structured] }
+hardware: { platforms: [cuda, cpu, apple-silicon] }
+links:
+  weights: https://huggingface.co/pyannote/speaker-diarization-community-1
+  repo: https://github.com/pyannote/pyannote-audio
+strengths: [Widely used, Runs on CPU]
+limitations: [Produces speaker turns only; you still need ASR for text]
+tags: [speakers, meetings]
+lastChecked: 2026-11-08

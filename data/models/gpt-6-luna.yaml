@@ -1,0 +1,17 @@
+id: gpt-6-luna
+name: GPT-6 Luna
+org: OpenAI
+summary: OpenAI's cheapest GPT-6 model, for high-volume simple tasks.
+tasks: [chat]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text] }
+pricing: { inputPerM: 0.1, outputPerM: 0.5, cachedInputPerM: 0.01, source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths: [Very cheap]
+limitations: [API only]
+tags: [openai, cheap]
+lastChecked: 2026-11-08

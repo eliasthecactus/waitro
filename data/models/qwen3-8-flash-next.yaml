@@ -1,0 +1,20 @@
+id: qwen3-8-flash-next
+name: Qwen3.8 Flash-Next
+org: Qwen (Alibaba)
+released: 2026-08-24
+dateSource: huggingface
+summary: 125B mixture-of-experts with only 6B active parameters, so it runs fast for its size.
+description: 125B total with 6B active, plus a 51B n-gram embedding and a 4B multi-token-prediction module. The hosted version is called Qwen3.8-Flash.
+tasks: [chat, coding, agents]
+architecture: moe-transformer
+access: both
+license: { id: Qwen-Community-1.0, commercial: limited, note: "Commercial use allowed; products with over 100M monthly users or $20M monthly revenue must show the model name in the UI." }
+io: { in: [text, image], out: [text, code] }
+params: { total: 125, active: 6 }
+hardware: { platforms: [cuda, apple-silicon], note: Needs lots of memory for the weights but little compute per token. }
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.8-Flash-Next
+strengths: [Very fast per token, Strong for its active size]
+limitations: [Large memory footprint]
+tags: [qwen, moe]
+lastChecked: 2026-11-08

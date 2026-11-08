@@ -1,0 +1,11 @@
+task: text-to-speech
+updated: 2026-11-08
+picks:
+  - id: omnivoice
+    rank: 1
+    label: "Most languages + cloning"
+    why: "600+ languages and voice cloning; weights are non-commercial."
+  - id: kokoro-82m
+    rank: 2
+    label: "Tiny and commercial-friendly"
+    why: "Apache-2.0 and runs on a CPU or in the browser."

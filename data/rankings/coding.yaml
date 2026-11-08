@@ -1,0 +1,13 @@
+task: coding
+updated: 2026-11-08
+# LLM picks are labelled by use case, not ranked: vendors report benchmarks with different harnesses.
+picks:
+  - id: qwen3-coder-next
+    label: "Best to run locally"
+    why: "3B active parameters, Apache-2.0, built for coding agents."
+  - id: deepseek-v4-1-flash
+    label: "Strongest MIT-licensed open model"
+    why: "77.0 on DeepSWE v1.1 (self-reported)."
+  - id: devstral-small-2
+    label: "Single GPU"
+    why: "Dense 24B that fits one card."

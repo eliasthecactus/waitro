@@ -1,0 +1,154 @@
+{
+  "basicvsr-pp": {
+    "stars": 836,
+    "lastCommit": "2023-12-27"
+  },
+  "codeformer": {
+    "stars": 18217,
+    "lastCommit": "2025-11-18"
+  },
+  "deepseek-math-v2": {
+    "downloads": 1097,
+    "likes": 721
+  },
+  "deepseek-v4-1-flash": {
+    "downloads": 277323,
+    "likes": 5396
+  },
+  "deepseek-v4-pro": {
+    "downloads": 335567,
+    "likes": 5699
+  },
+  "devstral-small-2": {
+    "downloads": 84361,
+    "likes": 714
+  },
+  "embeddinggemma-2": {
+    "downloads": 498510,
+    "likes": 3191
+  },
+  "flashvsr": {
+    "stars": 1967,
+    "lastCommit": "2026-10-16",
+    "downloads": 9060,
+    "likes": 187
+  },
+  "flux2-dev": {
+    "downloads": 290439,
+    "likes": 2548
+  },
+  "flux2-klein": {
+    "downloads": 435063,
+    "likes": 1098
+  },
+  "gemma-4": {
+    "downloads": 7396447,
+    "likes": 4309
+  },
+  "gpt-oss-120b": {
+    "downloads": 2429646,
+    "likes": 5499
+  },
+  "kimi-k3-1-pro": {
+    "downloads": 22571,
+    "likes": 1674
+  },
+  "kokoro-82m": {
+    "stars": 9966,
+    "lastCommit": "2025-08-06",
+    "downloads": 12414516,
+    "likes": 7378
+  },
+  "lfm3-1-7b": {
+    "downloads": 70034,
+    "likes": 1550
+  },
+  "medgemma": {
+    "downloads": 197905,
+    "likes": 1114
+  },
+  "mistral-large-4": {
+    "downloads": 11206,
+    "likes": 1635
+  },
+  "nemotron-3-5-transcribe": {
+    "downloads": 63798,
+    "likes": 3102
+  },
+  "omnivoice": {
+    "stars": 16386,
+    "lastCommit": "2026-11-02",
+    "downloads": 3391057,
+    "likes": 1666
+  },
+  "parakeet-tdt-0-6b-v3": {
+    "downloads": 548087,
+    "likes": 1266
+  },
+  "pyannote-community-1": {
+    "stars": 10765,
+    "lastCommit": "2026-11-07",
+    "downloads": 5132483,
+    "likes": 3976
+  },
+  "qwen-image-2-1": {
+    "downloads": 248964,
+    "likes": 3584
+  },
+  "qwen3-8-27b": {
+    "downloads": 7813215,
+    "likes": 19358
+  },
+  "qwen3-8-flash-next": {
+    "downloads": 3607555,
+    "likes": 6850
+  },
+  "qwen3-coder-next": {
+    "downloads": 428592,
+    "likes": 1737
+  },
+  "qwen3-embedding": {
+    "downloads": 2354417,
+    "likes": 853
+  },
+  "real-esrgan": {
+    "stars": 37406,
+    "lastCommit": "2024-08-06"
+  },
+  "relayvsr": {
+    "stars": 121,
+    "lastCommit": "2026-10-05",
+    "downloads": 0,
+    "likes": 45
+  },
+  "rife": {
+    "stars": 1038,
+    "lastCommit": "2026-08-27"
+  },
+  "rmbg-2": {
+    "downloads": 407597,
+    "likes": 1620
+  },
+  "sam3": {
+    "stars": 12239,
+    "lastCommit": "2026-10-23",
+    "downloads": 189440,
+    "likes": 1424
+  },
+  "seedvr2": {
+    "stars": 1438,
+    "lastCommit": "2026-01-27",
+    "downloads": 28647,
+    "likes": 166
+  },
+  "unlimited-ocr-2": {
+    "downloads": 355394,
+    "likes": 650
+  },
+  "whisper-large-v3-turbo": {
+    "stars": 112213,
+    "lastCommit": "2026-08-31",
+    "downloads": 5219648,
+    "likes": 3511
+  }
+}

@@ -1,0 +1,51 @@
+# Domains and tasks. A model lists one or more task ids in `tasks`.
+# Adding a task here is enough to make it show up in filters and rankings.
+
+domains:
+  - id: language
+    name: Language
+    tasks:
+      - { id: chat, name: General chat & assistants }
+      - { id: coding, name: Coding & software agents }
+      - { id: reasoning, name: Math & reasoning }
+      - { id: agents, name: Agents & tool use }
+      - { id: on-device-llm, name: Small / on-device LLMs }
+      - { id: embeddings, name: Embeddings & retrieval }
+  - id: specialized
+    name: Specialized domains
+    tasks:
+      - { id: medical, name: Medicine & health }
+      - { id: legal, name: Law }
+      - { id: life-sciences, name: Biology & life sciences }
+      - { id: cybersecurity, name: Cybersecurity }
+  - id: vision
+    name: Images
+    tasks:
+      - { id: image-generation, name: Image generation }
+      - { id: image-editing, name: Image editing }
+      - { id: segmentation, name: Segmentation & masking }
+      - { id: background-removal, name: Background removal }
+      - { id: ocr, name: OCR & document parsing }
+      - { id: face-restoration, name: Face restoration }
+      - { id: image-upscaling, name: Image upscaling }
+  - id: video
+    name: Video
+    tasks:
+      - { id: video-upscaling, name: Video upscaling }
+      - { id: video-restoration, name: Video restoration }
+      - { id: frame-interpolation, name: Frame interpolation }
+  - id: audio
+    name: Audio & speech
+    tasks:
+      - { id: speech-to-text, name: Speech to text }
+      - { id: diarization, name: Speaker diarization }
+      - { id: text-to-speech, name: Text to speech }
+      - { id: voice-cloning, name: Voice cloning }
+
+# Data types used for chaining: a step's output must be one of the next step's inputs.
+io: [text, code, image, video, audio, embedding, mask, structured]
+
+# Allowed values for a few enum fields.
+architectures: [transformer, moe-transformer, diffusion, gan, cnn, hybrid, other]
+access: [open-weights, api, both]
+platforms: [cuda, rocm, apple-silicon, cpu, onnx, browser, api]

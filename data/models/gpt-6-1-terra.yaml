@@ -1,0 +1,18 @@
+id: gpt-6-1-terra
+name: GPT-6.1 Terra
+org: OpenAI
+summary: OpenAI's low-cost mid-tier model in the GPT-6.1 line.
+tasks: [chat, coding, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+pricing: { inputPerM: 1, outputPerM: 5, cachedInputPerM: 0.05, source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths: [Cheap for its tier]
+limitations: [API only]
+notes: Third-party sources give 2026-10-26 as release date; not confirmed by OpenAI yet.
+tags: [openai]
+lastChecked: 2026-11-08

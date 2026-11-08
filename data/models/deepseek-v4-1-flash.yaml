@@ -1,0 +1,23 @@
+id: deepseek-v4-1-flash
+name: DeepSeek V4.1 Flash (1017)
+org: DeepSeek
+released: 2026-10-17
+dateSource: huggingface
+summary: MIT-licensed open model update focused on reasoning, coding and agents, with shorter outputs than V4.1 Flash.
+tasks: [chat, coding, reasoning, agents]
+architecture: moe-transformer
+access: both
+license: { id: MIT, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+hardware: { platforms: [cuda], note: Data-centre scale; community GGUF quantisations exist. }
+links:
+  weights: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
+benchmarks:
+  - { name: DeepSWE v1.1, score: 77.0, unit: "%", setting: Mini-SWE-V2 harness, selfReported: true, source: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017 }
+  - { name: Terminal-Bench 4.0, score: 42.3, unit: "%", setting: Claude Code harness, selfReported: true, source: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017 }
+  - { name: HLE (no tools), score: 42.6, unit: "%", selfReported: true, source: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017 }
+strengths: [MIT licence, Strong agentic coding for open weights]
+limitations: [Very large]
+notes: Parameter count not added; the V4-Flash base is 284B total / 13B active per DeepSeek.
+tags: [deepseek, moe]
+lastChecked: 2026-11-08

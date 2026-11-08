@@ -1,0 +1,31 @@
+id: seedvr2
+name: SeedVR2
+org: ByteDance Seed
+released: 2025-06-10
+dateSource: huggingface
+summary: One-step diffusion video restoration and upscaling, the quality reference for badly degraded real-world footage.
+description: |
+  One-step video restoration via diffusion adversarial post-training (ICLR 2026). Handles temporal information
+  inside the model instead of working frame by frame. Comes in 3B and 7B sizes; widely used through ComfyUI.
+tasks: [video-upscaling, video-restoration]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [video], out: [video] }
+hardware:
+  platforms: [cuda]
+  note: Heavy. The 7B wants data-centre GPUs; the 3B and community GGUF builds fit smaller cards.
+variants:
+  - { name: 3B, params: 3, weights: https://huggingface.co/ByteDance-Seed/SeedVR2-3B }
+  - { name: 7B, params: 7, weights: https://huggingface.co/ByteDance-Seed/SeedVR2-7B }
+links:
+  repo: https://github.com/ByteDance-Seed/SeedVR
+  weights: https://huggingface.co/ByteDance-Seed/SeedVR2-7B
+strengths:
+  - Best-in-class detail on noisy, blurry, compressed footage
+  - Temporally consistent
+  - Large ComfyUI community
+limitations:
+  - Slow and memory hungry compared with FlashVSR or RelayVSR
+tags: [diffusion, comfyui, real-world, restoration]
+lastChecked: 2026-11-08

@@ -1,0 +1,20 @@
+id: embeddinggemma-2
+name: EmbeddingGemma 2
+org: Google DeepMind
+released: 2026-09-14
+dateSource: huggingface
+summary: 740M multimodal embedding model mapping text, code, images, video and audio into one 768-dim space.
+tasks: [embeddings]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, code, image, video, audio], out: [embedding] }
+params: { total: 0.74 }
+contextTokens: 8192
+hardware: { platforms: [cpu, apple-silicon, cuda, browser] }
+links:
+  weights: https://huggingface.co/google/embeddinggemma-2
+strengths: [Runs on phones and laptops, One vector space for every modality, 100+ languages]
+limitations: [8K context]
+tags: [rag, search, on-device]
+lastChecked: 2026-11-08

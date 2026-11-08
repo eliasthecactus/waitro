@@ -1,0 +1,40 @@
+id: flashvsr
+name: FlashVSR
+org: OpenImagingLab (Junhao Zhuang et al.)
+released: 2025-10-11
+dateSource: huggingface
+summary: One-step diffusion video upscaler built for streaming, the first diffusion VSR that gets close to real time.
+description: |
+  One-step diffusion framework for streaming 4× video super-resolution with locality-constrained sparse attention
+  and a tiny conditional decoder. Published at CVPR 2026. Version 1.1 (2025-10-31) is the current checkpoint.
+tasks: [video-upscaling]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [video], out: [video] }
+scale: 4
+hardware:
+  platforms: [cuda]
+  note: Designed for NVIDIA GPUs. Community MLX weights exist for Apple Silicon, untested here.
+variants:
+  - { name: v1.1, weights: https://huggingface.co/JunhaoZhuang/FlashVSR-v1.1 }
+  - { name: v1, weights: https://huggingface.co/JunhaoZhuang/FlashVSR }
+links:
+  repo: https://github.com/OpenImagingLab/FlashVSR
+  paper: https://openaccess.thecvf.com/content/CVPR2026/html/Zhuang_FlashVSR_Towards_Real-time_Diffusion-Based_Streaming_Video_Super_Resolution_CVPR_2026_paper.html
+  weights: https://huggingface.co/JunhaoZhuang/FlashVSR-v1.1
+benchmarks:
+  - { name: Speed, score: 17, unit: FPS, setting: "768×1408 output, one A100", selfReported: true, source: https://github.com/OpenImagingLab/FlashVSR }
+strengths:
+  - Much faster than multi-step diffusion upscalers
+  - Streaming keeps memory bounded on long clips
+  - Runs in ComfyUI
+limitations:
+  - Optimised for 4× only
+  - Needs a strong NVIDIA GPU
+betterOptions:
+  - id: relayvsr
+    why: About 3.8× faster at 1080p with about 40% less peak VRAM, per the RelayVSR paper (which compares against FlashVSR-Tiny).
+    aspects: [speed, memory]
+tags: [diffusion, streaming, comfyui, real-world]
+lastChecked: 2026-11-08
