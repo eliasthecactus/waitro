@@ -1,10 +1,11 @@
-import { Component, ElementRef, Injectable, OnDestroy, computed, effect, inject, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, Injectable, Injector, OnDestroy, computed, effect, inject, signal, viewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import {
   LucideArrowRight, LucideArrowUpRight, LucideCornerDownLeft, LucideDynamicIcon, LucideInfo, LucideLoaderCircle,
-  LucideRotateCcw, LucideSparkles, LucideTriangleAlert, LucideCircleCheck, LucideMoveRight,
+  LucideRotateCcw, LucideSparkles, LucideTriangleAlert, LucideCircleCheck, LucideMoveRight, LucideKeyRound,
 } from '@lucide/angular';
 import { Api } from '../core/api';
+import { UserKey } from '../core/key';
 import { aspectName, date } from '../core/format';
 import { ASPECT_ICON, DOMAIN_ICON, DOMAIN_TONE, TASK_ICON } from '../core/icons';
 import { SearchResult } from '../core/types';
@@ -64,7 +65,7 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
   selector: 'app-home',
   imports: [
     RouterLink, ModelCard, PipelineView, IconTile, LucideDynamicIcon, LucideSparkles, LucideArrowRight, LucideCornerDownLeft,
-    LucideTriangleAlert, LucideInfo, LucideRotateCcw, LucideLoaderCircle, LucideCircleCheck, LucideMoveRight,
+    LucideTriangleAlert, LucideInfo, LucideRotateCcw, LucideLoaderCircle, LucideCircleCheck, LucideMoveRight, LucideKeyRound,
   ],
   template: `
     <!-- Hero -->
@@ -97,9 +98,16 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
                   class="max-h-56 min-h-[3.25rem] w-full resize-none bg-transparent text-base leading-relaxed outline-none placeholder:text-faint sm:text-[17px]"></textarea>
               </div>
               <div class="flex items-center justify-between gap-3 px-3 pb-3 pt-2 sm:px-4">
-                <span class="flex items-center gap-1.5 pl-1 text-xs text-faint">
-                  @if (api.meta()?.ai) { <svg lucideSparkles [size]="12" /> AI search over the whole index }
-                  @else { <svg lucideInfo [size]="12" /> Keyword search (AI not configured) }
+                <span class="flex min-w-0 items-center gap-1.5 pl-1 text-xs text-faint">
+                  @if (api.meta()?.userAi && userKey.key()) {
+                    <svg lucideSparkles [size]="12" class="shrink-0" /> AI search with
+                    <button type="button" class="inline-flex items-center gap-1 rounded-md px-1 py-0.5 font-medium text-emerald-600 hover:bg-subtle dark:text-emerald-400" (click)="userKey.open()"><svg lucideKeyRound [size]="12" />your key</button>
+                  } @else if (api.meta()?.userAi && !api.meta()?.serverAi) {
+                    <button type="button" class="inline-flex items-center gap-1.5 rounded-md px-1 py-0.5 font-medium text-amber-700 hover:bg-subtle dark:text-amber-400" (click)="userKey.open()"><svg lucideKeyRound [size]="12" />Add your OpenRouter key for AI search</button>
+                  } @else if (api.meta()?.serverAi) {
+                    <svg lucideSparkles [size]="12" class="shrink-0" /> AI search over the whole index
+                    @if (api.meta()?.userAi) { <button type="button" class="rounded-md px-1 py-0.5 underline-offset-2 hover:underline" (click)="userKey.open()">· use your own key</button> }
+                  } @else { <svg lucideInfo [size]="12" /> Keyword search (AI not configured) }
                 </span>
                 <button type="submit" class="btn btn-primary !rounded-xl !py-2" [disabled]="state.busy()">
                   @if (state.busy()) { <svg lucideLoaderCircle [size]="16" class="animate-spin" /> Thinking }
@@ -155,8 +163,11 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
         } @else if (state.result(); as r) {
           <div class="fade-up">
             @if (r.note) {
-              <div class="mb-6 flex items-center gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 text-sm text-amber-800 dark:text-amber-300">
-                <svg lucideInfo [size]="18" class="shrink-0" />{{ r.note }}
+              <div class="mb-6 flex flex-wrap items-center gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 text-sm text-amber-800 dark:text-amber-300">
+                <svg lucideInfo [size]="18" class="shrink-0" /><span class="min-w-0 flex-1">{{ r.note }}</span>
+                @if (r.needKey) {
+                  <button type="button" class="btn btn-primary !py-1.5" (click)="addKey()"><svg lucideKeyRound [size]="14" />{{ r.keyError ? 'Change key' : 'Add your key' }}</button>
+                }
               </div>
             }
             <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -276,9 +287,11 @@ const STEPS = ['Understanding what you want to do', 'Matching it against every m
 export class HomePage implements OnDestroy {
   protected readonly api = inject(Api);
   protected readonly state = inject(SearchState);
+  protected readonly userKey = inject(UserKey);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly box = viewChild.required<ElementRef<HTMLTextAreaElement>>('box');
+  private readonly injector = inject(Injector);
   protected readonly examples = EXAMPLES;
   protected readonly steps = STEPS;
   protected readonly step = signal(0);
@@ -334,6 +347,18 @@ export class HomePage implements OnDestroy {
   protected example(text: string) {
     this.box().nativeElement.value = text;
     this.submit();
+  }
+
+  /** Open the key dialog; once a key is saved, rerun the last search with AI. */
+  protected addKey() {
+    const q = this.state.query();
+    this.userKey.open();
+    const stop = effect(() => {
+      if (!this.userKey.dialogOpen()) {
+        stop.destroy();
+        if (this.userKey.key() && q) { this.state.clear(); this.state.run(q); }
+      }
+    }, { injector: this.injector });
   }
 
   protected reset() {

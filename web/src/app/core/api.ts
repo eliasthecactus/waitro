@@ -1,11 +1,13 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { UserKey } from './key';
 import { Meta, ModelDetail, ModelSummary, SearchResult, TaskPage } from './types';
 
 @Injectable({ providedIn: 'root' })
 export class Api {
   private readonly http = inject(HttpClient);
+  private readonly userKey = inject(UserKey);
   readonly meta = signal<Meta | null>(null);
   readonly models = signal<ModelSummary[] | null>(null);
   readonly modelById = computed(() => new Map((this.models() ?? []).map(m => [m.id, m])));
@@ -35,7 +37,14 @@ export class Api {
   }
 
   search(q: string) {
-    return this.request<SearchResult>(this.http.post<SearchResult>('/api/search', { q }));
+    const key = this.meta()?.userAi ? this.userKey.key() : '';
+    const headers = key ? new HttpHeaders({ 'x-openrouter-key': key }) : undefined;
+    return this.request<SearchResult>(this.http.post<SearchResult>('/api/search', { q }, { headers }));
+  }
+
+  checkKey(key: string) {
+    return this.request<{ ok: boolean; remaining: number | null; limit: number | null }>(
+      this.http.post<{ ok: boolean; remaining: number | null; limit: number | null }>('/api/key/check', {}, { headers: new HttpHeaders({ 'x-openrouter-key': key }) }));
   }
 
   taskName(id: string) {

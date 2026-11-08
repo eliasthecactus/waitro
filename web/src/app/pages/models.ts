@@ -33,7 +33,7 @@ const COLS: Col[] = [
       </div>
 
       <!-- Toolbar -->
-      <div class="sticky top-15 z-30 -mx-4 mt-6 border-y border-line/70 bg-bg/85 px-4 py-3 backdrop-blur-xl sm:mx-0 sm:rounded-2xl sm:border sm:px-3">
+      <div class="sticky top-15 z-30 -mx-4 mt-6 border-y border-line bg-bg/95 px-4 py-3 backdrop-blur-xl sm:mx-0 sm:rounded-2xl sm:border sm:px-3">
         <div class="flex flex-wrap items-center gap-2">
           <label class="relative min-w-0 flex-[1_1_220px]">
             <svg lucideSearch [size]="16" class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-faint" />

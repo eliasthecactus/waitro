@@ -20,10 +20,10 @@ function store() {
   return db;
 }
 
-const call = (app, method, pathname, body) => {
+const call = (app, method, pathname, body, headers = {}) => {
   const req = (async function* () { if (body) yield Buffer.from(JSON.stringify(body)); })();
   req.method = method;
-  req.headers = { 'cf-connecting-ip': '203.0.113.7' };
+  req.headers = { 'cf-connecting-ip': '203.0.113.7', ...headers };
   req.socket = {};
   return app.handleApi(req, new URL(`http://x${pathname}`));
 };
@@ -77,7 +77,7 @@ test('search uses the AI once, then the cache', async () => {
     calls++;
     return { answer: { understanding: 'Upscale', constraints: [], gaps: '', pipelines: [], recommendations: [{ id: 'relayvsr', verdict: 'best', why: 'fast', caveats: '' }] } };
   };
-  const app = createApp({ catalog, store: store(), ask, aiEnabled: true });
+  const app = createApp({ catalog, store: store(), ask, aiEnabled: true, keyMode: 'both' });
   const a = await call(app, 'POST', '/api/search', { q: 'Upscale my videos' });
   const b = await call(app, 'POST', '/api/search', { q: '  upscale   my videos ' });
   assert.equal(a.mode, 'ai');
@@ -89,9 +89,9 @@ test('search uses the AI once, then the cache', async () => {
 test('search falls back to keywords without AI, on errors and on refusals', async () => {
   const off = createApp({ catalog, store: store(), aiEnabled: false });
   assert.equal((await call(off, 'POST', '/api/search', { q: 'speech to text' })).mode, 'keyword');
-  const failing = createApp({ catalog, store: store(), aiEnabled: true, ask: async () => { throw new Error('down'); } });
+  const failing = createApp({ catalog, store: store(), aiEnabled: true, keyMode: 'both', ask: async () => { throw new Error('down'); } });
   assert.equal((await call(failing, 'POST', '/api/search', { q: 'speech to text' })).mode, 'keyword');
-  const refusing = createApp({ catalog, store: store(), aiEnabled: true, ask: async () => ({ refused: true }) });
+  const refusing = createApp({ catalog, store: store(), aiEnabled: true, keyMode: 'both', ask: async () => ({ refused: true }) });
   assert.equal((await call(refusing, 'POST', '/api/search', { q: 'speech to text' })).mode, 'keyword');
   await assert.rejects(call(off, 'POST', '/api/search', { q: 'x' }), /more about/);
 });
@@ -99,7 +99,7 @@ test('search falls back to keywords without AI, on errors and on refusals', asyn
 test('per-IP AI limit falls back to keyword results', async () => {
   let calls = 0;
   const ask = async () => { calls++; return { answer: { understanding: '', constraints: [], gaps: '', pipelines: [], recommendations: [{ id: 'rife', verdict: 'best', why: '', caveats: '' }] } }; };
-  const app = createApp({ catalog, store: store(), ask, aiEnabled: true });
+  const app = createApp({ catalog, store: store(), ask, aiEnabled: true, keyMode: 'both' });
   let last;
   for (let i = 0; i < 25; i++) last = await call(app, 'POST', '/api/search', { q: `query number ${i}` });
   assert.equal(calls, 20);
@@ -133,14 +133,54 @@ test('an empty AI answer is retried and never cached', async () => {
   const empty = { understanding: 'x', constraints: [], gaps: '', pipelines: [], recommendations: [] };
   const good = { ...empty, recommendations: [{ id: 'rife', verdict: 'best', why: 'w', caveats: '' }] };
   const ask = async () => ({ answer: ++calls === 1 ? empty : good });
-  const app = createApp({ catalog, store: store(), ask, aiEnabled: true });
+  const app = createApp({ catalog, store: store(), ask, aiEnabled: true, keyMode: 'both' });
   const r = await call(app, 'POST', '/api/search', { q: 'smooth video' });
   assert.equal(calls, 2);
   assert.equal(r.recommendations[0].id, 'rife');
 
   let n = 0;
-  const alwaysEmpty = createApp({ catalog, store: store(), aiEnabled: true, ask: async () => { n++; return { answer: empty }; } });
+  const alwaysEmpty = createApp({ catalog, store: store(), aiEnabled: true, keyMode: 'both', ask: async () => { n++; return { answer: empty }; } });
   assert.equal((await call(alwaysEmpty, 'POST', '/api/search', { q: 'smooth video' })).mode, 'keyword');
   await call(alwaysEmpty, 'POST', '/api/search', { q: 'smooth video' });
   assert.equal(n, 4);
+});
+
+const USER_KEY = 'sk-or-v1-' + 'a'.repeat(64);
+
+test('user key mode: no key means keyword results and a prompt for a key', async () => {
+  let calls = 0;
+  const app = createApp({ catalog, store: store(), aiEnabled: false, keyMode: 'user', ask: async () => { calls++; return {}; } });
+  const r = await call(app, 'POST', '/api/search', { q: 'upscale my videos' });
+  assert.equal(r.mode, 'keyword');
+  assert.equal(r.needKey, true);
+  assert.equal(calls, 0);
+  const meta = await call(app, 'GET', '/api/meta');
+  assert.equal(meta.userAi, true);
+  assert.equal(meta.serverAi, false);
+});
+
+test('a visitor key is passed to the AI call and never stored', async () => {
+  let seen;
+  const ask = async (_c, _q, opts) => { seen = opts.userKey; return { answer: { understanding: '', constraints: [], gaps: '', pipelines: [], recommendations: [{ id: 'rife', verdict: 'best', why: 'w', caveats: '' }] } }; };
+  const db = store();
+  const app = createApp({ catalog, store: db, aiEnabled: false, keyMode: 'user', ask });
+  const r = await call(app, 'POST', '/api/search', { q: 'smooth video' }, { 'x-openrouter-key': USER_KEY });
+  assert.equal(r.mode, 'ai');
+  assert.equal(seen, USER_KEY);
+  const dump = JSON.stringify(db.prepare('SELECT * FROM search_cache').all());
+  assert.ok(!dump.includes(USER_KEY));
+});
+
+test('a malformed or rejected visitor key gives a clear message', async () => {
+  const app = createApp({ catalog, store: store(), aiEnabled: false, keyMode: 'user', ask: async () => { throw Object.assign(new Error('bad'), { status: 401 }); } });
+  await assert.rejects(call(app, 'POST', '/api/search', { q: 'smooth video' }, { 'x-openrouter-key': 'nope' }), /OpenRouter key/);
+  const r = await call(app, 'POST', '/api/search', { q: 'smooth video' }, { 'x-openrouter-key': USER_KEY });
+  assert.equal(r.keyError, true);
+  assert.match(r.note, /rejected/);
+});
+
+test('key check reports remaining credit', async () => {
+  const app = createApp({ catalog, store: store(), aiEnabled: false, keyMode: 'user', checkKey: async k => ({ ok: k === USER_KEY, remaining: 4.2, limit: 5 }) });
+  const r = await call(app, 'POST', '/api/key/check', {}, { 'x-openrouter-key': USER_KEY });
+  assert.equal(r.remaining, 4.2);
 });

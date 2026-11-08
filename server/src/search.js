@@ -5,7 +5,7 @@
  * pipeline hand-off against the catalog, so made-up models or broken chains never reach the page.
  */
 import Anthropic from '@anthropic-ai/sdk';
-import { AI_MODEL, AI_EFFORT, AI_PROVIDER, OPENROUTER_KEY, SITE_URL } from './config.js';
+import { AI_MODEL, AI_EFFORT, AI_PROVIDER, OPENROUTER_KEY, OPENROUTER_MODEL, SITE_URL } from './config.js';
 
 export const MAX_QUERY = 600;
 
@@ -77,23 +77,36 @@ const SCHEMA = {
 let client;
 const getClient = () => (client ??= new Anthropic());
 
-/** Calls the configured provider. Kept separate so tests can swap it out. */
-export function askClaude(catalog, query) {
-  return AI_PROVIDER === 'openrouter' ? askOpenRouter(catalog, query) : askAnthropic(catalog, query);
+/** Calls the configured provider, or OpenRouter with the visitor's own key. Kept separate so tests can swap it out. */
+export function askClaude(catalog, query, { userKey } = {}) {
+  if (userKey) return askOpenRouter(catalog, query, userKey, OPENROUTER_MODEL);
+  return AI_PROVIDER === 'openrouter' ? askOpenRouter(catalog, query, OPENROUTER_KEY, AI_MODEL) : askAnthropic(catalog, query);
+}
+
+/** Checks an OpenRouter key and returns its remaining credit, without storing it anywhere. */
+export async function checkOpenRouterKey(key) {
+  const res = await fetch('https://openrouter.ai/api/v1/key', {
+    headers: { authorization: `Bearer ${key}` },
+    signal: AbortSignal.timeout(15_000),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.data) return { ok: false, status: res.status };
+  const d = data.data;
+  return { ok: true, limit: d.limit ?? null, remaining: d.limit_remaining ?? null, usage: d.usage ?? null, freeTier: Boolean(d.is_free_tier) };
 }
 
 /** OpenRouter's OpenAI-style chat API, with Claude's prompt cache on the catalog block. */
-async function askOpenRouter(catalog, query) {
+async function askOpenRouter(catalog, query, apiKey, model) {
   const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
-      authorization: `Bearer ${OPENROUTER_KEY}`,
+      authorization: `Bearer ${apiKey}`,
       'content-type': 'application/json',
       'http-referer': SITE_URL,
       'x-title': 'Waitro',
     },
     body: JSON.stringify({
-      model: AI_MODEL,
+      model,
       max_tokens: 16000,
       reasoning: { effort: AI_EFFORT },
       response_format: { type: 'json_schema', json_schema: { name: 'waitro_answer', strict: true, schema: SCHEMA } },

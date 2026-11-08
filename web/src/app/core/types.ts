@@ -68,6 +68,8 @@ export interface Meta {
   version: string;
   repo: string;
   ai: boolean;
+  serverAi: boolean;
+  userAi: boolean;
   catalogHash: string;
   count: number;
   domains: Domain[];
@@ -92,6 +94,8 @@ export interface SearchResult {
   mode: 'ai' | 'keyword';
   note?: string;
   cached?: boolean;
+  needKey?: boolean;
+  keyError?: boolean;
   understanding: string;
   constraints: string[];
   recommendations: Recommendation[];

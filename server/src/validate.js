@@ -162,6 +162,7 @@ export function validateCatalog({ taxonomy, models, rankings }) {
       errors.push(`${file}: pricing needs at least one price or a note`);
     }
     if (data.released && !data.dateSource) errors.push(`${file}: "released" needs a "dateSource"`);
+    if (data.released && data.released > new Date(Date.now() + 86400_000).toISOString().slice(0, 10)) errors.push(`${file}: "released" is in the future`);
     if (data.params?.active && data.params?.total && data.params.active > data.params.total) {
       errors.push(`${file}: params.active is larger than params.total`);
     }

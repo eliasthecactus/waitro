@@ -16,7 +16,12 @@ export const REPO_URL = process.env.REPO_URL || 'https://github.com/eliasthecact
 export const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '';
 export const AI_PROVIDER = OPENROUTER_KEY ? 'openrouter' : (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) ? 'anthropic' : null;
 export const AI_ENABLED = Boolean(AI_PROVIDER);
-export const AI_MODEL = process.env.WAITRO_MODEL || (AI_PROVIDER === 'openrouter' ? '~deepseek/deepseek-flash-latest' : 'claude-opus-5-5');
+// Who pays for AI search: 'server' uses the server's key, 'user' requires each visitor's own OpenRouter key,
+// 'both' uses the visitor's key when given and the server's key otherwise.
+export const KEY_MODE = ['server', 'user', 'both'].includes(process.env.WAITRO_KEY_MODE) ? process.env.WAITRO_KEY_MODE : (OPENROUTER_KEY ? 'both' : 'user');
+export const USER_AI_PER_IP_PER_HOUR = Number(process.env.WAITRO_USER_AI_PER_IP_PER_HOUR || 60);
+export const AI_MODEL = process.env.WAITRO_MODEL || (AI_PROVIDER === 'anthropic' ? 'claude-opus-5-5' : '~deepseek/deepseek-flash-latest');
+export const OPENROUTER_MODEL = process.env.WAITRO_MODEL && !process.env.WAITRO_MODEL.startsWith('claude-') ? process.env.WAITRO_MODEL : '~deepseek/deepseek-flash-latest';
 export const SITE_URL = process.env.SITE_URL || 'https://github.com/eliasthecactus/waitro';
 export const AI_EFFORT = process.env.WAITRO_EFFORT || 'low';
 export const AI_PER_IP_PER_HOUR = Number(process.env.WAITRO_AI_PER_IP_PER_HOUR || 20);

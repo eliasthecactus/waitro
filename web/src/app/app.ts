@@ -1,14 +1,16 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { LucideDynamicIcon, LucideGitBranch, LucideLayoutGrid, LucideMonitor, LucideMoon, LucideRows3, LucideSearch, LucideSun, LucideInfo } from '@lucide/angular';
+import { LucideDynamicIcon, LucideGitBranch, LucideKeyRound, LucideLayoutGrid, LucideMonitor, LucideMoon, LucideRows3, LucideSearch, LucideSun, LucideInfo } from '@lucide/angular';
+import { UserKey } from './core/key';
+import { KeyDialog } from './ui/key-dialog';
 import { Api } from './core/api';
 import { Theme } from './core/theme';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, LucideDynamicIcon, LucideGitBranch],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, LucideDynamicIcon, LucideGitBranch, LucideKeyRound, KeyDialog],
   template: `
-    <header class="sticky top-0 z-40 border-b border-line/70 bg-bg/75 backdrop-blur-xl">
+    <header class="sticky top-0 z-40 border-b border-line bg-bg/95 backdrop-blur-xl transition-shadow duration-200" [class.shadow-header]="scrolled()">
       <div class="wrap flex h-15 items-center gap-2">
         <a routerLink="/" class="mr-2 flex items-center gap-2.5 rounded-lg" aria-label="Waitro home">
           <img src="icon.svg" alt="" class="size-7" />
@@ -23,6 +25,14 @@ import { Theme } from './core/theme';
             </a>
           }
         </nav>
+        @if (api.meta()?.userAi) {
+          <button type="button" (click)="userKey.open()"
+                  class="relative grid size-9 place-items-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink"
+                  [title]="userKey.key() ? 'Your OpenRouter key is set' : 'Add your OpenRouter key for AI search'" aria-label="OpenRouter key">
+            <svg lucideKeyRound [size]="17" />
+            <span class="absolute right-1.5 top-1.5 size-2 rounded-full ring-2 ring-bg" [class]="userKey.key() ? 'bg-emerald-500' : 'bg-amber-500'"></span>
+          </button>
+        }
         <a [href]="api.meta()?.repo" target="_blank" rel="noopener"
            class="grid size-9 place-items-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink" title="Source on GitHub" aria-label="Source on GitHub">
           <svg lucideGitBranch [size]="17" />
@@ -35,6 +45,7 @@ import { Theme } from './core/theme';
       </div>
     </header>
 
+    <app-key-dialog />
     <main class="min-h-[70vh]">
       <router-outlet />
     </main>
@@ -64,8 +75,13 @@ import { Theme } from './core/theme';
   `,
 })
 export class App {
+  protected readonly scrolled = signal(false);
   protected readonly api = inject(Api);
+  constructor() {
+    window.addEventListener('scroll', () => this.scrolled.set(window.scrollY > 4), { passive: true });
+  }
   protected readonly theme = inject(Theme);
+  protected readonly userKey = inject(UserKey);
   protected readonly nav = [
     { path: '/', label: 'Search', icon: LucideSearch },
     { path: '/models', label: 'All models', icon: LucideRows3 },

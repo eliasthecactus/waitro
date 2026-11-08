@@ -9,10 +9,12 @@ import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import {
   PORT, CATALOG_DIR, WEB_DIR, DATA_DIR, REPO_URL, VERSION,
-  AI_ENABLED, AI_PROVIDER, AI_MODEL, AI_PER_IP_PER_HOUR, AI_PER_DAY, CACHE_DAYS,
+  AI_ENABLED, AI_PROVIDER, AI_MODEL, AI_PER_IP_PER_HOUR, AI_PER_DAY, CACHE_DAYS, KEY_MODE, USER_AI_PER_IP_PER_HOUR,
 } from './config.js';
 import { loadCatalog } from './catalog.js';
-import { askClaude, sanitizeAnswer, keywordAnswer, MAX_QUERY } from './search.js';
+import { askClaude, sanitizeAnswer, keywordAnswer, checkOpenRouterKey, MAX_QUERY } from './search.js';
+
+const USER_KEY_RE = /^sk-or-[A-Za-z0-9_-]{20,200}$/;
 
 export class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
@@ -31,46 +33,75 @@ function openStore(dir) {
 
 const normalize = q => q.trim().replace(/\s+/g, ' ').toLowerCase();
 
-export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENABLED, now = () => Date.now() }) {
+export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENABLED, keyMode = KEY_MODE, checkKey = checkOpenRouterKey, now = () => Date.now() }) {
   const hits = new Map(); // ip -> timestamps of AI calls in the last hour
+  const serverAi = aiEnabled && keyMode !== 'user';
+  const userAi = keyMode !== 'server';
 
-  function allowAi(ip) {
+  function allowAi(ip, ownKey) {
     const t = now();
     const recent = (hits.get(ip) || []).filter(x => t - x < 3600_000);
-    if (recent.length >= AI_PER_IP_PER_HOUR) return false;
+    if (recent.length >= (ownKey ? USER_AI_PER_IP_PER_HOUR : AI_PER_IP_PER_HOUR)) return false;
     const day = new Date(t).toISOString().slice(0, 10);
-    const row = store.prepare('SELECT count FROM ai_calls WHERE day = ?').get(day);
-    if ((row?.count || 0) >= AI_PER_DAY) return false;
+    // The daily budget only protects the server's own key.
+    if (!ownKey) {
+      const row = store.prepare('SELECT count FROM ai_calls WHERE day = ?').get(day);
+      if ((row?.count || 0) >= AI_PER_DAY) return false;
+      store.prepare('INSERT INTO ai_calls (day, count) VALUES (?, 1) ON CONFLICT(day) DO UPDATE SET count = count + 1').run(day);
+    }
     recent.push(t);
     hits.set(ip, recent);
-    store.prepare('INSERT INTO ai_calls (day, count) VALUES (?, 1) ON CONFLICT(day) DO UPDATE SET count = count + 1').run(day);
     return true;
+  }
+
+  /** Visitor key from the request header; never logged or stored. */
+  function userKeyOf(ctx) {
+    const k = String(ctx.headers['x-openrouter-key'] || '').trim();
+    if (!k) return null;
+    if (!USER_KEY_RE.test(k)) throw new HttpError(400, 'That doesn’t look like an OpenRouter key (it should start with sk-or-).');
+    return userAi ? k : null;
+  }
+
+  async function keyCheck(ctx) {
+    const k = userKeyOf(ctx);
+    if (!k) throw new HttpError(400, 'Send your key in the X-OpenRouter-Key header.');
+    const r = await checkKey(k);
+    if (!r.ok) throw new HttpError(401, r.status === 401 ? 'OpenRouter rejected this key.' : 'Couldn’t check the key with OpenRouter right now.');
+    return r;
   }
 
   async function search(ctx) {
     const q = typeof ctx.body.q === 'string' ? ctx.body.q.trim() : '';
     if (q.length < 3) throw new HttpError(400, 'Tell us a bit more about what you want to do.');
     if (q.length > MAX_QUERY) throw new HttpError(400, `Please keep it under ${MAX_QUERY} characters.`);
-    if (!aiEnabled) return keywordAnswer(catalog, q, 'AI search is not configured on this server, so these are keyword matches.');
+    const userKey = userKeyOf(ctx);
+    if (!userKey && !serverAi) {
+      const msg = userAi ? 'Add your own OpenRouter key to use AI search. Until then, these are keyword matches.' : 'AI search is not configured on this server, so these are keyword matches.';
+      return { ...keywordAnswer(catalog, q, msg), needKey: userAi };
+    }
 
     const key = createHash('sha256').update(`${catalog.hash}\n${AI_MODEL}\n${normalize(q)}`).digest('hex');
     const cached = store.prepare('SELECT created, result FROM search_cache WHERE key = ?').get(key);
     if (cached && now() - cached.created < CACHE_DAYS * 86400_000) return { ...JSON.parse(cached.result), cached: true };
-    if (!allowAi(ctx.ip)) return keywordAnswer(catalog, q, 'You reached the AI search limit for now, so these are keyword matches. Try again in a while.');
+    if (!allowAi(ctx.ip, Boolean(userKey))) return keywordAnswer(catalog, q, 'You reached the AI search limit for now, so these are keyword matches. Try again in a while.');
 
     // Smaller models occasionally return an empty answer; try once more before giving up.
     let result;
     for (let attempt = 1; attempt <= 2 && !result; attempt++) {
       let res;
       try {
-        res = await ask(catalog, q);
+        res = await ask(catalog, q, { userKey });
       } catch (e) {
-        console.error(`AI search failed (attempt ${attempt}):`, e.status || '', e.message);
+        console.error(`AI search failed (attempt ${attempt}${userKey ? ', visitor key' : ''}):`, e.status || '', e.message);
+        if (userKey && [401, 402, 403].includes(Number(e.status))) {
+          const why = Number(e.status) === 402 ? 'Your OpenRouter key has no credit left.' : 'OpenRouter rejected your key.';
+          return { ...keywordAnswer(catalog, q, `${why} These are keyword matches.`), needKey: true, keyError: true };
+        }
         continue;
       }
       if (res.refused) return keywordAnswer(catalog, q, 'The AI declined this request, so these are keyword matches.');
       const u = res.usage || {};
-      console.log(`AI search: ${u.prompt_tokens ?? u.input_tokens ?? '?'} in (${u.prompt_tokens_details?.cached_tokens ?? u.cache_read_input_tokens ?? 0} cached), ${u.completion_tokens ?? u.output_tokens ?? '?'} out${u.cost != null ? `, $${u.cost.toFixed(4)}` : ''}`);
+      console.log(`AI search${userKey ? ' (visitor key)' : ''}: ${u.prompt_tokens ?? u.input_tokens ?? '?'} in (${u.prompt_tokens_details?.cached_tokens ?? u.cache_read_input_tokens ?? 0} cached), ${u.completion_tokens ?? u.output_tokens ?? '?'} out${u.cost != null ? `, $${u.cost.toFixed(4)}` : ''}`);
       const answer = sanitizeAnswer(catalog, res.answer);
       if (answer.recommendations.length || answer.gaps) result = { mode: 'ai', ...answer };
       else console.warn(`AI search returned an empty answer (attempt ${attempt})`);
@@ -113,7 +144,7 @@ export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENAB
   }
 
   const meta = () => ({
-    version: VERSION, repo: REPO_URL, ai: aiEnabled, catalogHash: catalog.hash, count: catalog.models.length,
+    version: VERSION, repo: REPO_URL, ai: serverAi || userAi, serverAi, userAi, catalogHash: catalog.hash, count: catalog.models.length,
     domains: catalog.taxonomy.domains.map(d => ({ ...d, tasks: d.tasks.map(t => ({ ...t, count: catalog.models.filter(m => m.tasks.includes(t.id)).length, ranked: Boolean(catalog.rankings[t.id]) })) })),
     io: catalog.taxonomy.io, platforms: catalog.taxonomy.platforms, architectures: catalog.taxonomy.architectures,
   });
@@ -125,6 +156,7 @@ export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENAB
     ['GET', /^\/api\/models\/(?<id>[a-z0-9-]{1,80})$/, detail],
     ['GET', /^\/api\/tasks\/(?<id>[a-z0-9-]{1,80})$/, task],
     ['POST', /^\/api\/search$/, search],
+    ['POST', /^\/api\/key\/check$/, keyCheck],
   ];
 
   async function handleApi(req, url) {
@@ -134,7 +166,7 @@ export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENAB
       if (req.method !== method) throw new HttpError(405, 'Method not allowed');
       const body = method === 'POST' ? await readBody(req) : {};
       const ip = req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress || '?';
-      return fn({ body, params: m.groups || {}, ip, url });
+      return fn({ body, params: m.groups || {}, ip, url, headers: req.headers });
     }
     throw new HttpError(404, 'Not found');
   }
@@ -239,7 +271,7 @@ export function startServer({ port = PORT, catalogDir = CATALOG_DIR, webDir = WE
         .end(JSON.stringify({ error: status === 500 ? 'Something went wrong' : e.message }));
     }
   });
-  server.listen(port, () => console.log(`Waitro ${VERSION} on :${port} with ${catalog.models.length} models, AI search ${opts.aiEnabled ?? AI_ENABLED ? `on (${AI_PROVIDER}, ${AI_MODEL})` : 'off'}`));
+  server.listen(port, () => console.log(`Waitro ${VERSION} on :${port} with ${catalog.models.length} models, AI search ${opts.aiEnabled ?? AI_ENABLED ? `on (${AI_PROVIDER}, ${AI_MODEL})` : 'off'}, key mode ${opts.keyMode ?? KEY_MODE}`));
   return server;
 }
 

@@ -79,6 +79,13 @@
   --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+app-root {
+  display: block;
+}
+.shadow-header {
+  box-shadow: 0 1px 0 var(--line), 0 8px 24px -16px rgb(20 20 50 / 0.25);
+}
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
