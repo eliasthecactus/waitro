@@ -78,6 +78,7 @@ export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENAB
     architecture: m.architecture || null, access: m.access, license: m.license, io: m.io, params: m.params || null,
     contextTokens: m.contextTokens || null, pricing: m.pricing || null, platforms: m.hardware?.platforms || [],
     minVramGB: m.hardware?.minVramGB || null, rankings: m.rankings, hasBetter: Boolean(m.betterOptions?.length),
+    better: (m.betterOptions || []).map(o => ({ id: o.id, aspects: o.aspects || [] })),
     stats: m.stats, tags: m.tags || [],
   });
 
@@ -152,7 +153,7 @@ async function readBody(req) {
 
 // ---------- static files ----------
 
-const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8' };
+const TYPES = { '.woff2': 'font/woff2', '.woff': 'font/woff', '.ico': 'image/x-icon', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.txt': 'text/plain; charset=utf-8' };
 
 /**
  * Loads web/ into memory. Asset URLs in index.html get a content hash (?v=…), so Cloudflare can cache them forever
@@ -186,6 +187,9 @@ export function loadStatic(dir) {
   return out;
 }
 
+// Angular emits content-hashed file names (main-AB12CD34.js, media/font-XYZ.woff2).
+const HASHED = /-[A-Za-z0-9_]{8}\.(js|css|woff2?)$/;
+
 function sendStatic(req, res, url, files) {
   let file = files.get(url.pathname);
   const isIndex = !file || url.pathname === '/' || url.pathname === '/index.html';
@@ -199,11 +203,11 @@ function sendStatic(req, res, url, files) {
   }
   const headers = {
     'content-type': file.type,
-    'cache-control': isIndex ? 'no-cache' : (url.searchParams.has('v') ? 'public, max-age=31536000, immutable' : 'public, max-age=300'),
+    'cache-control': isIndex ? 'no-cache' : (url.searchParams.has('v') || HASHED.test(url.pathname) ? 'public, max-age=31536000, immutable' : 'public, max-age=300'),
     'x-content-type-options': 'nosniff',
     'referrer-policy': 'strict-origin-when-cross-origin',
   };
-  if (isIndex) headers['content-security-policy'] = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'";
+  if (isIndex) headers['content-security-policy'] = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; frame-ancestors 'none'";
   const gz = file.gz && /\bgzip\b/.test(req.headers['accept-encoding'] || '');
   if (gz) { headers['content-encoding'] = 'gzip'; headers.vary = 'accept-encoding'; }
   res.writeHead(200, headers).end(req.method === 'HEAD' ? undefined : (gz ? file.gz : file.body));

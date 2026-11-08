@@ -7,7 +7,7 @@ const root = path.resolve(here, '../..');
 
 export const PORT = Number(process.env.PORT || 3000);
 export const CATALOG_DIR = path.resolve(process.env.CATALOG_DIR || path.join(root, 'data'));
-export const WEB_DIR = path.resolve(process.env.WEB_DIR || path.join(root, 'web'));
+export const WEB_DIR = path.resolve(process.env.WEB_DIR || path.join(root, 'web/dist/browser'));
 export const DATA_DIR = path.resolve(process.env.DATA_DIR || path.join(root, '.data'));
 export const REPO_URL = process.env.REPO_URL || 'https://github.com/eliasthecactus/waitro';
 

@@ -100,7 +100,7 @@ async function askOpenRouter(catalog, query) {
       messages: [
         { role: 'system', content: [
           { type: 'text', text: SYSTEM },
-          { type: 'text', text: catalog.digest, cache_control: { type: 'ephemeral' } },
+          { type: 'text', text: catalog.digest, cache_control: { type: 'ephemeral', ttl: '1h' } },
         ] },
         { role: 'user', content: query },
       ],

@@ -1,6 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
+import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync } from 'node:sqlite';
 import { loadCatalog, readCatalog } from '../src/catalog.js';
@@ -115,8 +117,13 @@ test('detail and task endpoints', async () => {
 });
 
 test('static assets get a cache-busting version', () => {
-  const files = loadStatic(path.join(root, 'web'));
-  const index = files.get('/index.html').body.toString();
-  assert.match(index, /\/style\.css\?v=[a-f0-9]{10}/);
-  assert.match(files.get('/js/app.js').body.toString(), /from '\.\/html\.js\?v=[a-f0-9]{10}'/);
+  const dir = mkdtempSync(path.join(tmpdir(), 'waitro-web-'));
+  mkdirSync(path.join(dir, 'js'));
+  writeFileSync(path.join(dir, 'index.html'), '<link href="/style.css"><script src="/js/app.js"></script>');
+  writeFileSync(path.join(dir, 'style.css'), 'body{}');
+  writeFileSync(path.join(dir, 'js/app.js'), "import { x } from './util.js';");
+  writeFileSync(path.join(dir, 'js/util.js'), 'export const x = 1;');
+  const files = loadStatic(dir);
+  assert.match(files.get('/index.html').body.toString(), /\/style\.css\?v=[a-f0-9]{10}/);
+  assert.match(files.get('/js/app.js').body.toString(), /from '\.\/util\.js\?v=[a-f0-9]{10}'/);
 });

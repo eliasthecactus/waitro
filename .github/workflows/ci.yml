@@ -19,7 +19,9 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: server/package-lock.json
+          cache-dependency-path: |
+            server/package-lock.json
+            web/package-lock.json
       - run: npm ci
         working-directory: server
       - name: Validate catalog
@@ -27,6 +29,9 @@ jobs:
         working-directory: server
       - run: npm test
         working-directory: server
+      - name: Build web app
+        run: npm ci --no-audit --no-fund && npx ng build
+        working-directory: web
 
   image:
     needs: test
