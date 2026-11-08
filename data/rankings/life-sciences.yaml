@@ -1,0 +1,12 @@
+task: life-sciences
+updated: 2026-11-08
+picks:
+  - id: boltz-2
+    label: "Structure + binding affinity"
+    why: "MIT licence for code and weights."
+  - id: esmfold2
+    label: "Fast structure prediction"
+    why: "All-atom structures from sequence, MIT licence."
+  - id: evo2
+    label: "DNA"
+    why: "Genome-scale DNA language model, Apache-2.0."

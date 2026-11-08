@@ -1,0 +1,26 @@
+id: flux1-kontext
+name: FLUX.1 Kontext [dev]
+org: Black Forest Labs
+released: 2025-05-28
+dateSource: huggingface
+summary: 12B in-context image editing model from Black Forest Labs, non-commercial licence.
+tasks: [image-editing]
+architecture: diffusion
+access: open-weights
+license: { id: FLUX-1-dev-Non-Commercial, commercial: no }
+io: { in: [image, text], out: [image] }
+params: { total: 11.9 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev
+strengths: [Character consistency across edits]
+limitations: [Non-commercial]
+betterOptions:
+  - id: qwen-image-edit
+    why: Newer and Apache-2.0, so it can be used commercially.
+    aspects: [license]
+  - id: flux2-klein
+    why: The FLUX.2 [klein] 4B does generation and multi-reference editing in one model under Apache-2.0.
+    aspects: [license, speed]
+tags: [flux, editing]
+lastChecked: 2026-11-08

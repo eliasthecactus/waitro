@@ -1,0 +1,27 @@
+id: minimax-m3
+name: MiniMax-M3
+org: MiniMax
+released: 2026-06-02
+dateSource: huggingface
+summary: Natively multimodal open model with 1M context, about 428B total and 23B active parameters.
+description: |
+  Trained on text, images and video from the first step. MiniMax Sparse Attention gives 9× faster prefill and 15× faster
+  decode than M2 at 1M context, per MiniMax.
+tasks: [chat, coding, agents]
+architecture: moe-transformer
+access: both
+license: { id: MiniMax-Community, commercial: limited, note: "Commercial use must show 'Built with MiniMax M3'; above $20M yearly revenue you need MiniMax's authorisation." }
+io: { in: [text, image, video], out: [text, code] }
+params: { total: 428, active: 23 }
+contextTokens: 1000000
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/MiniMaxAI/MiniMax-M3
+strengths: [1M context with sparse attention, Image and video input]
+limitations: [Attribution required for commercial use]
+betterOptions:
+  - id: minimax-m3-1-flash
+    why: MiniMax's successor built on M3, with better agent, coding and cybersecurity results and faster inference.
+    aspects: [quality, speed]
+tags: [minimax, moe, long-context]
+lastChecked: 2026-11-08

@@ -1,0 +1,12 @@
+task: image-editing
+updated: 2026-11-08
+picks:
+  - id: qwen-image-edit
+    label: "Best for commercial use"
+    why: "Apache-2.0 with strong text-in-image editing."
+  - id: flux2-klein
+    label: "Fastest"
+    why: "Generation and multi-reference editing in one 4B model."
+  - id: hidream-o1
+    label: "High resolution"
+    why: "Edits and personalisation up to 2K."

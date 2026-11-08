@@ -2,14 +2,17 @@ task: speech-to-text
 updated: 2026-11-08
 picks:
   - id: nemotron-3-5-transcribe
-    rank: 1
-    label: "Most accurate"
-    why: "Lowest error rates of the open models here and hour-long recordings. Needs a GPU."
+    label: "Most accurate for long recordings"
+    why: "Hour-long audio, 40 languages, lowest error rates here. Needs a GPU."
+  - id: qwen3-asr
+    label: "Best small multilingual"
+    why: "52 languages and dialects at 0.6B or 1.7B, Apache-2.0."
+  - id: voxtral-realtime
+    label: "Live transcription"
+    why: "Streaming with accuracy close to offline models, Apache-2.0."
   - id: parakeet-tdt-0-6b-v3
-    rank: 2
-    label: "Fastest"
-    why: "Small and high throughput for 25 European languages."
+    label: "Fastest for European languages"
+    why: "Tiny and high throughput for 25 European languages."
   - id: whisper-large-v3-turbo
-    rank: 3
     label: "Runs anywhere"
     why: "About 100 languages, runs on a Mac or phone, best tooling."

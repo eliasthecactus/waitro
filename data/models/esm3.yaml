@@ -1,0 +1,19 @@
+id: esm3
+name: ESM3 open (small)
+org: EvolutionaryScale / Biohub
+released: 2024-06-03
+dateSource: huggingface
+summary: Generative protein model that designs proteins from partial sequence, structure and function prompts.
+tasks: [life-sciences]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes, note: Per the model card's repository licence. }
+io: { in: [protein, text], out: [protein] }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/biohub/esm3-sm-open-v1
+  repo: https://github.com/evolutionaryscale/esm
+strengths: ["Sequence, structure and function in one model"]
+limitations: [Small open version of a larger model]
+tags: [protein, design, biology]
+lastChecked: 2026-11-08

@@ -1,0 +1,23 @@
+id: evo2
+name: Evo 2
+org: Arc Institute
+released: 2025-02-13
+dateSource: huggingface
+summary: DNA language model trained on trillions of bases, with context up to one million nucleotides.
+tasks: [life-sciences]
+architecture: hybrid
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [text, embedding] }
+hardware: { platforms: [cuda], note: The 40B needs data-centre GPUs. }
+variants:
+  - { name: 1B base, params: 1, weights: https://huggingface.co/arcinstitute/evo2_1b_base }
+  - { name: 7B, params: 7, weights: https://huggingface.co/arcinstitute/evo2_7b }
+  - { name: 40B, params: 40, weights: https://huggingface.co/arcinstitute/evo2_40b }
+links:
+  weights: https://huggingface.co/arcinstitute/evo2_40b
+  repo: https://github.com/ArcInstitute/evo2
+strengths: [Genome-scale context, Variant effect prediction and sequence design]
+limitations: [Heavy]
+tags: [dna, genomics, biology]
+lastChecked: 2026-11-08

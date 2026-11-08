@@ -1,0 +1,9 @@
+task: diarization
+updated: 2026-11-08
+picks:
+  - id: nemotron-diarization
+    label: "Streaming, commercial OK"
+    why: "Small, up to eight speakers, streaming or offline."
+  - id: pyannote-community-1
+    label: "Standard pipeline"
+    why: "The most widely used open diarization pipeline."

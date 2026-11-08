@@ -1,0 +1,19 @@
+id: yolo26
+name: YOLO26
+org: Ultralytics
+released: 2026-01-26
+dateSource: huggingface
+summary: Latest Ultralytics YOLO for detection, segmentation, pose and more; AGPL-3.0 or paid enterprise licence.
+tasks: [object-detection, segmentation]
+architecture: cnn
+access: open-weights
+license: { id: AGPL-3.0, commercial: limited, note: "AGPL requires open-sourcing your app; closed products need an Ultralytics Enterprise licence." }
+io: { in: [image, video], out: [structured, mask] }
+hardware: { platforms: [cuda, cpu, apple-silicon, onnx] }
+links:
+  weights: https://huggingface.co/Ultralytics/YOLO26
+  repo: https://github.com/ultralytics/ultralytics
+strengths: [Easiest tooling and export, Many tasks in one framework, Runs on edge devices]
+limitations: [AGPL licence]
+tags: [detection, real-time, edge]
+lastChecked: 2026-11-08

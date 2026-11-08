@@ -1,0 +1,9 @@
+task: 3d-generation
+updated: 2026-11-08
+picks:
+  - id: trellis-2
+    label: "Best open choice"
+    why: "High-resolution textured assets, MIT licence."
+  - id: hunyuan3d-2-1
+    label: "PBR textures"
+    why: "Physically based materials; territory limits in the licence."

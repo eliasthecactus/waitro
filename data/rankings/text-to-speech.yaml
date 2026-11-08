@@ -1,11 +1,18 @@
 task: text-to-speech
 updated: 2026-11-08
 picks:
+  - id: chatterbox
+    label: "Best for commercial use"
+    why: "MIT licence, voice cloning in 23 languages, small enough for a laptop."
+  - id: higgs-tts-3
+    label: "Most expressive"
+    why: "Conversational speech in 100+ languages; research and non-commercial only."
   - id: omnivoice
-    rank: 1
-    label: "Most languages + cloning"
-    why: "600+ languages and voice cloning; weights are non-commercial."
+    label: "Most languages"
+    why: "600+ languages with cloning; non-commercial weights."
   - id: kokoro-82m
-    rank: 2
-    label: "Tiny and commercial-friendly"
-    why: "Apache-2.0 and runs on a CPU or in the browser."
+    label: "Tiny"
+    why: "82M parameters, runs on a CPU or in the browser, Apache-2.0."
+  - id: dia
+    label: "Dialogue"
+    why: "Two-speaker conversations with laughs and coughs, Apache-2.0."

@@ -1,0 +1,18 @@
+id: voxtral-tts
+name: Voxtral TTS 4B
+org: Mistral AI
+released: 2025-11-17
+dateSource: huggingface
+summary: Fast, adaptable TTS for voice agents; weights inherit CC-BY-NC from the reference voices.
+tasks: [text-to-speech]
+architecture: transformer
+access: both
+license: { id: CC-BY-NC-4.0, commercial: no, note: Commercial use through Mistral's API. }
+io: { in: [text], out: [audio] }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/mistralai/Voxtral-4B-TTS-2603
+strengths: [Low latency for voice agents]
+limitations: [Non-commercial open weights]
+tags: [tts, mistral, voice-agents]
+lastChecked: 2026-11-08

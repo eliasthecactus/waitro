@@ -1,0 +1,12 @@
+task: translation
+updated: 2026-11-08
+picks:
+  - id: translategemma
+    label: "Best for commercial use"
+    why: "Translation-tuned Gemma in 4B, 12B and 27B."
+  - id: hy-simulmt
+    label: "Live speech translation"
+    why: "Chinese↔English while the speaker talks, with voice cloning."
+  - id: nllb-200
+    label: "Most languages"
+    why: "200 languages including low-resource ones; non-commercial."

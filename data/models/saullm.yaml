@@ -1,0 +1,22 @@
+id: saullm
+name: SaulLM-54B
+org: Equall & CentraleSupélec
+released: 2024-05-07
+dateSource: huggingface
+summary: Research LLM adapted to the legal domain, MIT licence.
+tasks: [legal]
+architecture: moe-transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [text], out: [text] }
+params: { total: 46.7 }
+hardware: { platforms: [cuda] }
+variants:
+  - { name: 54B Instruct, weights: https://huggingface.co/Equall/SaulLM-54B-Instruct }
+  - { name: 141B Instruct, weights: https://huggingface.co/Equall/SaulLM-141B-Instruct }
+links:
+  weights: https://huggingface.co/Equall/SaulLM-54B-Instruct
+strengths: [Legal-domain training]
+limitations: [Research artifact from 2024, General frontier models are often stronger on legal text today]
+tags: [law]
+lastChecked: 2026-11-08

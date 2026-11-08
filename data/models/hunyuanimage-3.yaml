@@ -1,0 +1,23 @@
+id: hunyuanimage-3
+name: HunyuanImage 3.0
+org: Tencent Hunyuan
+released: 2025-09-25
+dateSource: huggingface
+summary: The largest open image-generation MoE (80B, 64 experts), autoregressive with world-knowledge reasoning.
+tasks: [image-generation, image-editing]
+architecture: moe-transformer
+access: open-weights
+license: { id: Tencent-Hunyuan-Community, commercial: limited, note: "Not licensed in the EU, UK or South Korea; extra terms for very large services." }
+io: { in: [text, image], out: [image] }
+params: { total: 83 }
+hardware: { platforms: [cuda], note: Multi-GPU. An 8-step distilled Instruct checkpoint exists. }
+variants:
+  - { name: Base, weights: https://huggingface.co/tencent/HunyuanImage-3.0 }
+  - { name: Instruct, weights: https://huggingface.co/tencent/HunyuanImage-3.0-Instruct }
+  - { name: Instruct Distil, weights: https://huggingface.co/tencent/HunyuanImage-3.0-Instruct-Distil, note: 8 steps }
+links:
+  weights: https://huggingface.co/tencent/HunyuanImage-3.0
+strengths: [Understands and reasons about prompts, Editing in the Instruct version]
+limitations: [Huge, Licence excludes the EU, UK and South Korea]
+tags: [tencent, moe]
+lastChecked: 2026-11-08

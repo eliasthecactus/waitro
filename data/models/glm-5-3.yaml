@@ -1,0 +1,23 @@
+id: glm-5-3
+name: GLM-5.3
+org: Z.ai (Zhipu)
+released: 2026-08-25
+dateSource: huggingface
+summary: Open-weights model focused on complex coding and long-horizon agent work; Z.ai calls it the strongest open model for coding.
+description: |
+  Same base model as GLM-5.2 with improved post-training. Z.ai reports a 50% gain over GLM-5.2 on its in-house
+  Z.ai Code Bench and open-source state of the art on Terminal Bench 3.0 and Agents' Last Exam. Thinking depth is
+  set with reasoning_effort (low, high, max).
+tasks: [coding, agents, chat]
+architecture: moe-transformer
+access: both
+license: { id: GLM-5.3-License, commercial: yes, note: "MIT-style; only Model-as-a-Service businesses above $10B yearly revenue have extra obligations." }
+io: { in: [text], out: [text, code] }
+params: { total: 753 }
+hardware: { platforms: [cuda], note: Multi-GPU server. }
+links:
+  weights: https://huggingface.co/zai-org/GLM-5.3
+strengths: [Long-horizon coding agents, Permissive licence for almost everyone]
+limitations: [Very large, Text only (see GLM-5.3-Flash for images)]
+tags: [glm, moe, coding]
+lastChecked: 2026-11-08

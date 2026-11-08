@@ -1,0 +1,24 @@
+id: birefnet
+name: BiRefNet
+org: Peng Zheng et al.
+released: 2024-07-12
+dateSource: huggingface
+summary: High-resolution dichotomous segmentation; the go-to open background remover, MIT licence.
+tasks: [background-removal, segmentation]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [image], out: [mask] }
+params: { total: 0.22 }
+hardware: { platforms: [cuda, cpu, apple-silicon, onnx] }
+variants:
+  - { name: General, weights: https://huggingface.co/ZhengPeng7/BiRefNet }
+  - { name: HR (high resolution), weights: https://huggingface.co/ZhengPeng7/BiRefNet_HR }
+  - { name: Matting, weights: https://huggingface.co/ZhengPeng7/BiRefNet-matting }
+links:
+  weights: https://huggingface.co/ZhengPeng7/BiRefNet
+  repo: https://github.com/ZhengPeng7/BiRefNet
+strengths: [Commercial use allowed, Fine hair and edges, Still maintained]
+limitations: [Single foreground object focus]
+tags: [cutout, matting]
+lastChecked: 2026-11-08

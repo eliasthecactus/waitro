@@ -1,0 +1,22 @@
+id: demucs
+name: Demucs v4 (HT Demucs)
+org: Alexandre Défossez (originally Meta)
+released: 2019-10-25
+dateSource: github
+summary: Splits songs into vocals, drums, bass and other stems; the standard open music separator, MIT licence.
+tasks: [audio-separation]
+architecture: hybrid
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [audio], out: [audio] }
+hardware: { platforms: [cuda, cpu, apple-silicon, onnx], note: MLX and ONNX ports exist. }
+links:
+  repo: https://github.com/adefossez/demucs
+strengths: [Proven quality, Runs on CPU, Commercial use allowed]
+limitations: ["Music stems only, not arbitrary sounds"]
+betterOptions:
+  - id: sam-audio
+    why: SAM Audio can isolate any sound from a text, video or time-span prompt, not just fixed music stems.
+    aspects: [quality]
+tags: [stems, music, karaoke]
+lastChecked: 2026-11-08

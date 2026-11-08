@@ -1,0 +1,19 @@
+id: nomic-embed-text-v2
+name: Nomic Embed Text v2 (MoE)
+org: Nomic AI
+released: 2025-02-07
+dateSource: huggingface
+summary: Multilingual MoE text embeddings with only 305M active parameters, about 100 languages, Apache-2.0.
+tasks: [embeddings]
+architecture: moe-transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [embedding] }
+params: { total: 0.48, active: 0.305 }
+hardware: { platforms: [cpu, cuda, apple-silicon, onnx] }
+links:
+  weights: https://huggingface.co/nomic-ai/nomic-embed-text-v2-moe
+strengths: [Fast on CPU, Fully open training data]
+limitations: [Text only]
+tags: [rag, multilingual, cpu]
+lastChecked: 2026-11-08

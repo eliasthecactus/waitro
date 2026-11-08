@@ -1,0 +1,22 @@
+id: qwen3-reranker
+name: Qwen3 Reranker
+org: Qwen (Alibaba)
+released: 2025-05-29
+dateSource: huggingface
+summary: Rerankers in 0.6B, 4B and 8B that re-order search results; pair with Qwen3 Embedding.
+tasks: [embeddings]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [structured] }
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+variants:
+  - { name: 0.6B, params: 0.6, weights: https://huggingface.co/Qwen/Qwen3-Reranker-0.6B }
+  - { name: 4B, params: 4, weights: https://huggingface.co/Qwen/Qwen3-Reranker-4B }
+  - { name: 8B, params: 8.2, weights: https://huggingface.co/Qwen/Qwen3-Reranker-8B }
+links:
+  weights: https://huggingface.co/Qwen/Qwen3-Reranker-8B
+strengths: [Big quality boost for RAG, Instruction-aware, 100+ languages]
+limitations: [Adds a second step and latency to search]
+tags: [rag, rerank]
+lastChecked: 2026-11-08

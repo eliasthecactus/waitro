@@ -1,0 +1,20 @@
+id: boltz-2
+name: Boltz-2
+org: MIT Jameel Clinic & Recursion (Boltz team)
+released: 2025-06-06
+dateSource: huggingface
+summary: Open biomolecular structure and binding-affinity prediction, MIT licence for code and weights.
+tasks: [life-sciences]
+architecture: diffusion
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [protein, structured], out: [3d, structured] }
+hardware: { platforms: [cuda] }
+links:
+  repo: https://github.com/jwohlwend/boltz
+  weights: https://huggingface.co/boltz-community/boltz-2
+  paper: https://doi.org/10.1101/2025.06.14.659707
+strengths: [Predicts binding affinity as well as structure, Free for commercial use]
+limitations: [Needs a GPU]
+tags: [protein, drug-discovery, biology]
+lastChecked: 2026-11-08

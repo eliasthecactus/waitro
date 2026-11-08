@@ -1,0 +1,23 @@
+id: chatterbox
+name: Chatterbox Multilingual
+org: Resemble AI
+released: 2025-04-24
+dateSource: huggingface
+summary: 0.5B open TTS with voice cloning in 23 languages, MIT licence; V3 improves similarity and stability.
+tasks: [text-to-speech, voice-cloning]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [text, audio], out: [audio] }
+params: { total: 0.5 }
+hardware: { platforms: [cuda, cpu, apple-silicon, onnx] }
+variants:
+  - { name: Multilingual V3, weights: https://huggingface.co/ResembleAI/chatterbox }
+  - { name: Turbo, weights: https://huggingface.co/ResembleAI/chatterbox-turbo }
+links:
+  weights: https://huggingface.co/ResembleAI/chatterbox
+  repo: https://github.com/resemble-ai/chatterbox
+strengths: [Commercial use allowed, Small, Cross-language voice cloning]
+limitations: [Fewer languages than the largest TTS models]
+tags: [tts, cloning]
+lastChecked: 2026-11-08

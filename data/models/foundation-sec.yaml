@@ -1,0 +1,20 @@
+id: foundation-sec
+name: Foundation-Sec 1.1 8B Instruct
+org: Cisco Foundation AI
+released: 2025-11-18
+dateSource: huggingface
+summary: 8B Llama-3.1-based model specialised for security work, with 64K context.
+tasks: [cybersecurity]
+architecture: transformer
+access: open-weights
+license: { id: Llama-3.1-based (see NOTICE), commercial: limited, note: Check the NOTICE file and the Llama 3.1 licence terms. }
+io: { in: [text], out: [text] }
+params: { total: 8 }
+contextTokens: 64000
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+links:
+  weights: https://huggingface.co/fdtn-ai/Foundation-Sec-1.1-8B-Instruct
+strengths: ["Threat intel, vulnerability triage and incident reports", "Runs on one GPU"]
+limitations: [Small model]
+tags: [security, soc]
+lastChecked: 2026-11-08

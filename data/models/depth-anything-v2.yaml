@@ -1,0 +1,25 @@
+id: depth-anything-v2
+name: Depth Anything V2
+org: HKU & TikTok
+released: 2024-06-13
+dateSource: huggingface
+summary: Monocular depth from a single image; the small model is Apache-2.0, the large one non-commercial.
+tasks: [depth-estimation]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-NC-4.0 (Large), commercial: limited, note: "Small is Apache-2.0; Base and Large are CC-BY-NC-4.0." }
+io: { in: [image], out: [depth] }
+hardware: { platforms: [cuda, apple-silicon, cpu, onnx, browser] }
+variants:
+  - { name: Small, weights: https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf, note: Apache-2.0 }
+  - { name: Large, weights: https://huggingface.co/depth-anything/Depth-Anything-V2-Large, note: Non-commercial }
+links:
+  weights: https://huggingface.co/depth-anything/Depth-Anything-V2-Large
+strengths: ["Runs everywhere, including Core ML and the browser"]
+limitations: [Single image only, Large is non-commercial]
+betterOptions:
+  - id: depth-anything-3
+    why: Newer, handles multiple views and camera poses, and the large model is Apache-2.0.
+    aspects: [quality, license]
+tags: [depth]
+lastChecked: 2026-11-08

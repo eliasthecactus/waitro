@@ -11,6 +11,7 @@ domains:
       - { id: agents, name: Agents & tool use }
       - { id: on-device-llm, name: Small / on-device LLMs }
       - { id: embeddings, name: Embeddings & retrieval }
+      - { id: translation, name: Translation }
   - id: specialized
     name: Specialized domains
     tasks:
@@ -18,6 +19,7 @@ domains:
       - { id: legal, name: Law }
       - { id: life-sciences, name: Biology & life sciences }
       - { id: cybersecurity, name: Cybersecurity }
+      - { id: forecasting, name: Time-series forecasting }
   - id: vision
     name: Images
     tasks:
@@ -28,9 +30,14 @@ domains:
       - { id: ocr, name: OCR & document parsing }
       - { id: face-restoration, name: Face restoration }
       - { id: image-upscaling, name: Image upscaling }
+      - { id: image-understanding, name: Image & video understanding }
+      - { id: object-detection, name: Object detection }
+      - { id: depth-estimation, name: Depth estimation }
+      - { id: 3d-generation, name: 3D generation }
   - id: video
     name: Video
     tasks:
+      - { id: video-generation, name: Video generation }
       - { id: video-upscaling, name: Video upscaling }
       - { id: video-restoration, name: Video restoration }
       - { id: frame-interpolation, name: Frame interpolation }
@@ -41,9 +48,11 @@ domains:
       - { id: diarization, name: Speaker diarization }
       - { id: text-to-speech, name: Text to speech }
       - { id: voice-cloning, name: Voice cloning }
+      - { id: music-generation, name: Music & sound generation }
+      - { id: audio-separation, name: Audio separation }
 
 # Data types used for chaining: a step's output must be one of the next step's inputs.
-io: [text, code, image, video, audio, embedding, mask, structured]
+io: [text, code, image, video, audio, embedding, mask, structured, 3d, depth, timeseries, protein]
 
 # Allowed values for a few enum fields.
 architectures: [transformer, moe-transformer, diffusion, gan, cnn, hybrid, other]

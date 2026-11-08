@@ -1,0 +1,22 @@
+id: krea-2
+name: Krea 2
+org: Krea
+released: 2026-06-18
+dateSource: huggingface
+summary: Open image generation model from Krea in Turbo (fast) and Raw versions, about 13B parameters.
+tasks: [image-generation]
+architecture: diffusion
+access: both
+license: { id: Krea-2-Community, commercial: unknown, note: "Custom community licence (PDF); read it before commercial use. Gated download." }
+io: { in: [text], out: [image] }
+params: { total: 12.8 }
+hardware: { platforms: [cuda] }
+variants:
+  - { name: Turbo, weights: https://huggingface.co/krea/Krea-2-Turbo }
+  - { name: Raw, weights: https://huggingface.co/krea/Krea-2-Raw }
+links:
+  weights: https://huggingface.co/krea/Krea-2-Turbo
+strengths: [Fast Turbo variant, Popular in ComfyUI]
+limitations: [Licence terms need checking]
+tags: [comfyui, photoreal]
+lastChecked: 2026-11-08

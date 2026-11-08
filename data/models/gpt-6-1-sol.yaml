@@ -1,0 +1,17 @@
+id: gpt-6-1-sol
+name: GPT-6.1 Sol
+org: OpenAI
+summary: OpenAI's mid-priced GPT-6.1 model, between Terra and Astra.
+tasks: [chat, coding, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+pricing: { inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.1, source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+limitations: [API only]
+notes: Only pricing verified so far.
+tags: [openai]
+lastChecked: 2026-11-08

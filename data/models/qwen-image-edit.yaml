@@ -1,0 +1,19 @@
+id: qwen-image-edit
+name: Qwen-Image-Edit 2511
+org: Qwen (Alibaba)
+released: 2025-12-17
+dateSource: huggingface
+summary: Instruction-based image editing (text in images, objects, style, multi-image), Apache-2.0.
+tasks: [image-editing]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [image, text], out: [image] }
+params: { total: 20.4 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/Qwen/Qwen-Image-Edit-2511
+strengths: [Commercial use allowed, Strong text editing inside images, Big LoRA ecosystem]
+limitations: [Heavy (20B)]
+tags: [qwen, editing, comfyui]
+lastChecked: 2026-11-08

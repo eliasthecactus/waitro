@@ -1,0 +1,24 @@
+id: depth-anything-3
+name: Depth Anything 3
+org: ByteDance Seed
+released: 2025-11-13
+dateSource: huggingface
+summary: Depth and camera pose from one or many views, including metric depth variants; Apache-2.0 for the large model.
+tasks: [depth-estimation]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes, note: "Apache-2.0 for the checkpoints listed here; check each variant's card." }
+io: { in: [image, video], out: [depth, 3d] }
+params: { total: 0.41 }
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+variants:
+  - { name: Large 1.1, params: 0.41, weights: https://huggingface.co/depth-anything/DA3-LARGE-1.1 }
+  - { name: Metric Large, params: 0.33, weights: https://huggingface.co/depth-anything/DA3METRIC-LARGE }
+  - { name: Small, weights: https://huggingface.co/depth-anything/DA3-SMALL }
+links:
+  weights: https://huggingface.co/depth-anything/DA3-LARGE-1.1
+  repo: https://github.com/ByteDance-Seed/Depth-Anything-3
+strengths: [Multi-view geometry and camera poses, Metric depth option]
+limitations: [Giant variants are heavy]
+tags: [depth, 3d, geometry]
+lastChecked: 2026-11-08

@@ -1,0 +1,18 @@
+id: marigold-v2
+name: Marigold v2
+org: Huawei Bayer Lab (Marigold team)
+released: 2026-08-27
+dateSource: huggingface
+summary: Diffusion-transformer monocular depth with very sharp detail (SIGGRAPH Asia 2026), Apache-2.0 weights.
+tasks: [depth-estimation]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes, note: "Built on Qwen-Image-Edit-2509, which keeps its own licence." }
+io: { in: [image], out: [depth] }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/huawei-bayerlab/marigold-v2-0
+strengths: [Very fine detail, Trained on a single 32 GB GPU]
+limitations: [Slower than feed-forward depth models]
+tags: [depth, diffusion]
+lastChecked: 2026-11-08

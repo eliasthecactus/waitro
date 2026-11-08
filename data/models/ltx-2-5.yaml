@@ -1,0 +1,19 @@
+id: ltx-2-5
+name: LTX-2.5
+org: Lightricks
+released: 2026-07-23
+dateSource: huggingface
+summary: Open video generation model from Lightricks, widely used in ComfyUI with many LoRAs.
+tasks: [video-generation]
+architecture: diffusion
+access: open-weights
+license: { id: LTX-2.x-Community, commercial: limited, note: "Free for companies under $10M annual revenue; above that a paid commercial licence is required." }
+io: { in: [text, image], out: [video] }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/Lightricks/LTX-2.5
+  repo: https://github.com/Lightricks/LTX-2
+strengths: [Very popular (most downloaded open video model here), Large LoRA ecosystem]
+limitations: [Revenue cap in the licence]
+tags: [comfyui, video]
+lastChecked: 2026-11-08

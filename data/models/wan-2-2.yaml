@@ -1,0 +1,23 @@
+id: wan-2-2
+name: Wan 2.2
+org: Alibaba Wan team
+released: 2025-07-18
+dateSource: huggingface
+summary: Apache-2.0 video generation family; the 5B TI2V does text- and image-to-video at 720p 24 fps.
+tasks: [video-generation]
+architecture: moe-transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, image], out: [video] }
+hardware: { platforms: [cuda], note: The 5B fits consumer GPUs; the A14B models need far more memory. }
+variants:
+  - { name: TI2V 5B, params: 5, weights: https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B, note: 720p 24 fps }
+  - { name: I2V A14B, weights: https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B, note: MoE }
+  - { name: Animate 14B, weights: https://huggingface.co/Wan-AI/Wan2.2-Animate-14B, note: Character animation }
+links:
+  repo: https://github.com/Wan-Video/Wan2.2
+  weights: https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B
+strengths: ["Fully permissive licence", "Many variants (animate, speech-to-video)", "Huge community"]
+limitations: [Short clips]
+tags: [comfyui, video]
+lastChecked: 2026-11-08

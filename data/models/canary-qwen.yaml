@@ -1,0 +1,21 @@
+id: canary-qwen
+name: Canary-Qwen 2.5B
+org: NVIDIA
+released: 2025-06-26
+dateSource: huggingface
+summary: English speech recognition with punctuation that can also post-process transcripts via its LLM.
+tasks: [speech-to-text]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-4.0, commercial: yes }
+io: { in: [audio], out: [text] }
+params: { total: 2.56 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/nvidia/canary-qwen-2.5b
+benchmarks:
+  - { name: Inverse real-time factor, score: 418, unit: RTFx, setting: NVIDIA's measurement, selfReported: true, source: https://huggingface.co/nvidia/canary-qwen-2.5b }
+strengths: [Very fast, Summaries and Q&A over the transcript]
+limitations: [English only]
+tags: [asr, nemo]
+lastChecked: 2026-11-08

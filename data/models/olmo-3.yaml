@@ -1,0 +1,21 @@
+id: olmo-3
+name: Olmo 3
+org: Ai2
+released: 2025-11-19
+dateSource: huggingface
+summary: Fully open models (weights, data, code and training details) in 7B and 32B, Instruct and Think variants.
+tasks: [chat, reasoning]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes, note: "Ai2 intends it for research and education under its Responsible Use Guidelines." }
+io: { in: [text], out: [text, code] }
+hardware: { platforms: [cuda, apple-silicon] }
+variants:
+  - { name: 32B Think, params: 32.2, weights: https://huggingface.co/allenai/Olmo-3-32B-Think }
+  - { name: 7B Instruct, params: 7, weights: https://huggingface.co/allenai/Olmo-3-7B-Instruct }
+links:
+  weights: https://huggingface.co/allenai/Olmo-3-32B-Think
+strengths: ["Everything is open, including training data", "Good for research and auditing"]
+limitations: [Behind the strongest open-weights models]
+tags: [open-science, ai2]
+lastChecked: 2026-11-08

@@ -1,0 +1,23 @@
+id: qwen3-asr
+name: Qwen3-ASR
+org: Qwen (Alibaba)
+released: 2026-01-28
+dateSource: huggingface
+summary: Speech recognition and language identification for 52 languages and dialects, in 0.6B and 1.7B, Apache-2.0.
+tasks: [speech-to-text]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [audio], out: [text] }
+params: { total: 2.35 }
+hardware: { platforms: [cuda, cpu, apple-silicon], note: GGUF builds run with llama.cpp-style tools. }
+variants:
+  - { name: 0.6B, weights: https://huggingface.co/Qwen/Qwen3-ASR-0.6B }
+  - { name: 1.7B, weights: https://huggingface.co/Qwen/Qwen3-ASR-1.7B }
+links:
+  weights: https://huggingface.co/Qwen/Qwen3-ASR-1.7B
+  repo: https://github.com/QwenLM/Qwen3-ASR
+strengths: [52 languages and dialects, Small, Commercial use allowed]
+limitations: [Short-form focus; use a long-audio pipeline for hours of audio]
+tags: [asr, multilingual]
+lastChecked: 2026-11-08

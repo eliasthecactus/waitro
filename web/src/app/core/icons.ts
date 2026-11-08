@@ -6,7 +6,7 @@ import {
   LucideScale, LucideScanFace, LucideScanSearch, LucideScanText, LucideShieldCheck, LucideSigma, LucideSmartphone,
   LucideSparkles, LucideSquareDashed, LucideStethoscope, LucideType, LucideUsers, LucideVideo, LucideVolume2,
   LucideWandSparkles, LucideWaypoints, LucideZap, LucideZoomIn, LucideGauge, LucideLanguages, LucideLayers,
-  LucideFlaskConical, LucideBanknote,
+  LucideFlaskConical, LucideBanknote, LucideChartLine, LucideEye, LucideScan, LucideLayers3, LucideRotate3d, LucideMusic, LucideSplit,
 } from '@lucide/angular';
 
 type IconMap = Record<string, any>;
@@ -35,10 +35,12 @@ export const TASK_ICON: IconMap = {
   agents: LucideBot,
   'on-device-llm': LucideSmartphone,
   embeddings: LucideWaypoints,
+  translation: LucideLanguages,
   medical: LucideStethoscope,
   legal: LucideScale,
   'life-sciences': LucideDna,
   cybersecurity: LucideShieldCheck,
+  forecasting: LucideChartLine,
   'image-generation': LucideWandSparkles,
   'image-editing': LucideBrush,
   segmentation: LucideScanSearch,
@@ -46,6 +48,11 @@ export const TASK_ICON: IconMap = {
   ocr: LucideScanText,
   'face-restoration': LucideScanFace,
   'image-upscaling': LucideZoomIn,
+  'image-understanding': LucideEye,
+  'object-detection': LucideScan,
+  'depth-estimation': LucideLayers3,
+  '3d-generation': LucideRotate3d,
+  'video-generation': LucideVideo,
   'video-upscaling': LucideMonitorUp,
   'video-restoration': LucideFilm,
   'frame-interpolation': LucideFastForward,
@@ -53,6 +60,8 @@ export const TASK_ICON: IconMap = {
   diarization: LucideUsers,
   'text-to-speech': LucideVolume2,
   'voice-cloning': LucideAudioWaveform,
+  'music-generation': LucideMusic,
+  'audio-separation': LucideSplit,
 };
 
 export const IO_ICON: IconMap = {
@@ -64,6 +73,10 @@ export const IO_ICON: IconMap = {
   embedding: LucideBinary,
   mask: LucideSquareDashed,
   structured: LucideBraces,
+  '3d': LucideBox,
+  depth: LucideLayers3,
+  timeseries: LucideChartLine,
+  protein: LucideDna,
 };
 
 export const PLATFORM_ICON: IconMap = {

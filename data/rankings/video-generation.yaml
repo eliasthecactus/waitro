@@ -1,0 +1,15 @@
+task: video-generation
+updated: 2026-11-08
+picks:
+  - id: wan-2-2
+    label: "Most permissive"
+    why: "Apache-2.0, a 5B model for consumer GPUs and a large community."
+  - id: ltx-2-5
+    label: "Most popular"
+    why: "Huge LoRA ecosystem; free under $10M revenue."
+  - id: hunyuanvideo-1-5
+    label: "Lowest VRAM"
+    why: "8.3B, runs in as little as 6 GB with community tools."
+  - id: minimax-h3
+    label: "Video with sound"
+    why: "Native speech and audio; licence excludes the EU, UK, South Korea and USA."

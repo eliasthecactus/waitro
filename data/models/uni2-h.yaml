@@ -1,0 +1,18 @@
+id: uni2-h
+name: UNI2-h
+org: Mahmood Lab (Harvard / Mass General Brigham)
+released: 2025-01-10
+dateSource: huggingface
+summary: Pathology foundation model that turns histology image tiles into features for downstream classifiers.
+tasks: [medical]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-NC-ND-4.0, commercial: no, note: "Academic research only; gated download with registration." }
+io: { in: [image], out: [embedding] }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/MahmoodLab/UNI2-h
+strengths: [Strong general-purpose pathology features]
+limitations: ["Non-commercial, no derivatives", "Not a medical device", "Needs your own classifier on top"]
+tags: [pathology, health]
+lastChecked: 2026-11-08

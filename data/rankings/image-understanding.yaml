@@ -1,0 +1,12 @@
+task: image-understanding
+updated: 2026-11-08
+picks:
+  - id: qwen3-vl
+    label: "Best all-round"
+    why: "Images, documents and long video, from 4B to 235B, Apache-2.0."
+  - id: moondream-3
+    label: "Efficient"
+    why: "2B active parameters with detection and pointing."
+  - id: smolvlm2
+    label: "Tiny"
+    why: "Video and image understanding in about 5 GB of GPU memory."

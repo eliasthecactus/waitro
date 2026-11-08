@@ -1,0 +1,20 @@
+id: dots-ocr
+name: dots.ocr
+org: rednote hi lab
+released: 2025-07-30
+dateSource: huggingface
+summary: Multilingual document layout and content parsing in one compact vision-language model, MIT licence.
+tasks: [ocr]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [image], out: [text, structured] }
+params: { total: 3 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/dots-studio/dots.ocr
+  repo: https://github.com/studio-dots-ai/dots.ocr
+strengths: [Layout and text in one pass, Strong on many languages]
+limitations: [Struggles with very dense pages unless you raise the DPI]
+tags: [documents, multilingual]
+lastChecked: 2026-11-08

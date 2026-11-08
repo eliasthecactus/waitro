@@ -1,0 +1,19 @@
+id: voxtral-realtime
+name: Voxtral Mini 4B Realtime
+org: Mistral AI
+released: 2026-01-21
+dateSource: huggingface
+summary: Multilingual streaming transcription with accuracy close to offline models, Apache-2.0.
+tasks: [speech-to-text]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [audio], out: [text] }
+params: { total: 4.4 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602
+strengths: [Real-time streaming, Apache-2.0]
+limitations: [Needs a GPU for real time]
+tags: [asr, streaming, mistral]
+lastChecked: 2026-11-08

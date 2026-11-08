@@ -1,0 +1,21 @@
+id: ace-step-1-5
+name: ACE-Step 1.5
+org: ACE Studio & StepFun
+released: 2026-01-23
+dateSource: huggingface
+summary: Fast open music generation on consumer hardware (under 4 GB VRAM), trained on licensed music, MIT licence.
+tasks: [music-generation]
+architecture: diffusion
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [text, audio], out: [audio] }
+hardware: { platforms: [cuda, apple-silicon], minVramGB: 4 }
+links:
+  weights: https://huggingface.co/ACE-Step/Ace-Step1.5
+  repo: https://github.com/ace-step/ACE-Step-1.5
+benchmarks:
+  - { name: Full song generation time, score: 10, unit: s, lowerIsBetter: true, setting: "RTX 3090 (under 2 s on an A100)", selfReported: true, source: https://huggingface.co/ACE-Step/Ace-Step1.5 }
+strengths: ["Commercial use of outputs", "Covers, repainting and vocal-to-BGM", "Very fast"]
+limitations: [Below the best closed music services]
+tags: [music, songs]
+lastChecked: 2026-11-08

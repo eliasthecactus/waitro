@@ -1,0 +1,20 @@
+id: smollm3
+name: SmolLM3 3B
+org: Hugging Face
+released: 2025-07-08
+dateSource: huggingface
+summary: Fully open 3B model with switchable reasoning, six languages and up to 128K context.
+tasks: [on-device-llm, chat]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [text] }
+params: { total: 3.1 }
+contextTokens: 128000
+hardware: { platforms: [cpu, apple-silicon, cuda, browser] }
+links:
+  weights: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
+strengths: [Small enough for laptops and phones, Fully open training recipe]
+limitations: [Six languages, Small-model knowledge limits]
+tags: [tiny, open-science, on-device]
+lastChecked: 2026-11-08

@@ -1,0 +1,22 @@
+id: glm-5-3-flash
+name: GLM-5.3-Flash
+org: Z.ai (Zhipu)
+released: 2026-08-25
+dateSource: huggingface
+summary: First natively multimodal GLM-5 model, 320B total with 18B active, MIT licence.
+description: |
+  Starts from a newly trained base model. Z.ai says it beats GLM-5.2 across benchmarks at one tenth of the price and
+  approaches Claude Opus 4.8 on coding and agent benchmarks.
+tasks: [chat, coding, agents]
+architecture: moe-transformer
+access: both
+license: { id: MIT, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+params: { total: 320, active: 18 }
+hardware: { platforms: [cuda], note: Multi-GPU server; cheap per token thanks to 18B active parameters. }
+links:
+  weights: https://huggingface.co/zai-org/GLM-5.3-Flash
+strengths: [MIT licence, Image input, Efficient for its quality]
+limitations: [Large memory footprint]
+tags: [glm, moe, multimodal]
+lastChecked: 2026-11-08

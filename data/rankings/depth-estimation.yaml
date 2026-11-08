@@ -1,0 +1,9 @@
+task: depth-estimation
+updated: 2026-11-08
+picks:
+  - id: depth-anything-3
+    label: "Best all-round"
+    why: "Multi-view depth, camera poses and metric depth, Apache-2.0."
+  - id: marigold-v2
+    label: "Sharpest detail"
+    why: "Diffusion-based, slower but very fine edges."

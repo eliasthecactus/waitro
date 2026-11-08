@@ -9,3 +9,11 @@ picks:
     rank: 2
     label: "Text with rerankers"
     why: "Mature text embeddings with matching rerankers."
+  - id: bge-m3
+    rank: 3
+    label: "Hybrid retrieval"
+    why: "Dense, sparse and multi-vector in one MIT-licensed model."
+  - id: qwen3-vl-embedding
+    rank: 4
+    label: "Documents and screenshots"
+    why: "Search over images, screenshots and video, Apache-2.0."

@@ -1,0 +1,19 @@
+id: virchow2
+name: Virchow2
+org: Paige
+released: 2024-08-05
+dateSource: huggingface
+summary: 632M-parameter pathology foundation model for whole-slide image features.
+tasks: [medical]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-NC-ND-4.0, commercial: no, note: Gated download. }
+io: { in: [image], out: [embedding] }
+params: { total: 0.63 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/paige-ai/Virchow2
+strengths: [Strong pathology features]
+limitations: ["Non-commercial, no derivatives", "Not a medical device"]
+tags: [pathology, health]
+lastChecked: 2026-11-08

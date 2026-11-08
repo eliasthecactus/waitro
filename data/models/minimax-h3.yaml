@@ -1,0 +1,19 @@
+id: minimax-h3
+name: MiniMax H3
+org: MiniMax (Hailuo)
+released: 2026-07-28
+dateSource: huggingface
+summary: Omni-modal generative system that makes video with native sound and dialogue from text, image, video and audio references.
+tasks: [video-generation]
+architecture: transformer
+access: both
+license: { id: MiniMax-H3-Community, commercial: limited, note: "Not licensed in the EU, UK, South Korea or the USA." }
+io: { in: [text, image, video, audio], out: [video, audio] }
+params: { total: 33.1 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/MiniMaxAI/MiniMax-H3
+strengths: [Video with synchronised speech and sound, Multi-reference input, Dialogue in 11 languages]
+limitations: ["Licence excludes the EU, UK, South Korea and USA", "Heavy"]
+tags: [video, audio, hailuo]
+lastChecked: 2026-11-08

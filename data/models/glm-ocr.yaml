@@ -1,0 +1,19 @@
+id: glm-ocr
+name: GLM-OCR
+org: Z.ai (Zhipu)
+released: 2026-01-30
+dateSource: huggingface
+summary: 1.3B OCR model for complex documents, used with PP-DocLayoutV3 for layout; MIT licence.
+tasks: [ocr]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes, note: The layout model in the pipeline is Apache-2.0. }
+io: { in: [image], out: [text, structured] }
+params: { total: 1.3 }
+hardware: { platforms: [cuda, cpu] }
+links:
+  weights: https://huggingface.co/zai-org/GLM-OCR
+strengths: [Small, Permissive licence, Very widely downloaded]
+limitations: [Needs the separate layout model for full pages]
+tags: [documents, pdf]
+lastChecked: 2026-11-08

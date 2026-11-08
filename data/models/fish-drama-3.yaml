@@ -1,0 +1,19 @@
+id: fish-drama-3
+name: Fish Audio Drama 3
+org: Fish Audio
+released: 2026-10-01
+dateSource: huggingface
+summary: Multi-character, long-form TTS with voice cloning; 35B MoE with 3B active.
+tasks: [text-to-speech, voice-cloning]
+architecture: moe-transformer
+access: both
+license: { id: Fish-Audio-Community, commercial: unknown, note: Read the licence file before commercial use. }
+io: { in: [text, audio], out: [audio] }
+params: { total: 35.9, active: 3 }
+hardware: { platforms: [cuda], note: Built for high-throughput serving on data-centre GPUs. }
+links:
+  weights: https://huggingface.co/fishaudio/drama-3
+strengths: [Multi-speaker scenes and audiobooks, Streaming]
+limitations: [Heavy for local use]
+tags: [tts, audiobooks]
+lastChecked: 2026-11-08

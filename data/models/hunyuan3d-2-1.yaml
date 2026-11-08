@@ -1,0 +1,23 @@
+id: hunyuan3d-2-1
+name: Hunyuan3D 2.1
+org: Tencent Hunyuan
+released: 2025-06-13
+dateSource: huggingface
+summary: Image-to-3D shape and PBR texture generation.
+tasks: [3d-generation]
+architecture: diffusion
+access: open-weights
+license: { id: Tencent-Hunyuan-Community, commercial: limited, note: "Not licensed in the EU, UK or South Korea." }
+io: { in: [image], out: [3d] }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/tencent/Hunyuan3D-2.1
+  repo: https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1
+strengths: [Physically based (PBR) textures, Popular in ComfyUI]
+limitations: [Territory restrictions]
+betterOptions:
+  - id: trellis-2
+    why: Newer, MIT-licensed with no territory restrictions, and generates textured assets at higher resolution.
+    aspects: [license, quality]
+tags: [3d, mesh]
+lastChecked: 2026-11-08

@@ -1,0 +1,22 @@
+id: translategemma
+name: TranslateGemma
+org: Google
+released: 2026-01-12
+dateSource: huggingface
+summary: Gemma models tuned for translation, in 4B, 12B and 27B, with image input.
+tasks: [translation]
+architecture: transformer
+access: open-weights
+license: { id: Gemma-Terms, commercial: yes, note: "Gemma Terms of Use and prohibited-use policy; gated download." }
+io: { in: [text, image], out: [text] }
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+variants:
+  - { name: 4B, params: 4, weights: https://huggingface.co/google/translategemma-4b-it }
+  - { name: 12B, params: 12, weights: https://huggingface.co/google/translategemma-12b-it }
+  - { name: 27B, params: 27.4, weights: https://huggingface.co/google/translategemma-27b-it }
+links:
+  weights: https://huggingface.co/google/translategemma-27b-it
+strengths: [Commercial use allowed, Sizes from laptop to server]
+limitations: [Gated download]
+tags: [translation, gemma]
+lastChecked: 2026-11-08

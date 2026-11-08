@@ -1,0 +1,19 @@
+id: hidream-o1
+name: HiDream-O1-Image
+org: HiDream.ai
+released: 2026-05-08
+dateSource: huggingface
+summary: 8B pixel-level unified transformer for generation, editing and personalisation up to 2048×2048, MIT licence.
+tasks: [image-generation, image-editing]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes, note: "Uses Gemma weights, which have their own terms." }
+io: { in: [text, image], out: [image] }
+params: { total: 8.8 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/HiDream-ai/HiDream-O1-Image
+strengths: ["Native 2K output without a VAE", "Generation, editing and subject personalisation in one"]
+limitations: [Needs the Gemma licence accepted]
+tags: [high-res]
+lastChecked: 2026-11-08

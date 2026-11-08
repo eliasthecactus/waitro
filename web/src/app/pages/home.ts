@@ -293,7 +293,8 @@ export class HomePage implements OnDestroy {
     [...(this.api.models() ?? [])].filter(m => m.released).sort((a, b) => b.released!.localeCompare(a.released!)).slice(0, 6));
   protected readonly replaced = computed(() => {
     const byId = this.api.modelById();
-    return (this.api.models() ?? []).flatMap(m => m.better.slice(0, 1).map(b => ({ old: m, next: byId.get(b.id)!, aspects: b.aspects.slice(0, 2) })));
+    return (this.api.models() ?? []).flatMap(m => m.better.slice(0, 1).map(b => ({ old: m, next: byId.get(b.id)!, aspects: b.aspects.slice(0, 2) })))
+      .sort((x, y) => (y.next.released ?? '').localeCompare(x.next.released ?? '')).slice(0, 10);
   });
 
   constructor() {

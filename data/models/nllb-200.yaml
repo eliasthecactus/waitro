@@ -1,0 +1,25 @@
+id: nllb-200
+name: NLLB-200
+org: Meta
+released: 2022-07-08
+dateSource: huggingface
+summary: Translation between 200 languages, including many low-resource ones; non-commercial licence.
+tasks: [translation]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-NC-4.0, commercial: no }
+io: { in: [text], out: [text] }
+hardware: { platforms: [cuda, cpu, apple-silicon] }
+variants:
+  - { name: distilled 600M, params: 0.6, weights: https://huggingface.co/facebook/nllb-200-distilled-600M }
+  - { name: 3.3B, params: 3.3, weights: https://huggingface.co/facebook/nllb-200-3.3B }
+links:
+  weights: https://huggingface.co/facebook/nllb-200-3.3B
+strengths: [200 languages, Strong on low-resource languages]
+limitations: [Non-commercial, Sentence-level, From 2022]
+betterOptions:
+  - id: translategemma
+    why: Newer translation-tuned Gemma models whose terms allow commercial use, unlike NLLB's CC-BY-NC.
+    aspects: [license]
+tags: [translation, multilingual]
+lastChecked: 2026-11-08

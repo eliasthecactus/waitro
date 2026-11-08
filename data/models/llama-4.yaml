@@ -1,0 +1,21 @@
+id: llama-4
+name: Llama 4 (Scout, Maverick)
+org: Meta
+released: 2025-04-01
+dateSource: huggingface
+summary: Meta's natively multimodal MoE models with 17B active parameters; Scout has 16 experts, Maverick 128.
+tasks: [chat]
+architecture: moe-transformer
+access: open-weights
+license: { id: Llama-4-Community, commercial: limited, note: "Commercial use allowed except for companies with over 700M monthly users; gated download." }
+io: { in: [text, image], out: [text] }
+hardware: { platforms: [cuda, apple-silicon] }
+variants:
+  - { name: Scout 17B-16E, params: 108.6, weights: https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct }
+  - { name: Maverick 17B-128E, params: 401.6, weights: https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct }
+links:
+  weights: https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct
+strengths: [Huge ecosystem and tooling, Image input]
+limitations: [From April 2025; newer open models are stronger, Gated licence]
+tags: [llama, meta, moe]
+lastChecked: 2026-11-08

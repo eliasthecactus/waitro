@@ -1,0 +1,18 @@
+id: gfpgan
+name: GFPGAN
+org: Tencent ARC
+released: 2021-03-19
+dateSource: github
+summary: Classic blind face restoration with a GAN prior; Apache-2.0 apart from some third-party parts.
+tasks: [face-restoration]
+architecture: gan
+access: open-weights
+license: { id: Apache-2.0 (with exceptions), commercial: limited, note: "Some third-party components (e.g. StyleGAN2 ops) have their own licences." }
+io: { in: [image], out: [image] }
+hardware: { platforms: [cuda, cpu, apple-silicon] }
+links:
+  repo: https://github.com/TencentARC/GFPGAN
+strengths: [Fast, Built into many tools]
+limitations: [From 2021, Can look smooth or plastic]
+tags: [faces, classic]
+lastChecked: 2026-11-08

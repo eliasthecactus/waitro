@@ -1,0 +1,20 @@
+id: deepseek-ocr-2
+name: DeepSeek-OCR 2
+org: DeepSeek
+released: 2026-01-27
+dateSource: huggingface
+summary: 3B OCR model that compresses page images into few visual tokens for fast document parsing.
+tasks: [ocr]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [image], out: [text, structured] }
+params: { total: 3.4 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/deepseek-ai/DeepSeek-OCR-2
+  repo: https://github.com/deepseek-ai/DeepSeek-OCR-2
+strengths: [Few tokens per page, PDF processing tools]
+limitations: [NVIDIA GPU for the reference code]
+tags: [documents, pdf]
+lastChecked: 2026-11-08

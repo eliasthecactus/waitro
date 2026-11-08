@@ -1,0 +1,12 @@
+task: music-generation
+updated: 2026-11-08
+picks:
+  - id: ace-step-1-5
+    label: "Best open choice"
+    why: "Fast on consumer GPUs, trained on licensed music, MIT licence."
+  - id: minimax-music-3
+    label: "Longest songs"
+    why: "Full songs up to five minutes with vocals."
+  - id: stable-audio-3
+    label: "Sound effects"
+    why: "Music and SFX models, small versions for on-device use."

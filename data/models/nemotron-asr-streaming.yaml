@@ -1,0 +1,19 @@
+id: nemotron-asr-streaming
+name: Nemotron 3.5 ASR Streaming 0.6B
+org: NVIDIA
+released: 2026-05-15
+dateSource: huggingface
+summary: Small streaming speech recognition for 40 language-locales (32 ready out of the box).
+tasks: [speech-to-text]
+architecture: transformer
+access: open-weights
+license: { id: OpenMDW-1.1, commercial: yes }
+io: { in: [audio], out: [text] }
+params: { total: 0.64 }
+hardware: { platforms: [cuda, cpu] }
+links:
+  weights: https://huggingface.co/nvidia/nemotron-3.5-asr-streaming-0.6b
+strengths: [Low latency, Tiny, Language-ID prompt]
+limitations: [Some locales need fine-tuning first]
+tags: [asr, streaming, nemo]
+lastChecked: 2026-11-08

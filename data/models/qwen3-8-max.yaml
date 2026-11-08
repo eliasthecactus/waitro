@@ -1,0 +1,20 @@
+id: qwen3-8-max
+name: Qwen3.8 2.4T-A95B (Max)
+org: Qwen (Alibaba)
+released: 2026-08-08
+dateSource: huggingface
+summary: Qwen's largest open model, 2.4T total with 95B active; the hosted version is Qwen3.8-Max.
+tasks: [chat, coding, reasoning, agents]
+architecture: moe-transformer
+access: both
+license: { id: Qwen3.8-Max-License, commercial: limited, note: "Products with over 100M monthly users or $20M monthly revenue must show the model name." }
+io: { in: [text], out: [text, code] }
+params: { total: 2446, active: 95 }
+contextTokens: 262144
+hardware: { platforms: [cuda], note: Data-centre cluster. Context extends to about 1M tokens. }
+links:
+  weights: https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B
+strengths: [Flagship-level open weights, Adjustable reasoning effort]
+limitations: [Needs a cluster to run, Text only in the open weights]
+tags: [qwen, moe, frontier-open]
+lastChecked: 2026-11-08

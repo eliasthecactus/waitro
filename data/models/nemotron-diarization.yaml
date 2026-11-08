@@ -1,0 +1,19 @@
+id: nemotron-diarization
+name: Nemotron 3 Diarization
+org: NVIDIA
+released: 2026-09-01
+dateSource: huggingface
+summary: Who spoke when, streaming or offline, for up to eight speakers; about 100M parameters.
+tasks: [diarization]
+architecture: transformer
+access: open-weights
+license: { id: OpenMDW-1.1, commercial: yes }
+io: { in: [audio], out: [structured] }
+params: { total: 0.1 }
+hardware: { platforms: [cuda, cpu] }
+links:
+  weights: https://huggingface.co/nvidia/Nemotron-3-Diarization
+strengths: [Streaming mode, Commercial use allowed, Small]
+limitations: [Up to eight speakers]
+tags: [speakers, meetings, nemo]
+lastChecked: 2026-11-08

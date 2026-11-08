@@ -1,0 +1,22 @@
+id: rf-detr
+name: RF-DETR
+org: Roboflow
+released: 2025-03-19
+dateSource: github
+summary: Real-time detection transformer (with segmentation variants), Apache-2.0, easy to fine-tune.
+tasks: [object-detection, segmentation]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [image, video], out: [structured, mask] }
+hardware: { platforms: [cuda, cpu, onnx], note: Sizes from nano to 2XL. }
+variants:
+  - { name: Large, weights: https://huggingface.co/Roboflow/rf-detr-large }
+  - { name: Segmentation, weights: https://huggingface.co/Roboflow/rf-detr-segmentation }
+links:
+  repo: https://github.com/roboflow/rf-detr
+  weights: https://huggingface.co/Roboflow/rf-detr-large
+strengths: [Apache-2.0 unlike YOLO, Real time, Fine-tunes well on small datasets]
+limitations: [Fewer ready-made tasks than YOLO]
+tags: [detection, real-time]
+lastChecked: 2026-11-08

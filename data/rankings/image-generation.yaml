@@ -2,14 +2,14 @@ task: image-generation
 updated: 2026-11-08
 picks:
   - id: flux2-klein
-    rank: 1
-    label: "Best open pick for most people"
+    label: "Best for most people"
     why: "Sub-second, consumer GPU, Apache-2.0 at 4B."
+  - id: hidream-o1
+    label: "Native 2K, MIT"
+    why: "Generation and editing up to 2048×2048 in an 8B model."
   - id: flux2-dev
-    rank: 2
-    label: "Highest open quality"
+    label: "High quality, non-commercial"
     why: "Bigger and better, but non-commercial and heavy."
-  - id: qwen-image-2-1
-    rank: 3
-    label: "Strong editing"
-    why: "Generation and editing in one 7B model; research licence."
+  - id: hunyuanimage-3
+    label: "Reasons about prompts"
+    why: "The largest open image MoE; territory limits in the licence."

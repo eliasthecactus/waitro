@@ -1,0 +1,18 @@
+id: supir
+name: SUPIR
+org: Fanghua Yu, Jinjin Gu et al.
+released: 2023-12-21
+dateSource: github
+summary: SDXL-based diffusion image restoration and upscaling with very realistic detail; non-commercial.
+tasks: [image-upscaling, face-restoration]
+architecture: diffusion
+access: open-weights
+license: { id: Non-Commercial, commercial: no, note: "The authors add a non-commercial-only condition." }
+io: { in: [image, text], out: [image] }
+hardware: { platforms: [cuda], note: Heavy; ComfyUI ports exist. }
+links:
+  repo: https://github.com/Fanghua-Yu/SUPIR
+strengths: [Photorealistic restoration of very degraded photos, Text guidance]
+limitations: [Non-commercial, Slow, Can hallucinate detail]
+tags: [restoration, comfyui]
+lastChecked: 2026-11-08

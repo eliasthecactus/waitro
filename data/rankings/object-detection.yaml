@@ -1,0 +1,12 @@
+task: object-detection
+updated: 2026-11-08
+picks:
+  - id: rf-detr
+    label: "Best for commercial use"
+    why: "Real-time detection under Apache-2.0, fine-tunes well."
+  - id: yolo26
+    label: "Best tooling"
+    why: "Many tasks and easy export; AGPL or a paid licence."
+  - id: moondream-3
+    label: "Open vocabulary"
+    why: "Detect and point at anything you describe in words."

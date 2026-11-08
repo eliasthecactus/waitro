@@ -1,0 +1,19 @@
+id: higgs-tts-3
+name: Higgs TTS 3
+org: Boson AI
+released: 2026-06-04
+dateSource: huggingface
+summary: Expressive conversational speech in 100+ languages with zero-shot voice cloning and inline emotion control.
+tasks: [text-to-speech, voice-cloning]
+architecture: transformer
+access: open-weights
+license: { id: Boson-Higgs-TTS-3-Research, commercial: no, note: Research and non-commercial use only. }
+io: { in: [text, audio], out: [audio] }
+params: { total: 4.65 }
+hardware: { platforms: [cuda], note: MLX and ONNX community builds exist. }
+links:
+  weights: https://huggingface.co/bosonai/higgs-tts-3-4b
+strengths: ["Speaks rather than reads", "85 languages under 5% WER per Boson", "Inline control of emotion, pauses and sound effects"]
+limitations: [Non-commercial]
+tags: [tts, voice-agents]
+lastChecked: 2026-11-08

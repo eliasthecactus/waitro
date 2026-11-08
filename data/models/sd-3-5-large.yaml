@@ -1,0 +1,27 @@
+id: sd-3-5-large
+name: Stable Diffusion 3.5 Large
+org: Stability AI
+released: 2024-10-22
+dateSource: huggingface
+summary: 8B MMDiT image model with a large fine-tune and ControlNet ecosystem.
+tasks: [image-generation]
+architecture: diffusion
+access: open-weights
+license: { id: Stability-AI-Community, commercial: limited, note: "Free for organisations under $1M annual revenue; above that you need an enterprise licence." }
+io: { in: [text], out: [image] }
+params: { total: 8.1 }
+hardware: { platforms: [cuda, apple-silicon] }
+variants:
+  - { name: Large, weights: https://huggingface.co/stabilityai/stable-diffusion-3.5-large }
+  - { name: Large Turbo, weights: https://huggingface.co/stabilityai/stable-diffusion-3.5-large-turbo }
+  - { name: Medium, weights: https://huggingface.co/stabilityai/stable-diffusion-3.5-medium }
+links:
+  weights: https://huggingface.co/stabilityai/stable-diffusion-3.5-large
+strengths: [Mature tooling, LoRAs and ControlNets]
+limitations: [From 2024, Revenue cap]
+betterOptions:
+  - id: flux2-klein
+    why: Newer, fully Apache-2.0 at 4B and much faster on a consumer GPU.
+    aspects: [license, speed]
+tags: [stable-diffusion, comfyui]
+lastChecked: 2026-11-08

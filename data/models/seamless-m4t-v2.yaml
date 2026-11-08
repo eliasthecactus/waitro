@@ -1,0 +1,19 @@
+id: seamless-m4t-v2
+name: SeamlessM4T v2
+org: Meta
+released: 2023-11-29
+dateSource: huggingface
+summary: One model for speech and text translation (speech-to-speech, speech-to-text, text-to-speech) in about 100 languages.
+tasks: [translation, speech-to-text, text-to-speech]
+architecture: transformer
+access: open-weights
+license: { id: CC-BY-NC-4.0, commercial: no }
+io: { in: [audio, text], out: [text, audio] }
+params: { total: 2.3 }
+hardware: { platforms: [cuda, cpu] }
+links:
+  weights: https://huggingface.co/facebook/seamless-m4t-v2-large
+strengths: [Speech-to-speech in one model, About 100 languages]
+limitations: [Non-commercial, From 2023]
+tags: [speech, translation, multilingual]
+lastChecked: 2026-11-08

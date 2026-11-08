@@ -1,0 +1,19 @@
+id: timesfm-3
+name: TimesFM 3.0
+org: Google Research
+released: 2026-08-24
+dateSource: huggingface
+summary: Pretrained time-series foundation model for zero-shot forecasting; non-commercial licence.
+tasks: [forecasting]
+architecture: transformer
+access: open-weights
+license: { id: TimesFM-Non-Commercial-1.0, commercial: no }
+io: { in: [timeseries], out: [timeseries] }
+params: { total: 0.33 }
+hardware: { platforms: [cpu, cuda, apple-silicon] }
+links:
+  weights: https://huggingface.co/google/timesfm-3.0-pytorch
+strengths: [Forecasts without training on your data, Small]
+limitations: [Non-commercial]
+tags: [timeseries, forecasting]
+lastChecked: 2026-11-08

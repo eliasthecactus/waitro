@@ -1,0 +1,21 @@
+id: jina-embeddings-v5-omni
+name: jina-embeddings-v5-omni
+org: Jina AI
+released: 2026-04-01
+dateSource: huggingface
+summary: Multimodal embedding model for text, images, video and audio in one vector space.
+tasks: [embeddings]
+architecture: transformer
+access: both
+license: { id: CC-BY-NC-4.0, commercial: no, note: Commercial use via Jina's API or a licence. }
+io: { in: [text, image, video, audio], out: [embedding] }
+params: { total: 1.6 }
+hardware: { platforms: [cuda, apple-silicon, cpu], note: Unused vision or audio towers can be skipped to save memory. }
+variants:
+  - { name: small, params: 1.6, weights: https://huggingface.co/jinaai/jina-embeddings-v5-omni-small }
+links:
+  weights: https://huggingface.co/jinaai/jina-embeddings-v5-omni-small
+strengths: [Four modalities in one space, Small]
+limitations: [Non-commercial open weights]
+tags: [rag, multimodal]
+lastChecked: 2026-11-08

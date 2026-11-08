@@ -1,0 +1,20 @@
+id: olmocr-2
+name: olmOCR 2
+org: Ai2
+released: 2025-10-06
+dateSource: huggingface
+summary: 7B PDF-to-text model for converting large document collections to clean Markdown, Apache-2.0.
+tasks: [ocr]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes, note: Ai2 intends it for research and education. }
+io: { in: [image], out: [text] }
+params: { total: 8.3 }
+hardware: { platforms: [cuda], note: Use the FP8 version for inference. }
+links:
+  weights: https://huggingface.co/allenai/olmOCR-2-7B-1025
+  repo: https://github.com/allenai/olmocr
+strengths: [Batch pipeline for millions of PDFs, Good reading order]
+limitations: [Larger than the newest compact OCR models]
+tags: [documents, pdf]
+lastChecked: 2026-11-08

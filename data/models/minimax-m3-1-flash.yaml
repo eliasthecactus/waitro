@@ -1,0 +1,23 @@
+id: minimax-m3-1-flash
+name: MiniMax-M3.1-Flash
+org: MiniMax
+released: 2026-10-17
+dateSource: huggingface
+summary: Multimodal MoE for coding, agents, computer use and cybersecurity; 1M context, about 23B active parameters.
+description: |
+  Builds on MiniMax-M3 with sparse attention throughout, quantization-aware training and speculative decoding, so it
+  runs faster while improving task performance.
+tasks: [coding, agents, chat, cybersecurity]
+architecture: moe-transformer
+access: both
+license: { id: MiniMax-Community, commercial: limited, note: "Commercial use must credit MiniMax; above $20M yearly revenue you need authorisation." }
+io: { in: [text, image, video], out: [text, code] }
+params: { total: 428, active: 23 }
+contextTokens: 1000000
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash
+strengths: [Computer use and cybersecurity, Faster than M3]
+limitations: [Large]
+tags: [minimax, moe, agents]
+lastChecked: 2026-11-08

@@ -1,0 +1,21 @@
+id: hy-simulmt
+name: Hy-SimulMT 30B-A3B
+org: Tencent Hunyuan
+released: 2026-10-22
+dateSource: huggingface
+summary: Real-time simultaneous speech translation between Chinese and English, with voice cloning, about 3 s lag.
+tasks: [translation, speech-to-text]
+architecture: moe-transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [audio], out: [text, audio] }
+params: { total: 30.4, active: 3 }
+hardware: { platforms: [cuda], note: FP8 and GGUF builds available. }
+links:
+  weights: https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-Interleave
+benchmarks:
+  - { name: RealSI StreamLAAL (lag), score: 3, unit: s, lowerIsBetter: true, setting: approximate, selfReported: true, source: https://huggingface.co/tencent/Hy-SimulMT-30B-A3B-Interleave }
+strengths: [Translates while the speaker talks, Keeps the speaker's voice]
+limitations: [Chinese and English only]
+tags: [live, speech, translation]
+lastChecked: 2026-11-08

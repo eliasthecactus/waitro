@@ -1,0 +1,23 @@
+id: stable-audio-3
+name: Stable Audio 3
+org: Stability AI
+released: 2026-05-17
+dateSource: huggingface
+summary: Text-to-audio for music and sound effects, with a medium model and small music and SFX models.
+tasks: [music-generation]
+architecture: diffusion
+access: open-weights
+license: { id: Stability-AI-Community, commercial: limited, note: "Free for organisations under $1M annual revenue; gated download." }
+io: { in: [text, audio], out: [audio] }
+params: { total: 2.3 }
+hardware: { platforms: [cuda, apple-silicon] }
+variants:
+  - { name: Medium, params: 2.3, weights: https://huggingface.co/stabilityai/stable-audio-3-medium }
+  - { name: Small music, weights: https://huggingface.co/stabilityai/stable-audio-3-small-music }
+  - { name: Small SFX, weights: https://huggingface.co/stabilityai/stable-audio-3-small-sfx }
+links:
+  weights: https://huggingface.co/stabilityai/stable-audio-3-medium
+strengths: [Sound effects as well as music, Small models for on-device]
+limitations: [Revenue cap]
+tags: [music, sfx]
+lastChecked: 2026-11-08

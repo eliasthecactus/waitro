@@ -1,0 +1,18 @@
+id: minimax-music-3
+name: MiniMax Music 3
+org: MiniMax
+released: 2026-08-07
+dateSource: huggingface
+summary: Full songs up to five minutes with vocals from lyrics and a music description.
+tasks: [music-generation]
+architecture: hybrid
+access: both
+license: { id: MiniMax-Music3-Community, commercial: limited, note: "Above $20M yearly revenue you need MiniMax's authorisation." }
+io: { in: [text], out: [audio] }
+hardware: { platforms: [cuda], minVramGB: 8, note: "Under 24 GB at full precision; streaming layers fits 8 GB cards." }
+links:
+  weights: https://huggingface.co/MiniMaxAI/MiniMax-Music3
+strengths: [Five-minute songs with coherent structure, Expressive vocals]
+limitations: [Revenue threshold in the licence]
+tags: [music, songs, vocals]
+lastChecked: 2026-11-08

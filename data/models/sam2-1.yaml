@@ -1,0 +1,23 @@
+id: sam2-1
+name: SAM 2.1
+org: Meta
+released: 2024-09-24
+dateSource: huggingface
+summary: Promptable segmentation and tracking in images and video with clicks, boxes or masks; Apache-2.0.
+tasks: [segmentation]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [image, video], out: [mask] }
+params: { total: 0.22 }
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+links:
+  weights: https://huggingface.co/facebook/sam2.1-hiera-large
+strengths: [Apache-2.0, Small and fast, Huge tooling support]
+limitations: [No text prompts]
+betterOptions:
+  - id: sam3
+    why: SAM 3.1 adds text prompts ("all red cars") and faster multi-object tracking. Its licence is a custom Meta licence instead of Apache-2.0.
+    aspects: [quality]
+tags: [meta, tracking]
+lastChecked: 2026-11-08

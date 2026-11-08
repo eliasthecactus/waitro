@@ -1,0 +1,19 @@
+id: granite-4-1
+name: Granite 4.1 8B
+org: IBM
+released: 2026-04-06
+dateSource: huggingface
+summary: Enterprise-oriented 8B long-context model trained on permissively licensed data, Apache-2.0.
+tasks: [chat, agents]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text], out: [text, code] }
+params: { total: 8.8 }
+hardware: { platforms: [cuda, apple-silicon, cpu] }
+links:
+  weights: https://huggingface.co/ibm-granite/granite-4.1-8b
+strengths: [Clean training-data story for enterprises, Tool calling]
+limitations: [Mostly English]
+tags: [ibm, enterprise]
+lastChecked: 2026-11-08

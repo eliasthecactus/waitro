@@ -1,0 +1,19 @@
+id: smolvlm2
+name: SmolVLM2 2.2B
+org: Hugging Face
+released: 2025-02-08
+dateSource: huggingface
+summary: Tiny video and image understanding model that needs only about 5 GB of GPU memory, Apache-2.0.
+tasks: [image-understanding, on-device-llm]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [image, video, text], out: [text] }
+params: { total: 2.25 }
+hardware: { platforms: [cuda, apple-silicon, cpu], note: 256M and 500M versions exist for phones. }
+links:
+  weights: https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct
+strengths: [Runs on laptops and phones, Video input]
+limitations: [Small-model accuracy]
+tags: [vlm, tiny, on-device]
+lastChecked: 2026-11-08

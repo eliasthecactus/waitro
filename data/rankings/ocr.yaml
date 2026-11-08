@@ -1,0 +1,15 @@
+task: ocr
+updated: 2026-11-08
+picks:
+  - id: paddleocr-vl
+    label: "Best compact parser"
+    why: "Under 1B parameters, Apache-2.0, strong on real-world scans."
+  - id: glm-ocr
+    label: "Small and MIT"
+    why: "1.3B with a separate layout model."
+  - id: unlimited-ocr-2
+    label: "Very long documents"
+    why: "Parses arbitrarily long documents within a finite context."
+  - id: olmocr-2
+    label: "Bulk PDF conversion"
+    why: "Pipeline for converting millions of PDFs to Markdown."

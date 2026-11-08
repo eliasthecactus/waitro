@@ -1,0 +1,19 @@
+id: esmfold2
+name: ESMFold2
+org: Biohub
+released: 2026-05-13
+dateSource: huggingface
+summary: Fast all-atom protein structure prediction from sequence, optionally with MSAs, MIT licence.
+tasks: [life-sciences]
+architecture: transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [protein], out: [3d, structured] }
+params: { total: 6.6 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/biohub/ESMFold2
+strengths: [Matches or beats AlphaFold3 on antibody–antigen targets per Biohub, Fast]
+limitations: [Best accuracy needs more inference compute]
+tags: [protein, structure, biology]
+lastChecked: 2026-11-08

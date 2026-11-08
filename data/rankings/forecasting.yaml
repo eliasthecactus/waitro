@@ -1,0 +1,9 @@
+task: forecasting
+updated: 2026-11-08
+picks:
+  - id: timestral
+    label: "Best for most"
+    why: "Covariates and probabilistic output, sizes from 5M; revenue cap."
+  - id: timesfm-3
+    label: "Google's model"
+    why: "Zero-shot forecasting; non-commercial."

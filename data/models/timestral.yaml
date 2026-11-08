@@ -1,0 +1,27 @@
+id: timestral
+name: Timestral
+org: Mistral AI
+released: 2026-10-14
+dateSource: huggingface
+summary: Time-series foundation models (5M to 209M) for zero-shot, multivariate, probabilistic forecasting.
+description: |
+  Supports past and known-future covariates and 21 quantiles, up to 32,768 historical steps and 1,024 forecast steps
+  per pass. Mistral reports state-of-the-art zero-shot accuracy on GIFT-Eval, TIME and fev-bench.
+tasks: [forecasting]
+architecture: transformer
+access: open-weights
+license: { id: Modified-MIT, commercial: limited, note: "Not licensed for companies with over $20M monthly revenue." }
+io: { in: [timeseries], out: [timeseries] }
+params: { total: 0.209 }
+hardware: { platforms: [cpu, cuda, apple-silicon] }
+variants:
+  - { name: 5M, params: 0.005, weights: https://huggingface.co/mistralai/Timestral-5M }
+  - { name: 28M, params: 0.028, weights: https://huggingface.co/mistralai/Timestral-28M }
+  - { name: 123M, params: 0.123, weights: https://huggingface.co/mistralai/Timestral-123M }
+  - { name: 209M, params: 0.209, weights: https://huggingface.co/mistralai/Timestral-209M }
+links:
+  weights: https://huggingface.co/mistralai/Timestral-209M
+strengths: [Tiny sizes run anywhere, Covariates and probabilistic output]
+limitations: [Revenue cap in the licence, Very new]
+tags: [timeseries, forecasting, mistral]
+lastChecked: 2026-11-08

@@ -1,0 +1,20 @@
+id: hunyuanvideo-1-5
+name: HunyuanVideo 1.5
+org: Tencent Hunyuan
+released: 2025-11-18
+dateSource: huggingface
+summary: Lightweight 8.3B video generation model that runs on consumer GPUs, with fast step-distilled versions.
+tasks: [video-generation]
+architecture: diffusion
+access: open-weights
+license: { id: Tencent-Hunyuan-Community, commercial: limited, note: "Not licensed in the EU, UK or South Korea." }
+io: { in: [text, image], out: [video] }
+params: { total: 8.3 }
+hardware: { platforms: [cuda], note: "Community tools (Wan2GP) run it in as little as 6 GB VRAM." }
+links:
+  weights: https://huggingface.co/tencent/HunyuanVideo-1.5
+  repo: https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5
+strengths: [Low VRAM, 8–12 step distilled image-to-video, Training code released]
+limitations: [Territory restrictions in the licence]
+tags: [video, comfyui]
+lastChecked: 2026-11-08

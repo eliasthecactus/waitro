@@ -1,0 +1,20 @@
+id: moondream-3
+name: Moondream 3 (Preview)
+org: M87 Labs
+released: 2025-09-11
+dateSource: huggingface
+summary: Efficient vision-language MoE (9B total, 2B active) for detection, pointing, captioning and visual Q&A.
+tasks: [image-understanding, object-detection]
+architecture: moe-transformer
+access: both
+license: { id: BSL-1.1, commercial: limited, note: "Free for personal, research and most commercial use; not for a paid service that competes with M87's own." }
+io: { in: [image, text], out: [text, structured] }
+params: { total: 9.3, active: 2 }
+contextTokens: 32000
+hardware: { platforms: [cuda, apple-silicon] }
+links:
+  weights: https://huggingface.co/moondream/moondream3-preview
+strengths: [Open-vocabulary detection and pointing, Cheap to run]
+limitations: [Preview release, Licence restriction for competing services]
+tags: [vlm, edge]
+lastChecked: 2026-11-08

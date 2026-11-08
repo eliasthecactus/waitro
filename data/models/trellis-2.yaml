@@ -1,0 +1,21 @@
+id: trellis-2
+name: TRELLIS.2
+org: Microsoft
+released: 2025-12-01
+dateSource: huggingface
+summary: Image-to-3D generation of fully textured assets up to 1536³ resolution, MIT licence.
+tasks: [3d-generation]
+architecture: diffusion
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [image], out: [3d] }
+params: { total: 4 }
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/microsoft/TRELLIS.2-4B
+  repo: https://github.com/microsoft/TRELLIS.2
+  paper: https://arxiv.org/abs/2512.14692
+strengths: [High-resolution textured meshes, MIT licence]
+limitations: [Needs a strong NVIDIA GPU]
+tags: [3d, mesh, games]
+lastChecked: 2026-11-08

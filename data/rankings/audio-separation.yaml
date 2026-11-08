@@ -1,0 +1,9 @@
+task: audio-separation
+updated: 2026-11-08
+picks:
+  - id: sam-audio
+    label: "Isolate any sound"
+    why: "Text, video or time-span prompts."
+  - id: demucs
+    label: "Music stems"
+    why: "Vocals, drums, bass and other; runs on CPU, MIT licence."

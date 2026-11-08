@@ -1,0 +1,20 @@
+id: dia
+name: Dia 1.6B
+org: Nari Labs
+released: 2025-04-20
+dateSource: huggingface
+summary: Generates realistic two-speaker dialogue from a transcript, including laughs and coughs; Apache-2.0.
+tasks: [text-to-speech]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, audio], out: [audio] }
+params: { total: 1.6 }
+hardware: { platforms: [cuda, apple-silicon], minVramGB: 10 }
+links:
+  weights: https://huggingface.co/nari-labs/Dia-1.6B
+  repo: https://github.com/nari-labs/dia
+strengths: [Dialogue and non-verbal sounds, Apache-2.0]
+limitations: [English only]
+tags: [tts, dialogue, podcasts]
+lastChecked: 2026-11-08
