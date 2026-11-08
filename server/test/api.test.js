@@ -98,7 +98,7 @@ test('search falls back to keywords without AI, on errors and on refusals', asyn
 
 test('per-IP AI limit falls back to keyword results', async () => {
   let calls = 0;
-  const ask = async () => { calls++; return { answer: { understanding: '', constraints: [], gaps: '', pipelines: [], recommendations: [] } }; };
+  const ask = async () => { calls++; return { answer: { understanding: '', constraints: [], gaps: '', pipelines: [], recommendations: [{ id: 'rife', verdict: 'best', why: '', caveats: '' }] } }; };
   const app = createApp({ catalog, store: store(), ask, aiEnabled: true });
   let last;
   for (let i = 0; i < 25; i++) last = await call(app, 'POST', '/api/search', { q: `query number ${i}` });
@@ -126,4 +126,21 @@ test('static assets get a cache-busting version', () => {
   const files = loadStatic(dir);
   assert.match(files.get('/index.html').body.toString(), /\/style\.css\?v=[a-f0-9]{10}/);
   assert.match(files.get('/js/app.js').body.toString(), /from '\.\/util\.js\?v=[a-f0-9]{10}'/);
+});
+
+test('an empty AI answer is retried and never cached', async () => {
+  let calls = 0;
+  const empty = { understanding: 'x', constraints: [], gaps: '', pipelines: [], recommendations: [] };
+  const good = { ...empty, recommendations: [{ id: 'rife', verdict: 'best', why: 'w', caveats: '' }] };
+  const ask = async () => ({ answer: ++calls === 1 ? empty : good });
+  const app = createApp({ catalog, store: store(), ask, aiEnabled: true });
+  const r = await call(app, 'POST', '/api/search', { q: 'smooth video' });
+  assert.equal(calls, 2);
+  assert.equal(r.recommendations[0].id, 'rife');
+
+  let n = 0;
+  const alwaysEmpty = createApp({ catalog, store: store(), aiEnabled: true, ask: async () => { n++; return { answer: empty }; } });
+  assert.equal((await call(alwaysEmpty, 'POST', '/api/search', { q: 'smooth video' })).mode, 'keyword');
+  await call(alwaysEmpty, 'POST', '/api/search', { q: 'smooth video' });
+  assert.equal(n, 4);
 });

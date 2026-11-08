@@ -16,7 +16,7 @@ export const REPO_URL = process.env.REPO_URL || 'https://github.com/eliasthecact
 export const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '';
 export const AI_PROVIDER = OPENROUTER_KEY ? 'openrouter' : (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) ? 'anthropic' : null;
 export const AI_ENABLED = Boolean(AI_PROVIDER);
-export const AI_MODEL = process.env.WAITRO_MODEL || (AI_PROVIDER === 'openrouter' ? 'anthropic/claude-opus-5.5' : 'claude-opus-5-5');
+export const AI_MODEL = process.env.WAITRO_MODEL || (AI_PROVIDER === 'openrouter' ? '~deepseek/deepseek-flash-latest' : 'claude-opus-5-5');
 export const SITE_URL = process.env.SITE_URL || 'https://github.com/eliasthecactus/waitro';
 export const AI_EFFORT = process.env.WAITRO_EFFORT || 'low';
 export const AI_PER_IP_PER_HOUR = Number(process.env.WAITRO_AI_PER_IP_PER_HOUR || 20);

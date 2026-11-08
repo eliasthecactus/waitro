@@ -58,17 +58,24 @@ export function createApp({ catalog, store, ask = askClaude, aiEnabled = AI_ENAB
     if (cached && now() - cached.created < CACHE_DAYS * 86400_000) return { ...JSON.parse(cached.result), cached: true };
     if (!allowAi(ctx.ip)) return keywordAnswer(catalog, q, 'You reached the AI search limit for now, so these are keyword matches. Try again in a while.');
 
-    let res;
-    try {
-      res = await ask(catalog, q);
-    } catch (e) {
-      console.error('AI search failed:', e.status || '', e.message);
-      return keywordAnswer(catalog, q, 'AI search is unavailable right now, so these are keyword matches.');
+    // Smaller models occasionally return an empty answer; try once more before giving up.
+    let result;
+    for (let attempt = 1; attempt <= 2 && !result; attempt++) {
+      let res;
+      try {
+        res = await ask(catalog, q);
+      } catch (e) {
+        console.error(`AI search failed (attempt ${attempt}):`, e.status || '', e.message);
+        continue;
+      }
+      if (res.refused) return keywordAnswer(catalog, q, 'The AI declined this request, so these are keyword matches.');
+      const u = res.usage || {};
+      console.log(`AI search: ${u.prompt_tokens ?? u.input_tokens ?? '?'} in (${u.prompt_tokens_details?.cached_tokens ?? u.cache_read_input_tokens ?? 0} cached), ${u.completion_tokens ?? u.output_tokens ?? '?'} out${u.cost != null ? `, $${u.cost.toFixed(4)}` : ''}`);
+      const answer = sanitizeAnswer(catalog, res.answer);
+      if (answer.recommendations.length || answer.gaps) result = { mode: 'ai', ...answer };
+      else console.warn(`AI search returned an empty answer (attempt ${attempt})`);
     }
-    if (res.refused) return keywordAnswer(catalog, q, 'The AI declined this request, so these are keyword matches.');
-    const u = res.usage || {};
-    console.log(`AI search: ${u.prompt_tokens ?? u.input_tokens ?? '?'} in (${u.prompt_tokens_details?.cached_tokens ?? u.cache_read_input_tokens ?? 0} cached), ${u.completion_tokens ?? u.output_tokens ?? '?'} out${u.cost != null ? `, $${u.cost.toFixed(4)}` : ''}`);
-    const result = { mode: 'ai', ...sanitizeAnswer(catalog, res.answer) };
+    if (!result) return keywordAnswer(catalog, q, 'AI search couldn’t answer this right now, so these are keyword matches.');
     store.prepare('INSERT OR REPLACE INTO search_cache (key, created, result) VALUES (?, ?, ?)').run(key, now(), JSON.stringify(result));
     return result;
   }
