@@ -1,0 +1,31 @@
+id: claude-fable-5-2
+name: Claude Fable 5.2
+org: Anthropic
+released: 2026-11-09
+dateSource: vendor
+summary: Anthropic's most capable generally available model, for hard reasoning and long agent runs. Cheaper and faster than Fable 5.1.
+description: Same underlying model as Claude Mythos 5.2, with cyber and biology safeguards so it can be offered to everyone. Anthropic reports outputs up to 30% faster than Fable 5.1 and about 55% fewer safety-classifier blocks.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+contextTokens: 1000000
+maxOutputTokens: 128000
+pricing: { inputPerM: 8, outputPerM: 40, cachedInputPerM: 0.2, note: "Batch 4/20 per MTok. Fast mode (up to 2.5x output speed) 16/80.", source: https://platform.claude.com/docs/en/about-claude/pricing }
+hardware: { platforms: [api] }
+links:
+  homepage: https://www.anthropic.com/claude-fable-and-mythos-5-2
+  docs: https://platform.claude.com/docs/en/about-claude/models/overview
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+benchmarks:
+  - { name: FrontierCode 2.0, score: 49.1, unit: "%", setting: Xhigh effort, selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+  - { name: FrontierSWE v2, score: 69.9, unit: "%", selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+  - { name: OSWorld 2.1, score: 89.3, unit: "%", setting: offline set, selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+  - { name: "Humanity's Last Exam", score: 74.2, unit: "%", setting: with tools, selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+  - { name: Remote Labor Index, score: 41.3, unit: "%", setting: High effort, selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+strengths: [Top-tier agentic coding and reasoning, 1M-token context with 128K output, "Cheaper than Fable 5.1 (8/40 vs 10/50 per MTok)", "Available on AWS, Google Cloud and Azure"]
+limitations: [API only, "Safeguards block most offensive security work and most research biology; those requests are answered by an older Opus model", Most expensive current Claude tier]
+notes: Knowledge cutoff June 2026. API ID claude-fable-5-2.
+tags: [claude, frontier]
+lastChecked: 2026-11-12

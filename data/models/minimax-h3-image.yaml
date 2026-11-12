@@ -1,0 +1,28 @@
+id: minimax-h3-image
+name: MiniMax H3 Image
+org: MiniMax (Hailuo)
+released: 2026-11-10
+dateSource: huggingface
+summary: Open 33B image model from the MiniMax H3 family. Text-to-image and editing with up to 16 reference images in one checkpoint, about 16 MP output.
+description: Built on the H3 video model with the audio branch removed, reusing its Qwen3-VL text encoder. Distilled to 6 sampling steps without classifier-free guidance. Outputs about 16 megapixels at every aspect ratio, from 4096x4096 to 6272x2688.
+tasks: [image-generation, image-editing]
+architecture: diffusion
+access: both
+license: { id: MiniMax-H3-Image-Community, commercial: limited, note: "Not licensed in the EU, UK, South Korea or the USA. Written permission needed above 1M USD yearly revenue or for hosted services. Outputs may not train other models." }
+io: { in: [text, image], out: [image] }
+params: { total: 33.1 }
+weightsSizeGB: 68.65
+hardware: { platforms: [cuda], note: "BF16 DiT is 66 GB plus a 67 GB text encoder. The ComfyUI repack uses int8 files (21 GB DiT, 25 GB text encoder) and community GGUFs exist." }
+variants:
+  - { name: Official BF16, weights: https://huggingface.co/MiniMaxAI/MiniMax-H3-Image }
+  - { name: ComfyUI repack, weights: https://huggingface.co/Comfy-Org/MiniMax-H3-Image }
+links:
+  weights: https://huggingface.co/MiniMaxAI/MiniMax-H3-Image
+  repo: https://github.com/MiniMax-AI/MiniMax-H3-Image
+  homepage: https://www.minimax.io
+  docs: https://docs.comfy.org/tutorials/image/minimax/minimax-h3-image
+strengths: [Up to 16 reference images, About 16 MP native output, Only 6 sampling steps, Generation and editing in one model]
+limitations: ["Licence excludes the EU, UK, South Korea and USA", Very heavy at full precision, "No negative prompt; weak at low resolution", No published benchmarks]
+notes: Vendor claims the strongest instruction following among open models, with no numbers.
+tags: [comfyui, hailuo, multi-reference]
+lastChecked: 2026-11-12

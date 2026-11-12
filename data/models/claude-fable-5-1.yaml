@@ -17,6 +17,10 @@ links:
   pricing: https://platform.claude.com/docs/en/about-claude/pricing
 strengths: [Top-tier reasoning and coding, 1M-token context]
 limitations: [Most expensive Claude tier, Long turns on hard tasks]
+betterOptions:
+  - id: claude-fable-5-2
+    why: "Newer version with better coding and reasoning, up to 30% faster output and a lower price (8/40 vs 10/50 per MTok), per Anthropic."
+    aspects: [quality, speed, cost]
 notes: Release date not added yet (not verified from Anthropic).
 tags: [claude, frontier]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-12

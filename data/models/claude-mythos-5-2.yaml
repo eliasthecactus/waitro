@@ -1,0 +1,29 @@
+id: claude-mythos-5-2
+name: Claude Mythos 5.2
+org: Anthropic
+released: 2026-11-09
+dateSource: vendor
+summary: Fable 5.2 without the cyber and biology safeguards, only for organisations verified by Anthropic. For security research and life sciences.
+description: Anthropic says Fable and Mythos are the same underlying model. Access goes through the Cyber Verification Program or the Life Sciences Verification Program; Claude Enterprise customers get it through Claude Security.
+tasks: [cybersecurity, life-sciences, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes, note: "Verified organisations only." }
+io: { in: [text, image], out: [text, code] }
+contextTokens: 1000000
+maxOutputTokens: 128000
+pricing: { inputPerM: 8, outputPerM: 40, cachedInputPerM: 0.2, note: "Batch 4/20 per MTok. Fast mode for verified organisations only.", source: https://platform.claude.com/docs/en/about-claude/pricing }
+hardware: { platforms: [api] }
+links:
+  homepage: https://www.anthropic.com/claude-fable-and-mythos-5-2
+  docs: https://platform.claude.com/docs/en/models/mythos-5-2/overview
+  pricing: https://platform.claude.com/docs/en/about-claude/pricing
+benchmarks:
+  - { name: CyScenarioBench, score: 76.3, unit: "%", selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+  - { name: CVE Rediscovery, score: 89.6, unit: "%", setting: "1,829 CVEs", selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+  - { name: De novo binder design, score: 85.1, setting: 24 hours, selfReported: true, source: https://www.anthropic.com/claude-fable-and-mythos-5-2 }
+strengths: [Strongest Claude model for vulnerability research, No cyber or bio refusals for verified users, 1M-token context]
+limitations: [Needs verification by Anthropic, API only]
+notes: API ID claude-mythos-5-2. Knowledge cutoff June 2026.
+tags: [claude, frontier, security]
+lastChecked: 2026-11-12
