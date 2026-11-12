@@ -1,0 +1,46 @@
+id: opencode-zen
+name: OpenCode Zen
+org: Anomaly (OpenCode)
+hq: USA
+kind: router
+summary: Pay-as-you-go gateway from the OpenCode team with a hand-picked set of models tested for coding agents, including Claude, GPT, Gemini and open models.
+description: |
+  You add credit in the OpenCode console, copy one API key and use the opencode/ models in OpenCode or any other client. Zen exposes OpenAI (Chat and Responses), Anthropic Messages and Google endpoints and translates between them, so every text model works through any of the three.
+
+  Some models are free for a limited time, but those only work inside OpenCode. Budgets can be capped per workspace and per member.
+billing:
+  types: [prepaid]
+  fee: "4.6% + $0.31 on each credit purchase"
+  freeTier: Several free models for a limited time, usable in OpenCode only
+  note: Auto-reload and monthly spend limits per workspace and member.
+api: [openai, openai-responses, anthropic, google]
+baseUrl: https://opencode.ai/inference
+models:
+  - { id: claude-fable-5-2, name: Claude Fable 5.2, inputPerM: 8, outputPerM: 40, cachedInputPerM: 0.2 }
+  - { id: claude-opus-5-5, name: Claude Opus 5.5, inputPerM: 4, outputPerM: 20, cachedInputPerM: 0.2 }
+  - { id: claude-sonnet-5-5, name: Claude Sonnet 5.5, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.1 }
+  - { id: claude-haiku-5-5, name: Claude Haiku 5.5, inputPerM: 0.1, outputPerM: 0.5, cachedInputPerM: 0.01, note: "Up to 100K tokens; $0.50 / $2.50 above" }
+  - { id: gpt-6-1-sol, name: GPT 6.1 Sol, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.1, note: Up to 272K tokens }
+  - { id: gpt-6-astra, name: GPT 6 Astra, inputPerM: 10, outputPerM: 50, cachedInputPerM: 1 }
+  - { id: gpt-6-luna, name: GPT 6 Luna, inputPerM: 0.1, outputPerM: 0.5, cachedInputPerM: 0.01 }
+  - { id: gemini-4-carbon, name: Gemini 4 Carbon, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.1, note: "50% off until 30 Nov 2026 (list $4 / $20)" }
+  - { id: gemini-3-8-flash, name: Gemini 3.8 Flash, inputPerM: 0.75, outputPerM: 3.75, cachedInputPerM: 0.075, note: "50% off until 31 Dec 2026" }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26 }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03 }
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.3 }
+  - { id: kimi-k2-7-code, name: Kimi K2.7 Code, inputPerM: 0.95, outputPerM: 4, cachedInputPerM: 0.19 }
+  - { id: minimax-m3, name: MiniMax M3, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.06 }
+  - { id: qwen3-8-max, name: Qwen3.8 Max, inputPerM: 2, outputPerM: 6, cachedInputPerM: 0.25 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.006 }
+  - { id: deepseek-v4-pro, name: DeepSeek V4 Pro, inputPerM: 1.74, outputPerM: 3.48, cachedInputPerM: 0.145 }
+  - { id: mistral-large-4, name: Mistral Large 4, inputPerM: 0.68, outputPerM: 2.09, note: 50% off list price }
+pricesSource: https://opencode.ai/docs/zen
+privacy: Models are hosted in the US and EU with zero retention and no training, except OpenAI and Anthropic (30 days) and some free models that may log or train during their free period.
+worksWith: [opencode]
+strengths: ["Claude, GPT, Gemini and open models on one balance", Prices at or near vendor list prices, Anthropic and OpenAI endpoints for any client]
+limitations: [Fee on every top-up, Free models only inside OpenCode]
+links:
+  homepage: https://opencode.ai/zen
+  docs: https://opencode.ai/docs/zen
+tags: [coding, gateway]
+lastChecked: 2026-11-12

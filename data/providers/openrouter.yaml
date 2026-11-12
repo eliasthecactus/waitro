@@ -1,0 +1,33 @@
+id: openrouter
+name: OpenRouter
+org: OpenRouter
+hq: USA
+kind: router
+summary: One OpenAI-compatible API and one credit balance for 600+ models from 80+ providers, with automatic routing and fallbacks. Prices match provider list prices.
+description: |
+  You buy credits once and call any model through the same API. For each request OpenRouter picks a provider by price, speed, latency, error rate and tool-calling quality, and falls back to the next one if a provider fails. You can pin or exclude providers, sort by price or speed, or require zero data retention per request.
+
+  Inference costs the provider's list price. OpenRouter makes its money from a fee when you buy credits (5.5% on Standard, 8% on Business). You can also bring your own provider keys: the first $25,000 a month of BYOK usage carries no fee, then 5%.
+billing:
+  types: [prepaid]
+  fee: "5.5% on credit purchases (Standard, $0.80 minimum), 5% with crypto, 8% on Business"
+  freeTier: "25+ free models: 50 requests a day, or 1,000 a day after buying at least $10 of credit (20 per minute)"
+  note: Auto top-up available. Unused credits may expire after a year.
+plans:
+  - { name: Free, price: 0, note: Free models only }
+  - { name: Standard, note: "Pay as you go, 5.5% fee on credits" }
+  - { name: Business, note: "Pay as you go, 8% fee, EU/US in-region routing, workspaces" }
+  - { name: Enterprise, note: "Contract, SSO, SLA, lower fees" }
+api: [openai, openai-responses]
+baseUrl: https://openrouter.ai/api/v1
+modelCount: 600
+privacy: Prompts and completions are not logged by default (opt in for a 1% discount). Zero data retention can be enforced per account or per request. OpenRouter does not train on your data.
+worksWith: [hermes-agent, cline, aider, goose, opencode]
+strengths: [Every major model behind one key, Automatic fallbacks when a provider is down, No markup on token prices, Free models to try things]
+limitations: [Fee on every credit purchase, "Provider choice can change per request, so speed and quantization vary unless you pin one"]
+links:
+  homepage: https://openrouter.ai
+  docs: https://openrouter.ai/docs/faq
+  pricing: https://openrouter.ai/pricing
+tags: [router, byok]
+lastChecked: 2026-11-12

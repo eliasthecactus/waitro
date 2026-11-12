@@ -1,0 +1,44 @@
+id: opencode-go
+name: OpenCode Go
+org: Anomaly (OpenCode)
+hq: USA
+kind: subscription
+summary: Low-cost monthly plan for 30+ coding models (GLM, Kimi, DeepSeek, Qwen, MiniMax plus Claude Haiku and GPT Luna), usable in OpenCode, Claude Code, Codex and Hermes.
+description: |
+  Each model has its own monthly allowance in dollars at Zen list prices, for example $15 of GLM 5.3 or $100 of DeepSeek V4.1 Flash on Go. Any 5-hour window can use up to 20% of it and any week up to 50%. When you hit a limit you can keep going on free models or turn on Extra Usage, which bills your pay-as-you-go balance.
+
+  Go is meant for coding agents: clients must send their own user agent and a stable session id. Claude Code, Codex, Hermes, Pi, jcode and Kilo Code CLI are tested; DeepSeek Harness, GitHub Copilot Chat, Kimi Code and MiMo Code are known to have problems.
+billing:
+  types: [subscription]
+  note: Cancel any time. Refund within 14 days if you used almost none of the allowance.
+plans:
+  - { name: Go, price: 10, period: month }
+  - { name: Go Plus, price: 40, period: month, note: About 4x the Go limits }
+  - { name: Go Teams, price: 20, period: seat-month, note: "Own limits per member, Extra Usage on" }
+api: [openai, openai-responses, anthropic, google]
+baseUrl: https://opencode.ai/inference/go/
+models:
+  - { id: glm-5-3, name: GLM 5.3, note: "$15 a month on Go, $120 on Go Plus" }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, note: "$60 a month on Go" }
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, note: "$15 a month on Go" }
+  - { name: Kimi K3, note: "$15 a month on Go" }
+  - { id: kimi-k2-7-code, name: Kimi K2.7 Code, note: "$60 a month on Go" }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, note: "$100 a month on Go, about 43,000 requests per 5 hours" }
+  - { id: deepseek-v4-pro, name: DeepSeek V4 Pro, note: "$15 a month on Go" }
+  - { id: qwen3-8-max, name: Qwen3.8 Max, note: "$15 a month on Go" }
+  - { id: minimax-m3, name: MiniMax M3, note: "$60 a month on Go" }
+  - { id: minimax-m3-1-flash, name: MiniMax M3.1 Flash, note: "$20 a month on Go" }
+  - { id: claude-haiku-5-5, name: Claude Haiku 5.5, note: "$15 a month on Go, about 3,850 requests per 5 hours" }
+  - { id: gpt-6-luna, name: GPT 6 Luna, note: "$15 a month on Go" }
+  - { id: gemini-4-argon, name: Gemini 4 Argon, note: "$30 a month on Go" }
+  - { id: hy3, name: Hy3, note: "$60 a month on Go" }
+pricesSource: https://opencode.ai/docs/go
+privacy: "Open models: 0 days retention, no training (DeepSeek under a ZDR agreement). Claude Haiku, GPT Luna and Grok: 30 days. Muse Spark Contributor models train on requests and are off by default."
+worksWith: [opencode, claude-code, codex, hermes-agent]
+strengths: [Cheapest way to use strong open coding models, Works in Claude Code and Codex too, Clear per-model limits]
+limitations: [Limits are per model and per 5-hour window, Not for apps without a session id, "Some clients (DeepSeek Harness, Copilot Chat) have known problems"]
+links:
+  homepage: https://opencode.ai/go
+  docs: https://opencode.ai/docs/go
+tags: [coding-plan, open-models]
+lastChecked: 2026-11-12

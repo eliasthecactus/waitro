@@ -1,0 +1,27 @@
+id: deepseek-harness
+name: DeepSeek Harness
+org: DeepSeek
+kind: coding
+summary: DeepSeek's open-source agent harness where everything is a plugin. Desktop app and local web UI; still a developer preview.
+description: Built on the Cordis plugin system, so model adapters, tools, sessions, sandboxes and the agent loop itself can all be swapped. It ships coding, lean code, minimal and creator modes, subagents, scheduled tasks, git worktree review and a trace viewer. DeepSeek warns it has not had a security audit and should run in a VM or container for untrusted work.
+surfaces: [desktop, web]
+os: [macos, windows]
+openSource: true
+license: MIT
+version: v0.2.2-rc.2 (pre-release)
+models: DeepSeek API by default; custom model providers can be added as plugins.
+modelIds: [deepseek-v4-1-flash, deepseek-v4-pro]
+pricing:
+  summary: Free software; you pay DeepSeek API usage.
+  free: true
+  source: https://github.com/deepseek-ai/deepseek-harness
+install:
+  - { label: "Web UI (Node 24.9+)", cmd: 'npx @deepseek-ai/dsh web' }
+features: [Everything is a plugin, Subagents and agent teams, Scheduled tasks, Git worktree review, Trace viewer, Command sandbox and approvals]
+strengths: [Very hackable, MIT-licensed, Desktop app for macOS and Windows]
+limitations: [Developer preview with breaking changes, "Not security audited; run untrusted work in a VM or container", Web fetch can reach private network addresses]
+links:
+  repo: https://github.com/deepseek-ai/deepseek-harness
+  homepage: https://deepseek.com/harness
+tags: [deepseek, plugins]
+lastChecked: 2026-11-12

@@ -1,0 +1,33 @@
+id: synthetic
+name: Synthetic
+org: Synthetic Lab
+hq: San Francisco, USA
+kind: subscription
+summary: Subscription for open coding models (Kimi, GLM, DeepSeek, Qwen) with a weekly credit limit that refills a little every few hours, plus usage-based API pricing.
+description: |
+  Plans give a weekly credit allowance with no 5-hour or monthly cap; 2% of it refills every 202 minutes, so a full week refills from zero in seven days. Subscribers also get discounted rates on every model, one usage reset a month and beta features like Fast mode (twice as fast, twice the credit) and Infinite mode (slow, does not count against limits).
+billing:
+  types: [subscription, payg]
+  note: Extra usage beyond the plan is billed at API prices.
+plans:
+  - { name: Go, price: 9, period: month }
+  - { name: Standard, price: 30, period: month, note: Larger limits }
+  - { name: Big, price: 90, period: month, note: "Higher priority, Fast and Infinite modes" }
+api: [openai]
+models:
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.2, note: "Subscribers: $1 / $7" }
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.45, note: "Subscribers: $1.50 / $7.50" }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26, note: "Subscribers: $0.40 / $2.20" }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.04 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.6, outputPerM: 1.2, cachedInputPerM: 0.03, note: "Subscribers: $0.06 / $0.30" }
+  - { id: qwen3-8-27b, name: Qwen3.8 27B, inputPerM: 0.45, outputPerM: 2.2, cachedInputPerM: 0.09 }
+  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.1, outputPerM: 0.1, cachedInputPerM: 0.02 }
+pricesSource: https://synthetic.new/pricing/models
+privacy: API prompts and completions are not stored without consent and never used for training; partners must not store them either. Processed in the US.
+strengths: [No 5-hour limit, Big subscriber discounts, Strict no-storage policy for API use]
+limitations: [Exact credit amounts per plan are not published, Open models only]
+links:
+  homepage: https://synthetic.new
+  pricing: https://synthetic.new/pricing
+tags: [coding-plan, open-models, privacy]
+lastChecked: 2026-11-12

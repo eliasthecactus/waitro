@@ -34,3 +34,11 @@ The older model's page then shows it at the top, the table can hide replaced mod
 ## Top picks
 
 `data/rankings/<task>.yaml` holds the editorial picks for a task. `rank` is optional: LLM picks are labelled by use case instead of numbered, because vendors measure benchmarks differently. Keep `updated` current when you change a ranking.
+
+## Agents and providers
+
+Agents live in `data/agents/<id>.yaml`, providers in `data/providers/<id>.yaml`. Copy `claude-code.yaml` or `opencode-go.yaml` as a start. The same rules apply: primary sources only, and unknown fields are errors.
+
+- **Agents** need `kind` (`coding`, `personal` or `control-plane`), `surfaces` (`cli`, `ide`, `desktop`, `web`, `mobile`, `chat`, `cloud`), `os`, `openSource`, `models` (a sentence on which models it can use) and `pricing.summary`. Use `wraps` for apps that run other agents and `modelIds` for the catalog models it is built around.
+- **Providers** need `kind` (`router`, `inference` or `subscription`), `description` (how it works), `billing.types` (`prepaid`, `payg`, `subscription`, `free`) and `api` (`openai`, `openai-responses`, `anthropic`, `google`). List models with an `id` from the catalog where one exists, so the model page shows the offer under "Where to get it". Model prices need a `pricesSource`.
+- **Connections**: put an agent in a provider's `worksWith` only when the provider's or the agent's docs confirm it. The link shows up on both pages.

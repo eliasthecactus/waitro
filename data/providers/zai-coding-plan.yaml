@@ -1,0 +1,33 @@
+id: zai-coding-plan
+name: Z.ai GLM Coding Plan
+org: Z.ai (Zhipu)
+hq: China / Singapore
+kind: subscription
+summary: Subscription from the makers of GLM for GLM 5.3 in Claude Code, Codex, OpenCode, OpenClaw, Cline and 20+ other agents. From $18 a month; off-peak use costs half.
+description: |
+  Plans (Lite, Pro, Max) give credits per 5-hour window and per week. GLM 5.3 and GLM 5.3 Flash are included; older GLM names route to them. Usage outside peak hours (weekdays 14:00 to 18:00 Singapore time) costs half the credits.
+
+  The plan only works inside supported agent tools, through an Anthropic-compatible endpoint (for Claude Code and goose) or an OpenAI-style one. It does not fall back to your API balance.
+billing:
+  types: [subscription]
+  note: Non-refundable once bought. Cancel at least 24 hours before renewal.
+plans:
+  - { name: Lite, price: 18, period: month, note: "2,000 credits per 5 hours, 10,000 a week" }
+  - { name: Pro, period: month, note: "12,000 credits per 5 hours, 60,000 a week" }
+  - { name: Max, period: month, note: "28,000 credits per 5 hours, 140,000 a week" }
+api: [anthropic, openai]
+baseUrl: https://api.z.ai/api/anthropic
+models:
+  - { id: glm-5-3, name: GLM 5.3, note: Included in all plans }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, note: Included in all plans }
+pricesSource: https://docs.z.ai/devpack/overview
+privacy: Not checked yet.
+worksWith: [claude-code, codex, opencode, openclaw, cline, goose]
+strengths: [Direct from the GLM makers, Half price off-peak, Drop-in Anthropic endpoint for Claude Code]
+limitations: [Only GLM models, Only inside supported agent tools, No refunds]
+links:
+  homepage: https://z.ai/subscribe
+  docs: https://docs.z.ai/devpack/overview
+notes: Only the Lite starting price ($18) was confirmed; Pro and Max prices not checked.
+tags: [coding-plan, glm]
+lastChecked: 2026-11-12

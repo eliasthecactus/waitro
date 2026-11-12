@@ -1,0 +1,26 @@
+id: deepinfra
+name: DeepInfra
+org: DeepInfra
+hq: USA
+kind: inference
+summary: Low-cost per-token inference for open models with no contracts, plus dedicated GPUs by the hour. Priority and flex tiers trade price for speed.
+description: Pay per token for language models and per second for others, with no upfront cost. Requests can run on the standard tier, a priority tier (1.5x price, faster first token) or a flex tier (0.8x). Dedicated GPUs start at $1.49 an hour for an A100.
+billing:
+  types: [prepaid, payg]
+  note: "Standard 1x, Priority 1.5x, Flex 0.8x"
+api: [openai]
+models:
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10 }
+  - { name: Kimi K3, inputPerM: 2.85, outputPerM: 14.25 }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 0.9, outputPerM: 4, note: "Shown 38% off: $0.56 / $2.50" }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5 }
+  - { id: qwen3-8-27b, name: Qwen3.8 27B, inputPerM: 0.2, outputPerM: 2.5 }
+pricesSource: https://deepinfra.com/pricing
+privacy: Does not store, sell or train on request data without explicit consent. SOC 2 and ISO 27001.
+strengths: [Often the cheapest list price for open models, Flex tier for batch-style work]
+limitations: [No coding subscription]
+links:
+  homepage: https://deepinfra.com
+  pricing: https://deepinfra.com/pricing
+tags: [open-models, cheap]
+lastChecked: 2026-11-12

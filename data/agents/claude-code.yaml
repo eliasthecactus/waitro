@@ -1,0 +1,35 @@
+id: claude-code
+name: Claude Code
+org: Anthropic
+kind: coding
+summary: Anthropic's coding agent. Reads your codebase, edits files and runs commands, from the terminal, IDE, desktop app, web or phone.
+description: Claude Code works in the terminal, in VS Code (and Cursor) and JetBrains IDEs, in the Claude desktop app, on the web at claude.ai/code and in the Claude mobile apps. It can also be mentioned in Slack and run in GitHub Actions or GitLab CI. The terminal CLI and the IDE extensions can also use Claude through third-party clouds (Amazon Bedrock, Google Cloud, Microsoft Foundry) or compatible gateways.
+surfaces: [cli, ide, desktop, web, mobile, chat, cloud]
+os: [macos, linux, windows, ios, android]
+openSource: false
+license: Proprietary
+models: Claude models only. Signs in with a Claude subscription or an Anthropic Console (API) account; the CLI and IDE extensions also accept third-party providers with Anthropic-compatible endpoints.
+modelIds: [claude-fable-5-2, claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5]
+pricing:
+  summary: Included in Claude Pro, Max, Ultra, Team and Enterprise, or pay per token with an API key. Not in the free plan.
+  plans:
+    - { name: Pro, price: 20, period: month, note: "$17 a month billed yearly" }
+    - { name: Max, price: 100, period: month, note: 5x Pro usage }
+    - { name: Ultra, price: 200, period: month, note: No 5-hour limit }
+    - { name: Team standard seat, price: 25, period: seat-month, note: "$20 billed yearly; premium seat $125 ($100 yearly)" }
+    - { name: API, note: Pay per token at Claude API prices }
+  source: https://claude.com/pricing
+install:
+  - { label: "macOS, Linux, WSL", cmd: 'curl -fsSL https://claude.ai/install.sh | bash' }
+  - { label: "Windows PowerShell", cmd: 'irm https://claude.ai/install.ps1 | iex' }
+  - { label: "Homebrew", cmd: 'brew install --cask claude-code' }
+  - { label: "WinGet", cmd: 'winget install Anthropic.ClaudeCode' }
+features: [Subagents, MCP servers, Hooks, Skills, CLAUDE.md and auto memory, Background agents, Scheduled cloud routines, Headless mode for scripts (claude -p), Agent SDK]
+strengths: [Strong agentic coding with the newest Claude models, "Same agent in terminal, IDE, desktop, web and phone", "Large extension system (MCP, hooks, skills, plugins)"]
+limitations: [Claude models only, Needs a paid plan or API credit]
+links:
+  homepage: https://claude.com/product/claude-code
+  docs: https://code.claude.com/docs/en/overview
+  pricing: https://claude.com/pricing
+tags: [anthropic, claude, terminal]
+lastChecked: 2026-11-12

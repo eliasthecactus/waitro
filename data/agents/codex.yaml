@@ -1,0 +1,27 @@
+id: codex
+name: Codex
+org: OpenAI
+kind: coding
+summary: OpenAI's coding agent. Open-source CLI that runs locally, plus IDE extensions, a desktop app and Codex Web as a cloud agent in ChatGPT.
+surfaces: [cli, ide, desktop, cloud]
+os: [macos, linux, windows]
+openSource: true
+license: Apache-2.0
+models: OpenAI models. Sign in with a ChatGPT plan, or use an API key (extra setup).
+pricing:
+  summary: Included with ChatGPT Plus, Pro, Business, Edu and Enterprise, or pay per token with an OpenAI API key.
+  source: https://github.com/openai/codex
+install:
+  - { label: "macOS, Linux", cmd: 'curl -fsSL https://chatgpt.com/codex/install.sh | sh' }
+  - { label: "Windows PowerShell", cmd: 'powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"' }
+  - { label: "npm", cmd: 'npm install -g @openai/codex' }
+  - { label: "Homebrew", cmd: 'brew install --cask codex' }
+features: [Local CLI agent, "IDE extension for VS Code, Cursor and Windsurf", Desktop app (codex app), Cloud tasks in Codex Web]
+strengths: [Open-source CLI (Apache-2.0), Comes with ChatGPT plans many people already pay for]
+limitations: [Built around OpenAI models, Plan limits are set by ChatGPT tier]
+links:
+  repo: https://github.com/openai/codex
+  homepage: https://openai.com/codex
+notes: ChatGPT plan prices and Codex limits not checked yet (openai.com blocked automated reads).
+tags: [openai, terminal]
+lastChecked: 2026-11-12

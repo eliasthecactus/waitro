@@ -1,0 +1,25 @@
+id: gemini-cli
+name: Gemini CLI
+org: Google
+kind: coding
+summary: Google's open-source terminal agent for Gemini. Since June 2026 aimed at Gemini Code Assist and paid API keys; free personal use moved to Antigravity CLI.
+surfaces: [cli, ide]
+os: [macos, linux, windows]
+openSource: true
+license: Apache-2.0
+models: Gemini models through Gemini Code Assist Standard or Enterprise, a paid Gemini API key or Vertex AI.
+pricing:
+  summary: Pay per token with a Gemini API key or Vertex AI, or through Gemini Code Assist Standard and Enterprise.
+  source: https://geminicli.com/docs/resources/quota-and-pricing
+install:
+  - { label: "npm", cmd: 'npm install -g @google/gemini-cli' }
+  - { label: "Try without installing", cmd: 'npx @google/gemini-cli' }
+  - { label: "Homebrew", cmd: 'brew install gemini-cli' }
+features: [MCP servers, Extensions, Sandboxing, Hooks, Subagents (preview), Agent Skills, Checkpointing, Headless JSON output]
+strengths: [Open source, Weekly stable releases]
+limitations: ["Free individual access and Google AI Pro/Ultra moved to Antigravity CLI on 18 June 2026", Gemini models only]
+links:
+  repo: https://github.com/google-gemini/gemini-cli
+  docs: https://geminicli.com/docs
+tags: [google, gemini, terminal]
+lastChecked: 2026-11-12

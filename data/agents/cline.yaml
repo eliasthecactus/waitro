@@ -1,0 +1,27 @@
+id: cline
+name: Cline
+org: Cline Bot Inc.
+kind: coding
+summary: Open-source coding agent for VS Code, JetBrains, the terminal and desktop. Bring your own key for almost any provider, including local models.
+surfaces: [ide, cli, desktop, chat]
+os: [macos, linux, windows]
+openSource: true
+license: Apache-2.0
+version: v4.1.26
+models: Anthropic, OpenAI, Google, OpenRouter, Vercel AI Gateway, Bedrock, Vertex, Cerebras, Groq, Ollama, LM Studio or any OpenAI-compatible endpoint, with your own key.
+pricing:
+  summary: Free for individuals; you pay your model provider. Enterprise plan for teams.
+  free: true
+  source: https://cline.bot/pricing
+install:
+  - { label: "VS Code", cmd: 'code --install-extension saoudrizwan.claude-dev' }
+  - { label: "CLI", cmd: 'npm i -g cline' }
+features: [Plan and Act modes, Per-step approval or auto-approve, Checkpoints with undo, .clinerules and skills, MCP servers, Headless JSON mode for CI, Agent teams, Scheduled agents]
+strengths: [Any provider with your own key, "Runs in VS Code, Cursor, Windsurf and JetBrains"]
+limitations: [JetBrains plugin is not open source]
+links:
+  repo: https://github.com/cline/cline
+  homepage: https://cline.bot
+  pricing: https://cline.bot/pricing
+tags: [vscode, byok]
+lastChecked: 2026-11-12

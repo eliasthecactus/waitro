@@ -1,0 +1,30 @@
+id: openclaw
+name: OpenClaw
+org: OpenClaw Foundation
+kind: personal
+summary: Open-source personal AI assistant on your own computer. Reach it from WhatsApp, Telegram, Slack, iMessage and 20+ other channels; skills and plugins via ClawHub.
+description: A Gateway process on your machine connects chat channels to the assistant. Models and agent harnesses (Claude, Codex, local models) are plugins. Formerly called Clawdbot and Moltbot. Run by an independent non-profit foundation, with no paid tier or hosted service.
+surfaces: [chat, cli, desktop, web]
+os: [macos, linux, windows]
+openSource: true
+license: MIT
+version: v2026.11.3
+models: Hosted and local model providers as plugins, including Claude, Codex and local models.
+pricing:
+  summary: Free. No paid tier or hosted service; you pay your model provider.
+  free: true
+  source: https://github.com/openclaw/openclaw
+install:
+  - { label: "macOS, Linux, WSL2", cmd: 'curl -fsSL https://openclaw.ai/install.sh | bash' }
+  - { label: "Windows PowerShell", cmd: 'iwr -useb https://openclaw.ai/install.ps1 | iex' }
+  - { label: "npm (Node 24.16+)", cmd: 'npm install -g openclaw@latest --allow-scripts=openclaw' }
+  - { label: "Then", cmd: 'openclaw onboard --install-daemon' }
+features: [20+ chat channels, Skills and plugins (ClawHub), Persistent memory, "Browser, shell and file tools", Web dashboard]
+strengths: [Most chat channels of any agent here, Huge community, No company behind it selling anything]
+limitations: ["Tools run on the host unless you set up sandboxing", "Treat inbound messages as untrusted; read the security guide before exposing it"]
+links:
+  repo: https://github.com/openclaw/openclaw
+  homepage: https://openclaw.ai
+  docs: https://docs.openclaw.ai
+tags: [assistant, messaging]
+lastChecked: 2026-11-12

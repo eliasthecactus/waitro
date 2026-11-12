@@ -1,0 +1,25 @@
+id: goose
+name: goose
+org: Agentic AI Foundation (Linux Foundation)
+kind: coding
+summary: Open-source local agent for code and workflows, as desktop app, CLI and API. 15+ providers and 70+ MCP extensions. Started at Block.
+surfaces: [desktop, cli]
+os: [macos, linux, windows]
+openSource: true
+license: Apache-2.0
+version: v1.59.0
+models: 15+ providers with your own key (Anthropic, OpenAI, Google, Ollama, OpenRouter, Azure, Bedrock), or existing Claude, ChatGPT and Gemini subscriptions through ACP.
+pricing:
+  summary: Free; you pay your model provider.
+  free: true
+  source: https://github.com/aaif-goose/goose
+install:
+  - { label: "CLI", cmd: 'curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash' }
+features: [70+ MCP extensions, Subagents, Recipes and scheduled runs, Skills]
+strengths: [Desktop app for non-terminal users, Vendor-neutral foundation project]
+limitations: [Fewer coding-specific features than dedicated coding agents]
+links:
+  repo: https://github.com/aaif-goose/goose
+  docs: https://goose-docs.ai
+tags: [desktop, mcp]
+lastChecked: 2026-11-12

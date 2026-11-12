@@ -1,0 +1,30 @@
+id: chutes
+name: Chutes
+org: Chutes Global Corp.
+hq: Delaware, USA
+kind: inference
+summary: Pay-per-token inference for open models, partly on decentralized Bittensor GPUs. TEE models run in secure enclaves the GPU operator cannot read.
+description: |
+  Top up a balance (card, crypto or TAO) and pay per token. Models marked TEE run in trusted execution environments on independent operators of the Chutes subnet on Bittensor; other models are often served by third-party providers. You can also rent private GPUs by the hour.
+
+  Monthly subscriptions are no longer sold, and there is no free tier.
+billing:
+  types: [prepaid]
+  freeTier: None
+  note: Monthly plans discontinued; existing ones stop at the end of their period.
+api: [openai]
+models:
+  - { id: qwen3-8-27b, name: Qwen3.8 27B (TEE), inputPerM: 0.039, outputPerM: 1.25, cachedInputPerM: 0.0039 }
+  - { id: gemma-4, name: Gemma 4 31B Turbo (TEE), inputPerM: 0.12, outputPerM: 0.37, cachedInputPerM: 0.012 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.03 }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.225, outputPerM: 3.85, cachedInputPerM: 0.245 }
+  - { name: Kimi K3 (TEE), inputPerM: 1.85, outputPerM: 9.5, cachedInputPerM: 0.185 }
+pricesSource: https://chutes.ai/pricing
+privacy: API content is not logged or used for training. TEE models are unreadable to the operator; standard models follow the serving provider's retention (usually up to 30 days).
+strengths: [Very cheap for some open models, TEE option for confidential inference, Pays with crypto]
+limitations: [No free tier and no more subscriptions, Non-TEE traffic goes to third-party providers]
+links:
+  homepage: https://chutes.ai
+  pricing: https://chutes.ai/pricing
+tags: [open-models, decentralized, tee]
+lastChecked: 2026-11-12

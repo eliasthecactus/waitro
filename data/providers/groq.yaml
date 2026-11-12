@@ -1,0 +1,28 @@
+id: groq
+name: Groq
+org: Groq
+hq: USA
+kind: inference
+summary: Very fast inference on Groq's own LPU chips, OpenAI-compatible. A handful of open models at hundreds to a thousand tokens per second.
+description: Groq builds its own inference chip (the LPU) and runs a small set of open models on it through GroqCloud. There is a rate-limited free plan and a pay-per-token Developer plan. Data from inference requests is not retained by default.
+billing:
+  types: [payg, free]
+  freeTier: "Free plan with low rate limits (gpt-oss-120b: 30 requests a minute, 1,000 a day)"
+  note: Developer plan pays per token; batch and flex tiers cost less.
+api: [openai]
+baseUrl: https://api.groq.com/openai/v1
+models:
+  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.15, outputPerM: 0.6, note: About 500 tokens/s }
+  - { name: gpt-oss-20b, inputPerM: 0.075, outputPerM: 0.3, note: About 1000 tokens/s }
+  - { id: qwen3-8-27b, name: Qwen3.8 27B (preview), inputPerM: 0.8, outputPerM: 4, note: About 450 tokens/s }
+pricesSource: https://console.groq.com/docs/models
+privacy: Inference data is not retained by default; zero data retention available to everyone. Data stored in the US.
+worksWith: [opencode, cline]
+strengths: [Among the fastest output speeds available, Free plan to start]
+limitations: [Small model list, Some models only via sales]
+links:
+  homepage: https://groq.com
+  docs: https://console.groq.com/docs/models
+  pricing: https://groq.com/pricing
+tags: [fast, open-models]
+lastChecked: 2026-11-12

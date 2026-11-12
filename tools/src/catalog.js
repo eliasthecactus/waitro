@@ -23,6 +23,8 @@ export function readCatalog(dir) {
     taxonomy: readYaml(path.join(dir, 'taxonomy.yaml')),
     models: readDir(path.join(dir, 'models')),
     rankings: readDir(path.join(dir, 'rankings')),
+    agents: readDir(path.join(dir, 'agents')),
+    providers: readDir(path.join(dir, 'providers')),
     stats: existsSync(path.join(dir, 'stats.json')) ? JSON.parse(readFileSync(path.join(dir, 'stats.json'), 'utf8')) : {},
   };
 }
@@ -39,7 +41,7 @@ export function loadCatalog(dir, { stats } = {}) {
   return buildCatalog(raw);
 }
 
-export function buildCatalog({ taxonomy, models, rankings, stats }) {
+export function buildCatalog({ taxonomy, models, rankings, agents = [], providers = [], stats }) {
   const t = taxonomyInfo(taxonomy);
   const taskById = new Map(t.tasks.map(x => [x.id, x]));
   const list = models.map(({ data }) => structuredClone(data));
@@ -63,8 +65,9 @@ export function buildCatalog({ taxonomy, models, rankings, stats }) {
     }
   }
 
+  const tools = buildTools(agents, providers, byId, stats);
   const digest = buildDigest(list, rankingByTask, taskById);
-  const hash = createHash('sha256').update(JSON.stringify({ models, rankings })).digest('hex').slice(0, 16);
+  const hash = createHash('sha256').update(JSON.stringify({ models, rankings, agents, providers })).digest('hex').slice(0, 16);
 
   return {
     taxonomy,
@@ -74,7 +77,29 @@ export function buildCatalog({ taxonomy, models, rankings, stats }) {
     rankings: rankingByTask,
     digest,
     hash,
+    ...tools,
   };
+}
+
+/** Agents and providers, with links in both directions (provider.worksWith and agent.providers are merged). */
+function buildTools(agentFiles, providerFiles, modelById, stats) {
+  const agents = agentFiles.map(({ data }) => structuredClone(data));
+  const providers = providerFiles.map(({ data }) => structuredClone(data));
+  const agentById = new Map(agents.map(a => [a.id, a]));
+  const providerById = new Map(providers.map(p => [p.id, p]));
+  for (const a of agents) {
+    a.providers = [...new Set([...(a.providers || []), ...providers.filter(p => p.worksWith?.includes(a.id)).map(p => p.id)])];
+    a.wrappedBy = agents.filter(x => x.wraps?.includes(a.id)).map(x => x.id);
+    a.stats = stats[`agent:${a.id}`] || null;
+  }
+  for (const p of providers) {
+    p.worksWith = agents.filter(a => a.providers.includes(p.id)).map(a => a.id);
+  }
+  for (const m of modelById.values()) {
+    m.offeredBy = providers.flatMap(p => (p.models || []).filter(x => x.id === m.id).map(x => ({ provider: p.id, ...x })));
+    m.usedBy = agents.filter(a => a.modelIds?.includes(m.id)).map(a => a.id);
+  }
+  return { agents, providers, agentById, providerById };
 }
 
 const fmtParams = p => {

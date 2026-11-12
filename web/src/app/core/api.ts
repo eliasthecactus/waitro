@@ -1,7 +1,7 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { UserKey } from './key';
 import { DEFAULT_MODEL, MAX_QUERY, SCHEMA, SYSTEM, keywordSearch, sanitizeAnswer } from './search-core';
-import { Meta, ModelDetail, ModelSummary, Ranking, SearchResult, TaskPage } from './types';
+import { AgentDetail, AgentSummary, Meta, ModelDetail, ModelSummary, ProviderDetail, ProviderSummary, Ranking, SearchResult, TaskPage } from './types';
 
 interface RankingFile { task: string; name: string; updated: string; picks: { id: string; rank?: number; label: string; why?: string }[] }
 
@@ -23,6 +23,21 @@ export class Api {
   readonly taskNames = computed(() => new Map((this.meta()?.domains ?? []).flatMap(d => d.tasks.map(t => [t.id, t.name] as const))));
   readonly taskDomain = computed(() => new Map((this.meta()?.domains ?? []).flatMap(d => d.tasks.map(t => [t.id, d.id] as const))));
   private digest?: Promise<string>;
+  private agentList?: Promise<AgentSummary[]>;
+  private providerList?: Promise<ProviderSummary[]>;
+
+  agents(): Promise<AgentSummary[]> {
+    return (this.agentList ??= this.get<AgentSummary[]>('data/agents.json'));
+  }
+  providers(): Promise<ProviderSummary[]> {
+    return (this.providerList ??= this.get<ProviderSummary[]>('data/providers.json'));
+  }
+  agent(id: string) {
+    return this.get<AgentDetail>(`data/a/${encodeURIComponent(id)}.json`);
+  }
+  provider(id: string) {
+    return this.get<ProviderDetail>(`data/p/${encodeURIComponent(id)}.json`);
+  }
 
   async init(): Promise<void> {
     const [meta, models, rankings] = await Promise.all([

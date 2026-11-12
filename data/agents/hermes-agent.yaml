@@ -1,0 +1,31 @@
+id: hermes-agent
+name: Hermes Agent
+org: Nous Research
+kind: personal
+summary: Self-improving open-source agent that runs on your machine or server. Writes its own skills, remembers across sessions and talks to you over Telegram, Slack, WhatsApp and more.
+description: Hermes runs as a terminal UI plus a messaging gateway (Telegram, Discord, Slack, WhatsApp, Signal, email). When it solves a hard problem it saves a reusable skill, and it keeps searchable memory across sessions. Commands can run locally, in Docker, over SSH or in cloud sandboxes like Modal and Daytona. It can import an existing OpenClaw setup.
+surfaces: [cli, chat, desktop, web]
+os: [macos, linux, windows, android]
+openSource: true
+license: MIT
+version: v0.23.1
+models: Nous Portal, OpenRouter, OpenAI, Anthropic, your own endpoint and many others; switch with hermes model.
+pricing:
+  summary: Free software. Optional Nous Portal plans for model access.
+  free: true
+  plans:
+    - { name: Nous Portal Plus, price: 20, period: month }
+    - { name: Nous Portal Super, price: 100, period: month }
+    - { name: Nous Portal Ultra, price: 200, period: month }
+  source: https://hermes-agent.nousresearch.com
+install:
+  - { label: "Linux, macOS, WSL2", cmd: 'curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash' }
+  - { label: "Windows PowerShell", cmd: 'iex (irm https://hermes-agent.nousresearch.com/install.ps1)' }
+features: [Creates and refines its own skills, Cross-session memory with search, Messaging gateway, Built-in cron scheduler, Subagents, MCP, "Docker, SSH, Modal and Daytona backends"]
+strengths: [Learns reusable skills over time, Reach it from any chat app, Any model provider]
+limitations: [Runs commands on your machine unless you pick a sandboxed backend, Fast-moving releases]
+links:
+  repo: https://github.com/NousResearch/hermes-agent
+  homepage: https://hermes-agent.nousresearch.com
+tags: [assistant, messaging, memory]
+lastChecked: 2026-11-12

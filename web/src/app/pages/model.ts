@@ -8,6 +8,7 @@ import {
 import { Api } from '../core/api';
 import { accessLabel, archName, aspectName, commercial, compact, date, linkName, money, params, platformName, price, tokens } from '../core/format';
 import { ASPECT_ICON, IO_ICON, LINK_ICON, PLATFORM_ICON } from '../core/icons';
+import { perM } from '../core/tools';
 import { ModelDetail } from '../core/types';
 import { IconTile } from '../ui/icon-tile';
 
@@ -145,6 +146,51 @@ import { IconTile } from '../ui/icon-tile';
                 </section>
               }
 
+              @if (m.offeredBy.length) {
+                <section>
+                  <h2 class="text-xl font-semibold tracking-tight">Where to get it</h2>
+                  <p class="mt-1 text-sm text-muted">Providers in the index that serve this model. Prices in USD per 1M tokens.</p>
+                  <div class="card mt-4 overflow-x-auto">
+                    <table class="w-full min-w-[560px] text-sm">
+                      <thead>
+                        <tr class="border-b border-line bg-subtle/60 text-left text-xs uppercase tracking-wider text-faint">
+                          <th class="px-4 py-2.5 font-medium">Provider</th>
+                          <th class="px-3 py-2.5 text-right font-medium">Input</th>
+                          <th class="px-3 py-2.5 text-right font-medium">Output</th>
+                          <th class="px-3 py-2.5 text-right font-medium">Cached</th>
+                          <th class="px-3 py-2.5 font-medium">Note</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (o of offers(); track o.provider + o.name) {
+                          <tr class="border-b border-line last:border-0">
+                            <td class="py-2.5 pl-4 pr-3">
+                              <a [routerLink]="['/p', o.provider]" class="font-medium hover:text-accent-ink">{{ o.providerName }}</a>
+                              @if (o.name !== m.name) { <span class="block text-xs text-muted">as {{ o.name }}</span> }
+                            </td>
+                            <td class="num whitespace-nowrap px-3 py-2.5 text-right" [class]="o === cheapest() ? 'font-semibold text-emerald-600 dark:text-emerald-400' : ''">{{ perM(o.inputPerM) || '–' }}</td>
+                            <td class="num whitespace-nowrap px-3 py-2.5 text-right">{{ perM(o.outputPerM) || '–' }}</td>
+                            <td class="num whitespace-nowrap px-3 py-2.5 text-right text-muted">{{ perM(o.cachedInputPerM) || '–' }}</td>
+                            <td class="px-3 py-2.5 text-muted">{{ o.inputPerM === undefined && o.providerKind === 'subscription' ? 'In the plan' + (o.note ? ': ' + o.note : '') : o.note }}</td>
+                          </tr>
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              }
+
+              @if (m.usedBy.length) {
+                <section>
+                  <h2 class="text-xl font-semibold tracking-tight">Agents built around it</h2>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    @for (a of m.usedBy; track a.id) {
+                      <a [routerLink]="['/a', a.id]" class="chip !px-3 !py-1.5 !text-sm transition hover:border-line-strong hover:text-ink">{{ a.name }}<svg lucideArrowUpRight [size]="12" /></a>
+                    }
+                  </div>
+                </section>
+              }
+
               @if (m.variants?.length) {
                 <section>
                   <h2 class="text-xl font-semibold tracking-tight">Variants</h2>
@@ -254,6 +300,14 @@ export class ModelPage {
   protected readonly aspectName = aspectName;
   protected readonly platformName = platformName;
 
+  protected readonly perM = perM;
+  /** Priced offers first, cheapest input first; plan-only offers after. */
+  protected readonly offers = computed(() => [...(this.m()?.offeredBy ?? [])].sort((a, b) =>
+    (a.inputPerM ?? Infinity) - (b.inputPerM ?? Infinity) || a.providerName.localeCompare(b.providerName)));
+  protected readonly cheapest = computed(() => {
+    const priced = this.offers().filter(o => o.inputPerM !== undefined);
+    return priced.length > 1 ? priced[0] : null;
+  });
   protected readonly links = computed(() => Object.entries(this.m()?.links ?? {}));
   protected readonly paragraphs = computed(() => (this.m()?.description ?? '').trim().split(/\n\s*\n/).map(p => p.replace(/\s+/g, ' ')));
   protected readonly topPickTasks = computed(() =>

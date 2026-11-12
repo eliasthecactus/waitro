@@ -1,0 +1,25 @@
+id: cerebras
+name: Cerebras
+org: Cerebras Systems
+hq: USA
+kind: inference
+summary: Inference on wafer-scale chips, the fastest output here (about 3000 tokens/s on gpt-oss-120b). OpenAI-compatible, pay as you go.
+description: Cerebras runs open models on its own wafer-scale engine. Shared inference is pay as you go; dedicated capacity is by agreement. Adding a payment method gives a one-time $5 credit that expires after 30 days.
+billing:
+  types: [payg]
+  freeTier: "One-time $5 credit with a payment method, valid 30 days"
+api: [openai]
+baseUrl: https://api.cerebras.ai/v1
+models:
+  - { id: gpt-oss-120b, name: gpt-oss-120b, note: "About 3000 tokens/s, 131K context on paid" }
+  - { id: qwen3-8-27b, name: Qwen3.8 27B, note: "About 1850 tokens/s, 128K context on paid" }
+privacy: Not checked yet.
+worksWith: [cline]
+strengths: [Fastest output speed of any provider here]
+limitations: [Very few models, Per-token prices were not readable on the pricing page]
+links:
+  homepage: https://www.cerebras.ai
+  docs: https://inference-docs.cerebras.ai
+  pricing: https://www.cerebras.ai/pricing
+tags: [fast, open-models]
+lastChecked: 2026-11-12

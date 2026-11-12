@@ -1,0 +1,31 @@
+id: arnict
+name: Arnict
+org: arnict, LLC
+hq: Delaware, USA
+kind: inference
+summary: New US inference provider for open models with prepaid credit that never expires. Currently serves abliterated GLM 5.3 and GLM 5.3 Flash; more models on the roadmap.
+description: |
+  One OpenAI-compatible API (chat completions and streaming). You buy credit in one-time top-ups from $1 to $10,000; there is no subscription and no automatic recharge, and purchased credit never expires. Unused credit can be refunded on request.
+
+  The two current models are abliterated GLM versions, meaning their refusal behaviour was removed. DeepSeek V4.1 Flash and Qwen 3.6 35B A3B are listed as coming soon; Kimi K3, Qwen 3.8 and DeepSeek V4 Pro are on the roadmap.
+billing:
+  types: [prepaid]
+  fee: None stated
+  freeTier: "$5 a month only for verified personal accounts created before 3 Oct 2026; new accounts get none"
+  note: "Referral credit: 15% of the first deposit, 10% after"
+api: [openai]
+baseUrl: https://api.arnict.com/v1
+models:
+  - { id: glm-5-3, name: GLM 5.3 Abliterated, inputPerM: 1.25, outputPerM: 2.25, cachedInputPerM: 0.3, note: "Refusals removed, 1M context" }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash Abliterated, inputPerM: 0.125, outputPerM: 0.5, cachedInputPerM: 0.05, note: "Refusals removed, 1M context" }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, note: Coming soon }
+pricesSource: https://arnict.com/pricing
+privacy: Prompts and responses are never archived or used for training; only usage metadata (model, tokens, latency, cost) is kept.
+strengths: [Credit never expires and can be refunded, No subscription, Strict no-logging claim]
+limitations: [Only two models so far, "Company formed in September 2026, short track record", 30 requests a minute until your first top-up (600 after)]
+links:
+  homepage: https://arnict.com
+  pricing: https://arnict.com/pricing
+  docs: https://arnict.com/inference
+tags: [open-models, uncensored, privacy]
+lastChecked: 2026-11-12

@@ -1,0 +1,30 @@
+id: t3-code
+name: T3 Code
+org: T3 Tools (Theo Browne)
+kind: control-plane
+summary: Free open-source app that runs Claude Code, Codex, Cursor, OpenCode and other agents in one interface, using the subscriptions you already have.
+description: T3 Code does not sell model access. You log in to each agent's own CLI (claude, codex, agent, opencode, grok) and T3 Code drives them from one UI. Each thread gets its own git branch, and you can commit, push and open a PR with one button. A desktop app, a local web app, a hosted web app and iOS/Android companions let you supervise agents on another machine.
+surfaces: [desktop, web, mobile, cli]
+os: [macos, linux, windows, ios, android]
+openSource: true
+license: MIT
+version: v0.1.9
+models: Whatever the wrapped agents use. You sign in to each agent yourself; no keys are resold.
+wraps: [claude-code, codex, cursor, opencode]
+pricing:
+  summary: Free. You pay only for the agents' own subscriptions.
+  free: true
+  source: https://t3.codes
+install:
+  - { label: "macOS, Linux", cmd: 'curl -fsSL https://t3.codes/install.sh | sh' }
+  - { label: "Windows PowerShell", cmd: 'irm https://t3.codes/install.ps1 | iex' }
+  - { label: "Try without installing", cmd: 'npx t3@latest' }
+  - { label: "Desktop (Homebrew)", cmd: 'brew install --cask t3-code' }
+features: ["One UI for Claude Code, Codex, Cursor, OpenCode, Grok Build and Antigravity", Switch agent or model mid-thread, Branch per thread, One-click commit push and PR, Remote control from phone]
+strengths: [Uses subscriptions you already pay for, Free and MIT-licensed]
+limitations: ["Very early: the README says expect bugs", Each agent CLI must be installed and logged in separately]
+links:
+  repo: https://github.com/pingdotgg/t3code
+  homepage: https://t3.codes
+tags: [gui, multi-agent]
+lastChecked: 2026-11-12

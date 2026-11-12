@@ -1,0 +1,35 @@
+id: nanogpt
+name: NanoGPT
+org: NanoGPT LLC
+hq: USA
+kind: router
+summary: Pay-as-you-go access to about 1,300 models with no markup and deposits from $0.10 in crypto, plus a $12 PRO plan with free output on open models.
+description: |
+  Top up a balance by card or crypto and use any model on the web or through OpenAI- and Anthropic-compatible APIs. Text prices are list prices; pinning a specific provider adds 5%, and bring-your-own-key requests cost 5% of the normal price.
+
+  PRO ($12 a month) includes 60M input tokens a week on open text models (GLM, DeepSeek, Kimi, MiniMax, MiMo, Qwen and more) with free output, 100 images a day and 5% off other text models. Closed models like Claude and GPT still bill from your balance.
+billing:
+  types: [prepaid, subscription]
+  fee: No deposit fees
+  freeTier: One free model on the web
+plans:
+  - { name: Pay as you go, price: 0, period: month }
+  - { name: PRO, price: 12, period: month, note: "60M input tokens a week on open models, output free, resets Monday" }
+api: [openai, openai-responses, anthropic]
+baseUrl: https://api.nano-gpt.com/api/v1
+modelCount: 1292
+models:
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.1, outputPerM: 0.6 }
+  - { id: deepseek-v4-pro, name: DeepSeek V4 Pro, inputPerM: 0.87, outputPerM: 1.78 }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 0.6, outputPerM: 1.1 }
+  - { id: claude-opus-5-5, name: Claude Opus 5.5, inputPerM: 4, outputPerM: 20 }
+pricesSource: https://nano-gpt.com/pricing
+privacy: No training on your data. Prompts are not stored by default; API logging is opt-in. Requests are routed to third-party providers with their own retention, marked ZDR where the provider claims it.
+strengths: [Huge model list, Crypto payments from $0.10, Cheap PRO plan for open models]
+limitations: [Data goes through many third-party providers, PRO excludes closed models video and voice]
+links:
+  homepage: https://nano-gpt.com
+  pricing: https://nano-gpt.com/pricing
+  docs: https://docs.nano-gpt.com
+tags: [router, crypto]
+lastChecked: 2026-11-12

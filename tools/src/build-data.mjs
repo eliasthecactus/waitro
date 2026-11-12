@@ -12,7 +12,11 @@ const dataDir = path.join(root, 'data');
 const out = path.join(root, 'web/public/data');
 const REPO = process.env.REPO_URL || 'https://github.com/eliasthecactus/waitro';
 
-const stats = process.argv.includes('--no-stats') ? {} : await fetchStats(readCatalog(dataDir).models.map(m => m.data));
+const raw = readCatalog(dataDir);
+const stats = process.argv.includes('--no-stats') ? {} : await fetchStats([
+  ...raw.models.map(m => m.data),
+  ...raw.agents.map(a => ({ ...a.data, id: `agent:${a.data.id}` })),
+]);
 const catalog = loadCatalog(dataDir, { stats });
 
 const listFields = m => ({
@@ -39,9 +43,50 @@ function detail(m) {
     betterOptions: (m.betterOptions || []).map(o => ({ ...o, ...brief(o.id) })),
     improvesOn: m.improvesOn.map(o => ({ ...o, ...brief(o.id) })),
     topPicks,
+    offeredBy: m.offeredBy.map(o => ({ ...o, providerName: catalog.providerById.get(o.provider).name, providerKind: catalog.providerById.get(o.provider).kind })),
+    usedBy: m.usedBy.map(id => agentBrief(id)),
     editUrl: `${REPO}/blob/main/data/models/${m.id}.yaml`,
   };
 }
+
+const agentBrief = id => {
+  const a = catalog.agentById.get(id);
+  return { id, name: a.name, org: a.org, kind: a.kind, summary: a.summary, openSource: a.openSource };
+};
+const providerBrief = id => {
+  const p = catalog.providerById.get(id);
+  return { id, name: p.name, org: p.org, kind: p.kind, summary: p.summary, billing: p.billing.types };
+};
+
+const agentList = a => ({
+  id: a.id, name: a.name, org: a.org, kind: a.kind, summary: a.summary, surfaces: a.surfaces, os: a.os, openSource: a.openSource,
+  license: a.license || null, version: a.version || null, pricing: { summary: a.pricing.summary, free: Boolean(a.pricing.free), from: minPrice(a.pricing.plans) },
+  providers: a.providers, wraps: a.wraps || [], stats: a.stats, tags: a.tags || [],
+});
+const providerList = p => ({
+  id: p.id, name: p.name, org: p.org, kind: p.kind, summary: p.summary, hq: p.hq || null, billing: p.billing, api: p.api,
+  from: minPrice(p.plans), modelCount: p.modelCount ?? (p.models?.length || null), worksWith: p.worksWith, tags: p.tags || [],
+});
+function minPrice(plans = []) {
+  const paid = plans.filter(x => x.price > 0 && x.period !== 'once').sort((a, b) => a.price - b.price)[0];
+  return paid ? { price: paid.price, period: paid.period } : null;
+}
+const agentDetail = a => ({
+  ...a,
+  providers: a.providers.map(providerBrief),
+  wraps: (a.wraps || []).map(agentBrief),
+  wrappedBy: a.wrappedBy.map(agentBrief),
+  modelIds: undefined,
+  models: a.models,
+  builtFor: (a.modelIds || []).map(brief),
+  editUrl: `${REPO}/blob/main/data/agents/${a.id}.yaml`,
+});
+const providerDetail = p => ({
+  ...p,
+  models: (p.models || []).map(m => (m.id ? { ...m, catalogName: catalog.byId.get(m.id).name } : m)),
+  worksWith: p.worksWith.map(agentBrief),
+  editUrl: `${REPO}/blob/main/data/providers/${p.id}.yaml`,
+});
 
 const meta = {
   version: JSON.parse((await import('node:fs')).readFileSync(path.join(root, 'tools/package.json'), 'utf8')).version,
@@ -49,6 +94,8 @@ const meta = {
   builtAt: new Date().toISOString(),
   catalogHash: catalog.hash,
   count: catalog.models.length,
+  agentCount: catalog.agents.length,
+  providerCount: catalog.providers.length,
   domains: catalog.taxonomy.domains.map(d => ({
     ...d,
     tasks: d.tasks.map(t => ({ ...t, domain: d.id, count: catalog.models.filter(m => m.tasks.includes(t.id)).length, ranked: Boolean(catalog.rankings[t.id]) })),
@@ -59,11 +106,15 @@ const meta = {
 };
 
 rmSync(out, { recursive: true, force: true });
-mkdirSync(path.join(out, 'm'), { recursive: true });
+for (const d of ['m', 'a', 'p']) mkdirSync(path.join(out, d), { recursive: true });
 const write = (file, data) => writeFileSync(path.join(out, file), typeof data === 'string' ? data : JSON.stringify(data));
 write('meta.json', meta);
 write('models.json', catalog.models.map(listFields));
 write('rankings.json', catalog.rankings);
 write('digest.txt', catalog.digest);
 for (const m of catalog.models) write(`m/${m.id}.json`, detail(m));
-console.log(`data: ${catalog.models.length} models, ${Object.keys(catalog.rankings).length} rankings, stats for ${Object.keys(stats).length}, hash ${catalog.hash} -> ${path.relative(root, out)}`);
+write('agents.json', catalog.agents.map(agentList));
+write('providers.json', catalog.providers.map(providerList));
+for (const a of catalog.agents) write(`a/${a.id}.json`, agentDetail(a));
+for (const p of catalog.providers) write(`p/${p.id}.json`, providerDetail(p));
+console.log(`data: ${catalog.models.length} models, ${catalog.agents.length} agents, ${catalog.providers.length} providers, ${Object.keys(catalog.rankings).length} rankings, stats for ${Object.keys(stats).length}, hash ${catalog.hash} -> ${path.relative(root, out)}`);

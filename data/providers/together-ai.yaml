@@ -1,0 +1,26 @@
+id: together-ai
+name: Together AI
+org: Together AI
+hq: USA
+kind: inference
+summary: Large inference cloud for open models with serverless per-token pricing, batch, dedicated endpoints, fine-tuning and GPU clusters.
+description: Serverless models are billed per token with no subscription. The same models can run on dedicated endpoints billed per GPU hour (H100 from $5.49), and Together also sells fine-tuning and whole GPU clusters.
+billing:
+  types: [payg]
+api: [openai]
+models:
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26 }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03 }
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.3 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.006 }
+  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.15, outputPerM: 0.6 }
+  - { id: qwen3-5-9b, name: Qwen3.5 9B, inputPerM: 0.17, outputPerM: 0.25 }
+pricesSource: https://www.together.ai/pricing
+privacy: Not checked yet.
+strengths: [Wide open-model catalog, Fine-tuning and dedicated GPUs from the same account]
+limitations: [No coding subscription]
+links:
+  homepage: https://www.together.ai
+  pricing: https://www.together.ai/pricing
+tags: [open-models, fine-tuning]
+lastChecked: 2026-11-12

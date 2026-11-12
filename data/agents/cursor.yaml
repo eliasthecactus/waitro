@@ -1,0 +1,33 @@
+id: cursor
+name: Cursor
+org: Anysphere
+kind: coding
+summary: AI code editor with a terminal agent (Cursor CLI) and cloud agents on web and phone. Models from Anthropic, OpenAI, Google, xAI and Cursor's own Composer.
+surfaces: [ide, cli, cloud, web, mobile]
+os: [macos, linux, windows]
+openSource: false
+license: Proprietary
+models: Frontier models from Anthropic, OpenAI, Google, xAI and Cursor (Composer), picked in the app or set to Auto.
+pricing:
+  summary: Free tier, then monthly plans with a shared usage pool. Higher tiers bill third-party models at API list price.
+  free: true
+  plans:
+    - { name: Plus, price: 8, period: month, note: Grok models only }
+    - { name: Premium, price: 30, period: month, note: "4x Plus usage, cloud agents, code review" }
+    - { name: Super, price: 100, period: month, note: 15x Plus usage }
+    - { name: Ultra, price: 200, period: month, note: 50x Plus usage }
+    - { name: Teams, price: 30, period: seat-month }
+  source: https://cursor.com/pricing
+install:
+  - { label: "CLI (macOS, Linux, WSL)", cmd: 'curl https://cursor.com/install -fsS | bash' }
+  - { label: "CLI (Windows PowerShell)", cmd: "irm 'https://cursor.com/install?win32=true' | iex" }
+features: ["Agent, Plan and Ask modes", Cloud agents (hand off with &), Sandbox mode, Session resume, GitHub Actions]
+strengths: [Full editor plus CLI plus cloud agents, Many frontier models in one plan]
+limitations: [Closed source, "Plan names and limits changed recently; check the pricing page"]
+links:
+  homepage: https://cursor.com
+  docs: https://cursor.com/docs/cli/overview
+  pricing: https://cursor.com/pricing
+notes: The pricing page now carries xAI/X subscription terms.
+tags: [editor, cloud-agents]
+lastChecked: 2026-11-12

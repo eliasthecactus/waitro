@@ -59,6 +59,8 @@ export interface ModelDetail extends Omit<ModelSummary, 'platforms' | 'minVramGB
   notes?: string;
   lastChecked: string;
   topPicks: Record<string, { name: string; picks: (Pick & Brief)[] }>;
+  offeredBy: Offer[];
+  usedBy: AgentBrief[];
   editUrl: string;
 }
 
@@ -70,6 +72,8 @@ export interface Meta {
   builtAt: string;
   catalogHash: string;
   count: number;
+  agentCount: number;
+  providerCount: number;
   domains: Domain[];
   io: string[];
   platforms: string[];
@@ -100,3 +104,36 @@ export interface SearchResult {
   pipelines: Pipeline[];
   gaps: string;
 }
+
+// ---------- agents and providers ----------
+
+export interface Plan { name: string; price?: number; period?: 'month' | 'year' | 'seat-month' | 'once'; note?: string }
+export interface AgentBrief { id: string; name: string; org: string; kind: string; summary: string; openSource: boolean }
+export interface ProviderBrief { id: string; name: string; org: string; kind: string; summary: string; billing: string[] }
+export interface PriceFrom { price: number; period: string }
+
+export interface AgentSummary {
+  id: string; name: string; org: string; kind: string; summary: string; surfaces: string[]; os: string[]; openSource: boolean;
+  license: string | null; version: string | null; pricing: { summary: string; free: boolean; from: PriceFrom | null };
+  providers: string[]; wraps: string[]; stats: Stats | null; tags: string[];
+}
+export interface AgentDetail extends Omit<AgentSummary, 'providers' | 'wraps' | 'pricing'> {
+  description?: string; released?: string; dateSource?: string; models: string;
+  pricing: { summary: string; free?: boolean; plans?: Plan[]; source?: string };
+  install?: { label?: string; cmd: string }[]; features?: string[]; strengths?: string[]; limitations?: string[];
+  links: Record<string, string>; notes?: string; lastChecked: string; editUrl: string;
+  providers: ProviderBrief[]; wraps: AgentBrief[]; wrappedBy: AgentBrief[]; builtFor: Brief[];
+}
+
+export interface ProviderModel { id?: string; name: string; inputPerM?: number; outputPerM?: number; cachedInputPerM?: number; note?: string; catalogName?: string }
+export interface Billing { types: string[]; fee?: string; freeTier?: string; note?: string }
+export interface ProviderSummary {
+  id: string; name: string; org: string; kind: string; summary: string; hq: string | null;
+  billing: Billing; api: string[]; from: PriceFrom | null; modelCount: number | null; worksWith: string[]; tags: string[];
+}
+export interface ProviderDetail extends Omit<ProviderSummary, 'worksWith' | 'from' | 'modelCount'> {
+  description: string; plans?: Plan[]; baseUrl?: string; modelCount?: number; models: ProviderModel[]; pricesSource?: string;
+  privacy?: string; strengths?: string[]; limitations?: string[]; links: Record<string, string>; notes?: string; lastChecked: string;
+  editUrl: string; worksWith: AgentBrief[];
+}
+export interface Offer extends ProviderModel { provider: string; providerName: string; providerKind: string }

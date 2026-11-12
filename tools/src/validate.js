@@ -90,6 +90,78 @@ function modelSchema(t) {
   };
 }
 
+// ---------- agents (coding agents, personal agents, control planes) and providers ----------
+
+export const SURFACES = ['cli', 'desktop', 'ide', 'web', 'mobile', 'chat', 'cloud'];
+export const OSES = ['macos', 'linux', 'windows', 'ios', 'android'];
+export const AGENT_KINDS = ['coding', 'personal', 'control-plane'];
+export const PROVIDER_KINDS = ['router', 'inference', 'subscription'];
+export const BILLING = ['prepaid', 'payg', 'subscription', 'free'];
+export const APIS = ['openai', 'openai-responses', 'anthropic', 'google'];
+const PERIODS = ['month', 'year', 'seat-month', 'once'];
+const AGENT_LINKS = ['repo', 'homepage', 'docs', 'pricing', 'demo'];
+
+const plan = { type: 'object', required: ['name'], props: { name: str, price: num, period: { type: 'string', enum: PERIODS }, note: str } };
+const idList = { type: 'array', items: { type: 'string', pattern: ID, hint: 'lowercase-kebab-case' } };
+const common = {
+  id: { type: 'string', pattern: ID, hint: 'lowercase-kebab-case' },
+  name: str,
+  org: str,
+  summary: { type: 'string', max: 200 },
+  description: str,
+  strengths: strList,
+  limitations: strList,
+  links: { type: 'object', props: Object.fromEntries(AGENT_LINKS.map(k => [k, url])), min: 1 },
+  notes: str,
+  tags: strList,
+  lastChecked: date,
+};
+
+const agentSchema = {
+  type: 'object',
+  required: ['id', 'name', 'org', 'kind', 'summary', 'surfaces', 'os', 'openSource', 'models', 'pricing', 'links', 'lastChecked'],
+  props: {
+    ...common,
+    kind: { type: 'string', enum: AGENT_KINDS },
+    surfaces: { type: 'array', items: { type: 'string', enum: SURFACES }, min: 1 },
+    os: { type: 'array', items: { type: 'string', enum: OSES }, min: 1 },
+    openSource: bool,
+    license: str,
+    released: date,
+    dateSource: { type: 'string', enum: DATE_SOURCES },
+    version: str,
+    models: str,
+    modelIds: idList,
+    providers: idList,
+    wraps: idList,
+    pricing: { type: 'object', required: ['summary'], props: { summary: str, free: bool, plans: { type: 'array', items: plan }, source: url } },
+    install: { type: 'array', items: { type: 'object', required: ['cmd'], props: { label: str, cmd: str } } },
+    features: strList,
+  },
+};
+
+const providerSchema = {
+  type: 'object',
+  required: ['id', 'name', 'org', 'kind', 'summary', 'description', 'billing', 'api', 'links', 'lastChecked'],
+  props: {
+    ...common,
+    kind: { type: 'string', enum: PROVIDER_KINDS },
+    hq: str,
+    billing: { type: 'object', required: ['types'], props: { types: { type: 'array', items: { type: 'string', enum: BILLING }, min: 1 }, fee: str, freeTier: str, note: str } },
+    plans: { type: 'array', items: plan },
+    api: { type: 'array', items: { type: 'string', enum: APIS }, min: 1 },
+    baseUrl: str,
+    modelCount: num,
+    models: {
+      type: 'array',
+      items: { type: 'object', required: ['name'], props: { id: str, name: str, inputPerM: num, outputPerM: num, cachedInputPerM: num, note: str } },
+    },
+    pricesSource: url,
+    privacy: str,
+    worksWith: idList,
+  },
+};
+
 const rankingSchema = {
   type: 'object',
   required: ['task', 'updated', 'picks'],
@@ -140,7 +212,7 @@ export function taxonomyInfo(taxonomy) {
 }
 
 /** Validates everything together so cross-references (betterOptions, rankings) can be checked. */
-export function validateCatalog({ taxonomy, models, rankings }) {
+export function validateCatalog({ taxonomy, models, rankings, agents = [], providers = [] }) {
   const t = taxonomyInfo(taxonomy);
   const schema = modelSchema(t);
   const errors = [];
@@ -197,5 +269,39 @@ export function validateCatalog({ taxonomy, models, rankings }) {
     }
   }
 
+  validateTools({ agents, providers, modelIds: byId }, errors);
   return errors;
+}
+
+function validateFiles(list, schema, dir, errors) {
+  const ids = new Map();
+  for (const { file, data } of list) {
+    const before = errors.length;
+    check(data, schema, '', errors);
+    for (let i = before; i < errors.length; i++) errors[i] = `${dir}/${file}: ${errors[i].replace(/^: /, '')}`;
+    if (!data || typeof data !== 'object') continue;
+    if (data.id && file !== `${data.id}.yaml`) errors.push(`${dir}/${file}: file name must be ${data.id}.yaml`);
+    if (ids.has(data.id)) errors.push(`${dir}/${file}: duplicate id "${data.id}"`);
+    ids.set(data.id, data);
+  }
+  return ids;
+}
+
+function validateTools({ agents, providers, modelIds }, errors) {
+  const a = validateFiles(agents, agentSchema, 'agents', errors);
+  const p = validateFiles(providers, providerSchema, 'providers', errors);
+  const ref = (at, kind, map, id) => { if (!map.has(id)) errors.push(`${at}: unknown ${kind} "${id}"`); };
+  for (const x of a.values()) {
+    const at = `agents/${x.id}.yaml`;
+    for (const id of x.modelIds || []) ref(at, 'model', modelIds, id);
+    for (const id of x.providers || []) ref(at, 'provider', p, id);
+    for (const id of x.wraps || []) { if (id === x.id) errors.push(`${at}: wraps itself`); else ref(at, 'agent', a, id); }
+    if (x.released && !x.dateSource) errors.push(`${at}: "released" needs a "dateSource"`);
+  }
+  for (const x of p.values()) {
+    const at = `providers/${x.id}.yaml`;
+    for (const id of x.worksWith || []) ref(at, 'agent', a, id);
+    for (const m of x.models || []) if (m.id) ref(at, 'model', modelIds, m.id);
+    if ((x.models || []).some(m => m.inputPerM !== undefined) && !x.pricesSource) errors.push(`${at}: model prices need a "pricesSource"`);
+  }
 }

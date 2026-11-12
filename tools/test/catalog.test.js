@@ -72,4 +72,32 @@ test('build-data writes the static files the app reads', () => {
   assert.equal(detail.betterOptions[0].name, 'RelayVSR');
   assert.ok(detail.topPicks['video-upscaling'].picks.every(p => p.id !== 'flashvsr'));
   assert.ok(existsSync(path.join(dir, 'digest.txt')));
+  assert.equal(meta.agentCount, JSON.parse(readFileSync(path.join(dir, 'agents.json'), 'utf8')).length);
+  const go = JSON.parse(readFileSync(path.join(dir, 'p/opencode-go.json'), 'utf8'));
+  assert.ok(go.worksWith.some(a => a.id === 'claude-code'));
+  const glm = JSON.parse(readFileSync(path.join(dir, 'm/glm-5-3.json'), 'utf8'));
+  assert.ok(glm.offeredBy.some(o => o.provider === 'opencode-zen' && o.providerName === 'OpenCode Zen'));
+});
+
+test('agents and providers are cross-linked both ways', () => {
+  const claude = catalog.agentById.get('claude-code');
+  assert.ok(claude.providers.includes('zai-coding-plan'), 'provider.worksWith shows up on the agent');
+  assert.deepEqual(claude.wrappedBy, ['t3-code']);
+  assert.ok(catalog.providerById.get('openrouter').worksWith.includes('hermes-agent'));
+  assert.ok(catalog.byId.get('claude-fable-5-2').usedBy.includes('claude-code'));
+});
+
+test('agent and provider files are validated', () => {
+  const raw = readCatalog(path.join(root, 'data'));
+  const a = raw.agents.find(x => x.data.id === 't3-code').data;
+  a.wraps.push('no-such-agent');
+  a.surface = ['cli'];
+  const p = raw.providers.find(x => x.data.id === 'arnict').data;
+  p.models.push({ id: 'no-such-model', name: 'X' });
+  p.billing.types = ['barter'];
+  const errors = validateCatalog(raw).join('\n');
+  assert.match(errors, /t3-code\.yaml: unknown agent "no-such-agent"/);
+  assert.match(errors, /unknown field "surface"/);
+  assert.match(errors, /arnict\.yaml: unknown model "no-such-model"/);
+  assert.match(errors, /"barter" is not one of/);
 });

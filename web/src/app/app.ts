@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { LucideDynamicIcon, LucideGitBranch, LucideKeyRound, LucideLayoutGrid, LucideMonitor, LucideMoon, LucideRows3, LucideSearch, LucideSun, LucideInfo } from '@lucide/angular';
+import { LucideBot, LucideDynamicIcon, LucideGitBranch, LucideKeyRound, LucideLayoutGrid, LucideMonitor, LucideMoon, LucideRoute, LucideRows3, LucideSearch, LucideSun, LucideInfo } from '@lucide/angular';
 import { UserKey } from './core/key';
 import { KeyDialog } from './ui/key-dialog';
 import { Api } from './core/api';
@@ -15,14 +15,14 @@ import { Theme } from './core/theme';
       <div class="wrap flex h-15 items-center gap-2">
         <a routerLink="/" class="mr-2 flex items-center gap-2.5 rounded-lg" aria-label="Waitro home">
           <img src="icon.svg" alt="" class="size-7" />
-          <span class="text-[17px] font-semibold tracking-tight">waitro</span>
+          <span class="hidden text-[17px] font-semibold tracking-tight sm:inline">waitro</span>
         </a>
-        <nav class="ml-auto flex items-center gap-0.5 sm:ml-4 sm:mr-auto" aria-label="Main">
+        <nav class="ml-auto flex items-center gap-0.5 md:ml-4 md:mr-auto" aria-label="Main">
           @for (n of nav; track n.path) {
             <a [routerLink]="n.path" routerLinkActive="!text-ink bg-subtle" [routerLinkActiveOptions]="{ exact: n.path === '/' }"
-               class="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-muted transition hover:text-ink" [attr.aria-label]="n.label">
-              <svg [lucideIcon]="n.icon" [size]="16" class="sm:hidden" />
-              <span class="hidden sm:inline">{{ n.label }}</span>
+               class="flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-muted transition hover:text-ink md:px-2.5" [attr.aria-label]="n.label" [title]="n.label">
+              <svg [lucideIcon]="n.icon" [size]="16" class="md:hidden" />
+              <span class="hidden md:inline">{{ n.label }}</span>
             </a>
           }
         </nav>
@@ -35,7 +35,7 @@ import { Theme } from './core/theme';
           </button>
         }
         <a [href]="api.meta()?.repo" target="_blank" rel="noopener"
-           class="grid size-9 place-items-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink" title="Source on GitHub" aria-label="Source on GitHub">
+           class="hidden size-9 place-items-center rounded-lg text-muted transition hover:bg-subtle hover:text-ink sm:grid" title="Source on GitHub" aria-label="Source on GitHub">
           <svg lucideGitBranch [size]="17" />
         </a>
         <button type="button" (click)="theme.cycle()"
@@ -62,13 +62,15 @@ import { Theme } from './core/theme';
             <span class="eyebrow mb-1">Explore</span>
             <a routerLink="/" class="text-muted hover:text-ink">Search</a>
             <a routerLink="/models" class="text-muted hover:text-ink">All models</a>
+            <a routerLink="/agents" class="text-muted hover:text-ink">Agents</a>
+            <a routerLink="/providers" class="text-muted hover:text-ink">Providers</a>
             <a routerLink="/tasks" class="text-muted hover:text-ink">Tasks</a>
           </div>
           <div class="flex flex-col gap-2">
             <span class="eyebrow mb-1">Project</span>
             <a routerLink="/about" class="text-muted hover:text-ink">About</a>
             <a [href]="api.meta()?.repo" target="_blank" rel="noopener" class="text-muted hover:text-ink">GitHub</a>
-            <span class="num text-xs text-faint">v{{ api.meta()?.version }} · {{ api.meta()?.count }} models</span>
+            <span class="num text-xs text-faint">v{{ api.meta()?.version }} · {{ api.meta()?.count }} models · {{ api.meta()?.agentCount }} agents · {{ api.meta()?.providerCount }} providers</span>
           </div>
         </div>
       </div>
@@ -86,6 +88,8 @@ export class App {
   protected readonly nav = [
     { path: '/', label: 'Search', icon: LucideSearch },
     { path: '/models', label: 'All models', icon: LucideRows3 },
+    { path: '/agents', label: 'Agents', icon: LucideBot },
+    { path: '/providers', label: 'Providers', icon: LucideRoute },
     { path: '/tasks', label: 'Tasks', icon: LucideLayoutGrid },
     { path: '/about', label: 'About', icon: LucideInfo },
   ];

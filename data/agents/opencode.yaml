@@ -1,0 +1,32 @@
+id: opencode
+name: OpenCode
+org: Anomaly (SST team)
+kind: coding
+summary: Open-source coding agent for any model. Terminal UI, desktop app and phone pairing, with 200+ providers including local models.
+surfaces: [cli, desktop, web, mobile]
+os: [macos, linux, windows, ios]
+openSource: true
+license: MIT
+version: v2.2.7
+models: 200+ providers through Models.dev, local models, ChatGPT Plus/Pro or GitHub Copilot login, or OpenCode's own Zen (pay as you go) and Go (subscription).
+pricing:
+  summary: Free software with some free models. OpenCode Zen is pay as you go; OpenCode Go is a subscription for open models.
+  free: true
+  plans:
+    - { name: Go, price: 10, period: month }
+    - { name: Go Plus, price: 40, period: month }
+    - { name: Go Teams, price: 20, period: seat-month }
+  source: https://opencode.ai/docs/go
+install:
+  - { label: "Install script", cmd: 'curl -fsSL https://opencode.ai/v2/install | bash' }
+  - { label: "npm", cmd: 'npm install -g @opencode/cli' }
+  - { label: "Homebrew", cmd: 'brew install anomalyco/tap/opencode-v2' }
+features: [Build and read-only Plan agents (Tab to switch), Subagents, MCP servers, Plugins, Skills (SKILL.md), Custom agents and commands, Undo, opencode run for scripts and CI]
+strengths: [Works with almost any provider, Free and MIT-licensed, Cheap Go plan for open models]
+limitations: [Desktop app is in beta, Android app not out yet]
+links:
+  repo: https://github.com/anomalyco/opencode
+  homepage: https://opencode.ai
+  docs: https://opencode.ai/docs
+tags: [terminal, open-models]
+lastChecked: 2026-11-12

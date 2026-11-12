@@ -1,0 +1,27 @@
+id: aider
+name: Aider
+org: Aider-AI
+kind: coding
+summary: AI pair programming in the terminal. Maps your whole repo, edits files and commits each change to git. Works with almost any model.
+surfaces: [cli]
+os: [macos, linux, windows]
+openSource: true
+license: Apache-2.0
+version: v0.86.0
+models: OpenAI, Anthropic, Gemini, Groq, xAI, DeepSeek, OpenRouter, Bedrock, Vertex, Ollama, LM Studio or any OpenAI-compatible API, with your own key.
+pricing:
+  summary: Free; you pay your model provider.
+  free: true
+  source: https://aider.chat
+install:
+  - { label: "Installer", cmd: 'python -m pip install aider-install && aider-install' }
+  - { label: "macOS, Linux", cmd: 'curl -LsSf https://aider.chat/install.sh | sh' }
+  - { label: "pipx", cmd: 'pipx install aider-chat' }
+features: [Repo map of the whole codebase, Automatic git commits, Lint and test after edits, Edit from your IDE with AI comments, Voice to code, Images and URLs in chat]
+strengths: [Simple and git-native, Any model including local]
+limitations: [Terminal only, Last tagged release is from 2025]
+links:
+  repo: https://github.com/Aider-AI/aider
+  homepage: https://aider.chat
+tags: [terminal, byok]
+lastChecked: 2026-11-12
