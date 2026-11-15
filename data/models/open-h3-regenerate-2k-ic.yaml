@@ -1,0 +1,24 @@
+id: open-h3-regenerate-2k-ic
+name: Open-H3-Regenerate-2K-IC
+org: NVIDIA (NVlabs)
+released: 2026-11-09
+dateSource: huggingface
+summary: Open replacement for MiniMax's closed H3-Regenerate-2K. LoRAs on MiniMax H3 that re-render a low-res video draft at 1080P, 2K or 4K in a few steps.
+description: The IC version keeps the draft clean in the context of H3's Ref2VA transformer and generates the high-resolution video next to it, so faces, lip sync and lettering follow the draft. Default sampler up3 enlarges the draft latent and finishes with three HyperFlow steps. The earlier non-IC version (October 2026) re-noises the upscaled draft and denoises in three steps; it adds more texture but can drift on faces and text. Both accept drafts from H3 or other video models and keep the draft's audio.
+tasks: [video-upscaling, video-restoration]
+architecture: diffusion
+access: open-weights
+license: { id: MiniMax-H3-Community, commercial: limited, note: Inherits the MiniMax H3 community licence; code in NVlabs/Sana is Apache-2.0. }
+io: { in: [video, text], out: [video] }
+hardware: { platforms: [cuda], note: "Runs the full MiniMax H3 transformer. Non-IC 2K clip of 5 s takes 22.5 s on one B200 with SoL-Engine versus 87 s through the official API." }
+variants:
+  - { name: IC version, weights: https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K-IC }
+  - { name: Original 3-step version, weights: https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K }
+links:
+  weights: https://huggingface.co/Efficient-Large-Model/Open-H3-Regenerate-2K-IC
+  repo: https://github.com/NVlabs/Sana/tree/sol-engine/models/Open-H3-Regenerate-2K
+  homepage: https://nvlabs.github.io/Sana/Open-H3-Regenerate-2K/
+strengths: [Self-hostable alternative to the official H3-Regenerate-2K API, Any low-res draft in and 768P to 4K out, Clips of 5 to 15 s in one pass, "Preferred in 87% of blind judgments over the official API (non-IC, vendor study)"]
+limitations: [Needs the full MiniMax H3 model (about 160 GB repo), "MiniMax licence restrictions apply, including regions"]
+tags: [minimax-h3, video-refiner, 4k]
+lastChecked: 2026-11-15

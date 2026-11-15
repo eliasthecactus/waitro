@@ -40,4 +40,8 @@ tags:
   - novel-view-synthesis
   - multi-view-reconstruction
   - feed-forward
+betterOptions:
+  - id: splatanything
+    why: InfiniSplat v3 from the same group. One model across objects, indoor, street and aerial scenes, with Apache-2.0 weights.
+    aspects: [quality, license]
 lastChecked: 2026-11-08

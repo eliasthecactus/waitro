@@ -1,0 +1,21 @@
+id: novaatom-lite
+name: NovaAtom-Lite
+org: Geodesic Intelligence
+released: 2026-11-10
+dateSource: vendor
+summary: All-atom structure prediction for proteins, DNA, RNA and ligands. Beats AlphaFold 3 and IsoDDE on antibody–antigen and protein–ligand interfaces (vendor runs).
+description: Given protein, DNA and RNA chains plus small-molecule ligands (by component code or SMILES), NovaAtom-Lite predicts every heavy atom with pLDDT, PAE and ipTM confidence. It accepts cyclic and covalent bonds and contact or pocket hints. Training cutoff 2021-09-30, the same as AlphaFold 3. Available through the Geodesic API and the no-code NovaDDE platform.
+tasks: [life-sciences]
+access: api
+license: { id: Proprietary, commercial: unknown }
+io: { in: [protein, structured], out: [3d, structured] }
+hardware: { platforms: [api] }
+links:
+  homepage: https://www.geodesiclab.com/news/introducing-novaatom-lite
+benchmarks:
+  - { name: FoldBench antibody–antigen success, score: 79.07, unit: "%", setting: "DockQ ≥ 0.23, top-1 of 25; AlphaFold 3 47.9", selfReported: true, source: https://www.geodesiclab.com/news/introducing-novaatom-lite }
+  - { name: FoldBench protein–ligand success, score: 77.06, unit: "%", setting: "AlphaFold 3 64.9", selfReported: true, source: https://www.geodesiclab.com/news/introducing-novaatom-lite }
+strengths: [Strongest reported antibody–antigen docking, Proteins nucleic acids and ligands in one prediction, Covalent and cyclic constraints]
+limitations: [API only, Weights not released, Behind OpenDDE and AlphaFold 3 on some FoldBench interface tasks]
+tags: [protein-structure, drug-discovery, cofolding]
+lastChecked: 2026-11-15

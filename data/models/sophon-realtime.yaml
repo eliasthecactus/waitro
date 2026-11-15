@@ -1,0 +1,30 @@
+id: sophon-realtime
+name: Sophon-Realtime
+org: Adventists AI
+released: 2026-11-04
+dateSource: github
+summary: Open full-duplex voice models (32B) that hear tone, laugh and sigh, clone voices zero-shot and speak the OpenAI Realtime API. One 80 GB GPU or a Mac with MLX.
+description: Three builds share one brain. Tag adds non-verbal sounds chosen from the conversation, Flash is the fastest (about 0.31 s to first audio, up to 40 users per GPU) and E2E is end to end (about 0.25 s). Live mode hands lookups to a larger backend model while it keeps talking, compatible with OpenAI GPT-Live. Speaks Chinese, English, Italian, German, Spanish, French and Portuguese; Flash also Japanese and Russian. Free hosted API trial.
+tasks: [chat, text-to-speech, voice-cloning]
+architecture: transformer
+access: both
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [audio, text], out: [audio, text] }
+params: { total: 32 }
+hardware: { platforms: [cuda, apple-silicon], note: "One 80 GB GPU per build via vLLM-Omni; Flash-4bit fits a 32 GB GPU; MLX Flash-4bit on Macs with 36 GB+." }
+variants:
+  - { name: Flash, weights: https://huggingface.co/adventists-ai/Sophon-Realtime-32B-Flash }
+  - { name: Tag, weights: https://huggingface.co/adventists-ai/Sophon-Realtime-32B-Tag }
+  - { name: E2E, weights: https://huggingface.co/adventists-ai/Sophon-Realtime-32B-E2E }
+  - { name: Flash 4-bit MLX, weights: https://huggingface.co/adventists-ai/Sophon-Realtime-32B-Flash-4bit-MLX }
+links:
+  repo: https://github.com/adventists-ai/sophon-realtime
+  weights: https://huggingface.co/adventists-ai/Sophon-Realtime-32B-Flash
+benchmarks:
+  - { name: VoiceBench, score: 82.8, selfReported: true, source: https://github.com/adventists-ai/sophon-realtime }
+  - { name: Big Bench Audio, score: 81.8, unit: "%", selfReported: true, source: https://github.com/adventists-ai/sophon-realtime }
+  - { name: Full-Duplex-Bench v3 tool calling Pass@1, score: 48, unit: "%", selfReported: true, source: https://github.com/adventists-ai/sophon-realtime }
+strengths: [Strongest open full-duplex model on VoiceBench (vendor claim), Hears emotion and sarcasm, Drop-in OpenAI Realtime compatibility, Runs offline on a Mac]
+limitations: ["Large: 32B per build", Self-run benchmarks]
+tags: [full-duplex, speech-to-speech, openai-realtime, mlx]
+lastChecked: 2026-11-15

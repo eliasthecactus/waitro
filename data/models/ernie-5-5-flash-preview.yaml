@@ -1,0 +1,22 @@
+id: ernie-5-5-flash-preview
+name: ERNIE 5.5 Flash Preview
+org: Baidu
+released: 2026-11-11
+dateSource: vendor
+summary: First post-trained model on ERNIE 5.5 Flash Base. 280B MoE with 14B active and 1M context, strong at coding, game development, 3D modeling and knowledge work.
+description: Baidu trained it with game-engine (Unreal, Unity, Godot) and Blender/CAD data and shows long agentic runs, such as an 11-hour Unreal Engine 5.8 game build. Text-only. API on Baidu Qianfan and OpenRouter (free preview there); Baidu says weights will follow under Apache 2.0.
+tasks: [chat, coding, agents]
+architecture: moe-transformer
+access: api
+license: { id: Proprietary, commercial: yes, note: "Baidu says the weights will be open-sourced under Apache 2.0 soon." }
+io: { in: [text], out: [text, code] }
+params: { total: 280, active: 14 }
+contextTokens: 1024000
+pricing: { inputPerM: 0, outputPerM: 0, note: "Free preview on OpenRouter. Qianfan pricing not checked.", source: https://openrouter.ai/baidu/ernie-5.5-flash-preview:free }
+hardware: { platforms: [api] }
+links:
+  homepage: https://ernie.baidu.com/release/ernie-5-5-flash-preview/
+strengths: [Long-horizon agentic coding, Game engines and Blender scripting, 1M-token context, Only 14B active parameters]
+limitations: [Text only, Preview, Weights not out yet, No benchmark numbers on the announcement page]
+tags: [baidu, ernie, moe]
+lastChecked: 2026-11-15

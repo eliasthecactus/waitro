@@ -1,0 +1,23 @@
+id: pan-2
+name: PAN 2
+org: MBZUAI Institute of Foundation Models
+released: 2026-11-05
+dateSource: github
+summary: Open world model that simulates how a scene changes in response to actions described in text, as video up to 20 s. Built on a 29B MMDiT trained from scratch.
+description: PAN 2 follows the Generative Latent Prediction design. An LLM (the conceptual reasoner) writes the next world state as a structured, time-grounded description of events, actions and camera motion; a 29B MMDiT then predicts the video latents, decoded by the Wan 2.2 VAE at 704x1248 and 24 fps. Agents can simulate several candidate plans and pick the best. One checkpoint does text-to-video and image-to-video; Qwen3.5-9B serves as the frozen text encoder. Supported in Diffusers and vLLM.
+tasks: [video-generation]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, image], out: [video] }
+params: { total: 29.2 }
+weightsSizeGB: 86.2
+hardware: { platforms: [cuda], note: Each GPU worker holds the full 29B diffusion model. }
+links:
+  weights: https://huggingface.co/IFM/PAN2
+  repo: https://github.com/ifm-ai/PAN2
+  docs: https://huggingface.co/docs/diffusers/main/en/api/pipelines/pan2
+strengths: [Action-conditioned simulation for planning, Up to 20 s per clip, Apache-2.0, Diffusers and vLLM support]
+limitations: [Prompts work best as structured world-state captions, "Heavy: 29B diffusion model plus a 9B text encoder"]
+tags: [world-model, simulation, mbzuai]
+lastChecked: 2026-11-15

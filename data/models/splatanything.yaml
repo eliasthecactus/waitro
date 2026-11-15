@@ -1,0 +1,23 @@
+id: splatanything
+name: SplatAnything (InfiniSplat v3)
+org: Zhejiang University and Tencent Hunyuan
+released: 2026-11-08
+dateSource: huggingface
+summary: Feed-forward 3D Gaussian splatting from N images, with or without camera poses, across objects, rooms, streets and aerial views. Also does multi-camera rigs and panoramas.
+description: A frozen geometry foundation model estimates multi-view geometry, which is moved into a Gaussian-spacing-normalized space before a Gaussian backbone and a light head predict per-pixel Gaussians. Normalizing by median Gaussian spacing instead of radial distance gives consistent scale targets across very different scenes. Supports Rig-Recon for driving rigs and Pano-Recon for 360° panoramas.
+tasks: [3d-generation]
+access: open-weights
+license: { id: Apache-2.0, commercial: limited, note: "Weights on Hugging Face are Apache-2.0, but the InfiniSplat code is under the Project Registration License: organisations must register their project." }
+io: { in: [image], out: [3d] }
+weightsSizeGB: 16.6
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/ritianyu/SplatAnything
+  repo: https://github.com/zju3dv/InfiniSplat
+  homepage: https://zju3dv.github.io/SplatAnything/
+  paper: https://arxiv.org/html/2611.08264
+  demo: https://huggingface.co/spaces/ritianyu/SplatAnything
+strengths: [One model for objects through aerial scenes, Camera poses optional, Rig and panorama reconstruction]
+limitations: [Code licence requires registration for organisational use, CUDA only]
+tags: [gaussian-splatting, feed-forward, reconstruction]
+lastChecked: 2026-11-15

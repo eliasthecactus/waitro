@@ -1,0 +1,23 @@
+id: zonos3-mini
+name: ZONOS3-Mini
+org: Zyphra
+released: 2026-11-09
+dateSource: vendor
+summary: Small MoE text-to-speech with zero-shot voice cloning (100M active, 800M total). Real-time on device, even in a phone browser via WebGPU. Apache-2.0.
+description: Successor to the 8B ZONOS2 with a cheaper codec. Controls cover identity, accent, age, gender presentation, texture, mood and word-level delivery such as whispering a span. Runtimes for WebGPU in the browser, SGLang and vLLM on servers, and GGML elsewhere. Also served on Zyphra Inference.
+tasks: [text-to-speech, voice-cloning]
+architecture: moe-transformer
+access: both
+license: { id: Apache-2.0, commercial: yes, note: Weights Apache-2.0 and runtimes MIT. }
+io: { in: [text, audio], out: [audio] }
+params: { total: 0.8, active: 0.1 }
+hardware: { platforms: [cuda, apple-silicon, browser, cpu], note: "Under 150 ms to first audio on an M3 MacBook Air and under 570 ms in the browser on a Pixel 9." }
+links:
+  weights: https://huggingface.co/Zyphra/ZONOS3-Mini
+  repo: https://github.com/Zyphra/ZONOS3-Mini
+  homepage: https://www.zyphra.com/our-work/zonos3-mini
+  paper: https://arxiv.org/abs/2611.16525v1
+strengths: [Runs in real time on laptops and phones, Fine-grained voice and delivery control, Zero-shot cloning, Permissive licence]
+limitations: [Benchmarks use Zyphra's own ZTTS2-Eval]
+tags: [tts, on-device, webgpu, moe]
+lastChecked: 2026-11-15

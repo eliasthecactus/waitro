@@ -1,0 +1,29 @@
+id: gemini-4-hydrogen
+name: Gemini 4 Hydrogen
+org: Google
+released: 2026-11-12
+dateSource: vendor
+summary: Fast, cheaper Gemini 4 model for everyday coding and agentic work, with four thinking levels and a flat-priced 1M context. Replaces Gemini 3.8 Flash.
+description: Hydrogen is built for rapid execution, either on its own or as the worker and verifier next to Carbon or Argon in multi-model setups (Orchestrator in Google Antigravity). Thinking levels are low, medium, high (default) and xhigh. Google reports 2.5x faster task completion than Gemini 3.8 Flash and more than 5x fewer fabricated claims. Available on all tiers of AI Studio and the Gemini API, the Gemini app and Search.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, video, audio], out: [text, code] }
+contextTokens: 1048576
+maxOutputTokens: 1000000
+pricing: { inputPerM: 1.5, outputPerM: 7.5, note: "Flat across the whole 1M context. Batch on OpenRouter is 0.75 / 3.75.", source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ }
+hardware: { platforms: [api] }
+links:
+  homepage: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/
+  pricing: https://aistudio.google.com/docs/pricing
+benchmarks:
+  - { name: Artificial Analysis Intelligence Index, score: 51, setting: high thinking (54 at xhigh), selfReported: true, source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ }
+  - { name: Terminal-Bench 4.1, score: 57, unit: "%", selfReported: true, source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ }
+  - { name: HLE-Diamond, score: 58.8, unit: "%", selfReported: true, source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ }
+  - { name: "Agents' Last Exam v1.1", score: 71.6, unit: "%", selfReported: true, source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ }
+  - { name: Multimodal Knowledge Agent (MKA), score: 53.4, unit: "%", selfReported: true, source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ }
+strengths: ["Beats Gemini 4 Argon on the AA Intelligence Index at a lower price", Four thinking levels, Parallel file reads and searches in agent loops, Up to 1M output tokens]
+limitations: [API only, Not meant for the deepest long-horizon reasoning (use Carbon or Argon)]
+tags: [google, gemini, fast]
+lastChecked: 2026-11-15

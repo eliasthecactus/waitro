@@ -1,0 +1,21 @@
+id: gemini-decision-1
+name: Gemini Decision 1
+org: Google
+released: 2026-11-11
+dateSource: vendor
+summary: Google model behind the Gemini Decisions API. Scores yes/no, multiple-choice and rubric questions over multimodal input in one pass, with calibrated probabilities.
+description: Instead of generating text, Gemini Decision 1 scores candidate options in a single forward pass and returns probabilities and confidence scores. One request takes one shared input (text, images, audio, video or PDF, up to 256K tokens) and up to 1,000 independent questions. Built for routing, tool selection, policy checks, grading and moderation. Model id gemini-decision-1.
+tasks: [agents, image-understanding]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, video, audio], out: [structured] }
+contextTokens: 256000
+pricing: { inputPerM: 0.1, outputPerM: 0, note: "No output tokens billed. Shared input billed once per request. Free tier for prototyping in AI Studio.", source: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/ }
+hardware: { platforms: [api] }
+links:
+  homepage: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/
+strengths: [150 to 250 ms end-to-end latency, Up to 1000 questions per request, Calibrated confidence for routing to humans or fallbacks, "About 5x cheaper than Gemini 3.5 Flash-Lite on Google's suite"]
+limitations: [Closed-set answers only, No free-text output, Benchmarks are Google's own]
+tags: [google, gemini, classification, routing]
+lastChecked: 2026-11-15

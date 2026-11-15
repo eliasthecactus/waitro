@@ -1,0 +1,20 @@
+id: pi-h3
+name: pi-H3
+org: Hansheng Chen (LakonLab)
+summary: Fastest MiniMax H3 variant. Makes video with audio in 2 or 4 steps and outputs pixels directly, skipping the VAE decoder. 5 s of 768p video in 3.8 s on a B200.
+description: pi-H3 is a piFlow distillation of MiniMax H3 whose last denoising step predicts pixels (DWD), so no video VAE decode is needed. With FP8 it is 2.4x to 2.7x faster than Sol-H3 at 2 steps for 5 to 15 s clips, and the authors report better motion, texture and audio than other few-step H3 models. Hugging Face demo live; weights and inference code are due in LakonLab with ComfyUI support via ComfyUI-piFlow.
+tasks: [video-generation]
+architecture: diffusion
+access: open-weights
+license: { id: MiniMax-H3-Community, commercial: limited, note: Expected to inherit the MiniMax H3 licence; LakonLab code is Apache-2.0. }
+io: { in: [text], out: [video, audio] }
+hardware: { platforms: [cuda], note: "Timed on B200 and H100 80GB with FP8 or MXFP8." }
+links:
+  homepage: https://hanshengchen.com/blog/pi-h3/
+  repo: https://github.com/Lakonik/LakonLab
+  demo: https://huggingface.co/spaces/Lakonik/pi-H3
+strengths: [Faster than real time for 5 and 10 s clips on a B200, No VAE decoder, Stereo audio included]
+limitations: ["Weights not out yet (announced for 2026-11-16 to 22)", Training code later in November]
+notes: Research project done partly during an internship at Luma AI.
+tags: [minimax-h3, distillation, few-step]
+lastChecked: 2026-11-15

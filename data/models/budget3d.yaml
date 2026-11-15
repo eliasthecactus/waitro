@@ -1,0 +1,26 @@
+id: budget3d
+name: Budget3D
+org: BudgetAny
+released: 2026-11-11
+dateSource: huggingface
+summary: Fine-tunes of IDOL and IDOL-Turbo (image to 3D Gaussian splats) where the token budget is set at inference, from 100% down to 40%, for up to 2.1x faster sampling.
+description: Budget3D applies BudgetPix's compute-adaptive tokenization to image-to-3D. Regions where the latent varies least, empty space first, are merged into coarser tokens and full-resolution tokens go where detail is. At 40% of the 8,192 latent tokens, Budget3D-Idol samples an object in 2.66 s instead of 5.67 s on one H100 (batch 8), with peak memory falling from 9.9 to 7.8 GB.
+tasks: [3d-generation]
+architecture: diffusion
+access: open-weights
+license: { id: Apache-2.0, commercial: yes, note: Weights Apache-2.0 and code MIT. }
+io: { in: [image], out: [3d] }
+weightsSizeGB: 1.6
+hardware: { platforms: [cuda], note: "Under 10 GB peak memory per batch of 8 at full budget. Decoding to Gaussians and rendering add about 3 s per object." }
+variants:
+  - { name: Budget3D-Idol (50 steps), weights: https://huggingface.co/BudgetAny/Budget3D-Idol }
+  - { name: Budget3D-Idol-Turbo (5 steps), weights: https://huggingface.co/BudgetAny/Budget3D-Idol-Turbo }
+links:
+  weights: https://huggingface.co/BudgetAny/Budget3D-Idol
+  repo: https://github.com/BudgetAny/Budget3D
+  homepage: https://budgetany.github.io/budget3d/
+  paper: https://arxiv.org/abs/2610.12307
+strengths: [Quality-versus-speed dial at inference, Turbo version samples in about 0.25 to 0.5 s per object, Permissive licences]
+limitations: [Tech report not out yet, Fewer tokens trade away detail]
+tags: [gaussian-splatting, image-to-3d, idol]
+lastChecked: 2026-11-15

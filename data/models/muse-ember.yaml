@@ -1,0 +1,25 @@
+id: muse-ember
+name: Muse Ember
+org: Meta
+summary: Meta's smallest Muse reasoning model, for high-volume agent work like tool calls, coding subtasks, routing and document extraction. 1M context, multimodal input.
+description: Muse Ember is meant to run as the cheap execution or subagent model next to Muse Wonder and Muse Spark. It takes text, image, audio and video input. Available on the Meta Model API (OpenAI SDK compatible) as muse-ember-1.0, in Muse Code and on OpenRouter. Weights are not released.
+tasks: [chat, coding, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, audio, video], out: [text, code] }
+contextTokens: 1048576
+pricing: { inputPerM: 0.1, outputPerM: 0.5, cachedInputPerM: 0.004, note: "Up to 200K context. Above 200K 0.30 / 1.50 and 0.012 cached.", source: https://dev.meta.ai/models/muse-ember }
+hardware: { platforms: [api] }
+links:
+  homepage: https://dev.meta.ai/models/muse-ember
+benchmarks:
+  - { name: Terminal-Bench 4.0, score: 40.9, unit: "%", setting: max, selfReported: true, source: https://dev.meta.ai/models/muse-ember }
+  - { name: "Agents' Last Exam", score: 61.6, unit: "%", setting: max, selfReported: true, source: https://dev.meta.ai/models/muse-ember }
+  - { name: OSWorld 2.1, score: 69.5, unit: "%", setting: "max, partial credit", selfReported: true, source: https://dev.meta.ai/models/muse-ember }
+  - { name: Artificial Analysis Index, score: 36, setting: max, selfReported: true, source: https://dev.meta.ai/models/muse-ember }
+strengths: [Very cheap for a 1M-context multimodal model, "Matches Claude Haiku 5.5 on the AA Index per Meta's table", Low latency for subagent use]
+limitations: [API only, "Behind Claude Haiku 5.5 on FrontierCode 2.0 (27.2 vs 34.9) per Meta's own table"]
+notes: Several outlets date the launch to 2026-11-09; not confirmed on Meta's page.
+tags: [meta, muse, small, subagent]
+lastChecked: 2026-11-15

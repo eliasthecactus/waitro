@@ -1,0 +1,20 @@
+id: alphagenome-2
+name: AlphaGenome 2
+org: Google DeepMind
+released: 2026-11-11
+dateSource: vendor
+summary: DeepMind DNA sequence model that predicts how genetic variants change gene activity in specific human cell types and states, from a 1M-letter sequence.
+description: AlphaGenome 2 is a conditional model. Alongside a million-letter DNA sequence it takes one biological condition (a tissue, cell type or state) chosen from a reference catalog or encoded from a scientist's own single-cell data. Trained on more than 100 million single-cell profiles across 68 tissues. DeepMind says it finds nearly twice as many expression-changing variants as AlphaGenome 1.
+tasks: [life-sciences]
+access: api
+license: { id: Proprietary, commercial: limited, note: Free AlphaGenome API for non-commercial research; commercial research in private preview. }
+io: { in: [text, structured], out: [structured] }
+contextTokens: 1000000
+hardware: { platforms: [api] }
+links:
+  homepage: https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/
+strengths: [Cell-type-specific variant effects, Can condition on your own single-cell experiment, Works for unseen cell and disease states]
+limitations: [API only, Non-commercial research access only for now]
+notes: contextTokens here means DNA letters, not text tokens.
+tags: [genomics, dna, deepmind]
+lastChecked: 2026-11-15

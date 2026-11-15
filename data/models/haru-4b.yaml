@@ -1,0 +1,24 @@
+id: haru-4b
+name: Haru 4B
+org: higurashi
+released: 2026-11-12
+dateSource: huggingface
+summary: Open full-duplex speech-to-speech base model that listens and speaks at once, handling backchannels, laughter and interruptions. Nine languages.
+description: Every 133 ms (7.5 Hz) the user's audio, the model's audio and its text are summed into one position of the language model, so listening and speaking never wait for each other. Audio uses VibeVoice's continuous tokenizer, produced in one MeanFlow step without discrete audio tokens. A text card sets the character and a short clip sets the voice. Released as a pretrained base model, not an instruction-tuned assistant.
+tasks: [chat, text-to-speech, voice-cloning]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [audio, text], out: [audio, text] }
+params: { total: 5.27 }
+weightsSizeGB: 10.6
+hardware: { platforms: [cuda] }
+links:
+  weights: https://huggingface.co/higurashi-ai/Haru-4B
+  repo: https://github.com/higurashi-ai/Haru
+  homepage: https://www.higurashi.ai/haru4b/
+strengths: [True full duplex in one model, "English, Spanish, Portuguese, German, French, Chinese, Japanese, Russian and Korean", Apache-2.0, Voice and character control]
+limitations: [Base model that needs fine-tuning for assistant use, No benchmark numbers]
+notes: Called 4B, but the safetensors hold about 5.3B parameters.
+tags: [full-duplex, speech-to-speech, japanese]
+lastChecked: 2026-11-15

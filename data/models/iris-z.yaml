@@ -1,0 +1,30 @@
+id: iris-z
+name: Iris-Z
+org: Sperid Labs
+released: 2026-11-04
+dateSource: huggingface
+summary: Image generator that produces appearance and depth together in one FLUX.2-based model. Does text to image+depth, image to depth and depth to image, and beats MoGe-3 on depth.
+description: Depth is stored as normalised log ray distance, encoded by the same autoencoder and placed in the same token sequence as the image, so image and depth condition each other at every denoising step. No depth head and no second network. Two sizes, small (9B, from FLUX.2 klein) and big (32B, from FLUX.2 dev).
+tasks: [depth-estimation, image-generation]
+architecture: diffusion
+access: open-weights
+license: { id: FLUX-Non-Commercial, commercial: no, note: Weights under the FLUX non-commercial licence; SDK code is Apache-2.0. }
+io: { in: [text, image, depth], out: [image, depth] }
+weightsSizeGB: 82.6
+hardware: { platforms: [cuda], note: "One prediction at 512² takes 4.8 s (small) or 15 s (big) on an H200, versus 0.4 s for MoGe-3." }
+variants:
+  - { name: Iris-Z-small, params: 9 }
+  - { name: Iris-Z-big, params: 32 }
+links:
+  weights: https://huggingface.co/speridlabs/iris-z
+  repo: https://github.com/speridlabs/iris-z-sdk
+  homepage: https://speridlabs.com/research/iris-z
+  paper: https://arxiv.org/abs/2611.16010
+  demo: https://huggingface.co/spaces/speridlabs/iris-z
+benchmarks:
+  - { name: AbsRel x100 on MoGe-3 benchmark sets, score: 3.56, setting: "Iris-Z-big; MoGe-3 3.70", lowerIsBetter: true, selfReported: true, source: https://speridlabs.com/research/iris-z }
+  - { name: AbsRel x100 on Marigold benchmark sets, score: 2.92, setting: "Iris-Z-big; MoGe-3 3.12", lowerIsBetter: true, selfReported: true, source: https://speridlabs.com/research/iris-z }
+strengths: [Generalist that beats specialist depth models, Generates image and matching depth together, Depth-to-image control]
+limitations: [Non-commercial licence, About 10x to 40x slower than MoGe-3 per image]
+tags: [depth, flux2, geometry]
+lastChecked: 2026-11-15

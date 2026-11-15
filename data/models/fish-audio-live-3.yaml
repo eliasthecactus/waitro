@@ -1,0 +1,20 @@
+id: fish-audio-live-3
+name: Fish Audio Live 3
+org: Fish Audio
+released: 2026-11-10
+dateSource: vendor
+summary: Full-duplex voice model for voice agents. Keeps listening while it speaks, handles backchannels, pauses and barge-ins, and can react in as little as 186 ms.
+description: Live 3 moves turn-taking into the speech model itself, trained on real human conversations, so it knows when to acknowledge, wait, respond or stop. Runs on the Fish Agent Platform with phone numbers, tools and knowledge bases, through the Fish Audio API, or on-premises for enterprises.
+tasks: [chat, text-to-speech]
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [audio, text], out: [audio, text] }
+pricing: { perMinute: 0.07, note: "Agent platform rate including speech recognition, LLM and voice; 0.035 per minute until 2026-12-31. Phone calls extra.", source: https://fish.audio/live3/ }
+hardware: { platforms: [api] }
+links:
+  homepage: https://fish.audio/blog/introducing-live-3/
+  pricing: https://fish.audio/live3/
+strengths: [Real full duplex instead of a cascaded pipeline, Ignores backchannels but yields to real interruptions, 186 ms reaction time (vendor claim)]
+limitations: [English only at launch, No independent benchmarks]
+tags: [voice-agent, full-duplex, realtime]
+lastChecked: 2026-11-15
