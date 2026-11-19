@@ -1,6 +1,8 @@
 id: gemini-3-5-flash-lite
 name: Gemini 3.5 Flash-Lite
 org: Google
+released: 2026-07-21
+dateSource: vendor
 summary: Google's low-cost Gemini model for high-volume work, with text, image, video and audio input.
 tasks: [chat]
 architecture: transformer
@@ -14,4 +16,4 @@ links:
 strengths: [Cheap, Multimodal input]
 limitations: [API only]
 tags: [google, gemini, cheap]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: seed-2-1
 name: Seed 2.1
 org: ByteDance Seed
+released: 2026-06-23
+dateSource: vendor
 summary: Seed 2.1 is ByteDance Seed's hosted Pro/Turbo model family for real-world productivity.
 tasks:
   - agents
@@ -35,4 +37,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - bytedance
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: longcat-2-5
 name: LongCat 2.5
 org: Meituan
+released: 2026-11-02
+dateSource: press
 summary: Meituan's LongCat 2.5 language model, available as a hosted model.
 tasks:
   - chat
@@ -23,4 +25,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - meituan
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

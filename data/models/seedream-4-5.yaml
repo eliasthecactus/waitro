@@ -1,6 +1,8 @@
 id: seedream-4-5
 name: Seedream 4.5
 org: ByteDance Seed
+released: 2025-12-03
+dateSource: vendor
 summary: Seedream 4.5 is an image generation and editing model from ByteDance Seed.
 tasks:
   - image-generation
@@ -35,4 +37,4 @@ betterOptions:
 notes: Summary from the official announcement page.
 tags:
   - bytedance
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

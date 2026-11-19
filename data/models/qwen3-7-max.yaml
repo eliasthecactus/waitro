@@ -1,6 +1,8 @@
 id: qwen3-7-max
 name: Qwen3.7-Max
 org: Qwen (Alibaba)
+released: 2026-05-20
+dateSource: vendor
 summary: Qwen3.7-Max is a hosted large language model from Alibaba's Qwen family, accessed through an API rather than downloaded weights.
 tasks:
   - chat
@@ -30,4 +32,4 @@ betterOptions:
 notes: Summary from the official announcement page.
 tags:
   - qwen
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

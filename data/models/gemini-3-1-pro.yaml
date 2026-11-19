@@ -1,6 +1,8 @@
 id: gemini-3-1-pro
 name: Gemini 3.1 Pro
 org: Google
+released: 2026-02-19
+dateSource: vendor
 summary: Gemini 3.1 Pro is a Google API-hosted language model listed as a preview model. No model page details were provided.
 tasks:
   - chat
@@ -34,4 +36,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

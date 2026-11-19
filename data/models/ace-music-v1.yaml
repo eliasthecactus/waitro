@@ -1,6 +1,8 @@
 id: ace-music-v1
 name: ACE Music v1
 org: ACE Studio (Timedomain)
+released: 2026-11-11
+dateSource: press
 summary: Song generator from text descriptions and lyrics with inline performance directions. Ranked first on Artificial Analysis' vocal music leaderboard, ahead of Suno v6.
 description: ACE Music v1 turns a style description or your own lyrics into a full song. Directions in parentheses such as (hum softly) or (add guitar here) steer how lines are performed. Songs can be exported to MIDI and split into stems in ACE Music. A v1.1 Preview works from melodies and scores (planned in ABC notation). An open-weights ACE Music v1 Flash is planned for late 2026.
 tasks: [music-generation]
@@ -16,4 +18,4 @@ strengths: ["#1 on AA-Music-Vocal v1.1", Inline performance directions in lyrics
 limitations: [Web app only, No public API stated, Free-plan songs have no commercial rights]
 notes: Elo quoted from ACE Music's page, citing Artificial Analysis.
 tags: [songs, vocals, lyrics]
-lastChecked: 2026-11-15
+lastChecked: 2026-11-19

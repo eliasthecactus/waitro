@@ -1,6 +1,8 @@
 id: gpt-6-cyber
 name: GPT-6 Cyber
 org: OpenAI
+released: 2026-11-05
+dateSource: vendor
 summary: GPT-6 Cyber is an OpenAI-served API model offered under the gpt-6-cyber pricing line.
 tasks:
   - cybersecurity
@@ -33,4 +35,4 @@ limitations:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

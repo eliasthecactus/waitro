@@ -1,6 +1,8 @@
 id: weathernext-3
 name: WeatherNext 3
 org: Google DeepMind
+released: 2026-09-03
+dateSource: vendor
 summary: WeatherNext 3 is listed as a Google DeepMind model. The supplied page is only a general Google news index and contains no description of this specific model, so no capability or benchmark details…
 tasks:
   - forecasting
@@ -29,4 +31,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

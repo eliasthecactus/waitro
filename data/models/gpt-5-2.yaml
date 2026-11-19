@@ -1,6 +1,8 @@
 id: gpt-5-2
 name: GPT-5.2
 org: OpenAI
+released: 2025-12-11
+dateSource: vendor
 summary: OpenAI's GPT-5.2 language model, available through the API.
 tasks:
   - chat
@@ -32,4 +34,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -8,7 +8,7 @@ const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const URL_RE = /^https:\/\/\S+$/;
 
 const COMMERCIAL = ['yes', 'limited', 'no', 'unknown'];
-const DATE_SOURCES = ['vendor', 'paper', 'github', 'huggingface'];
+const DATE_SOURCES = ['vendor', 'paper', 'github', 'huggingface', 'press'];
 const ASPECTS = ['speed', 'memory', 'quality', 'license', 'cost', 'size', 'modalities', 'languages', 'hardware'];
 const LINK_KEYS = ['repo', 'paper', 'weights', 'homepage', 'docs', 'pricing', 'demo'];
 

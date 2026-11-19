@@ -1,6 +1,8 @@
 id: gpt-5-6-luna
 name: GPT-5.6 Luna
 org: OpenAI
+released: 2026-07-09
+dateSource: vendor
 summary: GPT-5.6 Luna is a hosted language model from OpenAI distributed through an API.
 tasks:
   - chat
@@ -32,4 +34,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

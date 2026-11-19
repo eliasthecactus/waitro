@@ -1,6 +1,8 @@
 id: qwen3-8-livetranslate
 name: Qwen3.8 LiveTranslate
 org: Qwen (Alibaba)
+released: 2026-09-19
+dateSource: press
 summary: Qwen3.8 LiveTranslate is a model from Qwen (Alibaba) whose name indicates a live translation focus.
 tasks:
   - translation
@@ -28,4 +30,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - qwen
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

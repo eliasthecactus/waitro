@@ -1,6 +1,8 @@
 id: elevenlabs-v4
 name: ElevenLabs v4
 org: ElevenLabs
+released: 2026-09-28
+dateSource: vendor
 summary: ElevenLabs v4 and v4 Turbo are expressive text-to-speech models for controllable multi-speaker speech with inline audio tags; Turbo targets realtime and agents.
 tasks:
   - text-to-speech
@@ -28,4 +30,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - elevenlabs
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

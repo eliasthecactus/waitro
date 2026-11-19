@@ -1,6 +1,8 @@
 id: gpt-6-luna
 name: GPT-6 Luna
 org: OpenAI
+released: 2026-09-22
+dateSource: vendor
 summary: OpenAI's cheapest GPT-6 model, for high-volume simple tasks.
 tasks: [chat]
 architecture: transformer
@@ -14,4 +16,4 @@ links:
 strengths: [Very cheap]
 limitations: [API only]
 tags: [openai, cheap]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: gemini-3-deep-think
 name: Gemini 3 Deep Think
 org: Google
+released: 2025-12-04
+dateSource: vendor
 summary: Gemini 3 Deep Think is a hosted model from Google offered through the Gemini family of models.
 tasks:
   - chat
@@ -29,4 +31,4 @@ betterOptions:
 notes: Summary from the official announcement page.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

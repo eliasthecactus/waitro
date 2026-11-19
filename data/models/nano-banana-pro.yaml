@@ -1,6 +1,8 @@
 id: nano-banana-pro
 name: Nano Banana Pro
 org: Google
+released: 2025-11-20
+dateSource: vendor
 summary: Nano Banana Pro is a Google image generation model served under the gemini-3-pro-image endpoint. It is an API-hosted model billed per generated 1K/2K image rather than by token.
 tasks:
   - image-generation
@@ -30,4 +32,4 @@ limitations:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

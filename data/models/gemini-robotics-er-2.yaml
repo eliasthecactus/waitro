@@ -1,6 +1,8 @@
 id: gemini-robotics-er-2
 name: Gemini Robotics ER 2
 org: Google DeepMind
+released: 2026-07-30
+dateSource: vendor
 summary: Gemini Robotics ER 2 is a Google DeepMind model for embodied reasoning and robotics applications.
 tasks:
   - agents
@@ -36,4 +38,4 @@ limitations:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

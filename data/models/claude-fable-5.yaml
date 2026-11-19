@@ -1,6 +1,8 @@
 id: claude-fable-5
 name: Claude Fable 5
 org: Anthropic
+released: 2026-06-09
+dateSource: vendor
 summary: Claude Fable 5 is a hosted API model in Anthropic's Claude family of large language models documented on the Claude Platform Docs models overview.
 tasks:
   - chat
@@ -43,4 +45,4 @@ betterOptions:
 notes: Summary from the official announcement page.
 tags:
   - anthropic
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

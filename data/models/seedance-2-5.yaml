@@ -1,6 +1,8 @@
 id: seedance-2-5
 name: Seedance 2.5
 org: ByteDance Seed
+released: 2026-07-31
+dateSource: vendor
 summary: ByteDance Seed's next-generation audio-video joint generation model for up to 30-second storytelling with reference control and editing.
 tasks:
   - video-generation
@@ -31,4 +33,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - bytedance
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: seedream-5-pro
 name: Seedream 5 Pro
 org: ByteDance Seed
+released: 2026-07-08
+dateSource: vendor
 summary: Seedream 5.0 Pro is a ByteDance Seed multimodal image generation model with advanced reasoning for text-rich infographics and annotation-guided editing.
 tasks:
   - image-generation
@@ -29,4 +31,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - bytedance
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: wan-2-7
 name: Wan 2.7
 org: Alibaba Wan team
+released: 2026-04-01
+dateSource: vendor
 summary: Wan 2.7 is a video generation model from the Alibaba Wan team presented as a leading AI video generation model.
 tasks:
   - video-generation
@@ -23,4 +25,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - alibaba
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

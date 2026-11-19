@@ -1,6 +1,8 @@
 id: gemini-3-6-flash
 name: Gemini 3.6 Flash
 org: Google
+released: 2026-07-21
+dateSource: vendor
 summary: Gemini 3.6 Flash is a hosted Google model in the Gemini Flash line served via API.
 tasks:
   - chat
@@ -36,4 +38,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

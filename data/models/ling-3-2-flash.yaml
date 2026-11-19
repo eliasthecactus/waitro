@@ -1,6 +1,8 @@
 id: ling-3-2-flash
 name: Ling 3.2 Flash
 org: Ant Group
+released: 2026-11-05
+dateSource: press
 summary: Ling 3.2 Flash is the latest-generation native multimodal model in Ant Group's open-sourced Ling series.
 tasks:
   - chat
@@ -31,4 +33,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - ant
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

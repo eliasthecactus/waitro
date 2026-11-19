@@ -1,6 +1,8 @@
 id: gemini-3-8-flash
 name: Gemini 3.8 Flash
 org: Google
+released: 2026-09-02
+dateSource: vendor
 summary: Google's current fast, low-cost Gemini model.
 tasks: [chat, agents]
 architecture: transformer
@@ -18,4 +20,4 @@ betterOptions:
   - id: gemini-4-hydrogen
     why: Google's successor. Finishes tasks about 2.5x faster at its default setting and more than triples Terminal-Bench 4.1 (57% vs 18.2%), per Google.
     aspects: [speed, quality]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

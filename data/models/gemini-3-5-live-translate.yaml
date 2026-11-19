@@ -1,6 +1,8 @@
 id: gemini-3-5-live-translate
 name: Gemini 3.5 Live Translate
 org: Google
+released: 2026-06-09
+dateSource: vendor
 summary: Gemini 3.5 Live Translate is a Google API model for live audio translation.
 tasks:
   - translation
@@ -26,4 +28,4 @@ limitations:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

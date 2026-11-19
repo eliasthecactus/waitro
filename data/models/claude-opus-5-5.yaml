@@ -1,6 +1,8 @@
 id: claude-opus-5-5
 name: Claude Opus 5.5
 org: Anthropic
+released: 2026-09-22
+dateSource: vendor
 summary: Anthropic's current Opus model; strong coding and agent work at a lower price than earlier Opus versions.
 tasks: [chat, coding, reasoning, agents]
 architecture: transformer
@@ -17,6 +19,5 @@ links:
   pricing: https://platform.claude.com/docs/en/about-claude/pricing
 strengths: [Agentic coding, 1M-token context, Adjustable effort levels]
 limitations: [API only]
-notes: Release date not added yet (not verified from Anthropic).
 tags: [claude, frontier]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

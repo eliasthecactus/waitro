@@ -1,6 +1,8 @@
 id: seedance-1-5-pro
 name: Seedance 1.5 Pro
 org: ByteDance Seed
+released: 2025-12-16
+dateSource: vendor
 summary: Seedance 1.5 Pro is ByteDance Seed's joint audio-video generation model, aimed at prompt-accurate text-to-video creation with synchronized native audio.
 tasks:
   - video-generation
@@ -36,4 +38,4 @@ betterOptions:
 notes: Summary from the official announcement page.
 tags:
   - bytedance
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

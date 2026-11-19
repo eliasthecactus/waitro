@@ -1,6 +1,8 @@
 id: claude-sonnet-5-5
 name: Claude Sonnet 5.5
 org: Anthropic
+released: 2026-09-28
+dateSource: vendor
 summary: Anthropic's mid-tier model balancing speed and capability for everyday coding, agents and enterprise work.
 tasks: [chat, coding, agents]
 architecture: transformer
@@ -17,6 +19,5 @@ links:
   pricing: https://platform.claude.com/docs/en/about-claude/pricing
 strengths: [Fast, Half the price of Opus 5.5]
 limitations: [API only]
-notes: Release date not added yet (not verified from Anthropic).
 tags: [claude]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: gpt-realtime-whisper
 name: GPT Realtime Whisper
 org: OpenAI
+released: 2026-05-07
+dateSource: vendor
 summary: OpenAI hosted API model for realtime speech transcription. The provided price is $0.017 per minute.
 tasks:
   - speech-to-text
@@ -26,4 +28,4 @@ limitations:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

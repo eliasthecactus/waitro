@@ -1,6 +1,8 @@
 id: gpt-6-2-astra-law
 name: GPT-6.2 Astra (law configuration)
 org: OpenAI
+released: 2026-11-17
+dateSource: vendor
 summary: Legal configuration of GPT-6.2 Astra, listed separately on OpenAI's API pricing page.
 tasks: [legal]
 architecture: transformer

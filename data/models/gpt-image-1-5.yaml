@@ -1,6 +1,8 @@
 id: gpt-image-1-5
 name: GPT Image 1.5
 org: OpenAI
+released: 2025-12-16
+dateSource: vendor
 summary: GPT Image 1.5 is an image generation model from OpenAI exposed through its API.
 tasks:
   - image-generation
@@ -32,4 +34,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

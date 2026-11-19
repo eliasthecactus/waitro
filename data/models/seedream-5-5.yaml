@@ -1,6 +1,8 @@
 id: seedream-5-5
 name: Seedream 5.5
 org: ByteDance Seed
+released: 2026-11-09
+dateSource: vendor
 summary: ByteDance's image generation and editing model, with consistent edits over 80+ rounds and native RGBA output with up to 100 editable layers. From about $0.02 per image.
 description: Seedream 5.5 generates and edits images from text and up to 10 reference images. It keeps subjects, style and layout stable over many edit rounds, outputs full or semi-transparent RGBA assets split into up to 100 layers with editable text, and renders at 1K, 1.5K and 2K in PNG or JPEG.
 tasks: [image-generation, image-editing]
@@ -16,4 +18,4 @@ strengths: [Multi-turn editing without drift, Native transparency and layered ou
 limitations: [API only, Max 2K output, No published benchmarks]
 notes: OpenRouter lists it from 2026-11-12; other sources say 2026-11-09.
 tags: [bytedance, layers, transparency]
-lastChecked: 2026-11-15
+lastChecked: 2026-11-19

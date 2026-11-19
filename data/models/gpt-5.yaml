@@ -1,6 +1,8 @@
 id: gpt-5
 name: GPT-5
 org: OpenAI
+released: 2025-08-07
+dateSource: vendor
 summary: GPT-5 is a hosted language model from OpenAI available via API.
 tasks:
   - chat
@@ -36,4 +38,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

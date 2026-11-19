@@ -1,6 +1,8 @@
 id: sage-s2-1-flash
 name: Sage S2.1 Flash
 org: Shanghai AI Lab (InternLM)
+released: 2026-11-15
+dateSource: huggingface
 summary: Open-weights 320B MoE (18B active) scientific multimodal model for research tasks that need many rounds of analysis, tools and verification.
 description: Built on the GLM-5.3-Flash architecture. Combines scientific data understanding with retrieval, programming and tool use; molecular graphs, crystal structures and protein sequences and structures are read through the separate Sage SciPerception encoders. Also strong on office, spreadsheet and ML engineering tasks per the card.
 tasks: [life-sciences, reasoning, agents, coding, image-understanding]
@@ -23,6 +25,6 @@ benchmarks:
   - { name: OSWorld-Verified, score: 85.2, unit: "%", selfReported: true, source: https://huggingface.co/internlm/Sage-S2.1-Flash }
 strengths: [MIT-licensed scientific model, Reads molecules crystals and proteins through SciPerception encoders, "First on MLE-bench Lite, OfficeQA Pro and SpreadsheetBench 2 in its own comparison"]
 limitations: [Needs an 8-GPU H200 node, Requires trust_remote_code and a vLLM patch, Scientific inputs need separate encoders]
-notes: Release date not verified (weights appeared on Hugging Face about 2026-11-15). Context length not stated on the card.
+notes: Date is the Hugging Face upload (2026-11-15). Context length not stated on the card.
 tags: [internlm, science, moe]
 lastChecked: 2026-11-19

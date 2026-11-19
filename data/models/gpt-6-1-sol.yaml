@@ -1,6 +1,8 @@
 id: gpt-6-1-sol
 name: GPT-6.1 Sol
 org: OpenAI
+released: 2026-09-29
+dateSource: vendor
 summary: OpenAI's mid-priced GPT-6.1 model, between Terra and Astra.
 tasks: [chat, coding, agents]
 architecture: transformer
@@ -16,4 +18,4 @@ betterOptions:
   - { id: gpt-6-2-sol, why: Newer Sol at the same price., aspects: [quality] }
 notes: Only pricing verified so far.
 tags: [openai]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

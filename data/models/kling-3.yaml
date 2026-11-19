@@ -1,6 +1,8 @@
 id: kling-3
 name: Kling 3
 org: Kuaishou
+released: 2026-02-05
+dateSource: vendor
 summary: Kuaishou's Kling 3 is a hosted generative video and image model offered through the Kling AI creative studio and API for cinematic content production.
 tasks:
   - video-generation
@@ -29,4 +31,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - kuaishou
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

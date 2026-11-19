@@ -1,6 +1,8 @@
 id: gpt-6-astra-law
 name: GPT-6 Astra (law configuration)
 org: OpenAI
+released: 2026-09-17
+dateSource: vendor
 summary: Legal configuration of GPT-6 Astra, listed separately on OpenAI's API pricing page.
 tasks: [legal]
 architecture: transformer
@@ -16,4 +18,4 @@ betterOptions:
   - { id: gpt-6-2-astra-law, why: Newer Astra law configuration at a lower price., aspects: [quality, cost] }
 notes: Only pricing verified so far.
 tags: [openai, law]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

@@ -1,6 +1,8 @@
 id: glm-5v-turbo
 name: GLM-5V-Turbo
 org: Z.ai (Zhipu)
+released: 2026-04-01
+dateSource: press
 summary: GLM-5V-Turbo is Z.AI's first multimodal coding foundation model built for vision-based coding tasks.
 tasks:
   - coding
@@ -34,4 +36,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - zai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

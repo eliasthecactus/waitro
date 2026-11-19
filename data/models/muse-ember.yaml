@@ -1,6 +1,8 @@
 id: muse-ember
 name: Muse Ember
 org: Meta
+released: 2026-11-09
+dateSource: vendor
 summary: Meta's smallest Muse reasoning model, for high-volume agent work like tool calls, coding subtasks, routing and document extraction. 1M context, multimodal input.
 description: Muse Ember is meant to run as the cheap execution or subagent model next to Muse Wonder and Muse Spark. It takes text, image, audio and video input. Available on the Meta Model API (OpenAI SDK compatible) as muse-ember-1.0, in Muse Code and on OpenRouter. Weights are not released.
 tasks: [chat, coding, agents]
@@ -20,6 +22,5 @@ benchmarks:
   - { name: Artificial Analysis Index, score: 36, setting: max, selfReported: true, source: https://dev.meta.ai/models/muse-ember }
 strengths: [Very cheap for a 1M-context multimodal model, "Matches Claude Haiku 5.5 on the AA Index per Meta's table", Low latency for subagent use]
 limitations: [API only, "Behind Claude Haiku 5.5 on FrontierCode 2.0 (27.2 vs 34.9) per Meta's own table"]
-notes: Several outlets date the launch to 2026-11-09; not confirmed on Meta's page.
 tags: [meta, muse, small, subagent]
-lastChecked: 2026-11-15
+lastChecked: 2026-11-19

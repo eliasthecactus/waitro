@@ -1,6 +1,8 @@
 id: gpt-6-astra
 name: GPT-6 Astra
 org: OpenAI
+released: 2026-09-03
+dateSource: vendor
 summary: OpenAI's flagship API model.
 tasks: [chat, coding, reasoning, agents]
 architecture: transformer
@@ -15,6 +17,5 @@ strengths: [Frontier capability]
 limitations: [API only, Expensive]
 betterOptions:
   - { id: gpt-6-2-astra, why: "Newer Astra: better on OpenAI's evals and 20% cheaper per token.", aspects: [quality, cost] }
-notes: Third-party sources give 2026-09-03 as release date; not confirmed by OpenAI yet.
 tags: [openai, frontier]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

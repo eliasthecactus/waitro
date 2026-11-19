@@ -1,6 +1,8 @@
 id: gemini-4-argon
 name: Gemini 4 Argon
 org: Google
+released: 2026-10-13
+dateSource: vendor
 summary: Google's newest flagship Gemini model, at an introductory price until the end of November 2026.
 tasks: [chat, coding, reasoning, agents]
 architecture: transformer
@@ -15,4 +17,4 @@ strengths: [Multimodal input]
 limitations: [API only, Price doubles on 2026-12-01]
 notes: Release date not verified yet.
 tags: [google, gemini, frontier]
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

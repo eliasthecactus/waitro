@@ -1,6 +1,8 @@
 id: flux-3
 name: FLUX 3
 org: Black Forest Labs
+released: 2026-08-04
+dateSource: vendor
 summary: FLUX 3 is Black Forest Labs' multimodal foundation model that generates and understands video, audio, images and actions in one unified architecture built on its Self-Flow approach.
 tasks:
   - video-generation
@@ -33,4 +35,4 @@ limitations:
 notes: Summary from the official announcement page.
 tags:
   - black
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

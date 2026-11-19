@@ -1,6 +1,8 @@
 id: claude-sonnet-4-6
 name: Claude Sonnet 4.6
 org: Anthropic
+released: 2026-02-17
+dateSource: vendor
 summary: Claude Sonnet 4.6 is a hosted large language model from Anthropic's Claude family accessed via the Claude API and cloud partners.
 tasks:
   - chat
@@ -39,4 +41,4 @@ betterOptions:
 notes: Summary from the official announcement page.
 tags:
   - anthropic
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

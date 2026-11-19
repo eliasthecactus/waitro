@@ -1,6 +1,8 @@
 id: gemini-omni-1-1-flash
 name: Gemini Omni 1.1 Flash
 org: Google
+released: 2026-08-27
+dateSource: vendor
 summary: Gemini Omni 1.1 Flash is a Google-hosted API model in the Gemini Omni line.
 tasks:
   - video-generation
@@ -35,4 +37,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

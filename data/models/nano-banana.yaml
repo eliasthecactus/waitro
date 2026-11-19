@@ -1,6 +1,8 @@
 id: nano-banana
 name: Nano Banana
 org: Google
+released: 2025-08-26
+dateSource: vendor
 summary: Nano Banana is Google's image model served as gemini-2.5-flash-image. It is offered as a hosted API endpoint billed per generated image rather than as open weights.
 tasks:
   - image-generation
@@ -38,4 +40,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - google
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19

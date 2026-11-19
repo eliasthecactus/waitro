@@ -1,6 +1,8 @@
 id: gpt-4o
 name: GPT-4o
 org: OpenAI
+released: 2024-05-13
+dateSource: vendor
 summary: GPT-4o is OpenAI's natively multimodal hosted model handling text image and audio inputs with text outputs for chat and related tasks.
 tasks:
   - chat
@@ -41,4 +43,4 @@ betterOptions:
 notes: Few details verified yet.
 tags:
   - openai
-lastChecked: 2026-11-08
+lastChecked: 2026-11-19
