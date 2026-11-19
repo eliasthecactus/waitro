@@ -19,7 +19,7 @@ pricing:
     - { name: Hobby, price: 0, note: "Pay as you go hosted orbs, free self-hosted orbs and runners" }
     - { name: Megawatt, price: 20, period: month, note: "45,000 minutes of hosted orbs plus credits; $10 for students and teachers" }
     - { name: Megawatt 50, price: 50, period: month, note: 2.5x Megawatt usage }
-    - { name: Gigawatt, note: Price not shown on the pricing page }
+    - { name: Gigawatt, price: 200, period: month, note: "1,000 hours of xxlarge orbs plus credits; only individual tier with a1.3xlarge orbs" }
     - { name: Teams, note: "No extra charge; members keep their own tier, pooled credits" }
     - { name: Enterprise, note: "Custom pricing, pooled credits, no paid seats" }
   source: https://ampcode.com/pricing
@@ -34,6 +34,6 @@ links:
   homepage: https://ampcode.com
   docs: https://ampcode.com/manual
   pricing: https://ampcode.com/pricing
-notes: "Gigawatt price not verified (the pricing page loads it client side; third-party sites say $200 a month). The spin-out announcement names the company Amp Frontier Corporation. The CLI publishes build ids, not semantic versions, so no version is listed. GPT-5.6 has no matching model file here. The old npm name @sourcegraph/amp was replaced by @ampcode/cli."
+notes: "The pricing page loads the Gigawatt price client side; $200 a month is from Amp's own podcast (Raising an Agent S2E1, 17 Jul 2026) and the 1,000 xxlarge orb hours from Thorsten Ball's post on X. The spin-out announcement names the company Amp Frontier Corporation. The CLI publishes build ids, not semantic versions, so no version is listed. GPT-5.6 has no matching model file here. The old npm name @sourcegraph/amp was replaced by @ampcode/cli."
 tags: [terminal, cloud-agents, mobile]
 lastChecked: 2026-11-19

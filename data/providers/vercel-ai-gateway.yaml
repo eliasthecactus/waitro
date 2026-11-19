@@ -13,10 +13,10 @@ description: |
 billing:
   types: [prepaid, subscription, free]
   fee: No markup on tokens. You pay payment processing fees; Enterprise can pay by invoice.
-  freeTier: "Free credits on a subset of models with lower rate limits; older docs say $5 every 30 days"
+  freeTier: "$5 of credit a month on a subset of models, with lower rate limits"
   note: Auto top-up available. Buying credits ends the monthly free credit.
 plans:
-  - { name: Free, price: 0, note: "Free credit on a subset of models, lower rate limits" }
+  - { name: Free, price: 0, note: "$5 credit a month on a subset of models, lower rate limits" }
   - { name: Paid credits, note: "Pay as you go at list price, all models, higher limits" }
   - { name: Token Pass, price: 30, period: month, note: "Pro teams only, $150 credit a month for 5 featured open models, early access" }
 api: [openai, openai-responses, anthropic]
@@ -37,6 +37,6 @@ links:
   homepage: https://vercel.com/ai-gateway
   docs: https://vercel.com/docs/ai-gateway
   pricing: https://vercel.com/docs/ai-gateway/pricing
-notes: The current pricing page no longer states the free credit amount ($5 every 30 days in earlier docs; forum reports say renewal is inconsistent). Coding agent base URL is https://ai-gateway.vercel.sh/coding-agent/v1; Claude Code uses /claude-code, Codex /codex/v1, Cursor /cursor/v1. Model prices listed are the Token Pass list prices; other models use each provider's list price. Amp support is early access for Amp Megawatt and Gigawatt members.
+notes: The pricing page lists $5 a month of free credit, starting with the first request; forum reports say renewal is inconsistent. Coding agent base URL is https://ai-gateway.vercel.sh/coding-agent/v1; Claude Code uses /claude-code, Codex /codex/v1, Cursor /cursor/v1. Model prices listed are the Token Pass list prices; other models use each provider's list price. Amp support is early access for Amp Megawatt and Gigawatt members.
 tags: [router, byok, coding-plan]
 lastChecked: 2026-11-19

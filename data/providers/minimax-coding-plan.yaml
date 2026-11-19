@@ -22,13 +22,13 @@ models:
   - { id: minimax-h3, name: MiniMax H3 (video), note: Explore and Build only }
   - { id: minimax-h3-image, name: MiniMax H3 Image, note: All tiers }
 pricesSource: https://platform.minimax.io/docs/m-plan/monthly-offer
-privacy: Not checked yet.
+privacy: Platform terms say inputs are processed only to provide the service, for maintenance and support, and for legal compliance; training is not listed. The privacy policy says personal data is stored in a US data center and gives no fixed retention period.
 worksWith: [claude-code, codex, cursor, opencode, hermes-agent, openclaw]
 strengths: [Text and media generation in one plan, Official guides for the main coding agents]
 limitations: [Only one text model (M3.1 Flash), Exact quota numbers not published, Separate rate limits can hit before the quota]
 links:
   homepage: https://www.minimax.io/m-plan
   docs: https://platform.minimax.io/docs/m-plan/intro
-notes: "Prices from the monthly offer page (regular price after the launch discount that ended 2026-10-14); annual totals of $220, $550 and $1,320 are derived from the 10-for-12 rule, not shown directly. Absolute 5-hour and weekly quotas are only shown in the console. MiniMax also has its own MiniMax Code client. The OpenAI-compatible URL for M Plan was not confirmed on the docs page read (pay-as-you-go uses https://api.minimax.io/v1)."
+notes: "Prices from the monthly offer page (regular price after the launch discount that ended 2026-10-14); annual totals of $220, $550 and $1,320 are derived from the 10-for-12 rule, not shown directly. Absolute 5-hour and weekly quotas are only shown in the console. MiniMax also has its own MiniMax Code client. The OpenAI-compatible base URL for M Plan keys is https://api.minimax.io/v1 (Other tools guide). The platform is run by Nanonoble Pte. Ltd. in Singapore; the M Plan docs have no separate data terms."
 tags: [coding-plan, minimax]
 lastChecked: 2026-11-19

@@ -31,7 +31,7 @@ models:
   - { id: deepseek-v4-pro, name: DeepSeek V4 Pro, note: Half credits at night }
   - { id: glm-5-3, name: GLM 5.3 }
 pricesSource: https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview
-privacy: Team Edition says conversation data is not used for model training. Personal Edition terms not checked.
+privacy: "Model Studio says it never uses customer data for model training (Team Edition states this explicitly; Personal Edition points to the service agreement). Prompts and responses are kept for up to 30 days by default. Token Plan runs in the Singapore region with global inference, so prompts may cross borders."
 worksWith: [claude-code, codex, qwen-code, openclaw, hermes-agent, deepseek-harness, cursor]
 strengths: [Very cheap entry tiers, Several model families in one plan, Night discounts on Qwen and DeepSeek]
 limitations: [Interactive tool use only, No cancellation or downgrade on Personal Edition, Credit cost per request not published]
@@ -39,6 +39,6 @@ links:
   homepage: https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview
   docs: https://www.alibabacloud.com/help/en/model-studio/token-plan-user-guide
   pricing: https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview
-notes: "Uses the plan key (sk-sp-...). Anthropic base URL taken from the Claude Code guide and Team quickstart; the OpenAI-compatible path for Token Plan was not confirmed (Team Edition shows both URLs in the console). Legacy Coding Plan URLs: https://coding-intl.dashscope.aliyuncs.com/v1 and /apps/anthropic. Pro tier quota was raised and price cut on 2026-11-09. Mainland China pages list different CNY prices. Qwen4 Max Preview is a 5x credit promo until 2026-11-25."
+notes: "Uses the plan key (sk-sp-...). Base URLs from the Model Studio Base URL page: OpenAI-compatible https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1 and Anthropic-compatible /apps/anthropic on the same host. Team Edition shows its own URLs in the console. Zero data retention exists for enterprise API customers; whether it applies to Token Plan is not stated. The product terms that Personal Edition refers to for data use were not read. Legacy Coding Plan URLs: https://coding-intl.dashscope.aliyuncs.com/v1 and /apps/anthropic. Pro tier quota was raised and price cut on 2026-11-09. Mainland China pages list different CNY prices. Qwen4 Max Preview is a 5x credit promo until 2026-11-25."
 tags: [coding-plan, qwen]
 lastChecked: 2026-11-19

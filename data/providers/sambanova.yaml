@@ -7,13 +7,14 @@ summary: Fast inference on SambaNova's own RDU chips, OpenAI-compatible. A short
 description: |
   SambaNova builds its own inference chip (the RDU) and runs a small set of open models on it. You add a card and buy credits, then pay per token. The Developer tier (card linked) gets all production and preview models with standard rate limits; Enterprise is a subscription with production rate limits, custom limits and bring-your-own-cloud.
 billing:
-  types: [prepaid, payg]
+  types: [prepaid, payg, free]
+  freeTier: "Without a linked card: 20 requests a minute, 20 a day and 200,000 tokens a day per model"
   note: Credits bought upfront and drawn down per token. Extra credits can be earned in the SambaNova Developer Community.
 plans:
   - { name: Free, note: "Production models only, community support" }
   - { name: Developer, note: "Pay as you go, all production and preview models, standard rate limits" }
   - { name: Enterprise, note: "Subscription via sales, production and custom rate limits" }
-api: [openai]
+api: [openai, anthropic]
 baseUrl: https://api.sambanova.ai/v1
 models:
   - { id: glm-5-3, name: GLM 5.3, inputPerM: 2.8, outputPerM: 8.8, cachedInputPerM: 0.14 }
@@ -22,13 +23,13 @@ models:
   - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.22, outputPerM: 0.59 }
 pricesSource: https://cloud.sambanova.ai/plans/pricing
 privacy: Release notes say SambaNova never stores your data. No formal retention policy found.
-worksWith: [cline, opencode]
+worksWith: [claude-code, cline, opencode]
 strengths: [Very high output speed on custom chips, OpenAI-compatible drop-in]
-limitations: [Only four public models, GLM 5.3 costs twice the usual list price, Docs site blocks automated reads]
+limitations: [Only four public models, GLM 5.3 costs twice the usual list price, Free tier allows only 20 requests a day per model]
 links:
   homepage: https://sambanova.ai
   docs: https://docs.sambanova.ai
   pricing: https://cloud.sambanova.ai/plans/pricing
-notes: Free tier limits not confirmed (official rate limit page returned 403; third parties report about 20 requests a minute). The integrations overview reportedly lists Claude Code, but no setup steps were found, so it is left out of worksWith. Base URL confirmed only via the SambaNova Cline guide snippet.
+notes: "Developer tier is 60 requests a minute and 12,000 a day for most models, capped at 20M tokens a day across all models. The rate limit page and the docs model list name older models (DeepSeek V3.1/V3.2, Llama 3.3 70B) and miss GLM 5.3; the models and prices here follow the pricing page, checked 2026-11-19. Base URL https://api.sambanova.ai/v1 is from the API keys and URLs page. Claude Code connects directly through the Anthropic-compatible Messages API with ANTHROPIC_BASE_URL=https://api.sambanova.ai (no /v1); server-side tools like web search do not work. A plugin can also hand coding tasks from Claude to a SambaNova model. SambaNova also has guides for Codex, Cursor, Aider, Kilo Code, Continue and OpenHands."
 tags: [fast, open-models]
 lastChecked: 2026-11-19

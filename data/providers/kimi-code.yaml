@@ -25,14 +25,14 @@ models:
   - { name: kimi-for-coding (K2.8 Preview), note: "Plus and up, up to 1M context" }
   - { id: kimi-k2-7-code, name: Kimi K2.7 Code HighSpeed, note: "Pro and up, as kimi-for-coding-highspeed" }
 pricesSource: https://www.kimi.ai/help/membership/membership-pricing
-privacy: Not checked yet.
+privacy: "Kimi's help center says de-identified inputs and responses may be used for model training unless you opt out by emailing support (done within 5 to 7 working days); Kimi Business data is never used. The same page says data is stored in mainland China."
 worksWith: [claude-code, opencode, codex, hermes-agent]
 strengths: [Direct from the Kimi makers, No weekly limit on new plans, Anthropic and OpenAI endpoints]
-limitations: [Only Kimi models, Shared credit pool with other Kimi features, Exact quota numbers not published]
+limitations: [Only Kimi models, Shared credit pool with other Kimi features, Exact quota numbers not published, Prompts may be used for training unless you opt out by email]
 links:
   homepage: https://www.kimi.com/code
   docs: https://www.kimi.com/code/docs/en/
   pricing: https://www.kimi.ai/help/membership/membership-pricing
-notes: "Base URLs: overseas https://api.kimi.ai/coding/ (Anthropic) and https://api.kimi.ai/coding/v1 (OpenAI Chat Completions and Responses); China uses api.kimi.com. China prices are in CNY (Plus 99, Pro 199, Max 699, Ultra 1,399 a month). Legacy plans (Andante, Moderato, Allegretto, Allegro, Vivace) keep a weekly limit too. Credit amounts per tier are not published. Kimi Code CLI and VS Code extension are Moonshot's own clients and not listed as agents here."
+notes: "Base URLs: overseas https://api.kimi.ai/coding/ (Anthropic) and https://api.kimi.ai/coding/v1 (OpenAI Chat Completions and Responses); China uses api.kimi.com. China prices are in CNY (Plus 99, Pro 199, Max 699, Ultra 1,399 a month). Legacy plans (Andante, Moderato, Allegretto, Allegro, Vivace) keep a weekly limit too. Credit amounts per tier are not published. Kimi Code CLI and VS Code extension are Moonshot's own clients and not listed as agents here. Privacy is from the general Kimi data usage page; the Kimi Code docs have no separate data terms, and no retention period is published. Kimi API docs say API inputs and outputs are not used for training, but it is not stated whether Kimi Code keys fall under the API or the membership terms."
 tags: [coding-plan, kimi]
 lastChecked: 2026-11-19

@@ -18,7 +18,7 @@ pricing:
   free: true
   plans:
     - { name: Google AI Pro, price: 19.99, period: month, note: "Quota refreshed every 5 hours, Gemini 4 and Claude 5.5 models" }
-    - { name: Google AI Ultra, price: 100, period: month, note: "5x Pro usage, adds Gemini 4 Carbon" }
+    - { name: Google AI Ultra, price: 99.99, period: month, note: "5x Pro usage, adds Gemini 4 Carbon" }
     - { name: Google AI Ultra (top tier), price: 200, period: month, note: 20x Pro usage }
     - { name: Business Standard or Plus, price: 30, period: seat-month, note: "Starting price via Google Cloud; pay as you go also offered" }
   source: https://antigravity.google/pricing
@@ -33,6 +33,6 @@ links:
   homepage: https://antigravity.google
   docs: https://antigravity.google/docs
   pricing: https://antigravity.google/pricing
-notes: "version is the desktop app (v2.33.0, 17 Nov 2026); the CLI is at v1.5.12 (19 Nov 2026). released is the original Antigravity IDE launch. The pricing page does not show Pro and Ultra prices; Pro at $19.99 is from third-party coverage of the US price and Ultra at $100 and $200 is from Google's I/O 2026 blog. Claude Sonnet 4.6 and Opus 4.6 left the free plan on 18 Nov 2026."
+notes: "version is the desktop app (v2.33.0, 17 Nov 2026); the CLI is at v1.5.12 (19 Nov 2026). released is the original Antigravity IDE launch. The Antigravity pricing page does not show Pro and Ultra prices; Pro ($19.99 a month or $199.99 a year) and Ultra ($99.99 a month) are from the US Google AI plans page (one.google.com/intl/en_us/about/google-ai-plans), and the $200 top Ultra tier is from Google's I/O 2026 blog. Claude Sonnet 4.6 and Opus 4.6 left the free plan on 18 Nov 2026."
 tags: [google, gemini, terminal, desktop]
 lastChecked: 2026-11-19

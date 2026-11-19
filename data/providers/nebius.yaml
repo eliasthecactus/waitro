@@ -1,7 +1,7 @@
 id: nebius
 name: Nebius Token Factory
 org: Nebius
-hq: Netherlands
+hq: Amsterdam, Netherlands
 kind: inference
 summary: Nebius's inference service for open models (formerly AI Studio), OpenAI-compatible, with fast and cheaper endpoint flavors, EU data storage and opt-in zero data retention.
 description: |
@@ -18,12 +18,12 @@ models:
   - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26 }
   - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03 }
   - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.2 }
-  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.01 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.006 }
   - { id: deepseek-v4-pro, name: DeepSeek V4 Pro 0813, inputPerM: 1.32, outputPerM: 3.96, cachedInputPerM: 0.04 }
   - { id: minimax-m3-1-flash, name: MiniMax M3.1 Flash, inputPerM: 0.15, outputPerM: 0.6, cachedInputPerM: 0.015 }
   - { id: qwen3-8-27b, name: Qwen3.8 27B, inputPerM: 0.45, outputPerM: 3, cachedInputPerM: 0.1 }
-  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.15, outputPerM: 0.6 }
-pricesSource: https://openrouter.ai/provider/nebius
+  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.15, outputPerM: 0.6, cachedInputPerM: 0.1 }
+pricesSource: https://tokenfactory.nebius.com/api/public/models_info
 privacy: Content is never used for training. By default inputs and outputs are kept for speculative decoding and stored in Finland (EU); turning on zero data retention for the organization stops that, at some speed cost. Shared endpoints may process anywhere; dedicated endpoints have a fixed region.
 worksWith: [cline, cursor, kilo-code, zed]
 strengths: [No training on your data, EU storage and opt-in zero data retention, Fast and cheap flavors of the same model]
@@ -32,6 +32,6 @@ links:
   homepage: https://nebius.com/services/token-factory
   docs: https://docs.tokenfactory.nebius.com
   pricing: https://tokenfactory.nebius.com/organization/prices
-notes: Nebius's own price page is behind a bot check, so the prices are Nebius's rates as listed on OpenRouter (FP4/FP8 endpoints), not read from Nebius directly. HQ is Amsterdam (Nebius Group N.V.), not stated in the docs. Integrations page lists Cline, Continue, Cursor, Kilo Code, VS Code and Zed under coding assistants; no Claude Code or OpenCode guide.
+notes: The price page (tokenfactory.nebius.com/organization/prices) is behind a bot check, so prices are from Nebius's public model catalog JSON (linked from tokenfactory.nebius.com/llms.txt), which lists one cheap flavor per model (FP4/FP8). HQ Amsterdam is stated on nebius.com/about. Integrations page lists Cline, Continue, Cursor, Kilo Code, VS Code and Zed under coding assistants; no Claude Code or OpenCode guide.
 tags: [open-models, eu, fine-tuning]
 lastChecked: 2026-11-19

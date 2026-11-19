@@ -23,14 +23,14 @@ models:
   - { id: qwen3-7-max, name: Qwen3.7 Max, inputPerM: 1.25, outputPerM: 3.75, cachedInputPerM: 0.25 }
   - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.05, outputPerM: 0.25 }
 pricesSource: https://novita.ai/pricing
-privacy: Not checked yet.
+privacy: "Zero data retention by default: prompts and outputs are not logged for human review or kept after the response is delivered, apart from automated safety screening. Content is not used to train Novita's models. Processing locations are not published."
 worksWith: [claude-code, opencode, codex, cursor]
 strengths: [Very cheap gpt-oss-120b, Anthropic endpoint for Claude Code, GPUs and sandboxes from the same account]
-limitations: [OpenAI base path differs between docs pages, Privacy terms not confirmed]
+limitations: [OpenAI base path differs between docs pages, Processing region not published]
 links:
   homepage: https://novita.ai
   docs: https://novita.ai/docs/guides/claude-code
   pricing: https://novita.ai/pricing
-notes: The Anthropic base is https://api.novita.ai/anthropic. The LLM API reference uses https://api.novita.ai/v3/openai while the OpenCode and Codex guides use https://api.novita.ai/openai/v1. The pricing page says "Free to start" but gives no free credit amount. HQ (USA) not confirmed on an official page. The privacy policy page did not load; a third-party summary says no training on customer content and zero retention by default.
+notes: The Anthropic base is https://api.novita.ai/anthropic. The LLM API guide gives https://api.novita.ai/openai for the OpenAI SDK, while its curl examples and the OpenCode and Codex guides use https://api.novita.ai/openai/v1; the older /v3/openai path is no longer in the docs. The pricing page says "Free to start" but gives no free credit amount. HQ is San Francisco per Novita's own press releases; the terms are under Delaware law. The privacy policy allows personal data transfers to the United States.
 tags: [cheap, open-models]
 lastChecked: 2026-11-19
