@@ -1,0 +1,28 @@
+id: sage-s2-1-flash
+name: Sage S2.1 Flash
+org: Shanghai AI Lab (InternLM)
+summary: Open-weights 320B MoE (18B active) scientific multimodal model for research tasks that need many rounds of analysis, tools and verification.
+description: Built on the GLM-5.3-Flash architecture. Combines scientific data understanding with retrieval, programming and tool use; molecular graphs, crystal structures and protein sequences and structures are read through the separate Sage SciPerception encoders. Also strong on office, spreadsheet and ML engineering tasks per the card.
+tasks: [life-sciences, reasoning, agents, coding, image-understanding]
+architecture: moe-transformer
+access: open-weights
+license: { id: MIT, commercial: yes }
+io: { in: [text, image, protein], out: [text, code] }
+params: { total: 320, active: 18 }
+weightsSizeGB: 645
+hardware: { platforms: [cuda], note: "Reference vLLM and SGLang setups use 8x H200 with tensor parallel 8. FP8 KV cache not supported on Hopper." }
+variants:
+  - { name: FP8, weights: https://huggingface.co/internlm/Sage-S2.1-Flash-FP8 }
+links:
+  weights: https://huggingface.co/internlm/Sage-S2.1-Flash
+  homepage: https://internlm.github.io/Sage-S2.1-Flash/
+benchmarks:
+  - { name: Terminal-Bench 2.1, score: 87.9, unit: "%", selfReported: true, source: https://huggingface.co/internlm/Sage-S2.1-Flash }
+  - { name: DeepSWE, score: 67.9, unit: "%", selfReported: true, source: https://huggingface.co/internlm/Sage-S2.1-Flash }
+  - { name: MLE-bench Lite, score: 90.3, unit: "%", selfReported: true, source: https://huggingface.co/internlm/Sage-S2.1-Flash }
+  - { name: OSWorld-Verified, score: 85.2, unit: "%", selfReported: true, source: https://huggingface.co/internlm/Sage-S2.1-Flash }
+strengths: [MIT-licensed scientific model, Reads molecules crystals and proteins through SciPerception encoders, "First on MLE-bench Lite, OfficeQA Pro and SpreadsheetBench 2 in its own comparison"]
+limitations: [Needs an 8-GPU H200 node, Requires trust_remote_code and a vLLM patch, Scientific inputs need separate encoders]
+notes: Release date not verified (weights appeared on Hugging Face about 2026-11-15). Context length not stated on the card.
+tags: [internlm, science, moe]
+lastChecked: 2026-11-19

@@ -1,0 +1,20 @@
+id: mai-realtime-1
+name: MAI Realtime 1
+org: Microsoft
+released: 2026-11-17
+dateSource: vendor
+summary: Microsoft AI's first speech-to-speech model for live voice agents, compatible with the OpenAI Realtime API.
+description: Speech in, speech out for voice agents. Microsoft says it beats GPT Realtime 2.1 on Big Bench Audio and Tau-Voice (no scores published). In MAI Labs and in limited preview on Microsoft Foundry, not billed until public preview.
+tasks: [speech-to-text, text-to-speech, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [audio, text], out: [audio, text] }
+pricing: { perMinute: 0.01, inputPerM: 1, outputPerM: 5, note: "From 0.01 USD per audio minute; reasoning billed extra at 1/5 per MTok.", source: https://microsoft.ai/news/introducing-mai-realtime-1/ }
+hardware: { platforms: [api] }
+links:
+  homepage: https://microsoft.ai/news/introducing-mai-realtime-1/
+strengths: [Very cheap per minute, Drop-in for the OpenAI Realtime API]
+limitations: [Limited preview, No published benchmark scores]
+tags: [microsoft, mai, voice]
+lastChecked: 2026-11-19

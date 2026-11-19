@@ -1,0 +1,33 @@
+id: daisyrose-27b
+name: DaisyRose-27B
+org: RadixArk
+released: 2026-11-18
+dateSource: huggingface
+summary: Qwen3.8-27B post-trained with reinforcement learning only on about 1,200 long-horizon agent tasks. Drop-in replacement that scores higher on coding and agent benchmarks.
+description: Multimodal reasoning model trained with RL only (no SFT or distillation) using RadixArk's Miles framework, 18 days on 144 H200 GPUs. Same architecture, tokenizer, chat template and 256K context as Qwen3.8-27B. Runs on a single GPU from H200 down to RTX 5090 and DGX Spark.
+tasks: [coding, agents, reasoning, chat]
+architecture: transformer
+access: open-weights
+license: { id: Apache-2.0, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+params: { total: 27.8 }
+contextTokens: 262144
+weightsSizeGB: 52
+hardware: { platforms: [cuda], minVramGB: 24, note: "BF16 about 52 GB, FP8 about 29 GB, NVFP4 about 23 GB (Blackwell only). Served with SGLang." }
+variants:
+  - { name: FP8, weights: https://huggingface.co/RadixArk/DaisyRose-27B-FP8, note: About 29 GB }
+  - { name: NVFP4, weights: https://huggingface.co/RadixArk/DaisyRose-27B-NVFP4, note: "About 23 GB, Blackwell GPUs" }
+links:
+  homepage: https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin
+  weights: https://huggingface.co/RadixArk/DaisyRose-27B
+  repo: https://github.com/radixark/miles
+benchmarks:
+  - { name: Terminal-Bench 2.1, score: 75.5, unit: "%", setting: thinking, selfReported: true, source: https://huggingface.co/RadixArk/DaisyRose-27B }
+  - { name: DeepSWE v1.1, score: 46.2, unit: "%", setting: thinking, selfReported: true, source: https://huggingface.co/RadixArk/DaisyRose-27B }
+  - { name: GPQA-Diamond, score: 90.7, unit: "%", setting: thinking, selfReported: true, source: https://huggingface.co/RadixArk/DaisyRose-27B }
+  - { name: IFBench, score: 82.4, unit: "%", setting: thinking, selfReported: true, source: https://huggingface.co/RadixArk/DaisyRose-27B }
+strengths: [Apache-2.0, Drop-in upgrade for Qwen3.8-27B, Fits a single 24-32 GB GPU when quantized]
+limitations: ["Not the strongest open model of its size on every benchmark (Inkling 2 Small leads DeepSWE and GPQA in RadixArk's own table)", No limitations section on the card]
+notes: The 24 GB VRAM figure is for the NVFP4 build on a Blackwell card.
+tags: [qwen, fine-tune, local]
+lastChecked: 2026-11-19

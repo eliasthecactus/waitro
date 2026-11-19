@@ -17,5 +17,7 @@ links:
   homepage: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/
 strengths: [150 to 250 ms end-to-end latency, Up to 1000 questions per request, Calibrated confidence for routing to humans or fallbacks, "About 5x cheaper than Gemini 3.5 Flash-Lite on Google's suite"]
 limitations: [Closed-set answers only, No free-text output, Benchmarks are Google's own]
+betterOptions:
+  - { id: liquid-d1-2, why: "Higher on the Artificial Analysis Decision Index (75 for d1.2-ultra) and cheaper per input token.", aspects: [quality, cost] }
 tags: [google, gemini, classification, routing]
 lastChecked: 2026-11-15

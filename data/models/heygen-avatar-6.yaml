@@ -1,0 +1,24 @@
+id: heygen-avatar-6
+name: HeyGen Avatar 6
+org: HeyGen
+released: 2026-11-17
+dateSource: vendor
+summary: HeyGen's talking-avatar video model. Makes a speaking video of a person from one photo plus a script or audio, natively at 2880x1620.
+description: Generates a person speaking with their likeness, voice and gestures from a single photo, optionally with a short recording for identity. Supports motion prompts, two speakers in one frame, and word-level edits of existing talking video that leave other frames untouched. In the HeyGen app (free plan included, Turbo on Creator, Pro on Pro), the API and HeyGen MCP. Avatars from footage need a consent code and identity check.
+tasks: [video-generation]
+architecture: other
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [image, text, audio], out: [video, audio] }
+pricing: { perMonth: 29, note: "Creator plan with Avatar 6 Turbo, 600 credits. Free plan: 3 watermarked videos a month up to 1 minute. Pro 49 USD with Avatar 6 Pro.", source: https://www.heygen.com/pricing }
+hardware: { platforms: [api] }
+links:
+  homepage: https://www.heygen.com/models/heygen-avatar-6
+  docs: https://developers.heygen.com/docs/models/avatar-6
+  pricing: https://www.heygen.com/pricing
+benchmarks:
+  - { name: Side-by-side Turing test (judged indistinguishable), score: 84.4, unit: "%", selfReported: true, source: https://www.heygen.com/research/avatar-6-model }
+strengths: ["Top single-photo identity among 9 commercial avatar products (HeyGen's study)", "Preferred over Seedance 2.5 72.4% of the time from the person's footage", Word-level editing of talking video, Long videos (25-28 minute examples)]
+limitations: ["Plan table caps videos at 30 minutes despite the no-length-limit claim", Export up to 1080p on Creator, Evaluations run by HeyGen]
+tags: [heygen, avatar, talking-head]
+lastChecked: 2026-11-19

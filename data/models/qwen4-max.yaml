@@ -1,0 +1,25 @@
+id: qwen4-max
+name: Qwen4-Max
+org: Qwen (Alibaba)
+released: 2026-11-16
+dateSource: vendor
+summary: Alibaba's first Qwen4 flagship, a 2.4T-parameter MoE with native vision. API only, unlike the open Qwen3.8 Max.
+description: Sparse MoE with 2.4T total and 71B active parameters per token (25% fewer active than Qwen3.8-Max). Built for coding, agents and visual reasoning. Available through the Qwen Cloud API and Token Plan, QwenWork and QwenStudio. Alibaba says smaller open-weight Qwen4 models will follow, with no date. API id qwen4-max.
+tasks: [chat, coding, reasoning, agents, image-understanding]
+architecture: moe-transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, video], out: [text, code] }
+params: { total: 2400, active: 71 }
+contextTokens: 1000000
+maxOutputTokens: 262000
+pricing: { inputPerM: 1.5, outputPerM: 4.5, cachedInputPerM: 0.075, note: "Region ap-southeast-1. Max output 131K without thinking, 262K with thinking.", source: "https://www.qwencloud.com/models/qwen4-max?region=ap-southeast-1" }
+hardware: { platforms: [api] }
+links:
+  homepage: https://www.alibabacloud.com/press-room/alibaba-unveils-qwen4-max
+  docs: https://docs.qwencloud.com/
+  pricing: "https://www.qwencloud.com/models/qwen4-max?region=ap-southeast-1"
+strengths: ["Cheaper than Qwen3.8-Max (1.5/4.5 vs 2/6 per MTok)", "Alibaba: about 60% lower cost per task than Qwen3.8-Max on its Work360 benchmark", 6th on Code Arena at launch, "Text, image and video input"]
+limitations: [API only, No open weights for the flagship, Alibaba published no absolute benchmark scores]
+tags: [qwen, moe, frontier]
+lastChecked: 2026-11-19

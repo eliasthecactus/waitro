@@ -1,0 +1,25 @@
+id: mai-image-2-7
+name: MAI Image 2.7
+org: Microsoft
+released: 2026-11-17
+dateSource: vendor
+summary: Microsoft AI image generation and editing model, #1 on Artificial Analysis image editing at launch. Flash version for cheaper volume work.
+description: Text-to-image and image editing with transparent backgrounds. MAI Image 2.7 Flash is a faster, cheaper version (about 10 USD per 1,000 images) that also powers the new Canvas workspace. Public preview on Microsoft Foundry, fal, Genspark, OpenRouter and Vercel, and in MAI Labs.
+tasks: [image-generation, image-editing]
+architecture: other
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [image] }
+pricing: { perImage: 0.035, note: "About 35 USD per 1,000 images on Foundry (public preview). Flash about 10 USD per 1,000.", source: https://microsoft.ai/news/introducing-mai-image-2-7/ }
+hardware: { platforms: [api] }
+variants:
+  - { name: MAI Image 2.7 Flash, note: About 10 USD per 1000 images }
+links:
+  homepage: https://microsoft.ai/news/introducing-mai-image-2-7/
+benchmarks:
+  - { name: AA-Image-Editing v2.1 Elo, score: 1215, setting: "5,478 votes, as of 2026-11-16", selfReported: false, source: https://microsoft.ai/news/introducing-mai-image-2-7/ }
+strengths: ["#1 on Artificial Analysis image editing, 4 Elo ahead of GPT Image 2.6 Sunburst", Transparent backgrounds, Cheap Flash version]
+limitations: [API only, Public preview, "#4 on text-to-image per Microsoft"]
+notes: The Elo figure is from Artificial Analysis as quoted by Microsoft.
+tags: [microsoft, mai]
+lastChecked: 2026-11-19

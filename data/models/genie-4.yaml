@@ -1,0 +1,22 @@
+id: genie-4
+name: Genie 4
+org: Google DeepMind
+released: 2026-10-27
+dateSource: vendor
+summary: Google DeepMind's real-time interactive world model. Generates explorable worlds with native audio that you steer with prompts, keyboard and mouse.
+description: Natively multimodal world model that generates video with ambient sound, music and dialogue as you move through it, and accepts new prompts mid-session to change weather, add characters or redirect action. Gemini plans multi-step events. Announced as a research preview on 2026-10-27; since 2026-11-18 available to eligible Google AI Ultra subscribers in Project Genie (Pro members can join a waitlist), with Gemini API early access for partners.
+tasks: [video-generation]
+architecture: other
+access: api
+license: { id: Proprietary, commercial: limited }
+io: { in: [text, image], out: [video, audio] }
+hardware: { platforms: [api] }
+links:
+  homepage: https://deepmind.google/models/genie/
+  demo: https://labs.google/projectgenie
+  docs: https://deepmind.google/models/genie/prompt-guide/
+strengths: [Real-time interactive worlds, Native audio and dialogue, Prompts change the world mid-session]
+limitations: ["DeepMind: visual details and object permanence drift in long sessions or after many edits", Weak at legible text and complex physics, Google AI Ultra only for now, All output carries SynthID]
+notes: Genie 3 remains selectable in Project Genie. Session length and resolution not stated.
+tags: [google, deepmind, world-model]
+lastChecked: 2026-11-19

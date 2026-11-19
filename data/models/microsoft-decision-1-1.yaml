@@ -1,0 +1,24 @@
+id: microsoft-decision-1-1
+name: Microsoft-Decision-1.1
+org: Microsoft
+released: 2026-11-17
+dateSource: vendor
+summary: Microsoft's decision model for routing, classification and verification. Picks from allowed options with calibrated confidence instead of writing text.
+description: Generally available decision model that makes structured choices among permitted actions and returns confidence scores so apps can defer when unsure. Version 1.1 adds image input and is twice as fast as Decision-1 at the same cost. Built on Gemma 4 26B A4B. On Microsoft Foundry, OpenRouter and Vercel AI Gateway.
+tasks: [agents, image-understanding]
+architecture: moe-transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [structured] }
+hardware: { platforms: [api] }
+links:
+  homepage: https://commandline.microsoft.com/microsoft-decision-model-ga/
+  docs: https://openrouter.ai/microsoft/microsoft-decision-1.1
+benchmarks:
+  - { name: Artificial Analysis Decision Index v2.1, score: 68, selfReported: true, source: https://commandline.microsoft.com/microsoft-decision-model-ga/ }
+strengths: ["Twice as fast as Decision-1 at the same cost", Calibrated confidence for routing, "Microsoft: 50x faster and 79x cheaper than GPT-6.1 Sol"]
+limitations: [Closed-set answers only, No free-text output, Price not on the announcement page]
+betterOptions:
+  - { id: liquid-d1-2, why: "d1.2-ultra scores 75 on the same Decision Index, and d1.2 is very cheap.", aspects: [quality, cost] }
+tags: [microsoft, classification, routing]
+lastChecked: 2026-11-19

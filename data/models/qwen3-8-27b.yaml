@@ -18,5 +18,7 @@ links:
   weights: https://huggingface.co/Qwen/Qwen3.8-27B
 strengths: [Permissive licence, Runs locally, Huge fine-tune ecosystem]
 limitations: [Far behind frontier API models on the hardest tasks]
+betterOptions:
+  - { id: daisyrose-27b, why: Same model RL-post-trained for agent work; drop-in and higher on coding and agent benchmarks., aspects: [quality] }
 tags: [qwen, local, multimodal]
 lastChecked: 2026-11-08

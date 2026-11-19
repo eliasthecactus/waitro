@@ -1,0 +1,26 @@
+id: liquid-d1-2
+name: Liquid d1.2 / d1.2-ultra
+org: Liquid AI
+released: 2026-11-16
+dateSource: vendor
+summary: Liquid AI's hosted decision models. Return typed answers (choices with probabilities, numbers, dates, boxes, spans) over text, images and audio, with no generated tokens.
+description: New versions of Liquid's decision models, adding audio input and five new task types (receipt reading, PII spans, object boxes, counting, picking every object). d1.2-ultra scores 75 on the Artificial Analysis Decision Index v2.1, the highest on the index at launch. Hosted on the Liquid API (model d1.2 or d1.2-ultra) and Liquid Console; OpenRouter and Vercel coming. Replaces d1.1, d1-ultra and d1.
+tasks: [agents, image-understanding, ocr, object-detection]
+architecture: other
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image, audio], out: [structured] }
+pricing: { inputPerM: 0.02, outputPerM: 0, note: "d1.2. d1.2-ultra 0.042 per MTok input. Output is free; images 1.5 tokens per 32x32 patch.", source: https://docs.liquid.ai/lfm/models/decision-models }
+hardware: { platforms: [api] }
+variants:
+  - { name: d1.2, note: "0.02 USD per MTok input" }
+  - { name: d1.2-ultra, note: "0.042 USD per MTok input, highest scores" }
+links:
+  homepage: https://www.liquid.ai/blog/d1-2
+  docs: https://docs.liquid.ai/lfm/models/decision-models
+benchmarks:
+  - { name: Artificial Analysis Decision Index v2.1, score: 75, setting: d1.2-ultra, selfReported: true, source: https://www.liquid.ai/blog/d1-2 }
+strengths: [Top Decision Index score at launch, "Well calibrated (0.8 points error for ultra across 13 benchmarks)", Extremely cheap, Audio input]
+limitations: [No free-text output, New task types only measured on internal test sets, Hosted only]
+tags: [liquid, classification, routing]
+lastChecked: 2026-11-19

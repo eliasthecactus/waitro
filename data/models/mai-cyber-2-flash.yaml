@@ -1,0 +1,24 @@
+id: mai-cyber-2-flash
+name: MAI Cyber 2 Flash
+org: Microsoft
+released: 2026-11-17
+dateSource: vendor
+summary: Microsoft AI security model for finding and fixing vulnerabilities and investigating threats. Only inside Microsoft security products.
+description: Specialist security model with a 1M-token context, four times MAI Cyber 1.1 Flash. Microsoft reports 92.3% on CyberGym-E2E against 91.5% for GPT-6 Astra at half the reasoning budget and under 2% of the cost per task. Ships in Microsoft security products such as Codename MDASH, replacing the earlier model from mid-December for eligible customers.
+tasks: [cybersecurity]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, code], out: [text, code] }
+contextTokens: 1000000
+pricing: { inputPerM: 0.1, outputPerM: 0.5, cachedInputPerM: 0.01, note: List price from Microsoft's announcement; there is no public API., source: https://microsoft.ai/news/introducing-mai-cyber-2-flash/ }
+hardware: { platforms: [api] }
+links:
+  homepage: https://microsoft.ai/news/introducing-mai-cyber-2-flash/
+benchmarks:
+  - { name: CyberGym-E2E, score: 92.3, unit: "%", setting: "813 of 905 tasks", selfReported: true, source: https://microsoft.ai/news/introducing-mai-cyber-2-flash/ }
+  - { name: WebExploitBench, score: 40.4, unit: "%", selfReported: true, source: https://microsoft.ai/news/introducing-mai-cyber-2-flash/ }
+strengths: ["Matches GPT-6 Astra on CyberGym-E2E at a tiny fraction of the cost (Microsoft's figures)", 1M-token context, "Output 86% cheaper than MAI Cyber 1.1 Flash"]
+limitations: [No public API, Only in Microsoft security products, "92 of 905 CyberGym tasks excluded from Microsoft's run"]
+tags: [microsoft, mai, security]
+lastChecked: 2026-11-19

@@ -1,0 +1,34 @@
+id: edge0-120b
+name: Edge0-120B
+org: Edge0
+released: 2026-11-12
+dateSource: vendor
+summary: Smaller Edge0 model, a 120B MoE (8.6B active) rebuilt from Qwen3.8-Flash-Next for a single consumer GPU or a Mac.
+description: "Edge0 rebuilt the expert layer of Qwen3.8-Flash-Next (48 layers, 512 experts, 10 routed plus 1 shared active, latent width 1280) and post-trained it natively at 4 bits. Shipped as Q3_K and NVFP4 weights run with Edge0's own edge0-infer engine. 256K context. Optional image input through a separate vision encoder."
+tasks: [coding, agents, reasoning, chat]
+architecture: moe-transformer
+access: open-weights
+license: { id: edge0-community-model-1.0, commercial: limited, note: "Outputs may be used commercially. Selling or hosting the model, or building commercial coding or office assistants on it, needs written permission from Edge0. Qwen Community License also applies." }
+io: { in: [text, image], out: [text, code] }
+params: { total: 120, active: 8.64 }
+contextTokens: 262144
+weightsSizeGB: 30.0
+hardware: { platforms: [cuda, apple-silicon], note: "Smaller sibling of Edge0-145B. Q3_K weights 27.98 GiB, NVFP4 32.96 GiB. Linux or Windows with CUDA 13, or macOS with Metal." }
+variants:
+  - { name: Q3_K, weights: https://huggingface.co/Edge0/Edge0-120B-q3k }
+  - { name: NVFP4, weights: https://huggingface.co/Edge0/Edge0-120B-NVFP4, note: "About 35.4 GB" }
+links:
+  homepage: https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer
+  repo: https://github.com/Edge0-AI/Edge0
+  weights: https://huggingface.co/Edge0/Edge0-120B-NVFP4
+benchmarks:
+  - { name: DeepSWE 1.1, score: 51.3, unit: "%", selfReported: true, source: https://huggingface.co/Edge0/Edge0-120B-NVFP4 }
+  - { name: Terminal-Bench 2.1, score: 75.3, unit: "%", selfReported: true, source: https://huggingface.co/Edge0/Edge0-120B-NVFP4 }
+  - { name: GPQA-Diamond, score: 87.4, unit: "%", selfReported: true, source: https://huggingface.co/Edge0/Edge0-120B-NVFP4 }
+strengths: [Frontier-class open model on one consumer GPU or a Mac, No API fees and data stays local, 256K context]
+limitations: [Non-commercial for hosting and assistant products without permission, "Benchmarks are Edge0's internal runs; technical report pending", Needs Edge0's own inference engine, Vision needs a separate helper binary]
+betterOptions:
+  - { id: edge0-145b, why: Bigger sibling with clearly higher coding scores for about 14 GB more memory., aspects: [quality] }
+notes: "Benchmark numbers from the Hugging Face card. The launch blog lists higher numbers for the 120B (DeepSWE 53.6, Terminal-Bench 2.1 81.3)."
+tags: [edge0, moe, local]
+lastChecked: 2026-11-19

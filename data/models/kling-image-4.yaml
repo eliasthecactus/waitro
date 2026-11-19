@@ -1,0 +1,19 @@
+id: kling-image-4
+name: Kling Image 4.0
+org: Kuaishou
+summary: Kuaishou's image model with native 8K output, strong text rendering and coherent sets of up to 10 images from one prompt.
+description: Combines visual understanding and image generation in one architecture, aimed at advertising, storyboards and e-commerce design. Renders up to 2,000 characters in an image in seven languages with over 70 preset commercial fonts, and makes long images for product pages. In the Kling AI Creative Studio and through the API for developers and enterprises.
+tasks: [image-generation, image-editing]
+architecture: other
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [image] }
+hardware: { platforms: [api] }
+links:
+  homepage: https://kling.ai/
+  docs: https://kling.ai/dev/pricing
+strengths: [Native 8K, "Long text rendering (up to 2,000 characters, 7 languages)", Up to 10 consistent images per prompt, Long image generation and editing]
+limitations: [API only, No published benchmarks, Price not readable on Kling's pricing page]
+notes: "Launched 2026-11-17 per TechNode (https://technode.com/2026/11/18/kuaishou-launches-kling-image-4-0-with-native-8k-generation/); Kling's own pages show no date."
+tags: [kuaishou, kling]
+lastChecked: 2026-11-19

@@ -16,5 +16,7 @@ links:
   weights: https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B
 strengths: [Flagship-level open weights, Adjustable reasoning effort]
 limitations: [Needs a cluster to run, Text only in the open weights]
+betterOptions:
+  - { id: qwen4-max, why: "Newer Qwen flagship with vision and cheaper API pricing (API only, no open weights).", aspects: [quality, cost, modalities] }
 tags: [qwen, moe, frontier-open]
 lastChecked: 2026-11-08

@@ -1,0 +1,19 @@
+id: mai-code-2-flash
+name: MAI Code 2 Flash
+org: Microsoft
+released: 2026-11-17
+dateSource: vendor
+summary: Fast, cheap Microsoft AI coding model for high-volume routine edits.
+description: Smaller sibling of MAI Code 2. Microsoft says it is comparable to GPT-6 Luna at 65% of the price and to Claude Haiku 5.5 at 20% of the price (DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas). In GitHub Copilot and in limited preview on Microsoft Foundry.
+tasks: [coding]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text], out: [text, code] }
+hardware: { platforms: [api] }
+links:
+  homepage: https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/
+strengths: ["Comparable to GPT-6 Luna and Claude Haiku 5.5 for less (Microsoft's figures)", In GitHub Copilot]
+limitations: [Foundry access is a limited preview, No absolute prices published]
+tags: [microsoft, mai]
+lastChecked: 2026-11-19
