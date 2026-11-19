@@ -1,0 +1,25 @@
+id: gpt-6-2-astra
+name: GPT-6.2 Astra
+org: OpenAI
+released: 2026-11-17
+dateSource: vendor
+summary: OpenAI's frontier model for the hardest professional and research work. Better than GPT-6 Astra at a lower price per token and per task.
+description: Successor to GPT-6 Astra (the planned GPT-6.1 Astra was called off). OpenAI says it sets new highs on professional and scientific evals at less than a third of GPT-6 Astra's cost per task, and calls it its most capable cyber model. Available in ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu, and in the API.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+contextTokens: 1050000
+maxOutputTokens: 128000
+pricing: { inputPerM: 8, outputPerM: 40, cachedInputPerM: 0.4, note: "Up to 272K input tokens. Above that 16/60 for the whole request. Batch 4/20, Fast 16/80, Ultrafast 3x Standard until 2027-02-28 (6x after).", source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  homepage: https://openai.com/index/introducing-gpt-6-2-astra-sol/
+  docs: https://developers.openai.com/api/docs/models/gpt-6.2-astra
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths: ["Frontier capability for professional work, science and cyber", "OpenAI: 5.2 points above GPT-6 Astra (max) on Agents' Last Exam at xhigh, at under half the cost per task", "OpenAI: 22 points above GPT-6 Astra on ExploitBench Internal Port", "1.05M-token context with 128K output", "20% cheaper per token than GPT-6 Astra"]
+limitations: [API only, Expensive, "Tighter safeguards on higher-risk cyber help also block some legitimate vulnerability research", "Reasoning effort none is rejected"]
+notes: "API ID gpt-6.2-astra. Knowledge cutoff 2026-05-18. OpenAI's benchmark charts are images, so only the relative claims from the launch post are listed. First OpenAI release to reach the High threshold for AI self-improvement. Launch post: https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531"
+tags: [openai, frontier]
+lastChecked: 2026-11-19

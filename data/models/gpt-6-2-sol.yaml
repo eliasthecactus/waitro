@@ -1,0 +1,25 @@
+id: gpt-6-2-sol
+name: GPT-6.2 Sol
+org: OpenAI
+released: 2026-11-17
+dateSource: vendor
+summary: OpenAI's everyday GPT-6.2 model. Close to GPT-6.2 Astra on coding at about a fifth of the cost.
+description: Released together with GPT-6.2 Astra as the go-to model for everyday work. OpenAI says it nearly matches Astra on merge-ready changes to real codebases (FrontierCode 2.0) at about one fifth of the cost. Same price as GPT-6.1 Sol.
+tasks: [chat, coding, reasoning, agents]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text, image], out: [text, code] }
+contextTokens: 1050000
+maxOutputTokens: 128000
+pricing: { inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.1, note: "Up to 272K input tokens. Above that 4/15 for the whole request. Batch 1/5, Fast 4/20, Ultrafast 3x Standard until 2027-02-28 (6x after).", source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  homepage: https://openai.com/index/introducing-gpt-6-2-astra-sol/
+  docs: https://developers.openai.com/api/docs/models/gpt-6.2-sol
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths: ["Near-Astra coding quality at a fifth of the cost", "1.05M-token context with 128K output", "Ultrafast also available to ChatGPT Pro 200 subscribers"]
+limitations: [API only, "Tighter safeguards on higher-risk cyber help"]
+notes: "API ID gpt-6.2-sol. Knowledge cutoff 2026-06-01. Launch post: https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531"
+tags: [openai]
+lastChecked: 2026-11-19

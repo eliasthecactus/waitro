@@ -1,0 +1,18 @@
+id: gpt-6-2-astra-law
+name: GPT-6.2 Astra (law configuration)
+org: OpenAI
+summary: Legal configuration of GPT-6.2 Astra, listed separately on OpenAI's API pricing page.
+tasks: [legal]
+architecture: transformer
+access: api
+license: { id: Proprietary, commercial: yes }
+io: { in: [text], out: [text] }
+pricing: { inputPerM: 8, outputPerM: 40, cachedInputPerM: 0.4, note: "Up to 272K input tokens, above that 16/60. Promotional pricing at least through 2026-12-31.", source: https://developers.openai.com/api/docs/pricing }
+hardware: { platforms: [api] }
+links:
+  pricing: https://developers.openai.com/api/docs/pricing
+strengths: ["Based on GPT-6.2 Astra, which OpenAI says more than doubled Fable 5.2's pass rate on Harvey LAB-AA at about a sixth of the cost"]
+limitations: [API only, Few public details checked yet]
+notes: API ID gpt-6.2-astra-law. Only pricing verified so far.
+tags: [openai, law]
+lastChecked: 2026-11-19

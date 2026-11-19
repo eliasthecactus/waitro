@@ -12,6 +12,8 @@ hardware: { platforms: [api] }
 links:
   pricing: https://developers.openai.com/api/docs/pricing
 limitations: [API only, Few public details checked yet]
+betterOptions:
+  - { id: gpt-6-2-astra-law, why: Newer Astra law configuration at a lower price., aspects: [quality, cost] }
 notes: Only pricing verified so far.
 tags: [openai, law]
 lastChecked: 2026-11-08

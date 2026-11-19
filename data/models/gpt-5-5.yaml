@@ -29,7 +29,7 @@ links:
 limitations:
   - API only
 betterOptions:
-  - id: gpt-6-astra
+  - id: gpt-6-2-astra
     why: A newer version in the same model line.
     aspects:
       - quality

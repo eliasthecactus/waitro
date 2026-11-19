@@ -12,6 +12,8 @@ hardware: { platforms: [api] }
 links:
   pricing: https://developers.openai.com/api/docs/pricing
 limitations: [API only]
+betterOptions:
+  - { id: gpt-6-2-sol, why: Newer Sol at the same price., aspects: [quality] }
 notes: Only pricing verified so far.
 tags: [openai]
 lastChecked: 2026-11-08
