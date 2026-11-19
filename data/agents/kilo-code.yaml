@@ -1,0 +1,41 @@
+id: kilo-code
+name: Kilo Code
+org: Kilo Code (Anaconda)
+kind: coding
+summary: Open-source coding agent for VS Code, JetBrains and the terminal, plus a desktop app and cloud agents. 500+ models at provider rates through Kilo Gateway, or your own keys.
+description: Kilo runs as a VS Code extension, a JetBrains plugin and the kilo CLI, which is a fork of OpenCode. Kilo Desktop adds notebooks and conda environments for data work. Cloud Agent runs Kilo from the web without a local machine, and Code Reviews review pull requests. Anaconda acquired Kilo Code on 2026-07-15.
+surfaces: [ide, cli, desktop, cloud, web, chat]
+os: [macos, linux, windows]
+openSource: true
+license: MIT
+version: v7.8.27
+models: 500+ models through Kilo Gateway at provider prices, your own keys for 30+ providers, a ChatGPT plan, or local models with Ollama and LM Studio. Auto Free routes to free models.
+providers: [openrouter, vercel-ai-gateway, groq, cerebras, fireworks-ai, nebius, chutes]
+pricing:
+  summary: The extensions and CLI are free. Models are billed at provider rates with no markup (5% fee on credit purchases). Kilo Pass is a monthly credit subscription with bonus credits; cloud compute is billed per second.
+  free: true
+  plans:
+    - { name: Kilo Pass Starter, price: 19, period: month, note: "Up to $26.60 of credits a month with bonus" }
+    - { name: Kilo Pass Pro, price: 49, period: month, note: "Up to $68.60 of credits a month with bonus" }
+    - { name: Kilo Pass Expert, price: 199, period: month, note: "Up to $278.60 of credits a month with bonus" }
+    - { name: Teams, price: 15, period: seat-month, note: "Usage billed separately" }
+    - { name: Enterprise, note: Custom pricing }
+    - { name: Cloud Agent, note: "$0.60 to $1.20 an hour of compute, plus inference" }
+  source: https://kilo.ai/pricing
+install:
+  - { label: "VS Code", cmd: 'code --install-extension kilocode.kilo-code' }
+  - { label: "CLI (npm)", cmd: 'npm install -g @kilocode/cli' }
+  - { label: "CLI (script)", cmd: 'curl -fsSL https://kilo.ai/cli/install | bash' }
+  - { label: "CLI (Homebrew)", cmd: 'brew install Kilo-Org/tap/kilo' }
+  - { label: "CLI (Arch Linux AUR)", cmd: 'paru -S kilo-bin' }
+features: ["Code, Plan, Ask and Debug agents plus custom agents", Inline autocomplete, Switch models mid task, "Kilo Marketplace for agents, skills, MCP servers and plugins", kilo run --auto for CI, Cloud Agent, Code Reviews, Kilo Desktop with notebooks and conda]
+strengths: [Free and MIT-licensed, Many models at provider prices, "Same agent in VS Code, JetBrains, terminal and desktop"]
+limitations: ["Many overlapping offers (Gateway credits, Kilo Pass, Teams, cloud compute)", Kilo Desktop needs a Kilo account for notebooks and conda]
+links:
+  repo: https://github.com/Kilo-Org/kilocode
+  homepage: https://kilo.ai
+  docs: https://kilo.ai/docs
+  pricing: https://kilo.ai/pricing
+notes: "version is the latest GitHub release marked stable (2026-11-05); newer pre-release tags (v7.8.31) are already on the VS Code Marketplace, which Kilo uses as its main channel. JetBrains plugin has its own versions (7.1.12 stable). Kilo Pass bonus wording on the pricing page is inconsistent (up to 50% vs a 40% max). First public release date not verified."
+tags: [vscode, jetbrains, byok, open-models]
+lastChecked: 2026-11-19

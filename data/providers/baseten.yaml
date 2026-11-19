@@ -1,0 +1,36 @@
+id: baseten
+name: Baseten Model APIs
+org: Baseten
+hq: USA
+kind: inference
+summary: Per-token Model APIs for popular open models (GLM, DeepSeek, Kimi, Nemotron, gpt-oss) with Fast variants, on the same platform that runs dedicated deployments.
+description: |
+  Model APIs are pay as you go per token with no contract. Several models come in a Fast variant at a higher price. Larger customers can get volume discounts, reserved and priority compute.
+
+  The API is OpenAI-compatible. An Anthropic Messages endpoint is in beta. Claude Code and Codex connect through Baseten Switch, a local gateway app for macOS (beta); OpenCode, Pi and Droid connect directly.
+billing:
+  types: [payg]
+  note: Usage-based, no contract. Volume pricing on request.
+api: [openai, anthropic]
+baseUrl: https://inference.baseten.co/v1
+models:
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.14 }
+  - { name: GLM 5.3 Fast, inputPerM: 2.1, outputPerM: 6.6, cachedInputPerM: 0.21 }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.007 }
+  - { id: deepseek-v4-pro, name: DeepSeek V4 Pro 0813, inputPerM: 1.32, outputPerM: 3.96, cachedInputPerM: 0.132 }
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.2 }
+  - { id: nemotron-3-ultra, name: NVIDIA Nemotron 3 Ultra, inputPerM: 0.6, outputPerM: 2.4, cachedInputPerM: 0.12 }
+  - { id: gpt-oss-120b, name: GPT OSS 120B, inputPerM: 0.1, outputPerM: 0.5 }
+pricesSource: https://www.baseten.co/pricing/
+privacy: Model APIs follow a zero data retention posture; synchronous requests are not stored. Async inference has its own input retention rules. With Claude Code through Switch, Auto permission checks are sent to Anthropic.
+worksWith: [opencode, claude-code, codex, factory-droid, cline, openclaw]
+strengths: [Fast variants for speed-sensitive work, Zero data retention by default]
+limitations: [Anthropic endpoint still in beta, Claude Code needs the Switch app on macOS]
+links:
+  homepage: https://www.baseten.co/products/model-apis/
+  docs: https://docs.baseten.co/inference/model-apis/overview
+  pricing: https://www.baseten.co/pricing/
+notes: No free credits or rate limit numbers found on the pricing or coding agent pages. Cline, Roo Code and OpenClaw are linked from Baseten docs or have Baseten provider pages; not tested.
+tags: [fast, open-models]
+lastChecked: 2026-11-19

@@ -3,26 +3,25 @@ name: LongCat 2.5
 org: Meituan
 released: 2026-11-02
 dateSource: press
-summary: Meituan's LongCat 2.5 language model, available as a hosted model.
-tasks:
-  - chat
-access: api
-license:
-  id: Proprietary
-  commercial: yes
-io:
-  in:
-    - text
-  out:
-    - text
-hardware:
-  platforms:
-    - api
+summary: Meituan's native multimodal 1.6T MoE (about 48B active) for long-horizon agent work and coding. MIT-licensed open weights plus a hosted API.
+description: Builds on LongCat-2.0 and combines visual understanding with agentic coding for codebase work, full-project builds, design and 3D tasks. Trained on Chinese AI accelerators; expert weights and activations use W4A4 quantization for native INT4 compute. Hosted on longcat.ai since 2026-11-02, weights on Hugging Face since 2026-11-09.
+tasks: [chat, coding, agents, image-understanding]
+architecture: moe-transformer
+access: both
+license: { id: MIT, commercial: yes, note: No rights to Meituan trademarks or patents. }
+io: { in: [text, image], out: [text, code] }
+params: { total: 1600, active: 48 }
+hardware: { platforms: [cuda], note: "Data-centre cluster. Meituan's self-hosting guide uses SGLang-FluentLLM with 4-bit expert quantization on Chinese accelerators." }
 links:
   homepage: https://longcat.ai/blog/longcat-2.5/
-limitations:
-  - API only
-notes: Summary from the official announcement page.
-tags:
-  - meituan
+  weights: https://huggingface.co/meituan-longcat/LongCat-2.5
+benchmarks:
+  - { name: Terminal-Bench 2.1, score: 88.4, unit: "%", setting: "Claude Code harness, mean of 3 runs", selfReported: true, source: https://huggingface.co/meituan-longcat/LongCat-2.5 }
+  - { name: DeepSWE v1.1, score: 64.6, unit: "%", setting: "mini-swe-agent, mean of 3 runs", selfReported: true, source: https://huggingface.co/meituan-longcat/LongCat-2.5 }
+  - { name: BrowseComp, score: 91.9, unit: "%", setting: custom harness, selfReported: true, source: https://huggingface.co/meituan-longcat/LongCat-2.5 }
+  - { name: Vision2Web, score: 78.6, unit: "%", selfReported: true, source: https://huggingface.co/meituan-longcat/LongCat-2.5 }
+strengths: [MIT-licensed open weights at frontier scale, Native image input, "Strong on BrowseComp and SWE Atlas Codebase QnA in Meituan's table"]
+limitations: [Needs a cluster to self-host, "Meituan calls its scores indicative; all self-reported", Context length not stated on the card]
+notes: Release date is the API launch reported by the press; the Hugging Face repo was created 2026-11-04 and the weights published around 2026-11-09.
+tags: [meituan, moe, frontier-open]
 lastChecked: 2026-11-19

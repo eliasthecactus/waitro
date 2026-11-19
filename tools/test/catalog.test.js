@@ -82,7 +82,7 @@ test('build-data writes the static files the app reads', () => {
 test('agents and providers are cross-linked both ways', () => {
   const claude = catalog.agentById.get('claude-code');
   assert.ok(claude.providers.includes('zai-coding-plan'), 'provider.worksWith shows up on the agent');
-  assert.deepEqual(claude.wrappedBy, ['t3-code']);
+  assert.ok(claude.wrappedBy.includes('t3-code'), 'agent.wraps shows up as wrappedBy');
   assert.ok(catalog.providerById.get('openrouter').worksWith.includes('hermes-agent'));
   assert.ok(catalog.byId.get('claude-fable-5-2').usedBy.includes('claude-code'));
 });

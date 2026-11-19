@@ -1,0 +1,36 @@
+id: novita-ai
+name: Novita AI
+org: Novita AI
+hq: USA
+kind: inference
+summary: Low-cost API for open models (Kimi, GLM, DeepSeek, Qwen, gpt-oss) with OpenAI and Anthropic compatible endpoints, plus GPU instances and agent sandboxes.
+description: |
+  Models are billed per token. Batch inference is 50% off input and output for supported models as an introductory offer. The same account sells GPU instances and agent sandboxes.
+
+  There is an Anthropic-compatible endpoint for Claude Code and an OpenAI-compatible one for other tools. Novita has setup guides for Claude Code, OpenCode, Codex and Cursor.
+billing:
+  types: [payg]
+  note: Pay per use. Batch is 50% off for a limited time.
+api: [openai, anthropic]
+baseUrl: https://api.novita.ai/openai/v1
+models:
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.3 }
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.2 }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26 }
+  - { id: deepseek-v4-pro, name: DeepSeek V4 Pro, inputPerM: 1.6, outputPerM: 3.2, cachedInputPerM: 0.135 }
+  - { name: DeepSeek V4 Flash 0731, inputPerM: 0.44, outputPerM: 1.32, cachedInputPerM: 0.028 }
+  - { id: qwen3-8-max, name: Qwen3.8 Max, inputPerM: 2, outputPerM: 6, cachedInputPerM: 0.25 }
+  - { id: qwen3-7-max, name: Qwen3.7 Max, inputPerM: 1.25, outputPerM: 3.75, cachedInputPerM: 0.25 }
+  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.05, outputPerM: 0.25 }
+pricesSource: https://novita.ai/pricing
+privacy: Not checked yet.
+worksWith: [claude-code, opencode, codex, cursor]
+strengths: [Very cheap gpt-oss-120b, Anthropic endpoint for Claude Code, GPUs and sandboxes from the same account]
+limitations: [OpenAI base path differs between docs pages, Privacy terms not confirmed]
+links:
+  homepage: https://novita.ai
+  docs: https://novita.ai/docs/guides/claude-code
+  pricing: https://novita.ai/pricing
+notes: The Anthropic base is https://api.novita.ai/anthropic. The LLM API reference uses https://api.novita.ai/v3/openai while the OpenCode and Codex guides use https://api.novita.ai/openai/v1. The pricing page says "Free to start" but gives no free credit amount. HQ (USA) not confirmed on an official page. The privacy policy page did not load; a third-party summary says no training on customer content and zero retention by default.
+tags: [cheap, open-models]
+lastChecked: 2026-11-19

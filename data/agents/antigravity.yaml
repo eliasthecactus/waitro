@@ -1,0 +1,38 @@
+id: antigravity
+name: Google Antigravity
+org: Google
+kind: coding
+summary: Google's agent platform. Desktop app, terminal CLI (agy), IDE extensions and a Python SDK, running Gemini and Claude models with parallel agents.
+description: Antigravity launched in November 2025 as an agent-first IDE. Antigravity 2.0 (May 2026) added the desktop app, the Antigravity CLI and an SDK. The CLI replaced Gemini CLI for free and individual use on 18 June 2026. IDE extensions exist for JetBrains, Zed, Xcode and Eclipse. Sign in with a personal Google account, Google Cloud or Gemini Enterprise; the CLI also accepts a Gemini API key.
+surfaces: [desktop, cli, ide]
+os: [macos, linux, windows]
+openSource: false
+license: Proprietary
+released: 2025-11-18
+dateSource: vendor
+version: v2.33.0
+models: Gemini models plus Claude Sonnet and Opus and GPT-OSS-120b. Paid Google AI plans get the Gemini 4 models and Claude 5.5; the free plan gets Gemini 3.8 Flash and GPT-OSS-120b.
+modelIds: [gemini-4-neon, gemini-4-carbon, gemini-4-argon, gemini-4-hydrogen, gemini-3-8-flash, claude-opus-5-5, claude-sonnet-5-5, gpt-oss-120b]
+pricing:
+  summary: Free for individuals with a weekly quota. Google AI Pro and Ultra raise limits and unlock the newest models; businesses pay per seat or per use through Google Cloud.
+  free: true
+  plans:
+    - { name: Google AI Pro, price: 19.99, period: month, note: "Quota refreshed every 5 hours, Gemini 4 and Claude 5.5 models" }
+    - { name: Google AI Ultra, price: 100, period: month, note: "5x Pro usage, adds Gemini 4 Carbon" }
+    - { name: Google AI Ultra (top tier), price: 200, period: month, note: 20x Pro usage }
+    - { name: Business Standard or Plus, price: 30, period: seat-month, note: "Starting price via Google Cloud; pay as you go also offered" }
+  source: https://antigravity.google/pricing
+install:
+  - { label: "CLI (macOS, Linux)", cmd: 'curl -fsSL https://antigravity.google/cli/install.sh | bash' }
+  - { label: "CLI (Windows PowerShell)", cmd: 'irm https://antigravity.google/cli/install.ps1 | iex' }
+  - { label: "Python SDK", cmd: 'pip install google-antigravity' }
+features: [Parallel background agents, Subagents, Browser use, Scheduled tasks, "Plugins (skills, hooks, subagents)", Remote Control from the browser, SSH remote projects, Orchestrator mode (plan with one model and build with another)]
+strengths: [Usable free tier, "Same account across app, CLI and IDE extensions", Gemini and Claude models in one plan]
+limitations: [Closed source, Newest models need a paid Google AI plan, Google AI Pro and Ultra need a personal Google account (not Workspace)]
+links:
+  homepage: https://antigravity.google
+  docs: https://antigravity.google/docs
+  pricing: https://antigravity.google/pricing
+notes: "version is the desktop app (v2.33.0, 17 Nov 2026); the CLI is at v1.5.12 (19 Nov 2026). released is the original Antigravity IDE launch. The pricing page does not show Pro and Ultra prices; Pro at $19.99 is from third-party coverage of the US price and Ultra at $100 and $200 is from Google's I/O 2026 blog. Claude Sonnet 4.6 and Opus 4.6 left the free plan on 18 Nov 2026."
+tags: [google, gemini, terminal, desktop]
+lastChecked: 2026-11-19

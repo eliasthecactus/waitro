@@ -1,0 +1,36 @@
+id: fireworks-ai
+name: Fireworks AI
+org: Fireworks AI
+hq: USA
+kind: inference
+summary: Fast serverless inference for open models (Kimi, GLM, DeepSeek, Qwen, MiniMax) with OpenAI and Anthropic compatible APIs, plus fine-tuning and dedicated deployments.
+description: |
+  Serverless models are billed per token from a prepaid credit balance. Cached input costs half or less with no cache write fee. A Priority mode costs more per token, and Spot rates are 30% below Standard for some models. Contract customers can move to post-paid invoices.
+
+  The same account also runs fine-tuning and dedicated GPU deployments. Fire Pass, a flat plan for personal coding with a Kimi router, is not open to new subscriptions.
+billing:
+  types: [prepaid, payg]
+  note: Credits are drawn down per request. Auto Reload and monthly spend limits are available.
+api: [openai, openai-responses, anthropic]
+baseUrl: https://api.fireworks.ai/inference/v1
+models:
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.3 }
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.2 }
+  - { id: qwen3-8-max, name: Qwen 3.8 Max, inputPerM: 2, outputPerM: 6, cachedInputPerM: 0.25 }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26 }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.006 }
+  - { id: minimax-m3, name: MiniMax M3, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.06 }
+  - { id: gpt-oss-120b, name: gpt-oss-120b, inputPerM: 0.15, outputPerM: 0.6, cachedInputPerM: 0.015 }
+pricesSource: https://fireworks.ai/pricing
+privacy: Prompts and outputs of open models are not logged or stored unless you opt in; they stay in memory only for the request (minutes when prompt caching is active). Exceptions are the Batch API and the Responses API with store on (kept up to 30 days). Enterprise admins can enforce zero data retention.
+worksWith: [claude-code, codex, opencode, cline, openclaw, kilo-code, cursor, deepseek-harness, github-copilot]
+strengths: [Fast inference on the main open coding models, Anthropic endpoint works in Claude Code, Cheap cached input with no write fee]
+limitations: [No free credits listed for serverless, Fire Pass coding plan closed to new users]
+links:
+  homepage: https://fireworks.ai
+  docs: https://docs.fireworks.ai
+  pricing: https://fireworks.ai/pricing
+notes: The Anthropic-compatible base is https://api.fireworks.ai/inference. worksWith comes from the Fire Pass page and the Nexus CLI harness list (Copilot via Copilot App and CLI). Training on customer data is not addressed on the data handling page.
+tags: [fast, open-models, fine-tuning]
+lastChecked: 2026-11-19

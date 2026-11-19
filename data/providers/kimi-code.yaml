@@ -1,0 +1,38 @@
+id: kimi-code
+name: Kimi Code
+org: Moonshot AI
+hq: China
+kind: subscription
+summary: Kimi membership plans from Moonshot that include Kimi Code, usable with Kimi K3.1 Pro and K3 in Claude Code, OpenCode, Codex and Hermes. From $19 a month.
+description: |
+  Kimi Code is not sold on its own. It comes with Kimi membership from Plus upward (the cheaper China-only Go tier has no coding quota). Plus and up get a rolling 5-hour limit and no weekly limit; all membership features also share one monthly credit pool, and when that runs out Kimi Code stops until it resets.
+
+  K3.1 Pro and K3 are on all plans with Kimi Code. Pro and above add 1M context and the HighSpeed models. Requests from the Kimi Code CLI, VS Code, desktop and third-party tools count toward the same quota.
+billing:
+  types: [subscription]
+  note: Monthly or annual. Annual is about 20% cheaper. Unused credit does not roll over.
+plans:
+  - { name: Plus, price: 19, period: month, note: "K3.1 Pro and K3 (256K), rolling 5-hour limit; $180 a year" }
+  - { name: Pro, price: 39, period: month, note: "Adds 1M context and HighSpeed models, bigger quota; $372 a year" }
+  - { name: Max, price: 99, period: month, note: "Bigger quota and more parallel tasks; $948 a year" }
+  - { name: Ultra, price: 199, period: month, note: "Twice Max's agent credits; $1,908 a year" }
+api: [anthropic, openai, openai-responses]
+baseUrl: https://api.kimi.ai/coding/
+models:
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, note: "Plus and up, thinking required; 1M context from Pro" }
+  - { name: Kimi K3.1 Pro HighSpeed, note: "Pro and up, 2 to 3x faster at about 2x quota" }
+  - { name: Kimi K3, note: "Plus and up; 1M context from Pro" }
+  - { name: kimi-for-coding (K2.8 Preview), note: "Plus and up, up to 1M context" }
+  - { id: kimi-k2-7-code, name: Kimi K2.7 Code HighSpeed, note: "Pro and up, as kimi-for-coding-highspeed" }
+pricesSource: https://www.kimi.ai/help/membership/membership-pricing
+privacy: Not checked yet.
+worksWith: [claude-code, opencode, codex, hermes-agent]
+strengths: [Direct from the Kimi makers, No weekly limit on new plans, Anthropic and OpenAI endpoints]
+limitations: [Only Kimi models, Shared credit pool with other Kimi features, Exact quota numbers not published]
+links:
+  homepage: https://www.kimi.com/code
+  docs: https://www.kimi.com/code/docs/en/
+  pricing: https://www.kimi.ai/help/membership/membership-pricing
+notes: "Base URLs: overseas https://api.kimi.ai/coding/ (Anthropic) and https://api.kimi.ai/coding/v1 (OpenAI Chat Completions and Responses); China uses api.kimi.com. China prices are in CNY (Plus 99, Pro 199, Max 699, Ultra 1,399 a month). Legacy plans (Andante, Moderato, Allegretto, Allegro, Vivace) keep a weekly limit too. Credit amounts per tier are not published. Kimi Code CLI and VS Code extension are Moonshot's own clients and not listed as agents here."
+tags: [coding-plan, kimi]
+lastChecked: 2026-11-19

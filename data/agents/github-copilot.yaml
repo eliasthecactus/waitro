@@ -1,0 +1,42 @@
+id: github-copilot
+name: GitHub Copilot
+org: GitHub (Microsoft)
+kind: coding
+summary: GitHub's coding assistant and agent. Runs in IDEs, the terminal (Copilot CLI), the Copilot desktop app, github.com and GitHub Mobile, and as a cloud agent that opens pull requests.
+description: Copilot gives inline suggestions, chat and agent mode in VS Code, Visual Studio, JetBrains IDEs and other editors. Copilot CLI is a terminal agent that can also hand tasks to the cloud agent. The cloud agent takes an issue or a prompt, works in its own environment and opens a pull request. The Copilot desktop app (GA since June 2026 on macOS, Windows and Linux) shows agent sessions, issues and pull requests in one view. Billing moved to usage based GitHub AI Credits (1 credit = $0.01).
+surfaces: [ide, cli, desktop, web, mobile, cloud, chat]
+os: [macos, linux, windows, ios, android]
+openSource: false
+license: Proprietary
+released: 2021-06-29
+dateSource: vendor
+version: v1.0.114
+models: Models from OpenAI, Anthropic, Google, Microsoft (MAI Code), xAI and Moonshot, picked per request or routed by Copilot Fusion. Some premium models need Pro+ or higher.
+modelIds: [gpt-6-2-sol, gpt-6-2-astra, gpt-6-1-sol, gpt-6-1-terra, gpt-6-astra, gpt-6-luna, gpt-5-6-sol, gpt-5-6-luna, gpt-5-3-codex, claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5, claude-fable-5-2, claude-fable-5-1, claude-fable-5, claude-sonnet-5, claude-opus-4-8, claude-sonnet-4-6, gemini-4-argon, gemini-4-carbon, gemini-4-hydrogen, gemini-4-neon, gemini-3-8-flash, mai-code-2, mai-code-2-flash, grok-4-6]
+pricing:
+  summary: Free tier with limited chat and agent use. Paid plans include a monthly pool of AI credits plus flex credits; extra usage is billed against a budget you set.
+  free: true
+  plans:
+    - { name: Free, price: 0, note: "2,000 inline suggestions a month, limited chat and agent use, no cloud agent" }
+    - { name: Pro, price: 10, period: month, note: "1,500 AI credits (1,000 base + 500 flex), cloud agent" }
+    - { name: Pro+, price: 39, period: month, note: "7,000 AI credits, third-party Claude and Codex agents" }
+    - { name: Max, price: 100, period: month, note: "20,000 AI credits, priority access to new models" }
+    - { name: Business, price: 19, period: seat-month, note: "1,900 AI credits per user" }
+    - { name: Enterprise, price: 39, period: seat-month, note: "3,900 AI credits per user" }
+  source: https://docs.github.com/en/copilot/get-started/plans
+install:
+  - { label: "CLI (npm, Node.js 22+)", cmd: 'npm install -g @github/copilot' }
+  - { label: "CLI (macOS, Linux script)", cmd: 'curl -fsSL https://gh.io/copilot-install | bash' }
+  - { label: "CLI (Homebrew)", cmd: 'brew install --cask copilot-cli' }
+  - { label: "CLI (WinGet)", cmd: 'winget install GitHub.Copilot' }
+features: [Inline suggestions and next edit suggestions, Agent mode in the IDE, Copilot CLI with programmatic mode, Cloud agent that opens pull requests, Copilot code review, "Third-party Claude and Codex agents (preview, Pro+ and Max)", Copilot Fusion multi-model routing, Copilot projects across repositories, "Cloud agent for Linear, Jira and Slack"]
+strengths: [Built into GitHub issues and pull requests, Many vendors' models in one plan, Cheap entry plan and a free tier]
+limitations: [Closed source CLI and app, "Usage based AI credits make costs harder to predict", Third-party agents only on Pro+ and Max]
+links:
+  repo: https://github.com/github/copilot-cli
+  homepage: https://github.com/features/copilot
+  docs: https://docs.github.com/en/copilot
+  pricing: https://github.com/features/copilot/plans
+notes: "version is the Copilot CLI release (github/copilot-cli, 2026-11-18). released is the technical preview announcement; general availability came on 2022-06-21. Yearly prices are not shown on the plans page. Kimi K3, Grok 4.5, Grok 4.7, GPT-6 Sol, GPT-5.4 nano and Claude Haiku 4.5 are also offered but have no model file here. Copilot Fusion was 30% off until 2026-11-30."
+tags: [github, microsoft, editor, cloud-agents]
+lastChecked: 2026-11-19

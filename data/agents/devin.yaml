@@ -1,0 +1,37 @@
+id: devin
+name: Devin
+org: Cognition
+kind: coding
+summary: Cognition's autonomous coding agent. Each session gets its own cloud machine; start it from the web app, Slack, Teams, tickets or the CLI. Devin Bots supervise many Devin sessions.
+description: Devin works in a cloud machine with a shell, editor and browser that you can watch or take over. You can start sessions from app.devin.ai, by tagging Devin in Slack or Microsoft Teams, from Linear or Jira tickets, through the API, or from Devin CLI, which can /handoff longer tasks to the cloud. Devin Bots, announced on 2026-11-17, are persistent agents that own an outcome. A Bot plans the work, starts a Devin session with its own machine for each piece, follows up and collects decisions, PRs and permission requests under Needs you. Bots keep memory, can run on a schedule or on events, and can be reached in the web app, through their own Slack app or by iMessage.
+surfaces: [cloud, web, chat, cli, desktop]
+os: [macos, linux, windows]
+openSource: false
+license: Proprietary
+released: 2024-12-10
+dateSource: vendor
+models: Models from Anthropic, OpenAI, Google and Cognition (SWE models), plus open models such as DeepSeek, Kimi and GLM. Bots pick stronger models for planning and cheaper ones for routine code. Max and Teams can use a ChatGPT plan.
+pricing:
+  summary: Free tier with a light quota. Pro adds cloud agents; Devin Bots need Max or Teams. Extra usage is billed at API prices.
+  free: true
+  plans:
+    - { name: Free, price: 0, note: "Light quota, limited models" }
+    - { name: Pro, price: 20, period: month, note: "All models, cloud agents" }
+    - { name: Max, price: 200, period: month, note: "Devin Bots, much higher quotas, use your ChatGPT plan" }
+    - { name: Teams, price: 80, period: month, note: "Team plan plus $40 a month per full dev seat; Devin Bots, up to 100 users, SSO" }
+    - { name: Enterprise, note: "Custom pricing, dedicated deployment, SCIM" }
+  source: https://devin.ai/pricing
+install:
+  - { label: "CLI (macOS, Linux, WSL)", cmd: 'curl -fsSL https://cli.devin.ai/install.sh | bash' }
+  - { label: "CLI (Homebrew)", cmd: 'brew install --cask devin-cli' }
+  - { label: "CLI (Windows PowerShell)", cmd: 'irm https://static.devin.ai/cli/setup.ps1 | iex' }
+features: [Cloud sessions with shell editor and browser, Devin Bots that run and track many sessions, "Slack, Microsoft Teams and iMessage", Linear and Jira tickets, Devin CLI with /handoff to the cloud, Devin Review, Scheduled and event triggered work, API]
+strengths: [Runs long tasks fully in the cloud, Bots can split a large project across parallel sessions, Same plan covers Devin Desktop and CLI]
+limitations: [Closed source, Bots only on Max and Teams or higher, Company reported Bot results are not independently checked]
+links:
+  homepage: https://devin.ai
+  docs: https://docs.devin.ai
+  pricing: https://devin.ai/pricing
+notes: "released is general availability; Devin was first shown on 2024-03-12 with early access only. Devin Bots launch date comes from press coverage (Fortune, 2026-11-17) and the Bots docs page; the docs do not say whether Bots are beta or GA. Included usage per plan is not given in numbers on the pricing page. No CLI version is published on a release page."
+tags: [cognition, cloud-agents, multi-agent]
+lastChecked: 2026-11-19

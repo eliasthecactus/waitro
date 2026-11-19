@@ -1,0 +1,42 @@
+id: vercel-ai-gateway
+name: Vercel AI Gateway
+org: Vercel
+hq: USA
+kind: router
+summary: One API key for 400+ models from 70+ providers at provider list price with no markup, OpenAI, Responses and Anthropic compatible, with fallbacks, budgets and per-request ZDR.
+description: |
+  You buy AI Gateway Credits and pay each provider's list price with no markup or platform fee, including with your own keys (BYOK). Requests fall back to other providers when one fails. Extra features cost extra: team-wide ZDR or provider allowlists ($0.10 per 1,000 requests), regional EU or US endpoints (5% of inference cost) and BYOK without fallback ($0.20 per 1,000 requests).
+
+  Every team gets a free tier on a subset of models with lower rate limits until it buys credits. Token Pass, for Pro teams, costs $30 a month and gives $150 of monthly credit for featured open models (Kimi K3, Kimi K3.1 Pro, GLM 5.3, GLM 5.3 Flash, DeepSeek V4.1 Flash) with zero data retention.
+
+  `npx vercel ai-gateway setup` configures about 30 coding agents in one step.
+billing:
+  types: [prepaid, subscription, free]
+  fee: No markup on tokens. You pay payment processing fees; Enterprise can pay by invoice.
+  freeTier: "Free credits on a subset of models with lower rate limits; older docs say $5 every 30 days"
+  note: Auto top-up available. Buying credits ends the monthly free credit.
+plans:
+  - { name: Free, price: 0, note: "Free credit on a subset of models, lower rate limits" }
+  - { name: Paid credits, note: "Pay as you go at list price, all models, higher limits" }
+  - { name: Token Pass, price: 30, period: month, note: "Pro teams only, $150 credit a month for 5 featured open models, early access" }
+api: [openai, openai-responses, anthropic]
+baseUrl: https://ai-gateway.vercel.sh/v1
+modelCount: 400
+models:
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.3, note: Token Pass featured model }
+  - { id: kimi-k3-1-pro, name: Kimi K3.1 Pro, inputPerM: 2, outputPerM: 10, cachedInputPerM: 0.2, note: Token Pass featured model }
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26, note: Token Pass featured model }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03, note: Token Pass featured model }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.15, outputPerM: 0.6, cachedInputPerM: 0.003, note: Token Pass list price }
+pricesSource: https://vercel.com/docs/ai-gateway/token-pass
+privacy: The gateway does not keep prompts or responses; it logs metadata (model, tokens, cost). ZDR routing to providers with ZDR agreements is free per request and $0.10 per 1,000 requests team-wide; it needs a paid account. Disallowing prompt training is a separate free setting.
+worksWith: [claude-code, codex, opencode, cline, aider, goose, hermes-agent, openclaw, cursor, deepseek-harness, github-copilot, factory-droid, kilo-code, qwen-code, zed, amp]
+strengths: [No markup even with your own keys, "Dedicated endpoints for Claude Code, Codex and Cursor", One command sets up many agents, Free per-request ZDR on paid accounts]
+limitations: [Several add-on fees, Free tier only covers some models, Token Pass needs a Pro plan and is waitlisted]
+links:
+  homepage: https://vercel.com/ai-gateway
+  docs: https://vercel.com/docs/ai-gateway
+  pricing: https://vercel.com/docs/ai-gateway/pricing
+notes: The current pricing page no longer states the free credit amount ($5 every 30 days in earlier docs; forum reports say renewal is inconsistent). Coding agent base URL is https://ai-gateway.vercel.sh/coding-agent/v1; Claude Code uses /claude-code, Codex /codex/v1, Cursor /cursor/v1. Model prices listed are the Token Pass list prices; other models use each provider's list price. Amp support is early access for Amp Megawatt and Gigawatt members.
+tags: [router, byok, coding-plan]
+lastChecked: 2026-11-19

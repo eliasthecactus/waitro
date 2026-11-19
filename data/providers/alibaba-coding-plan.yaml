@@ -1,0 +1,44 @@
+id: alibaba-coding-plan
+name: Alibaba Cloud Token Plan
+org: Alibaba Cloud (Model Studio)
+hq: China / Singapore
+kind: subscription
+summary: Alibaba Model Studio subscription billed in Credits for Qwen4 Max, Qwen3.8, DeepSeek V4 and GLM 5.3 in Claude Code, Codex, Qwen Code, OpenClaw and Hermes. From $6 a month.
+description: |
+  Token Plan replaces the older Coding Plan, which now only sells a $50 Pro tier with limited daily slots. Each Token Plan tier has a monthly Credit quota; credits used per request depend on model, tokens, thinking mode and tool calls. There is no weekly limit since 2026-09-22 and quota does not roll over. Extra bundles cost $15 for 20,000 Credits.
+
+  Use is limited to interactive work in coding and agent tools; scripts, app backends and batch calls are not allowed. The plan also covers image, video and speech models and built-in tools like web search and a code interpreter. Personal and Team editions run in the Singapore region.
+billing:
+  types: [subscription]
+  note: Monthly, quarterly or yearly. Personal Edition cannot be cancelled or downgraded.
+plans:
+  - { name: Lite, price: 6, period: month, note: "20,000 Credits, 1 to 2 agents; $3 for new users until 2026-11-30" }
+  - { name: Essential, price: 10, period: month, note: "45,000 Credits, 2 to 3 agents; $5 for new users until 2026-11-30" }
+  - { name: Standard, price: 18, period: month, note: "80,000 Credits, 3 to 4 agents" }
+  - { name: Pro, price: 43, period: month, note: "200,000 Credits, 6 to 8 agents" }
+  - { name: Team Standard, price: 20, period: seat-month, note: "25,000 Credits per seat" }
+  - { name: Team Advanced, price: 75, period: seat-month, note: "100,000 Credits per seat" }
+  - { name: Team Premium, price: 180, period: seat-month, note: "250,000 Credits per seat" }
+  - { name: Coding Plan Pro (legacy), price: 50, period: month, note: "6,000 requests per 5 hours, 45,000 a week, 90,000 a month; older Qwen, Kimi, GLM and MiniMax models" }
+api: [anthropic, openai, openai-responses]
+baseUrl: https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic
+models:
+  - { id: qwen4-max, name: Qwen4 Max }
+  - { id: qwen3-8-max, name: Qwen3.8 Max, note: 60% fewer credits 22:00 to 08:00 UTC+8 }
+  - { name: Qwen3.8 Flash, note: 60% fewer credits 22:00 to 08:00 UTC+8 }
+  - { id: qwen3-7-max, name: Qwen3.7 Max }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, note: Half credits at night }
+  - { id: deepseek-v4-pro, name: DeepSeek V4 Pro, note: Half credits at night }
+  - { id: glm-5-3, name: GLM 5.3 }
+pricesSource: https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview
+privacy: Team Edition says conversation data is not used for model training. Personal Edition terms not checked.
+worksWith: [claude-code, codex, qwen-code, openclaw, hermes-agent, deepseek-harness, cursor]
+strengths: [Very cheap entry tiers, Several model families in one plan, Night discounts on Qwen and DeepSeek]
+limitations: [Interactive tool use only, No cancellation or downgrade on Personal Edition, Credit cost per request not published]
+links:
+  homepage: https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview
+  docs: https://www.alibabacloud.com/help/en/model-studio/token-plan-user-guide
+  pricing: https://www.alibabacloud.com/help/en/model-studio/token-plan-personal-overview
+notes: "Uses the plan key (sk-sp-...). Anthropic base URL taken from the Claude Code guide and Team quickstart; the OpenAI-compatible path for Token Plan was not confirmed (Team Edition shows both URLs in the console). Legacy Coding Plan URLs: https://coding-intl.dashscope.aliyuncs.com/v1 and /apps/anthropic. Pro tier quota was raised and price cut on 2026-11-09. Mainland China pages list different CNY prices. Qwen4 Max Preview is a 5x credit promo until 2026-11-25."
+tags: [coding-plan, qwen]
+lastChecked: 2026-11-19

@@ -1,0 +1,38 @@
+id: qwen-code
+name: Qwen Code
+org: Alibaba (Qwen team)
+kind: coding
+summary: Alibaba's open-source coding agent for the terminal, forked from Gemini CLI. Works with Qwen and any OpenAI, Anthropic or Gemini compatible API.
+description: Qwen Code started from Gemini CLI v0.8.2 and has been developed on its own since v0.1. Besides the terminal it has a desktop app, an experimental web UI (qwen serve), VS Code, Zed and JetBrains integrations, chat channels (Telegram, DingTalk, WeChat, Feishu and more), a headless mode and TypeScript, Python and Java SDKs. You sign in with a Qwen Plus or Pro subscription, an Alibaba Cloud Coding Plan or Token Plan, or any API key or local model.
+surfaces: [cli, desktop, web, ide, chat]
+os: [macos, linux, windows]
+openSource: true
+license: Apache-2.0
+released: 2025-07-22
+dateSource: vendor
+version: v0.28.0
+models: Qwen models through a Qwen subscription or Alibaba Cloud Model Studio (Coding Plan, Token Plan or API key), plus any OpenAI, Anthropic or Gemini compatible provider and local models (Ollama, vLLM).
+providers: [alibaba-coding-plan, openrouter]
+pricing:
+  summary: Free software. The free Qwen OAuth tier closed in April 2026; you now need a Qwen Plus or Pro subscription, an Alibaba Cloud plan or your own API key.
+  free: true
+  plans:
+    - { name: Alibaba Cloud Coding Plan Pro, price: 50, period: month, note: "6,000 requests per 5 hours, 90,000 per month" }
+    - { name: Qwen Plus or Pro subscription, note: "Sold on chat.qwen.ai; price not published in the docs" }
+    - { name: API key, note: Pay per token with any supported provider }
+  source: https://www.alibabacloud.com/help/en/model-studio/coding-plan
+install:
+  - { label: "macOS, Linux", cmd: 'curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.sh | bash' }
+  - { label: "Windows PowerShell", cmd: 'irm https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.ps1 | iex' }
+  - { label: "npm (Node.js 22+)", cmd: 'npm install -g @qwen-code/qwen-code@latest' }
+  - { label: "Homebrew", cmd: 'brew install qwen-code' }
+features: [Subagents, Agent Teams (experimental), Agent Arena (experimental), Auto-Memory, Skills, Hooks, MCP servers, Plan mode and Auto mode, Sandbox and git worktrees, Scheduled tasks (/loop), Daemon mode (qwen serve), Headless mode (qwen -p), SDKs]
+strengths: [Open source and model-agnostic, Many surfaces including chat apps, Tuned for Qwen models]
+limitations: [No free hosted models since April 2026, Web UI and daemon are experimental, Install script downloads from an Alibaba Cloud OSS bucket in Hangzhou]
+links:
+  repo: https://github.com/QwenLM/qwen-code
+  docs: https://qwenlm.github.io/qwen-code-docs/en/users/overview
+  pricing: https://www.alibabacloud.com/help/en/model-studio/coding-plan
+notes: "released is the first npm publish (0.0.1, 22 Jul 2025), the day Qwen3-Coder was announced; the first GitHub release is v0.0.2 (1 Aug 2025). Prices for the chat.qwen.ai Plus and Pro subscriptions could not be found. A Qwen Code 1.0 Preview that merges Qoder's agent harness is on a separate branch. Which Qwen models the subscription offers is not listed in the docs, so modelIds is omitted."
+tags: [alibaba, qwen, terminal, open-models]
+lastChecked: 2026-11-19

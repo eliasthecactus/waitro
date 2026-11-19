@@ -1,0 +1,38 @@
+id: windsurf
+name: Windsurf (Devin Desktop)
+org: Cognition
+kind: coding
+summary: AI code editor first released by Codeium, now owned by Cognition and renamed Devin Desktop. A VS Code fork with an agent command center for local and cloud agents.
+description: Windsurf launched in November 2024 with the Cascade agent. Cognition acquired it in 2025 and renamed it Devin Desktop on 2026-06-02 as a normal update. The agent command center (Kanban view of local and cloud agents, Spaces) is now the default view, and the classic editor, extensions and keybindings are still there. Devin Local, rewritten in Rust, replaced Cascade as the local agent; legacy Cascade stayed available until 2026-07-01. Other agents such as Codex, Claude Agent and OpenCode can run inside it through the Agent Client Protocol (ACP). Windsurf for JetBrains is in maintenance mode.
+surfaces: [ide, desktop]
+os: [macos, linux, windows]
+openSource: false
+license: Proprietary
+released: 2024-11-13
+dateSource: vendor
+models: Frontier models from OpenAI, Anthropic, Google and others, plus Cognition's own SWE models (SWE-2 is free on Pro). Third-party agents through ACP bring their own models.
+wraps: [codex, claude-code, opencode]
+pricing:
+  summary: Shares Devin's plans. Free tier with a light quota; paid plans raise quotas, and extra usage is billed at API prices. Can be used with local agents only without a Devin subscription.
+  free: true
+  plans:
+    - { name: Free, price: 0, note: "Light quota refreshed daily and weekly, unlimited Tab completions" }
+    - { name: Pro, price: 20, period: month, note: "All models, free SWE-2, Devin Cloud access" }
+    - { name: Max, price: 200, period: month, note: "Much higher quotas, Devin Bots" }
+    - { name: Teams, price: 80, period: month, note: "Team plan plus $40 a month per full dev seat, up to 100 users" }
+    - { name: Enterprise, note: Custom pricing }
+  source: https://devin.ai/pricing
+install:
+  - { label: "Homebrew", cmd: 'brew install --cask devin-desktop' }
+  - { label: "Debian, Ubuntu (after adding the repo from the docs)", cmd: 'sudo apt install devin-desktop' }
+  - { label: "Fedora, RHEL (after adding the repo from the docs)", cmd: 'sudo dnf install -y devin-desktop' }
+features: [Agent command center with Kanban view, Spaces for grouping sessions and context, Devin Local agent with subagents, Tab and Supercomplete, Local to cloud handoff, Devin Review built in, Third-party agents over ACP, ".devin/rules, .windsurf/rules and AGENTS.md"]
+strengths: [Full VS Code compatible editor plus agent manager, Runs Codex and Claude agents next to Devin, Free tier]
+limitations: [Closed source, "Renamed and reworked in 2026; old Windsurf docs and Cascade guides are out of date", JetBrains plugin only in maintenance mode]
+links:
+  homepage: https://devin.ai/desktop
+  docs: https://docs.devin.ai/desktop
+  pricing: https://devin.ai/pricing
+notes: "windsurf.com now redirects to devin.ai/desktop. The surf command is replaced by devin-desktop; surf and windsurf still ship for compatibility. No version is published on a release page; the Homebrew cask showed 3.14.30825 on 2026-11-19. Acquisition date and price were not checked against a primary source."
+tags: [editor, cognition, multi-agent]
+lastChecked: 2026-11-19

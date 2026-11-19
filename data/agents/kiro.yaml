@@ -1,0 +1,39 @@
+id: kiro
+name: Kiro
+org: Amazon Web Services
+kind: coding
+summary: AWS's spec-driven coding agent. IDE, terminal CLI, web app, phone app and Crew, sharing one .kiro config and a credit-based plan.
+description: Kiro started as a VS Code based IDE built around specs (requirements, design and tasks written before code), hooks and steering files. It now also ships Kiro CLI, Kiro Web for cloud sessions, iOS and Android apps for those sessions, and Kiro Crew, an open-source persistent agent app. By default prompts go to Auto, which mixes models; you can also pick a Claude, GPT or open-weight model with its own credit multiplier.
+surfaces: [ide, cli, web, mobile, desktop, cloud]
+os: [macos, linux, windows, ios, android]
+openSource: false
+license: Proprietary (Kiro Crew is Apache-2.0)
+released: 2025-07-14
+dateSource: press
+version: 1.4.236
+models: Auto router by default, or Claude (Fable 5.1 for Enterprise, Opus, Sonnet, Haiku), GPT-5.6 and open-weight models (DeepSeek 3.2, MiniMax, GLM-5, Qwen3 Coder Next). Free covers Auto, Claude Sonnet 4.5 and the open-weight models.
+modelIds: [claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5, claude-fable-5-1, claude-opus-5, claude-opus-4-8, claude-sonnet-5, claude-sonnet-4-6, gpt-5-6-sol, gpt-5-6-terra, gpt-5-6-luna, deepseek-v3-2, minimax-m2-1, qwen3-coder-next]
+pricing:
+  summary: Free tier with 50 credits a month, then paid tiers with more credits. Extra credits cost $0.04 each.
+  free: true
+  plans:
+    - { name: Pro, price: 20, period: month, note: "1,000 credits" }
+    - { name: Pro+, price: 40, period: month, note: "2,000 credits" }
+    - { name: Pro Max, price: 100, period: month, note: "5,000 credits" }
+    - { name: Power, price: 200, period: month, note: "10,000 credits" }
+    - { name: Teams, price: 20, period: seat-month, note: "500 pooled credits per seat, 2 seats minimum" }
+  source: https://kiro.dev/pricing/
+install:
+  - { label: "CLI (macOS, Linux)", cmd: 'curl -fsSL https://cli.kiro.dev/install | bash' }
+  - { label: "CLI (Windows PowerShell)", cmd: "irm 'https://cli.kiro.dev/install.ps1' | iex" }
+  - { label: "CLI (Homebrew)", cmd: 'brew install kiro-cli' }
+features: ["Specs (requirements, design, tasks)", Agent hooks, Steering files, MCP servers, Powers, Agent Skills, Custom agents, Cloud sessions, Memory, Local command sandbox, Checkpoints and rewind, ACP integration, Headless mode]
+strengths: [Structured spec workflow for larger changes, "Many surfaces on one subscription (IDE, CLI, web, phone)", Cheap open-weight models in the free tier]
+limitations: [Closed source apart from Crew, Credit multipliers make costs hard to predict, Third-party harnesses such as OpenClaw may not use a Kiro subscription]
+links:
+  homepage: https://kiro.dev
+  docs: https://kiro.dev/docs/
+  pricing: https://kiro.dev/pricing/
+notes: "version is the IDE (1.4.236, 18 Nov 2026); Kiro CLI is at 3.5.0 (17 Nov 2026). released is the public preview of the IDE; general availability followed on 17 Nov 2025. Kiro also lists Kimi K3, Grok 4.7, MiniMax M2.5 and GLM-5, which have no entry here. The iOS app launched in June 2026 as a TestFlight preview for paid plans; current status not checked."
+tags: [aws, amazon, spec-driven, editor]
+lastChecked: 2026-11-19

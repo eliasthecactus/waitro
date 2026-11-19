@@ -1,0 +1,36 @@
+id: zed
+name: Zed
+org: Zed Industries
+kind: coding
+summary: Open-source code editor written in Rust with a built-in agent panel. Runs its own Zed Agent or external agents like Claude Agent and Codex over ACP.
+description: The agent panel runs the native Zed Agent with built-in tools, profiles, skills and MCP servers, and can run several threads in parallel across projects and worktrees. External agents connect through the Agent Client Protocol (ACP), which Zed created, and terminal threads run any agent CLI inside the editor. Models come from Zed's hosted plan or your own keys (Anthropic, OpenAI, Google, Amazon Bedrock, GitHub Copilot, DeepSeek, Mistral, OpenRouter, Ollama, LM Studio and others). Zed reached 1.0 on 29 April 2026.
+surfaces: [ide]
+os: [macos, linux, windows]
+openSource: true
+license: GPL-3.0 (editor), Apache-2.0 (GPUI)
+version: v1.29.2
+models: Zed-hosted Claude, GPT and Gemini models on Pro and Business, or any model through your own API keys, local models or external ACP agents.
+modelIds: [claude-fable-5-2, claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5, gpt-6-1-sol, gpt-6-astra, gpt-6-luna, gpt-5-6-sol, gemini-4-argon, gemini-3-1-pro, gemini-3-8-flash]
+providers: [openrouter]
+pricing:
+  summary: The editor is free, including unlimited use with your own keys or external agents. Pro adds hosted models and unlimited edit predictions; hosted usage is billed at API list price plus 10%.
+  free: true
+  plans:
+    - { name: Pro, price: 10, period: month, note: "$5 of tokens included, then usage-based; 14-day free trial" }
+    - { name: Business, price: 30, period: seat-month, note: "No bundled credits; org policies and data controls" }
+  source: https://zed.dev/pricing
+install:
+  - { label: "macOS (Homebrew)", cmd: 'brew install --cask zed' }
+  - { label: "Windows (WinGet)", cmd: 'winget install -e --id ZedIndustries.Zed' }
+  - { label: "Linux", cmd: 'curl -f https://zed.dev/install.sh | sh' }
+features: [Agent panel, External agents over ACP, Parallel agent threads, Terminal threads for agent CLIs, MCP servers, Skills and agent profiles, Inline assistant, Edit predictions, Git commit message generation]
+strengths: [Fast native editor, Open source, Works with almost any model or agent, Cheap Pro plan]
+limitations: ["Editor only (no CLI, web or phone app)", "Hosted models cost 10% over API list price", "Business SSO, SAML and SCIM not available yet"]
+links:
+  repo: https://github.com/zed-industries/zed
+  homepage: https://zed.dev
+  docs: https://zed.dev/docs/ai/overview
+  pricing: https://zed.dev/pricing
+notes: First public release date not checked (Zed was in public beta from 2023 and open-sourced in January 2024), so released is omitted.
+tags: [editor, rust, acp, open-source]
+lastChecked: 2026-11-19

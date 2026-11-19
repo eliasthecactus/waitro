@@ -1,0 +1,38 @@
+id: hyperbolic
+name: Hyperbolic
+org: Hyperbolic Labs
+hq: USA
+kind: inference
+summary: GPU cloud with a per-token inference API for about a dozen open models (GLM, Kimi, DeepSeek, MiniMax, Qwen, Nemotron), OpenAI-compatible.
+description: |
+  Hyperbolic rents GPUs by the hour and relaunched per-token inference as Hyperbolic Inference in October 2026. To call it you need a verified phone number (free tier), a Pro plan (any one-time deposit of $5 or more, no subscription) or an organization, plus a positive credit balance.
+
+  Each key gets 300 requests a minute. Requests time out after 300 seconds, or 600 seconds for GLM 5.3 Flash and Qwen3.8 27B.
+billing:
+  types: [prepaid, free]
+  freeTier: $1 credit after verifying a phone number
+  note: Pro is a one-time deposit of $5 or more, not a subscription.
+plans:
+  - { name: Free, price: 0, note: "Verified phone number, $1 credit" }
+  - { name: Pro, price: 5, period: once, note: "Minimum one-time deposit, no subscription" }
+api: [openai]
+baseUrl: https://api.hyperbolic.ai/inference/v1
+models:
+  - { id: glm-5-3, name: GLM 5.3, inputPerM: 1.4, outputPerM: 4.4, cachedInputPerM: 0.26 }
+  - { id: glm-5-3-flash, name: GLM 5.3 Flash, inputPerM: 0.15, outputPerM: 0.5, cachedInputPerM: 0.03 }
+  - { name: Kimi K3, inputPerM: 3, outputPerM: 15, cachedInputPerM: 0.3 }
+  - { id: minimax-m3, name: MiniMax M3, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.06 }
+  - { id: deepseek-v4-1-flash, name: DeepSeek V4.1 Flash, inputPerM: 0.3, outputPerM: 1.2, cachedInputPerM: 0.006 }
+  - { name: DeepSeek V4 Flash 0731, inputPerM: 0.06, outputPerM: 0.18, cachedInputPerM: 0.015 }
+  - { id: nemotron-3-ultra, name: Nemotron 3 Ultra 550B, inputPerM: 0.5, outputPerM: 2.2, cachedInputPerM: 0.1 }
+  - { id: qwen3-8-27b, name: Qwen3.8 27B, inputPerM: 0.2, outputPerM: 2, cachedInputPerM: 0.02 }
+pricesSource: https://www.hyperbolic.ai/docs/inference/overview
+privacy: The privacy FAQ says inference input is used only to complete the request and is not stored or retained afterward. No retention window or training statement in the API docs.
+strengths: [Low price on DeepSeek V4 Flash 0731, Small free credit to try it, GPUs by the hour from the same account]
+limitations: [Short model list, Phone verification or deposit required before any call, No coding agent guides]
+links:
+  homepage: https://www.hyperbolic.ai
+  docs: https://www.hyperbolic.ai/docs/inference/overview
+notes: Prices are as of 2026-10-21 per the docs. The old serverless API was retired in September 2026. No coding agent integrations are documented, so worksWith is empty; any tool with a custom OpenAI base URL should work but is untested.
+tags: [open-models, gpu-cloud]
+lastChecked: 2026-11-19

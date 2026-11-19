@@ -1,0 +1,42 @@
+id: warp
+name: Warp
+org: Warp
+kind: coding
+summary: Open-source terminal turned agentic development environment. Built-in Warp Agent in the app or the standalone Warp Agent CLI, plus cloud agents (Oz).
+description: Warp began as a Rust terminal for macOS and now runs on macOS, Linux and Windows. The Warp Agent edits code and runs commands inside the terminal, and you can also run Claude Code, Codex, Gemini CLI and other CLI agents in it. The Warp Agent CLI (warp command) brings the same agent to any other terminal, including over SSH. Oz cloud agents run from schedules, CI, webhooks or integrations, and Warp Factories is a separate paid platform for fleets of cloud agents. The client was open-sourced on 28 April 2026.
+surfaces: [desktop, cli, cloud]
+os: [macos, linux, windows]
+openSource: true
+license: AGPL-3.0 (UI framework crates MIT)
+released: 2022-04-05
+dateSource: vendor
+version: v0.2026.11.11.08.17
+models: Frontier and open-weight models from Anthropic, OpenAI, Google, z.ai, Moonshot and DeepSeek, metered at API rates. Free and small teams can bring their own API keys or endpoint; Enterprise can route through AWS Bedrock or Google Vertex AI.
+modelIds: [claude-fable-5, claude-opus-5, gemini-3-1-pro]
+pricing:
+  summary: Free terminal with pay-as-you-go agent usage or your own keys. Paid plans include monthly agent usage at API rates.
+  free: true
+  plans:
+    - { name: Build, price: 20, period: month, note: "$20 of agent usage; $18 a month billed yearly" }
+    - { name: Max, price: 200, period: month, note: "$200 of agent usage; $180 a month billed yearly" }
+    - { name: Business, price: 50, period: seat-month, note: "$20 of usage per seat, up to 25 seats; $45 billed yearly" }
+    - { name: Enterprise, note: Custom pricing }
+  source: https://www.warp.dev/pricing
+install:
+  - { label: "macOS (Homebrew)", cmd: 'brew install --cask warp' }
+  - { label: "Windows (WinGet)", cmd: 'winget install Warp.Warp' }
+  - { label: "Debian, Ubuntu (after adding the Warp repo)", cmd: 'sudo apt update && sudo apt install warp-terminal' }
+  - { label: "Agent CLI (macOS, Linux)", cmd: 'curl -fsSL https://app.warp.dev/download/agent-cli | bash' }
+  - { label: "Agent CLI (Windows PowerShell)", cmd: 'Invoke-RestMethod "https://app.warp.dev/download/agent-cli.ps1" | Invoke-Expression' }
+  - { label: "Agent CLI (Homebrew)", cmd: 'brew install --cask warp-agent-cli' }
+features: [Warp Agent in the terminal, Warp Agent CLI for any terminal, Runs third-party CLI agents, Oz cloud agents, Codebase indexing, Warp Drive (workflows and notebooks), Shared sessions, BYOK and custom endpoints]
+strengths: [Terminal and agent in one app, Open-source client, Bring your own CLI agent]
+limitations: [Agent usage is metered at API rates, "Orgs over 10 employees need Business or Enterprise to bring their own keys"]
+links:
+  repo: https://github.com/warpdotdev/warp
+  homepage: https://www.warp.dev
+  docs: https://docs.warp.dev
+  pricing: https://www.warp.dev/pricing
+notes: "released is the public beta of the terminal (macOS only at first). version is the 12 Nov 2026 stable build from the docs changelog; GitHub releases stop at early June 2026. Warp's model list also names GLM 5.2, Kimi K3 and DeepSeek V4, which have no exact entry here. Warp Factories pricing (Start, Scale at $250 a month per team, Enterprise) is not listed in plans."
+tags: [terminal, rust, open-source]
+lastChecked: 2026-11-19

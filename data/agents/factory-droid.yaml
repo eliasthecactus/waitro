@@ -1,0 +1,39 @@
+id: factory-droid
+name: Factory Droid
+org: Factory
+kind: coding
+summary: Factory's coding agent. Droid CLI, desktop Factory App, IDE integrations and headless droid exec, with models from Anthropic, OpenAI, Google and open-weight labs.
+description: Droid runs in the terminal (Droid CLI), in the Factory App on desktop, inside VS Code, Cursor, JetBrains, Zed and other editors, and headless for CI through droid exec and the Droid SDK. Work can also be delegated from Slack, Linear, Jira and Microsoft Teams, and run on Factory-hosted Droid Computers or on your own machine through Remote Control. Each model has a usage multiplier; Factory Router can pick the model, or you can bring your own keys.
+surfaces: [cli, desktop, ide, web, chat, cloud]
+os: [macos, linux, windows]
+openSource: false
+license: Proprietary
+version: v1.15.0
+models: Native models from Anthropic (Claude Fable, Opus, Sonnet, Haiku), OpenAI (GPT-6.x, GPT-5.x), Google (Gemini 4), xAI (Grok) and open-weight labs (GLM, Kimi, Qwen, DeepSeek, MiniMax, Nemotron, Mistral), or your own keys and local models.
+modelIds: [claude-fable-5-2, claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5, gpt-6-2-astra, gpt-6-2-sol, gpt-6-1-terra, gpt-6-luna, gemini-4-neon, gemini-4-hydrogen, gemini-4-carbon, gemini-4-argon, grok-4-6, glm-5-3, kimi-k3-1-pro, qwen3-8-max, deepseek-v4-pro, deepseek-v4-1-flash, minimax-m3, mistral-large-4, nemotron-3-ultra]
+providers: [openrouter]
+pricing:
+  summary: Free with your own inference (ChatGPT, GitHub Copilot or OpenRouter login, or API keys). Paid plans include Factory-hosted models with usage limits.
+  free: true
+  plans:
+    - { name: Pro, price: 20, period: month }
+    - { name: Plus, price: 100, period: month, note: About 5x Pro usage }
+    - { name: Max, price: 200, period: month, note: About 10x Pro usage }
+    - { name: Teams, price: 60, period: month, note: "Per team, plus $40 per member a month; up to 10 seats" }
+    - { name: Business and Enterprise, note: Custom pricing }
+  source: https://factory.com/pricing
+install:
+  - { label: "macOS, Linux", cmd: 'curl -fsSL https://app.factory.ai/cli | sh' }
+  - { label: "Windows PowerShell", cmd: 'irm https://app.factory.ai/cli/windows | iex' }
+  - { label: "Homebrew", cmd: 'brew install --cask droid' }
+  - { label: "npm", cmd: 'npm install -g droid' }
+features: [Spec mode, Custom droids (subagents), Missions, MCP servers, Autonomy levels, Factory Router, BYOK and local models, Headless droid exec, Droid SDK, "Delegations from Slack, Linear, Jira and Teams", Automations on schedules and webhooks, Remote Control, Droid Computers]
+strengths: [Wide model choice across labs, Free plan with your own inference, Strong delegation and automation features for teams]
+limitations: [Closed source, Paid usage is expressed as multiples of Pro rather than tokens or credits]
+links:
+  homepage: https://factory.com
+  docs: https://docs.factory.com
+  pricing: https://factory.com/pricing
+notes: "Factory moved from factory.ai to factory.com; install URLs still use app.factory.ai. version is the shared CLI and desktop release (v1.15.0, 19 Nov 2026). First public release date not confirmed (Droids were fully released with the Series B on 25 Sep 2025 but existed before), so released is omitted. Whether a mobile app exists was not checked."
+tags: [terminal, desktop, multi-model]
+lastChecked: 2026-11-19

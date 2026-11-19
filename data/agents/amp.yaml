@@ -1,0 +1,39 @@
+id: amp
+name: Amp
+org: Amp (spun out of Sourcegraph)
+kind: coding
+summary: Coding agent from the founders of Sourcegraph. Terminal, desktop, phone and web apps, with a cloud machine (orb) per thread that keeps working after you close the laptop.
+description: Amp picks models per task itself instead of offering a model picker. It runs in the CLI, in apps for macOS, Windows, Linux, iPhone, iPad and Android, and on ampcode.com. Orbs are cloud machines Amp creates per thread; you can also run self-hosted orbs and runners for free. Puck is an agent that launches and coordinates other agents. Threads can be shared. Amp became its own company in December 2025, led by Quinn Slack and Beyang Liu.
+surfaces: [cli, desktop, web, mobile, cloud, chat]
+os: [macos, linux, windows, ios, android]
+openSource: false
+license: Proprietary
+released: 2025-05-15
+dateSource: vendor
+models: GPT-5.6, Claude Fable 5.2 and fast models, chosen by Amp per task. Sign in with ChatGPT Plus or Pro, use other subscriptions, or bring your own keys.
+modelIds: [claude-fable-5-2]
+pricing:
+  summary: Hobby is free with your own keys or subscriptions and pay as you go orbs. Paid tiers include hosted orb minutes and Amp credits. Amp adds no markup to provider API prices.
+  free: true
+  plans:
+    - { name: Hobby, price: 0, note: "Pay as you go hosted orbs, free self-hosted orbs and runners" }
+    - { name: Megawatt, price: 20, period: month, note: "45,000 minutes of hosted orbs plus credits; $10 for students and teachers" }
+    - { name: Megawatt 50, price: 50, period: month, note: 2.5x Megawatt usage }
+    - { name: Gigawatt, note: Price not shown on the pricing page }
+    - { name: Teams, note: "No extra charge; members keep their own tier, pooled credits" }
+    - { name: Enterprise, note: "Custom pricing, pooled credits, no paid seats" }
+  source: https://ampcode.com/pricing
+install:
+  - { label: "CLI (macOS, Linux, WSL)", cmd: 'curl -fsSL https://ampcode.com/install.sh | bash' }
+  - { label: "CLI (Windows PowerShell)", cmd: 'irm https://ampcode.com/install.ps1 | iex' }
+  - { label: "CLI (npm)", cmd: 'npm install -g @ampcode/cli' }
+features: [Orbs (cloud machine per thread), Self-hosted orbs and runners, Puck agent launcher, Shared threads, Spaces, Artifacts, Slack and GitLab integration, Execute mode for scripts]
+strengths: [Same agent on terminal desktop phone and web, Work continues in the cloud, No markup on model tokens]
+limitations: [Closed source, No model picker, "Plans and features change often (the manual says no backward compatibility)"]
+links:
+  homepage: https://ampcode.com
+  docs: https://ampcode.com/manual
+  pricing: https://ampcode.com/pricing
+notes: "Gigawatt price not verified (the pricing page loads it client side; third-party sites say $200 a month). The spin-out announcement names the company Amp Frontier Corporation. The CLI publishes build ids, not semantic versions, so no version is listed. GPT-5.6 has no matching model file here. The old npm name @sourcegraph/amp was replaced by @ampcode/cli."
+tags: [terminal, cloud-agents, mobile]
+lastChecked: 2026-11-19
